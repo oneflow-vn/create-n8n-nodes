@@ -1,0 +1,3107 @@
+{
+  "openbrace": "{",
+  "closebrace": "}",
+  "operation_name": "account",
+  "operation": [
+    {
+      "path_name": "/account/:pAccountId",
+      "path": {
+        "get": {
+          "summary": "Your GET endpoint",
+          "tags": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "account": {
+                        "title": "Account",
+                        "type": "object",
+                        "description": "An account that holds personas",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Account id",
+                            "format": "uuid",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "Account id",
+                            "generatedExample": "string"
+                          },
+                          "email": {
+                            "type": "string",
+                            "description": "Account email",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "Account email",
+                            "generatedExample": "string"
+                          },
+                          "passHash": {
+                            "type": "string",
+                            "description": "Hashed password",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "Hashed password",
+                            "generatedExample": "string"
+                          },
+                          "authType": {
+                            "type": "string",
+                            "description": "Authentication type",
+                            "default": "arg2",
+                            "enum": [
+                              "arg2"
+                            ],
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "Authentication type",
+                            "generatedExample": "arg2"
+                          },
+                          "verified": {
+                            "type": "boolean",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "",
+                            "generatedExample": true
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "authType"
+                        ],
+                        "x-original-ref": [
+                          "#/components/schemas/Account"
+                        ],
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "An account that holds personas",
+                        "slug": "schema-account",
+                        "generatedExample": {
+                          "id": "string",
+                          "email": "string",
+                          "passHash": "string",
+                          "authType": "arg2",
+                          "verified": true
+                        }
+                      }
+                    },
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "account": {
+                        "id": "string",
+                        "email": "string",
+                        "passHash": "string",
+                        "authType": "arg2",
+                        "verified": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "getAccountInfo",
+          "description": "Get account info",
+          "parameters": [],
+          "slug": "op-get-account-paccountid",
+          "summaryAsHTML": "Your GET endpoint",
+          "descriptionAsHTML": "Get account info",
+          "headers": [],
+          "queryParams": [],
+          "pathParams": [],
+          "cookieParams": []
+        },
+        "post": {
+          "summary": "",
+          "operationId": "createAccount",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Created account id",
+                        "format": "uuid",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "Created account id",
+                        "generatedExample": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "id": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "Creates a new account",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "description": "Account email",
+                      "format": "email",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "Account email",
+                      "generatedExample": "user@example.com"
+                    },
+                    "passHash": {
+                      "type": "string",
+                      "description": "Hashed password",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "Hashed password",
+                      "generatedExample": "string"
+                    },
+                    "authType": {
+                      "type": "string",
+                      "description": "Authentication type",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "Authentication type",
+                      "generatedExample": "string"
+                    },
+                    "verifyCode": {
+                      "type": "string",
+                      "description": "Code to verify account",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "Code to verify account",
+                      "generatedExample": "string"
+                    }
+                  },
+                  "required": [
+                    "email",
+                    "passHash",
+                    "authType",
+                    "verifyCode"
+                  ],
+                  "summaryAsHTML": "",
+                  "descriptionAsHTML": "",
+                  "generatedExample": {
+                    "email": "user@example.com",
+                    "passHash": "string",
+                    "authType": "string",
+                    "verifyCode": "string"
+                  }
+                }
+              }
+            },
+            "description": ""
+          },
+          "slug": "op-post-account-paccountid",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Creates a new account"
+        },
+        "patch": {
+          "summary": "",
+          "operationId": "updateAccount",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          },
+          "description": "Update account info",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": "user@example.com"
+                    },
+                    "password": {
+                      "type": "string",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": "string"
+                    }
+                  },
+                  "summaryAsHTML": "",
+                  "descriptionAsHTML": "",
+                  "generatedExample": {
+                    "email": "user@example.com",
+                    "password": "string"
+                  }
+                }
+              }
+            }
+          },
+          "slug": "op-patch-account-paccountid",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Update account info"
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "pAccountId",
+            "in": "path",
+            "required": true,
+            "description": "Account id in path"
+          }
+        ],
+        "endpointName": "account"
+      },
+      "subresource": "/:pAccountId"
+    },
+    {
+      "path_name": "/account/exists",
+      "path": {
+        "get": {
+          "summary": "Your GET endpoint",
+          "tags": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "email": {
+                        "type": "boolean",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": true
+                      },
+                      "username": {
+                        "type": "boolean",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": true
+                      }
+                    },
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "email": true,
+                      "username": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "checkAccountExists",
+          "description": "Checks if an email or username already exists",
+          "parameters": [
+            {
+              "schema": {
+                "type": "string",
+                "format": "email",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "user@example.com"
+              },
+              "in": "query",
+              "name": "email",
+              "description": "Account email",
+              "descriptionAsHTML": "Account email"
+            },
+            {
+              "schema": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 15,
+                "pattern": "^[A-Za-z0-9_]+",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "in": "query",
+              "name": "username",
+              "description": "Persona username",
+              "descriptionAsHTML": "Persona username"
+            }
+          ],
+          "slug": "op-get-account-exists",
+          "summaryAsHTML": "Your GET endpoint",
+          "descriptionAsHTML": "Checks if an email or username already exists",
+          "headers": [],
+          "queryParams": [
+            {
+              "schema": {
+                "type": "string",
+                "format": "email",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "user@example.com"
+              },
+              "in": "query",
+              "name": "email",
+              "description": "Account email",
+              "descriptionAsHTML": "Account email"
+            },
+            {
+              "schema": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 15,
+                "pattern": "^[A-Za-z0-9_]+",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "in": "query",
+              "name": "username",
+              "description": "Persona username",
+              "descriptionAsHTML": "Persona username"
+            }
+          ],
+          "pathParams": [],
+          "cookieParams": []
+        },
+        "parameters": [],
+        "endpointName": "account"
+      },
+      "subresource": "/exists"
+    },
+    {
+      "path_name": "/account/verifyEmail",
+      "path": {
+        "get": {
+          "summary": "Your GET endpoint",
+          "tags": [],
+          "operationId": "verifyAccount",
+          "description": "Verify an account email",
+          "parameters": [
+            {
+              "schema": {
+                "type": "string",
+                "format": "email",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "user@example.com"
+              },
+              "in": "query",
+              "name": "email",
+              "required": true,
+              "descriptionAsHTML": ""
+            },
+            {
+              "schema": {
+                "type": "string",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "in": "query",
+              "name": "verifyCode",
+              "required": true,
+              "descriptionAsHTML": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {},
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {}
+                  }
+                },
+                "application/xml": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {},
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {}
+                  }
+                }
+              }
+            }
+          },
+          "slug": "op-get-account-verifyemail",
+          "summaryAsHTML": "Your GET endpoint",
+          "descriptionAsHTML": "Verify an account email",
+          "headers": [],
+          "queryParams": [
+            {
+              "schema": {
+                "type": "string",
+                "format": "email",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "user@example.com"
+              },
+              "in": "query",
+              "name": "email",
+              "required": true,
+              "descriptionAsHTML": ""
+            },
+            {
+              "schema": {
+                "type": "string",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "in": "query",
+              "name": "verifyCode",
+              "required": true,
+              "descriptionAsHTML": ""
+            }
+          ],
+          "pathParams": [],
+          "cookieParams": []
+        },
+        "parameters": [],
+        "endpointName": "account"
+      },
+      "subresource": "/verifyEmail"
+    },
+    {
+      "path_name": "/account/forgotPass",
+      "path": {
+        "post": {
+          "summary": "",
+          "operationId": "sendForgotPass",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {},
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {}
+                  }
+                }
+              }
+            }
+          },
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": "user@example.com"
+                    }
+                  },
+                  "summaryAsHTML": "",
+                  "descriptionAsHTML": "",
+                  "generatedExample": {
+                    "email": "user@example.com"
+                  }
+                }
+              }
+            },
+            "description": ""
+          },
+          "description": "Sends a forgot password e-mail",
+          "slug": "op-post-account-forgotpass",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Sends a forgot password e-mail"
+        },
+        "endpointName": "account"
+      },
+      "subresource": "/forgotPass"
+    },
+    {
+      "path_name": "/account/forgotPass/verify",
+      "path": {
+        "post": {
+          "summary": "",
+          "operationId": "verifyForgotPass",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          },
+          "description": "Verifies forgot pass code and updates account password",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "summaryAsHTML": "",
+                  "descriptionAsHTML": "",
+                  "generatedExample": {}
+                }
+              }
+            }
+          },
+          "slug": "op-post-account-forgotpass-verify",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Verifies forgot pass code and updates account password"
+        },
+        "endpointName": "account"
+      },
+      "subresource": "/forgotPass/verify"
+    },
+    {
+      "path_name": "/account/:pAccountId/personas",
+      "path": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "pAccountId",
+            "in": "path",
+            "required": true,
+            "description": "Account id in path"
+          }
+        ],
+        "get": {
+          "summary": "Your GET endpoint",
+          "tags": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "personas": {
+                        "type": "array",
+                        "items": {
+                          "title": "Persona",
+                          "type": "object",
+                          "description": "A user that is able to post thoughts",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "format": "uuid",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": "string"
+                            },
+                            "username": {
+                              "type": "string",
+                              "pattern": "^[A-Za-z0-9_]+",
+                              "minLength": 1,
+                              "maxLength": 15,
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": "string"
+                            },
+                            "about": {
+                              "type": "string",
+                              "description": "User profile blurb",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "User profile blurb",
+                              "generatedExample": "string"
+                            },
+                            "lastCommentTime": {
+                              "type": "integer",
+                              "format": "int64",
+                              "description": "Last time user made a comment in unix timestamp format",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "Last time user made a comment in unix timestamp format",
+                              "generatedExample": 0
+                            },
+                            "lastPostTime": {
+                              "type": "integer",
+                              "format": "int64",
+                              "description": "Last time user posted in unix timestamp format",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "Last time user posted in unix timestamp format",
+                              "generatedExample": 0
+                            },
+                            "thoughtCount": {
+                              "type": "number",
+                              "default": 0,
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": 0
+                            },
+                            "created": {
+                              "type": "integer",
+                              "format": "int64",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": 0
+                            },
+                            "disabled": {
+                              "type": "boolean",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": true
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "username",
+                            "lastPostTime"
+                          ],
+                          "x-original-ref": [
+                            "#/components/schemas/Persona"
+                          ],
+                          "summaryAsHTML": "",
+                          "descriptionAsHTML": "A user that is able to post thoughts",
+                          "slug": "schema-persona",
+                          "generatedExample": {
+                            "id": "string",
+                            "username": "string",
+                            "about": "string",
+                            "lastCommentTime": 0,
+                            "lastPostTime": 0,
+                            "thoughtCount": 0,
+                            "created": 0,
+                            "disabled": true
+                          }
+                        },
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": [
+                          {
+                            "id": "string",
+                            "username": "string",
+                            "about": "string",
+                            "lastCommentTime": 0,
+                            "lastPostTime": 0,
+                            "thoughtCount": 0,
+                            "created": 0,
+                            "disabled": true
+                          }
+                        ]
+                      }
+                    },
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "personas": [
+                        {
+                          "id": "string",
+                          "username": "string",
+                          "about": "string",
+                          "lastCommentTime": 0,
+                          "lastPostTime": 0,
+                          "thoughtCount": 0,
+                          "created": 0,
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "getAccountPersonas",
+          "description": "Gets the personas associated with the account",
+          "slug": "op-get-account-paccountid-personas",
+          "summaryAsHTML": "Your GET endpoint",
+          "descriptionAsHTML": "Gets the personas associated with the account"
+        },
+        "endpointName": "account"
+      },
+      "subresource": "/:pAccountId/personas"
+    }
+  ],
+  "openapi": {
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Boxed Thoughts API",
+      "version": "1.0",
+      "description": "",
+      "contact": {
+        "name": "Theo Gravity",
+        "email": "theo@suteki.nu"
+      },
+      "descriptionAsHTML": ""
+    },
+    "servers": [
+      {
+        "url": "https://api.boxedthoughts.com/v1",
+        "descriptionAsHTML": ""
+      }
+    ],
+    "paths": {
+      "/account/{pAccountId}": {
+        "get": {
+          "summary": "Your GET endpoint",
+          "tags": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "account": {
+                        "title": "Account",
+                        "type": "object",
+                        "description": "An account that holds personas",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Account id",
+                            "format": "uuid",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "Account id",
+                            "generatedExample": "string"
+                          },
+                          "email": {
+                            "type": "string",
+                            "description": "Account email",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "Account email",
+                            "generatedExample": "string"
+                          },
+                          "passHash": {
+                            "type": "string",
+                            "description": "Hashed password",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "Hashed password",
+                            "generatedExample": "string"
+                          },
+                          "authType": {
+                            "type": "string",
+                            "description": "Authentication type",
+                            "default": "arg2",
+                            "enum": [
+                              "arg2"
+                            ],
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "Authentication type",
+                            "generatedExample": "arg2"
+                          },
+                          "verified": {
+                            "type": "boolean",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "",
+                            "generatedExample": true
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "authType"
+                        ],
+                        "x-original-ref": [
+                          "#/components/schemas/Account"
+                        ],
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "An account that holds personas",
+                        "slug": "schema-account",
+                        "generatedExample": {
+                          "id": "string",
+                          "email": "string",
+                          "passHash": "string",
+                          "authType": "arg2",
+                          "verified": true
+                        }
+                      }
+                    },
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "account": {
+                        "id": "string",
+                        "email": "string",
+                        "passHash": "string",
+                        "authType": "arg2",
+                        "verified": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "getAccountInfo",
+          "description": "Get account info",
+          "parameters": [],
+          "slug": "op-get-account-paccountid",
+          "summaryAsHTML": "Your GET endpoint",
+          "descriptionAsHTML": "Get account info",
+          "headers": [],
+          "queryParams": [],
+          "pathParams": [],
+          "cookieParams": []
+        },
+        "post": {
+          "summary": "",
+          "operationId": "createAccount",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Created account id",
+                        "format": "uuid",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "Created account id",
+                        "generatedExample": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "id": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "Creates a new account",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "description": "Account email",
+                      "format": "email",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "Account email",
+                      "generatedExample": "user@example.com"
+                    },
+                    "passHash": {
+                      "type": "string",
+                      "description": "Hashed password",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "Hashed password",
+                      "generatedExample": "string"
+                    },
+                    "authType": {
+                      "type": "string",
+                      "description": "Authentication type",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "Authentication type",
+                      "generatedExample": "string"
+                    },
+                    "verifyCode": {
+                      "type": "string",
+                      "description": "Code to verify account",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "Code to verify account",
+                      "generatedExample": "string"
+                    }
+                  },
+                  "required": [
+                    "email",
+                    "passHash",
+                    "authType",
+                    "verifyCode"
+                  ],
+                  "summaryAsHTML": "",
+                  "descriptionAsHTML": "",
+                  "generatedExample": {
+                    "email": "user@example.com",
+                    "passHash": "string",
+                    "authType": "string",
+                    "verifyCode": "string"
+                  }
+                }
+              }
+            },
+            "description": ""
+          },
+          "slug": "op-post-account-paccountid",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Creates a new account"
+        },
+        "patch": {
+          "summary": "",
+          "operationId": "updateAccount",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          },
+          "description": "Update account info",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": "user@example.com"
+                    },
+                    "password": {
+                      "type": "string",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": "string"
+                    }
+                  },
+                  "summaryAsHTML": "",
+                  "descriptionAsHTML": "",
+                  "generatedExample": {
+                    "email": "user@example.com",
+                    "password": "string"
+                  }
+                }
+              }
+            }
+          },
+          "slug": "op-patch-account-paccountid",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Update account info"
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "pAccountId",
+            "in": "path",
+            "required": true,
+            "description": "Account id in path"
+          }
+        ],
+        "endpointName": "account"
+      },
+      "/account/exists": {
+        "get": {
+          "summary": "Your GET endpoint",
+          "tags": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "email": {
+                        "type": "boolean",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": true
+                      },
+                      "username": {
+                        "type": "boolean",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": true
+                      }
+                    },
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "email": true,
+                      "username": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "checkAccountExists",
+          "description": "Checks if an email or username already exists",
+          "parameters": [
+            {
+              "schema": {
+                "type": "string",
+                "format": "email",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "user@example.com"
+              },
+              "in": "query",
+              "name": "email",
+              "description": "Account email",
+              "descriptionAsHTML": "Account email"
+            },
+            {
+              "schema": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 15,
+                "pattern": "^[A-Za-z0-9_]+",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "in": "query",
+              "name": "username",
+              "description": "Persona username",
+              "descriptionAsHTML": "Persona username"
+            }
+          ],
+          "slug": "op-get-account-exists",
+          "summaryAsHTML": "Your GET endpoint",
+          "descriptionAsHTML": "Checks if an email or username already exists",
+          "headers": [],
+          "queryParams": [
+            {
+              "schema": {
+                "type": "string",
+                "format": "email",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "user@example.com"
+              },
+              "in": "query",
+              "name": "email",
+              "description": "Account email",
+              "descriptionAsHTML": "Account email"
+            },
+            {
+              "schema": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 15,
+                "pattern": "^[A-Za-z0-9_]+",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "in": "query",
+              "name": "username",
+              "description": "Persona username",
+              "descriptionAsHTML": "Persona username"
+            }
+          ],
+          "pathParams": [],
+          "cookieParams": []
+        },
+        "parameters": [],
+        "endpointName": "account"
+      },
+      "/persona/{pPersonaId}": {
+        "get": {
+          "summary": "Your GET endpoint",
+          "tags": [],
+          "operationId": "getPersona",
+          "description": "Get a persona",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "persona": {
+                        "title": "Persona",
+                        "type": "object",
+                        "description": "A user that is able to post thoughts",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uuid",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "",
+                            "generatedExample": "string"
+                          },
+                          "username": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9_]+",
+                            "minLength": 1,
+                            "maxLength": 15,
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "",
+                            "generatedExample": "string"
+                          },
+                          "about": {
+                            "type": "string",
+                            "description": "User profile blurb",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "User profile blurb",
+                            "generatedExample": "string"
+                          },
+                          "lastCommentTime": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "Last time user made a comment in unix timestamp format",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "Last time user made a comment in unix timestamp format",
+                            "generatedExample": 0
+                          },
+                          "lastPostTime": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "Last time user posted in unix timestamp format",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "Last time user posted in unix timestamp format",
+                            "generatedExample": 0
+                          },
+                          "thoughtCount": {
+                            "type": "number",
+                            "default": 0,
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "",
+                            "generatedExample": 0
+                          },
+                          "created": {
+                            "type": "integer",
+                            "format": "int64",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "",
+                            "generatedExample": 0
+                          },
+                          "disabled": {
+                            "type": "boolean",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "",
+                            "generatedExample": true
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "username",
+                          "lastPostTime"
+                        ],
+                        "x-original-ref": [
+                          "#/components/schemas/Persona"
+                        ],
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "A user that is able to post thoughts",
+                        "slug": "schema-persona",
+                        "generatedExample": {
+                          "id": "string",
+                          "username": "string",
+                          "about": "string",
+                          "lastCommentTime": 0,
+                          "lastPostTime": 0,
+                          "thoughtCount": 0,
+                          "created": 0,
+                          "disabled": true
+                        }
+                      }
+                    },
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "persona": {
+                        "id": "string",
+                        "username": "string",
+                        "about": "string",
+                        "lastCommentTime": 0,
+                        "lastPostTime": 0,
+                        "thoughtCount": 0,
+                        "created": 0,
+                        "disabled": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "slug": "op-get-persona-ppersonaid",
+          "summaryAsHTML": "Your GET endpoint",
+          "descriptionAsHTML": "Get a persona"
+        },
+        "patch": {
+          "summary": "",
+          "operationId": "updatePersona",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          },
+          "description": "Updates persona details",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "about": {
+                      "type": "string",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": "string"
+                    }
+                  },
+                  "summaryAsHTML": "",
+                  "descriptionAsHTML": "",
+                  "generatedExample": {
+                    "about": "string"
+                  }
+                }
+              }
+            }
+          },
+          "slug": "op-patch-persona-ppersonaid",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Updates persona details"
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "pPersonaId",
+            "in": "path",
+            "required": true,
+            "description": "Persona id in path"
+          }
+        ],
+        "endpointName": "persona"
+      },
+      "/account/verifyEmail": {
+        "get": {
+          "summary": "Your GET endpoint",
+          "tags": [],
+          "operationId": "verifyAccount",
+          "description": "Verify an account email",
+          "parameters": [
+            {
+              "schema": {
+                "type": "string",
+                "format": "email",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "user@example.com"
+              },
+              "in": "query",
+              "name": "email",
+              "required": true,
+              "descriptionAsHTML": ""
+            },
+            {
+              "schema": {
+                "type": "string",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "in": "query",
+              "name": "verifyCode",
+              "required": true,
+              "descriptionAsHTML": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {},
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {}
+                  }
+                },
+                "application/xml": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {},
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {}
+                  }
+                }
+              }
+            }
+          },
+          "slug": "op-get-account-verifyemail",
+          "summaryAsHTML": "Your GET endpoint",
+          "descriptionAsHTML": "Verify an account email",
+          "headers": [],
+          "queryParams": [
+            {
+              "schema": {
+                "type": "string",
+                "format": "email",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "user@example.com"
+              },
+              "in": "query",
+              "name": "email",
+              "required": true,
+              "descriptionAsHTML": ""
+            },
+            {
+              "schema": {
+                "type": "string",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "in": "query",
+              "name": "verifyCode",
+              "required": true,
+              "descriptionAsHTML": ""
+            }
+          ],
+          "pathParams": [],
+          "cookieParams": []
+        },
+        "parameters": [],
+        "endpointName": "account"
+      },
+      "/thoughts": {
+        "get": {
+          "summary": "Your GET endpoint",
+          "tags": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "thoughts": {
+                        "type": "array",
+                        "items": {
+                          "title": "Thought",
+                          "type": "object",
+                          "description": "A Thought",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "format": "uuid",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": "string"
+                            },
+                            "accountId": {
+                              "type": "string",
+                              "format": "uuid",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": "string"
+                            },
+                            "personaId": {
+                              "type": "string",
+                              "format": "uuid",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": "string"
+                            },
+                            "username": {
+                              "type": "string",
+                              "pattern": "^[A-Za-z0-9_]+",
+                              "minLength": 1,
+                              "maxLength": 15,
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": "string"
+                            },
+                            "content": {
+                              "type": "string",
+                              "description": "The thought content",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "The thought content",
+                              "generatedExample": "string"
+                            },
+                            "options": {
+                              "type": "object",
+                              "description": "Content type options",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "Content type options",
+                              "generatedExample": {}
+                            },
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "bt-code"
+                              ],
+                              "description": "The thought content type",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "The thought content type",
+                              "generatedExample": "bt-code"
+                            },
+                            "commentCount": {
+                              "type": "number",
+                              "default": 0,
+                              "description": "Number of comments made for the thought",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "Number of comments made for the thought",
+                              "generatedExample": 0
+                            },
+                            "visibilityType": {
+                              "type": "string",
+                              "default": "public",
+                              "enum": [
+                                "public",
+                                "friends",
+                                "self",
+                                "deleted"
+                              ],
+                              "description": "To whom the thought should be shown",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "To whom the thought should be shown",
+                              "generatedExample": "public"
+                            },
+                            "created": {
+                              "type": "integer",
+                              "format": "int64",
+                              "description": "Unix timestamp in UTC",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "Unix timestamp in UTC",
+                              "generatedExample": 0
+                            },
+                            "updated": {
+                              "type": "integer",
+                              "description": "Unix timestamp in UTC",
+                              "format": "int64",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "Unix timestamp in UTC",
+                              "generatedExample": 0
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "accountId",
+                            "personaId",
+                            "username",
+                            "content",
+                            "type",
+                            "visibilityType"
+                          ],
+                          "x-examples": {},
+                          "x-original-ref": [
+                            "#/components/schemas/Thought"
+                          ],
+                          "summaryAsHTML": "",
+                          "descriptionAsHTML": "A Thought",
+                          "slug": "schema-thought",
+                          "generatedExample": {
+                            "id": "string",
+                            "accountId": "string",
+                            "personaId": "string",
+                            "username": "string",
+                            "content": "string",
+                            "options": {},
+                            "type": "bt-code",
+                            "commentCount": 0,
+                            "visibilityType": "public",
+                            "created": 0,
+                            "updated": 0
+                          }
+                        },
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": [
+                          {
+                            "id": "string",
+                            "accountId": "string",
+                            "personaId": "string",
+                            "username": "string",
+                            "content": "string",
+                            "options": {},
+                            "type": "bt-code",
+                            "commentCount": 0,
+                            "visibilityType": "public",
+                            "created": 0,
+                            "updated": 0
+                          }
+                        ]
+                      }
+                    },
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "thoughts": [
+                        {
+                          "id": "string",
+                          "accountId": "string",
+                          "personaId": "string",
+                          "username": "string",
+                          "content": "string",
+                          "options": {},
+                          "type": "bt-code",
+                          "commentCount": 0,
+                          "visibilityType": "public",
+                          "created": 0,
+                          "updated": 0
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "getThoughts",
+          "description": "Get the thoughtstream",
+          "parameters": [
+            {
+              "schema": {
+                "type": "number",
+                "maximum": 100,
+                "minimum": 1,
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": 1
+              },
+              "in": "query",
+              "name": "limit",
+              "descriptionAsHTML": ""
+            },
+            {
+              "schema": {
+                "type": "string",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "in": "query",
+              "name": "after",
+              "descriptionAsHTML": ""
+            },
+            {
+              "schema": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_]+",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "in": "query",
+              "name": "username",
+              "description": "If specified, sorts by a username",
+              "descriptionAsHTML": "If specified, sorts by a username"
+            }
+          ],
+          "slug": "op-get-thoughts",
+          "summaryAsHTML": "Your GET endpoint",
+          "descriptionAsHTML": "Get the thoughtstream",
+          "headers": [],
+          "queryParams": [
+            {
+              "schema": {
+                "type": "number",
+                "maximum": 100,
+                "minimum": 1,
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": 1
+              },
+              "in": "query",
+              "name": "limit",
+              "descriptionAsHTML": ""
+            },
+            {
+              "schema": {
+                "type": "string",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "in": "query",
+              "name": "after",
+              "descriptionAsHTML": ""
+            },
+            {
+              "schema": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_]+",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "in": "query",
+              "name": "username",
+              "description": "If specified, sorts by a username",
+              "descriptionAsHTML": "If specified, sorts by a username"
+            }
+          ],
+          "pathParams": [],
+          "cookieParams": []
+        },
+        "post": {
+          "summary": "",
+          "operationId": "createThought",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "personaId": {
+                        "type": "string",
+                        "format": "uuid",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": "string"
+                      },
+                      "id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Thought id",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "Thought id",
+                        "generatedExample": "string"
+                      }
+                    },
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "personaId": "string",
+                      "id": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "Create a thought",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "personaId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": "string"
+                    },
+                    "content": {
+                      "type": "string",
+                      "description": "The thought content",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "The thought content",
+                      "generatedExample": "string"
+                    },
+                    "options": {
+                      "description": "Content type options in JSON",
+                      "type": "object",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "Content type options in JSON",
+                      "generatedExample": {}
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "bt-code"
+                      ],
+                      "description": "The thought content type",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "The thought content type",
+                      "generatedExample": "bt-code"
+                    },
+                    "visibilityType": {
+                      "type": "string",
+                      "enum": [
+                        "public",
+                        "friends",
+                        "self"
+                      ],
+                      "description": "To whom the thought should be shown",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "To whom the thought should be shown",
+                      "generatedExample": "public"
+                    }
+                  },
+                  "required": [
+                    "personaId",
+                    "content",
+                    "type",
+                    "visibilityType"
+                  ],
+                  "summaryAsHTML": "",
+                  "descriptionAsHTML": "",
+                  "generatedExample": {
+                    "personaId": "string",
+                    "content": "string",
+                    "options": {},
+                    "type": "bt-code",
+                    "visibilityType": "public"
+                  }
+                }
+              }
+            },
+            "description": ""
+          },
+          "slug": "op-post-thoughts",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Create a thought"
+        },
+        "endpointName": "thoughts"
+      },
+      "/config": {
+        "get": {
+          "summary": "Your GET endpoint",
+          "tags": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "postTime": {
+                        "type": "number",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": 0
+                      },
+                      "postingDisabled": {
+                        "type": "boolean",
+                        "description": "If site-wide posting should be disabled",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "If site-wide posting should be disabled",
+                        "generatedExample": true
+                      },
+                      "commentLagTime": {
+                        "type": "number",
+                        "description": "Number of seconds a user has to wait between making comments",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "Number of seconds a user has to wait between making comments",
+                        "generatedExample": 0
+                      },
+                      "maintenanceMode": {
+                        "type": "boolean",
+                        "description": "Enter maintenance mode?",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "Enter maintenance mode?",
+                        "generatedExample": true
+                      }
+                    },
+                    "required": [
+                      "postTime",
+                      "postingDisabled",
+                      "commentLagTime",
+                      "maintenanceMode"
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "postTime": 0,
+                      "postingDisabled": true,
+                      "commentLagTime": 0,
+                      "maintenanceMode": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "getSystemConfig",
+          "description": "Gets system configuration",
+          "slug": "op-get-config",
+          "summaryAsHTML": "Your GET endpoint",
+          "descriptionAsHTML": "Gets system configuration"
+        },
+        "endpointName": "config"
+      },
+      "/thoughts/{pThoughtId}/comments": {
+        "get": {
+          "summary": "Your GET endpoint",
+          "tags": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "comments": {
+                        "type": "array",
+                        "items": {
+                          "title": "ThoughtComment",
+                          "type": "object",
+                          "description": "A comment on a thought",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "format": "uuid",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": "string"
+                            },
+                            "thoughtId": {
+                              "type": "string",
+                              "format": "uuid",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": "string"
+                            },
+                            "personaId": {
+                              "type": "string",
+                              "format": "uuid",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": "string"
+                            },
+                            "username": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 15,
+                              "pattern": "^[A-Za-z0-9_]+",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": "string"
+                            },
+                            "comment": {
+                              "type": "string",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": "string"
+                            },
+                            "created": {
+                              "type": "integer",
+                              "format": "int64",
+                              "description": "Unix timestamp in UTC",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "Unix timestamp in UTC",
+                              "generatedExample": 0
+                            }
+                          },
+                          "x-original-ref": [
+                            "#/components/schemas/ThoughtComment"
+                          ],
+                          "summaryAsHTML": "",
+                          "descriptionAsHTML": "A comment on a thought",
+                          "slug": "schema-thoughtcomment",
+                          "generatedExample": {
+                            "id": "string",
+                            "thoughtId": "string",
+                            "personaId": "string",
+                            "username": "string",
+                            "comment": "string",
+                            "created": 0
+                          }
+                        },
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": [
+                          {
+                            "id": "string",
+                            "thoughtId": "string",
+                            "personaId": "string",
+                            "username": "string",
+                            "comment": "string",
+                            "created": 0
+                          }
+                        ]
+                      }
+                    },
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "comments": [
+                        {
+                          "id": "string",
+                          "thoughtId": "string",
+                          "personaId": "string",
+                          "username": "string",
+                          "comment": "string",
+                          "created": 0
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "getThoughtComments",
+          "description": "Get thought comments",
+          "slug": "op-get-thoughts-pthoughtid-comments",
+          "summaryAsHTML": "Your GET endpoint",
+          "descriptionAsHTML": "Get thought comments"
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "pThoughtId",
+            "in": "path",
+            "required": true,
+            "description": "Thought id in path"
+          }
+        ],
+        "post": {
+          "summary": "",
+          "operationId": "addThoughtComment",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Thought id",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "Thought id",
+                        "generatedExample": "string"
+                      }
+                    },
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "id": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "Add a comment to a thought",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "personaId": {
+                      "type": "string",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": "string"
+                    },
+                    "comment": {
+                      "type": "string",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": "string"
+                    }
+                  },
+                  "summaryAsHTML": "",
+                  "descriptionAsHTML": "",
+                  "generatedExample": {
+                    "personaId": "string",
+                    "comment": "string"
+                  }
+                }
+              }
+            }
+          },
+          "slug": "op-post-thoughts-pthoughtid-comments",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Add a comment to a thought"
+        },
+        "endpointName": "thoughts"
+      },
+      "/thoughts/{pThoughtId}": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "pThoughtId",
+            "in": "path",
+            "required": true,
+            "description": "Thought id in path"
+          }
+        ],
+        "get": {
+          "summary": "Your GET endpoint",
+          "tags": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "thought": {
+                        "title": "Thought",
+                        "type": "object",
+                        "description": "A Thought",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uuid",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "",
+                            "generatedExample": "string"
+                          },
+                          "accountId": {
+                            "type": "string",
+                            "format": "uuid",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "",
+                            "generatedExample": "string"
+                          },
+                          "personaId": {
+                            "type": "string",
+                            "format": "uuid",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "",
+                            "generatedExample": "string"
+                          },
+                          "username": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9_]+",
+                            "minLength": 1,
+                            "maxLength": 15,
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "",
+                            "generatedExample": "string"
+                          },
+                          "content": {
+                            "type": "string",
+                            "description": "The thought content",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "The thought content",
+                            "generatedExample": "string"
+                          },
+                          "options": {
+                            "type": "object",
+                            "description": "Content type options",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "Content type options",
+                            "generatedExample": {}
+                          },
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "bt-code"
+                            ],
+                            "description": "The thought content type",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "The thought content type",
+                            "generatedExample": "bt-code"
+                          },
+                          "commentCount": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "Number of comments made for the thought",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "Number of comments made for the thought",
+                            "generatedExample": 0
+                          },
+                          "visibilityType": {
+                            "type": "string",
+                            "default": "public",
+                            "enum": [
+                              "public",
+                              "friends",
+                              "self",
+                              "deleted"
+                            ],
+                            "description": "To whom the thought should be shown",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "To whom the thought should be shown",
+                            "generatedExample": "public"
+                          },
+                          "created": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "Unix timestamp in UTC",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "Unix timestamp in UTC",
+                            "generatedExample": 0
+                          },
+                          "updated": {
+                            "type": "integer",
+                            "description": "Unix timestamp in UTC",
+                            "format": "int64",
+                            "summaryAsHTML": "",
+                            "descriptionAsHTML": "Unix timestamp in UTC",
+                            "generatedExample": 0
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "accountId",
+                          "personaId",
+                          "username",
+                          "content",
+                          "type",
+                          "visibilityType"
+                        ],
+                        "x-examples": {},
+                        "x-original-ref": [
+                          "#/components/schemas/Thought"
+                        ],
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "A Thought",
+                        "slug": "schema-thought",
+                        "generatedExample": {
+                          "id": "string",
+                          "accountId": "string",
+                          "personaId": "string",
+                          "username": "string",
+                          "content": "string",
+                          "options": {},
+                          "type": "bt-code",
+                          "commentCount": 0,
+                          "visibilityType": "public",
+                          "created": 0,
+                          "updated": 0
+                        }
+                      }
+                    },
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "thought": {
+                        "id": "string",
+                        "accountId": "string",
+                        "personaId": "string",
+                        "username": "string",
+                        "content": "string",
+                        "options": {},
+                        "type": "bt-code",
+                        "commentCount": 0,
+                        "visibilityType": "public",
+                        "created": 0,
+                        "updated": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "getThoughtById",
+          "description": "Get a thought by id",
+          "slug": "op-get-thoughts-pthoughtid",
+          "summaryAsHTML": "Your GET endpoint",
+          "descriptionAsHTML": "Get a thought by id"
+        },
+        "patch": {
+          "summary": "",
+          "operationId": "updateThought",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          },
+          "description": "Updates a thought",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "visibility": {
+                      "type": "string",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": "string"
+                    }
+                  },
+                  "summaryAsHTML": "",
+                  "descriptionAsHTML": "",
+                  "generatedExample": {
+                    "visibility": "string"
+                  }
+                }
+              }
+            }
+          },
+          "slug": "op-patch-thoughts-pthoughtid",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Updates a thought"
+        },
+        "endpointName": "thoughts"
+      },
+      "/persona": {
+        "post": {
+          "summary": "",
+          "operationId": "createPersona",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Persona id",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "Persona id",
+                        "generatedExample": "string"
+                      }
+                    },
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "id": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "Creates a new persona",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "accountId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": "string"
+                    },
+                    "username": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z0-9_]+",
+                      "minLength": 1,
+                      "maxLength": 15,
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": "string"
+                    },
+                    "about": {
+                      "type": "string",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": "string"
+                    }
+                  },
+                  "required": [
+                    "accountId",
+                    "username",
+                    "about"
+                  ],
+                  "summaryAsHTML": "",
+                  "descriptionAsHTML": "",
+                  "generatedExample": {
+                    "accountId": "string",
+                    "username": "string",
+                    "about": "string"
+                  }
+                }
+              }
+            }
+          },
+          "slug": "op-post-persona",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Creates a new persona"
+        },
+        "endpointName": "persona"
+      },
+      "/account/forgotPass": {
+        "post": {
+          "summary": "",
+          "operationId": "sendForgotPass",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {},
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {}
+                  }
+                }
+              }
+            }
+          },
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": "user@example.com"
+                    }
+                  },
+                  "summaryAsHTML": "",
+                  "descriptionAsHTML": "",
+                  "generatedExample": {
+                    "email": "user@example.com"
+                  }
+                }
+              }
+            },
+            "description": ""
+          },
+          "description": "Sends a forgot password e-mail",
+          "slug": "op-post-account-forgotpass",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Sends a forgot password e-mail"
+        },
+        "endpointName": "account"
+      },
+      "/account/forgotPass/verify": {
+        "post": {
+          "summary": "",
+          "operationId": "verifyForgotPass",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          },
+          "description": "Verifies forgot pass code and updates account password",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "summaryAsHTML": "",
+                  "descriptionAsHTML": "",
+                  "generatedExample": {}
+                }
+              }
+            }
+          },
+          "slug": "op-post-account-forgotpass-verify",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Verifies forgot pass code and updates account password"
+        },
+        "endpointName": "account"
+      },
+      "/persona/{pPersonaId}/blocked": {
+        "get": {
+          "summary": "Your GET endpoint",
+          "tags": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "blocked": {
+                        "type": "array",
+                        "description": "An array of blocked personas",
+                        "items": {
+                          "title": "BlockedPersona",
+                          "type": "object",
+                          "properties": {
+                            "personaId": {
+                              "type": "string",
+                              "format": "uuid",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": "string"
+                            },
+                            "username": {
+                              "type": "string",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": "string"
+                            }
+                          },
+                          "description": "A blocked persona",
+                          "x-original-ref": [
+                            "#/components/schemas/BlockedPersona"
+                          ],
+                          "summaryAsHTML": "",
+                          "descriptionAsHTML": "A blocked persona",
+                          "slug": "schema-blockedpersona",
+                          "generatedExample": {
+                            "personaId": "string",
+                            "username": "string"
+                          }
+                        },
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "An array of blocked personas",
+                        "generatedExample": [
+                          {
+                            "personaId": "string",
+                            "username": "string"
+                          }
+                        ]
+                      }
+                    },
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "blocked": [
+                        {
+                          "personaId": "string",
+                          "username": "string"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "getBlockedPersonas",
+          "description": "Gets the user's blocked list of personas",
+          "slug": "op-get-persona-ppersonaid-blocked",
+          "summaryAsHTML": "Your GET endpoint",
+          "descriptionAsHTML": "Gets the user's blocked list of personas"
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "pPersonaId",
+            "in": "path",
+            "required": true,
+            "description": "Persona id in path"
+          }
+        ],
+        "patch": {
+          "summary": "",
+          "operationId": "addBlockedPersona",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          },
+          "description": "Adds a persona to the block list",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "personaId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": "string"
+                    }
+                  },
+                  "required": [
+                    "personaId"
+                  ],
+                  "summaryAsHTML": "",
+                  "descriptionAsHTML": "",
+                  "generatedExample": {
+                    "personaId": "string"
+                  }
+                }
+              }
+            },
+            "description": ""
+          },
+          "slug": "op-patch-persona-ppersonaid-blocked",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Adds a persona to the block list"
+        },
+        "delete": {
+          "summary": "",
+          "operationId": "removeBlockedPersona",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          },
+          "description": "Removes a persona from the block list",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "personaId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": "string"
+                    }
+                  },
+                  "summaryAsHTML": "",
+                  "descriptionAsHTML": "",
+                  "generatedExample": {
+                    "personaId": "string"
+                  }
+                }
+              }
+            }
+          },
+          "slug": "op-delete-persona-ppersonaid-blocked",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Removes a persona from the block list"
+        },
+        "endpointName": "persona"
+      },
+      "/account/{pAccountId}/personas": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "pAccountId",
+            "in": "path",
+            "required": true,
+            "description": "Account id in path"
+          }
+        ],
+        "get": {
+          "summary": "Your GET endpoint",
+          "tags": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "personas": {
+                        "type": "array",
+                        "items": {
+                          "title": "Persona",
+                          "type": "object",
+                          "description": "A user that is able to post thoughts",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "format": "uuid",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": "string"
+                            },
+                            "username": {
+                              "type": "string",
+                              "pattern": "^[A-Za-z0-9_]+",
+                              "minLength": 1,
+                              "maxLength": 15,
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": "string"
+                            },
+                            "about": {
+                              "type": "string",
+                              "description": "User profile blurb",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "User profile blurb",
+                              "generatedExample": "string"
+                            },
+                            "lastCommentTime": {
+                              "type": "integer",
+                              "format": "int64",
+                              "description": "Last time user made a comment in unix timestamp format",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "Last time user made a comment in unix timestamp format",
+                              "generatedExample": 0
+                            },
+                            "lastPostTime": {
+                              "type": "integer",
+                              "format": "int64",
+                              "description": "Last time user posted in unix timestamp format",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "Last time user posted in unix timestamp format",
+                              "generatedExample": 0
+                            },
+                            "thoughtCount": {
+                              "type": "number",
+                              "default": 0,
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": 0
+                            },
+                            "created": {
+                              "type": "integer",
+                              "format": "int64",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": 0
+                            },
+                            "disabled": {
+                              "type": "boolean",
+                              "summaryAsHTML": "",
+                              "descriptionAsHTML": "",
+                              "generatedExample": true
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "username",
+                            "lastPostTime"
+                          ],
+                          "x-original-ref": [
+                            "#/components/schemas/Persona"
+                          ],
+                          "summaryAsHTML": "",
+                          "descriptionAsHTML": "A user that is able to post thoughts",
+                          "slug": "schema-persona",
+                          "generatedExample": {
+                            "id": "string",
+                            "username": "string",
+                            "about": "string",
+                            "lastCommentTime": 0,
+                            "lastPostTime": 0,
+                            "thoughtCount": 0,
+                            "created": 0,
+                            "disabled": true
+                          }
+                        },
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": [
+                          {
+                            "id": "string",
+                            "username": "string",
+                            "about": "string",
+                            "lastCommentTime": 0,
+                            "lastPostTime": 0,
+                            "thoughtCount": 0,
+                            "created": 0,
+                            "disabled": true
+                          }
+                        ]
+                      }
+                    },
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "personas": [
+                        {
+                          "id": "string",
+                          "username": "string",
+                          "about": "string",
+                          "lastCommentTime": 0,
+                          "lastPostTime": 0,
+                          "thoughtCount": 0,
+                          "created": 0,
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "getAccountPersonas",
+          "description": "Gets the personas associated with the account",
+          "slug": "op-get-account-paccountid-personas",
+          "summaryAsHTML": "Your GET endpoint",
+          "descriptionAsHTML": "Gets the personas associated with the account"
+        },
+        "endpointName": "account"
+      }
+    },
+    "components": {
+      "schemas": {
+        "Thought": {
+          "title": "Thought",
+          "type": "object",
+          "description": "A Thought",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": "string"
+            },
+            "accountId": {
+              "type": "string",
+              "format": "uuid",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": "string"
+            },
+            "personaId": {
+              "type": "string",
+              "format": "uuid",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": "string"
+            },
+            "username": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_]+",
+              "minLength": 1,
+              "maxLength": 15,
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": "string"
+            },
+            "content": {
+              "type": "string",
+              "description": "The thought content",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "The thought content",
+              "generatedExample": "string"
+            },
+            "options": {
+              "type": "object",
+              "description": "Content type options",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Content type options",
+              "generatedExample": {}
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "bt-code"
+              ],
+              "description": "The thought content type",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "The thought content type",
+              "generatedExample": "bt-code"
+            },
+            "commentCount": {
+              "type": "number",
+              "default": 0,
+              "description": "Number of comments made for the thought",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Number of comments made for the thought",
+              "generatedExample": 0
+            },
+            "visibilityType": {
+              "type": "string",
+              "default": "public",
+              "enum": [
+                "public",
+                "friends",
+                "self",
+                "deleted"
+              ],
+              "description": "To whom the thought should be shown",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "To whom the thought should be shown",
+              "generatedExample": "public"
+            },
+            "created": {
+              "type": "integer",
+              "format": "int64",
+              "description": "Unix timestamp in UTC",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Unix timestamp in UTC",
+              "generatedExample": 0
+            },
+            "updated": {
+              "type": "integer",
+              "description": "Unix timestamp in UTC",
+              "format": "int64",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Unix timestamp in UTC",
+              "generatedExample": 0
+            }
+          },
+          "required": [
+            "id",
+            "accountId",
+            "personaId",
+            "username",
+            "content",
+            "type",
+            "visibilityType"
+          ],
+          "x-examples": {},
+          "x-original-ref": [
+            "#/components/schemas/Thought"
+          ],
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "A Thought",
+          "slug": "schema-thought",
+          "generatedExample": {
+            "id": "string",
+            "accountId": "string",
+            "personaId": "string",
+            "username": "string",
+            "content": "string",
+            "options": {},
+            "type": "bt-code",
+            "commentCount": 0,
+            "visibilityType": "public",
+            "created": 0,
+            "updated": 0
+          }
+        },
+        "Account": {
+          "title": "Account",
+          "type": "object",
+          "description": "An account that holds personas",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Account id",
+              "format": "uuid",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Account id",
+              "generatedExample": "string"
+            },
+            "email": {
+              "type": "string",
+              "description": "Account email",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Account email",
+              "generatedExample": "string"
+            },
+            "passHash": {
+              "type": "string",
+              "description": "Hashed password",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Hashed password",
+              "generatedExample": "string"
+            },
+            "authType": {
+              "type": "string",
+              "description": "Authentication type",
+              "default": "arg2",
+              "enum": [
+                "arg2"
+              ],
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Authentication type",
+              "generatedExample": "arg2"
+            },
+            "verified": {
+              "type": "boolean",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": true
+            }
+          },
+          "required": [
+            "id",
+            "authType"
+          ],
+          "x-original-ref": [
+            "#/components/schemas/Account"
+          ],
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "An account that holds personas",
+          "slug": "schema-account",
+          "generatedExample": {
+            "id": "string",
+            "email": "string",
+            "passHash": "string",
+            "authType": "arg2",
+            "verified": true
+          }
+        },
+        "Persona": {
+          "title": "Persona",
+          "type": "object",
+          "description": "A user that is able to post thoughts",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": "string"
+            },
+            "username": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_]+",
+              "minLength": 1,
+              "maxLength": 15,
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": "string"
+            },
+            "about": {
+              "type": "string",
+              "description": "User profile blurb",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "User profile blurb",
+              "generatedExample": "string"
+            },
+            "lastCommentTime": {
+              "type": "integer",
+              "format": "int64",
+              "description": "Last time user made a comment in unix timestamp format",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Last time user made a comment in unix timestamp format",
+              "generatedExample": 0
+            },
+            "lastPostTime": {
+              "type": "integer",
+              "format": "int64",
+              "description": "Last time user posted in unix timestamp format",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Last time user posted in unix timestamp format",
+              "generatedExample": 0
+            },
+            "thoughtCount": {
+              "type": "number",
+              "default": 0,
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": 0
+            },
+            "created": {
+              "type": "integer",
+              "format": "int64",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": 0
+            },
+            "disabled": {
+              "type": "boolean",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": true
+            }
+          },
+          "required": [
+            "id",
+            "username",
+            "lastPostTime"
+          ],
+          "x-original-ref": [
+            "#/components/schemas/Persona"
+          ],
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "A user that is able to post thoughts",
+          "slug": "schema-persona",
+          "generatedExample": {
+            "id": "string",
+            "username": "string",
+            "about": "string",
+            "lastCommentTime": 0,
+            "lastPostTime": 0,
+            "thoughtCount": 0,
+            "created": 0,
+            "disabled": true
+          }
+        },
+        "ThoughtComment": {
+          "title": "ThoughtComment",
+          "type": "object",
+          "description": "A comment on a thought",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": "string"
+            },
+            "thoughtId": {
+              "type": "string",
+              "format": "uuid",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": "string"
+            },
+            "personaId": {
+              "type": "string",
+              "format": "uuid",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": "string"
+            },
+            "username": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 15,
+              "pattern": "^[A-Za-z0-9_]+",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": "string"
+            },
+            "comment": {
+              "type": "string",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": "string"
+            },
+            "created": {
+              "type": "integer",
+              "format": "int64",
+              "description": "Unix timestamp in UTC",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Unix timestamp in UTC",
+              "generatedExample": 0
+            }
+          },
+          "x-original-ref": [
+            "#/components/schemas/ThoughtComment"
+          ],
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "A comment on a thought",
+          "slug": "schema-thoughtcomment",
+          "generatedExample": {
+            "id": "string",
+            "thoughtId": "string",
+            "personaId": "string",
+            "username": "string",
+            "comment": "string",
+            "created": 0
+          }
+        },
+        "BlockedPersona": {
+          "title": "BlockedPersona",
+          "type": "object",
+          "properties": {
+            "personaId": {
+              "type": "string",
+              "format": "uuid",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": "string"
+            },
+            "username": {
+              "type": "string",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": "string"
+            }
+          },
+          "description": "A blocked persona",
+          "x-original-ref": [
+            "#/components/schemas/BlockedPersona"
+          ],
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "A blocked persona",
+          "slug": "schema-blockedpersona",
+          "generatedExample": {
+            "personaId": "string",
+            "username": "string"
+          }
+        }
+      }
+    },
+    "basePath": "",
+    "endpoints": [
+      "account",
+      "persona",
+      "thoughts",
+      "config"
+    ],
+    "__commonPrefix": ""
+  }
+}

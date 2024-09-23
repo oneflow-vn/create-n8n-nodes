@@ -1,0 +1,11 @@
+{{#each properties}}
+  {{{@key}}}: {{{defaultParam type}}},
+{{/each}}
+
+{{#equal type "array"}}
+items: [],
+{{/equal}}
+
+{{#if allOf}}
+  {{> resParams (combineAllOf allOf)}}
+{{/if}}

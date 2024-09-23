@@ -1,0 +1,15 @@
+{{#if requestBody}}
+  {{> reqParams requestBody }}
+{{/if}}
+
+{{#each parameters}}
+  {{#equalContext this in "query"}}
+    {{{formatVar name}}}: {{{handleParam (tsType schema.type schema) name "req.query."}}} as {{{tsType schema.type schema}}},
+  {{/equalContext}}
+  {{#equalContext this in "path"}}
+    {{{formatVar name}}}: {{{handleParam (tsType schema.type schema) name "req.params."}}} as {{{tsType schema.type schema}}},
+  {{/equalContext}}
+  {{#equalContext this in "body"}}
+    {{{formatVar name}}}: {{{handleParam (tsType schema.type schema) name "req.body."}}} as {{{tsType schema.type schema}}},
+  {{/equalContext}}
+{{/each}}

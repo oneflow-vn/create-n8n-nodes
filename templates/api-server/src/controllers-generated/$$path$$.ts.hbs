@@ -1,0 +1,50 @@
+import { IRequestContext } from '../interfaces';
+import * as ApiInterfaces from '../interfaces/api';
+
+{{#each operation}}
+  {{#each this.path}}
+    {{#validMethod @key}}
+/**
+ * {{{../description}}}
+ *
+ * @param {IRequestContext} context
+ * @param {Object} params
+{{#each ../parameters}}
+{{#if this.name}}
+ * @param {{../../../../openbrace}}{{capitalize type}}{{../../../../closebrace}} params.{{name}} {{inline description}}
+{{/if}}
+{{/each}}
+ * @throws {Error}
+ * @return {Promise}
+ */
+export async function {{funcOperation ../operationId}} (
+  context: IRequestContext,
+  params: ApiInterfaces.{{paramOperation ../operationId}},
+) : Promise<ApiInterfaces.{{#if ../responses.200.[x-original-ref]}}{{parseRef ../responses.200.[x-original-ref]}}{{else}}{{{resOperation ../operationId}}}{{/if}}> {
+  // Implement your business logic here...
+  //
+  // This function should return as follows:
+  //
+  // return {
+  //   status: 200, // Or another success code.
+  //   data: [] // Optional. You can put whatever you want here.
+  // };
+  //
+  // If an error happens during your business logic implementation,
+  // you should throw an error as follows:
+  //
+  // throw new Error({
+  //   status: 500, // Or another error code.
+  //   error: 'Server Error' // Or another error message.
+  // });
+
+  return {
+  {{#each ../responses.[200].content}}
+  {{> resParams schema}}
+  {{/each}}
+  }
+};
+
+    {{/validMethod}}
+  {{/each}}
+{{/each}}

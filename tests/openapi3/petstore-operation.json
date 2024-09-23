@@ -1,0 +1,868 @@
+{
+  "openbrace": "{",
+  "closebrace": "}",
+  "operation_name": "pets",
+  "operation": [
+    {
+      "path_name": "/pets",
+      "path": {
+        "get": {
+          "summary": "List all pets",
+          "operationId": "listPets",
+          "tags": [
+            "pets"
+          ],
+          "parameters": [
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "How many items to return at one time (max 100)",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": 0
+              },
+              "descriptionAsHTML": "How many items to return at one time (max 100)"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "An paged array of pets",
+              "headers": {
+                "x-next": {
+                  "description": "A link to the next page of responses",
+                  "schema": {
+                    "type": "string",
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "summaryAsHTML": "",
+                          "descriptionAsHTML": "",
+                          "generatedExample": 0
+                        },
+                        "name": {
+                          "type": "string",
+                          "summaryAsHTML": "",
+                          "descriptionAsHTML": "",
+                          "generatedExample": "string"
+                        },
+                        "tag": {
+                          "type": "string",
+                          "summaryAsHTML": "",
+                          "descriptionAsHTML": "",
+                          "generatedExample": "string"
+                        }
+                      },
+                      "x-original-ref": [
+                        "#/components/schemas/Pet"
+                      ],
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": {
+                        "id": 0,
+                        "name": "string",
+                        "tag": "string"
+                      }
+                    },
+                    "x-original-ref": [
+                      "#/components/schemas/Pets"
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": [
+                      {
+                        "id": 0,
+                        "name": "string",
+                        "tag": "string"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "default": {
+              "description": "unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "required": [
+                      "code",
+                      "message"
+                    ],
+                    "properties": {
+                      "code": {
+                        "type": "integer",
+                        "format": "int32",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": 0
+                      },
+                      "message": {
+                        "type": "string",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": "string"
+                      }
+                    },
+                    "x-original-ref": [
+                      "#/components/schemas/Error"
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "code": 0,
+                      "message": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "slug": "op-get-pets",
+          "summaryAsHTML": "List all pets",
+          "descriptionAsHTML": "",
+          "headers": [],
+          "queryParams": [
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "How many items to return at one time (max 100)",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": 0
+              },
+              "descriptionAsHTML": "How many items to return at one time (max 100)"
+            }
+          ],
+          "pathParams": [],
+          "cookieParams": []
+        },
+        "post": {
+          "summary": "Create a pet",
+          "operationId": "createPets",
+          "tags": [
+            "pets"
+          ],
+          "responses": {
+            "201": {
+              "description": "Null response"
+            },
+            "default": {
+              "description": "unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "required": [
+                      "code",
+                      "message"
+                    ],
+                    "properties": {
+                      "code": {
+                        "type": "integer",
+                        "format": "int32",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": 0
+                      },
+                      "message": {
+                        "type": "string",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": "string"
+                      }
+                    },
+                    "x-original-ref": [
+                      "#/components/schemas/Error"
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "code": 0,
+                      "message": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "slug": "op-post-pets",
+          "summaryAsHTML": "Create a pet",
+          "descriptionAsHTML": ""
+        },
+        "endpointName": "pets"
+      },
+      "subresource": "/"
+    },
+    {
+      "path_name": "/pets/:petId",
+      "path": {
+        "get": {
+          "summary": "Info for a specific pet",
+          "operationId": "showPetById",
+          "tags": [
+            "pets"
+          ],
+          "parameters": [
+            {
+              "name": "petId",
+              "in": "path",
+              "required": true,
+              "description": "The id of the pet to retrieve",
+              "schema": {
+                "type": "string",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "descriptionAsHTML": "The id of the pet to retrieve"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Expected response to a valid request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "summaryAsHTML": "",
+                          "descriptionAsHTML": "",
+                          "generatedExample": 0
+                        },
+                        "name": {
+                          "type": "string",
+                          "summaryAsHTML": "",
+                          "descriptionAsHTML": "",
+                          "generatedExample": "string"
+                        },
+                        "tag": {
+                          "type": "string",
+                          "summaryAsHTML": "",
+                          "descriptionAsHTML": "",
+                          "generatedExample": "string"
+                        }
+                      },
+                      "x-original-ref": [
+                        "#/components/schemas/Pet"
+                      ],
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": {
+                        "id": 0,
+                        "name": "string",
+                        "tag": "string"
+                      }
+                    },
+                    "x-original-ref": [
+                      "#/components/schemas/Pets"
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": [
+                      {
+                        "id": 0,
+                        "name": "string",
+                        "tag": "string"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "default": {
+              "description": "unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "required": [
+                      "code",
+                      "message"
+                    ],
+                    "properties": {
+                      "code": {
+                        "type": "integer",
+                        "format": "int32",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": 0
+                      },
+                      "message": {
+                        "type": "string",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": "string"
+                      }
+                    },
+                    "x-original-ref": [
+                      "#/components/schemas/Error"
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "code": 0,
+                      "message": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "slug": "op-get-pets-petid",
+          "summaryAsHTML": "Info for a specific pet",
+          "descriptionAsHTML": "",
+          "headers": [],
+          "queryParams": [],
+          "pathParams": [
+            {
+              "name": "petId",
+              "in": "path",
+              "required": true,
+              "description": "The id of the pet to retrieve",
+              "schema": {
+                "type": "string",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "descriptionAsHTML": "The id of the pet to retrieve"
+            }
+          ],
+          "cookieParams": []
+        },
+        "endpointName": "pets"
+      },
+      "subresource": "/:petId"
+    }
+  ],
+  "openapi": {
+    "openapi": "3.0.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Swagger Petstore",
+      "license": {
+        "name": "MIT"
+      },
+      "descriptionAsHTML": ""
+    },
+    "servers": [
+      {
+        "url": "http://petstore.swagger.io/v1",
+        "descriptionAsHTML": ""
+      }
+    ],
+    "paths": {
+      "/pets": {
+        "get": {
+          "summary": "List all pets",
+          "operationId": "listPets",
+          "tags": [
+            "pets"
+          ],
+          "parameters": [
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "How many items to return at one time (max 100)",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": 0
+              },
+              "descriptionAsHTML": "How many items to return at one time (max 100)"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "An paged array of pets",
+              "headers": {
+                "x-next": {
+                  "description": "A link to the next page of responses",
+                  "schema": {
+                    "type": "string",
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "summaryAsHTML": "",
+                          "descriptionAsHTML": "",
+                          "generatedExample": 0
+                        },
+                        "name": {
+                          "type": "string",
+                          "summaryAsHTML": "",
+                          "descriptionAsHTML": "",
+                          "generatedExample": "string"
+                        },
+                        "tag": {
+                          "type": "string",
+                          "summaryAsHTML": "",
+                          "descriptionAsHTML": "",
+                          "generatedExample": "string"
+                        }
+                      },
+                      "x-original-ref": [
+                        "#/components/schemas/Pet"
+                      ],
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": {
+                        "id": 0,
+                        "name": "string",
+                        "tag": "string"
+                      }
+                    },
+                    "x-original-ref": [
+                      "#/components/schemas/Pets"
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": [
+                      {
+                        "id": 0,
+                        "name": "string",
+                        "tag": "string"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "default": {
+              "description": "unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "required": [
+                      "code",
+                      "message"
+                    ],
+                    "properties": {
+                      "code": {
+                        "type": "integer",
+                        "format": "int32",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": 0
+                      },
+                      "message": {
+                        "type": "string",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": "string"
+                      }
+                    },
+                    "x-original-ref": [
+                      "#/components/schemas/Error"
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "code": 0,
+                      "message": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "slug": "op-get-pets",
+          "summaryAsHTML": "List all pets",
+          "descriptionAsHTML": "",
+          "headers": [],
+          "queryParams": [
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "How many items to return at one time (max 100)",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": 0
+              },
+              "descriptionAsHTML": "How many items to return at one time (max 100)"
+            }
+          ],
+          "pathParams": [],
+          "cookieParams": []
+        },
+        "post": {
+          "summary": "Create a pet",
+          "operationId": "createPets",
+          "tags": [
+            "pets"
+          ],
+          "responses": {
+            "201": {
+              "description": "Null response"
+            },
+            "default": {
+              "description": "unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "required": [
+                      "code",
+                      "message"
+                    ],
+                    "properties": {
+                      "code": {
+                        "type": "integer",
+                        "format": "int32",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": 0
+                      },
+                      "message": {
+                        "type": "string",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": "string"
+                      }
+                    },
+                    "x-original-ref": [
+                      "#/components/schemas/Error"
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "code": 0,
+                      "message": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "slug": "op-post-pets",
+          "summaryAsHTML": "Create a pet",
+          "descriptionAsHTML": ""
+        },
+        "endpointName": "pets"
+      },
+      "/pets/{petId}": {
+        "get": {
+          "summary": "Info for a specific pet",
+          "operationId": "showPetById",
+          "tags": [
+            "pets"
+          ],
+          "parameters": [
+            {
+              "name": "petId",
+              "in": "path",
+              "required": true,
+              "description": "The id of the pet to retrieve",
+              "schema": {
+                "type": "string",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "descriptionAsHTML": "The id of the pet to retrieve"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Expected response to a valid request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "summaryAsHTML": "",
+                          "descriptionAsHTML": "",
+                          "generatedExample": 0
+                        },
+                        "name": {
+                          "type": "string",
+                          "summaryAsHTML": "",
+                          "descriptionAsHTML": "",
+                          "generatedExample": "string"
+                        },
+                        "tag": {
+                          "type": "string",
+                          "summaryAsHTML": "",
+                          "descriptionAsHTML": "",
+                          "generatedExample": "string"
+                        }
+                      },
+                      "x-original-ref": [
+                        "#/components/schemas/Pet"
+                      ],
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": {
+                        "id": 0,
+                        "name": "string",
+                        "tag": "string"
+                      }
+                    },
+                    "x-original-ref": [
+                      "#/components/schemas/Pets"
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": [
+                      {
+                        "id": 0,
+                        "name": "string",
+                        "tag": "string"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "default": {
+              "description": "unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "required": [
+                      "code",
+                      "message"
+                    ],
+                    "properties": {
+                      "code": {
+                        "type": "integer",
+                        "format": "int32",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": 0
+                      },
+                      "message": {
+                        "type": "string",
+                        "summaryAsHTML": "",
+                        "descriptionAsHTML": "",
+                        "generatedExample": "string"
+                      }
+                    },
+                    "x-original-ref": [
+                      "#/components/schemas/Error"
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "code": 0,
+                      "message": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "slug": "op-get-pets-petid",
+          "summaryAsHTML": "Info for a specific pet",
+          "descriptionAsHTML": "",
+          "headers": [],
+          "queryParams": [],
+          "pathParams": [
+            {
+              "name": "petId",
+              "in": "path",
+              "required": true,
+              "description": "The id of the pet to retrieve",
+              "schema": {
+                "type": "string",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "descriptionAsHTML": "The id of the pet to retrieve"
+            }
+          ],
+          "cookieParams": []
+        },
+        "endpointName": "pets"
+      }
+    },
+    "components": {
+      "schemas": {
+        "Pet": {
+          "required": [
+            "id",
+            "name"
+          ],
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": 0
+            },
+            "name": {
+              "type": "string",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": "string"
+            },
+            "tag": {
+              "type": "string",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": "string"
+            }
+          },
+          "x-original-ref": [
+            "#/components/schemas/Pet"
+          ],
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "",
+          "generatedExample": {
+            "id": 0,
+            "name": "string",
+            "tag": "string"
+          }
+        },
+        "Pets": {
+          "type": "array",
+          "items": {
+            "required": [
+              "id",
+              "name"
+            ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int64",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": 0
+              },
+              "name": {
+                "type": "string",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "tag": {
+                "type": "string",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              }
+            },
+            "x-original-ref": [
+              "#/components/schemas/Pet"
+            ],
+            "summaryAsHTML": "",
+            "descriptionAsHTML": "",
+            "generatedExample": {
+              "id": 0,
+              "name": "string",
+              "tag": "string"
+            }
+          },
+          "x-original-ref": [
+            "#/components/schemas/Pets"
+          ],
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "",
+          "generatedExample": [
+            {
+              "id": 0,
+              "name": "string",
+              "tag": "string"
+            }
+          ]
+        },
+        "Error": {
+          "required": [
+            "code",
+            "message"
+          ],
+          "properties": {
+            "code": {
+              "type": "integer",
+              "format": "int32",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": 0
+            },
+            "message": {
+              "type": "string",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "",
+              "generatedExample": "string"
+            }
+          },
+          "x-original-ref": [
+            "#/components/schemas/Error"
+          ],
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "",
+          "generatedExample": {
+            "code": 0,
+            "message": "string"
+          }
+        }
+      }
+    },
+    "basePath": "",
+    "endpoints": [
+      "pets"
+    ],
+    "__commonPrefix": ""
+  }
+}

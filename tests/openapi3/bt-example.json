@@ -1,0 +1,1597 @@
+{
+  "openapi": {
+    "openapi": "3.0.1",
+    "info": {
+      "title": "BoxedThoughts API",
+      "version": "1.0.0",
+      "descriptionAsHTML": ""
+    },
+    "servers": [
+      {
+        "url": "https://api.boxedthoughts.com/v1",
+        "descriptionAsHTML": ""
+      }
+    ],
+    "tags": [
+      {
+        "name": "Thoughts",
+        "description": "Overall thoughtstream"
+      },
+      {
+        "name": "User",
+        "description": "User operations"
+      },
+      {
+        "name": "Meta",
+        "description": "Global metadata"
+      }
+    ],
+    "paths": {
+      "/meta": {
+        "get": {
+          "tags": [
+            "Meta"
+          ],
+          "operationId": "getBtMetadata",
+          "responses": {
+            "200": {
+              "description": "Metadata response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "allOf": [
+                      {
+                        "xml": {
+                          "name": "CommonResponseProps"
+                        },
+                        "type": "object",
+                        "properties": {
+                          "reqId": {
+                            "type": "string",
+                            "description": "Request id"
+                          },
+                          "data": {
+                            "xml": {
+                              "name": "BtMetadata"
+                            },
+                            "type": "object",
+                            "properties": {
+                              "postTimeWait": {
+                                "type": "integer",
+                                "description": "Time in seconds that a user has to wait before posting a new thought"
+                              }
+                            },
+                            "x-original-ref": [
+                              "#/components/schemas/BtMetadata"
+                            ]
+                          }
+                        },
+                        "x-original-ref": [
+                          "#/components/schemas/CommonResponseProps"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "xml": {
+                              "name": "BtMetadata"
+                            },
+                            "type": "object",
+                            "properties": {
+                              "postTimeWait": {
+                                "type": "integer",
+                                "description": "Time in seconds that a user has to wait before posting a new thought"
+                              }
+                            },
+                            "x-original-ref": [
+                              "#/components/schemas/BtMetadata"
+                            ]
+                          }
+                        }
+                      }
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "reqId": "string",
+                      "data": {
+                        "postTimeWait": 0
+                      }
+                    }
+                  }
+                }
+              },
+              "x-original-ref": [
+                "#/components/responses/BtMetadataResponse"
+              ]
+            }
+          },
+          "slug": "op-get-meta",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": ""
+        },
+        "endpointName": "meta"
+      },
+      "/thoughts/{thoughtId}": {
+        "get": {
+          "tags": [
+            "Thoughts"
+          ],
+          "operationId": "getThoughtById",
+          "description": "Get a thought by id",
+          "parameters": [
+            {
+              "name": "thoughtId",
+              "in": "path",
+              "required": true,
+              "description": "Thought id",
+              "schema": {
+                "type": "string",
+                "minLength": 36,
+                "maxLength": 36,
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "stringstringstringstringstringstring"
+              },
+              "x-original-ref": [
+                "#/components/parameters/pThoughtId"
+              ],
+              "descriptionAsHTML": "Thought id"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "A thought",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "allOf": [
+                      {
+                        "xml": {
+                          "name": "CommonResponseProps"
+                        },
+                        "type": "object",
+                        "properties": {
+                          "reqId": {
+                            "type": "string",
+                            "description": "Request id"
+                          },
+                          "data": {
+                            "xml": {
+                              "name": "Thought"
+                            },
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "description": "Thought id"
+                              },
+                              "userId": {
+                                "type": "string",
+                                "description": "User id that created the thought"
+                              },
+                              "formatted": {
+                                "type": "string",
+                                "description": "Thought with format codes"
+                              },
+                              "text": {
+                                "type": "string",
+                                "description": "Text-only version of the thought"
+                              },
+                              "created": {
+                                "type": "string",
+                                "description": "Unix timestamp of the created thought"
+                              }
+                            },
+                            "x-original-ref": [
+                              "#/components/schemas/Thought"
+                            ]
+                          }
+                        },
+                        "x-original-ref": [
+                          "#/components/schemas/CommonResponseProps"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "xml": {
+                              "name": "Thought"
+                            },
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "description": "Thought id"
+                              },
+                              "userId": {
+                                "type": "string",
+                                "description": "User id that created the thought"
+                              },
+                              "formatted": {
+                                "type": "string",
+                                "description": "Thought with format codes"
+                              },
+                              "text": {
+                                "type": "string",
+                                "description": "Text-only version of the thought"
+                              },
+                              "created": {
+                                "type": "string",
+                                "description": "Unix timestamp of the created thought"
+                              }
+                            },
+                            "x-original-ref": [
+                              "#/components/schemas/Thought"
+                            ]
+                          }
+                        }
+                      }
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "reqId": "string",
+                      "data": {
+                        "id": "string",
+                        "userId": "string",
+                        "formatted": "string",
+                        "text": "string",
+                        "created": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "x-original-ref": [
+                "#/components/responses/ThoughtResponse"
+              ]
+            }
+          },
+          "slug": "op-get-thoughts-thoughtid",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Get a thought by id",
+          "headers": [],
+          "queryParams": [],
+          "pathParams": [
+            {
+              "name": "thoughtId",
+              "in": "path",
+              "required": true,
+              "description": "Thought id",
+              "schema": {
+                "type": "string",
+                "minLength": 36,
+                "maxLength": 36,
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "stringstringstringstringstringstring"
+              },
+              "x-original-ref": [
+                "#/components/parameters/pThoughtId"
+              ],
+              "descriptionAsHTML": "Thought id"
+            }
+          ],
+          "cookieParams": []
+        },
+        "endpointName": "thoughts"
+      },
+      "/thoughts": {
+        "get": {
+          "tags": [
+            "Thoughts"
+          ],
+          "operationId": "getThoughtStream",
+          "description": "Get the latest set of thoughts",
+          "parameters": [
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "description": "Pagination limit",
+              "schema": {
+                "type": "number",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": 0
+              },
+              "x-original-ref": [
+                "#/components/parameters/qLimit"
+              ],
+              "descriptionAsHTML": "Pagination limit"
+            },
+            {
+              "name": "afterTime",
+              "in": "query",
+              "required": false,
+              "description": "Pagination after thought creation time",
+              "schema": {
+                "type": "number",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": 0
+              },
+              "x-original-ref": [
+                "#/components/parameters/qAfterTime"
+              ],
+              "descriptionAsHTML": "Pagination after thought creation time"
+            },
+            {
+              "name": "username",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "minLength": 15,
+                "maxLength": 15,
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "stringstringstr"
+              },
+              "x-original-ref": [
+                "#/components/parameters/qUsername"
+              ],
+              "descriptionAsHTML": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Array of thoughts",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "allOf": [
+                      {
+                        "xml": {
+                          "name": "CommonResponseProps"
+                        },
+                        "type": "object",
+                        "properties": {
+                          "reqId": {
+                            "type": "string",
+                            "description": "Request id"
+                          },
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "thoughts": {
+                                "type": "array",
+                                "items": {
+                                  "xml": {
+                                    "name": "Thought"
+                                  },
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string",
+                                      "description": "Thought id"
+                                    },
+                                    "userId": {
+                                      "type": "string",
+                                      "description": "User id that created the thought"
+                                    },
+                                    "formatted": {
+                                      "type": "string",
+                                      "description": "Thought with format codes"
+                                    },
+                                    "text": {
+                                      "type": "string",
+                                      "description": "Text-only version of the thought"
+                                    },
+                                    "created": {
+                                      "type": "string",
+                                      "description": "Unix timestamp of the created thought"
+                                    }
+                                  },
+                                  "x-original-ref": [
+                                    "#/components/schemas/Thought"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "x-original-ref": [
+                          "#/components/schemas/CommonResponseProps"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "thoughts": {
+                                "type": "array",
+                                "items": {
+                                  "xml": {
+                                    "name": "Thought"
+                                  },
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string",
+                                      "description": "Thought id"
+                                    },
+                                    "userId": {
+                                      "type": "string",
+                                      "description": "User id that created the thought"
+                                    },
+                                    "formatted": {
+                                      "type": "string",
+                                      "description": "Thought with format codes"
+                                    },
+                                    "text": {
+                                      "type": "string",
+                                      "description": "Text-only version of the thought"
+                                    },
+                                    "created": {
+                                      "type": "string",
+                                      "description": "Unix timestamp of the created thought"
+                                    }
+                                  },
+                                  "x-original-ref": [
+                                    "#/components/schemas/Thought"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "reqId": "string",
+                      "data": {
+                        "thoughts": [
+                          {
+                            "id": "string",
+                            "userId": "string",
+                            "formatted": "string",
+                            "text": "string",
+                            "created": "string"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "x-original-ref": [
+                "#/components/responses/ThoughtStreamResponse"
+              ]
+            }
+          },
+          "slug": "op-get-thoughts",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Get the latest set of thoughts",
+          "headers": [],
+          "queryParams": [
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "description": "Pagination limit",
+              "schema": {
+                "type": "number",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": 0
+              },
+              "x-original-ref": [
+                "#/components/parameters/qLimit"
+              ],
+              "descriptionAsHTML": "Pagination limit"
+            },
+            {
+              "name": "afterTime",
+              "in": "query",
+              "required": false,
+              "description": "Pagination after thought creation time",
+              "schema": {
+                "type": "number",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": 0
+              },
+              "x-original-ref": [
+                "#/components/parameters/qAfterTime"
+              ],
+              "descriptionAsHTML": "Pagination after thought creation time"
+            },
+            {
+              "name": "username",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "minLength": 15,
+                "maxLength": 15,
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "stringstringstr"
+              },
+              "x-original-ref": [
+                "#/components/parameters/qUsername"
+              ],
+              "descriptionAsHTML": ""
+            }
+          ],
+          "pathParams": [],
+          "cookieParams": []
+        },
+        "post": {
+          "tags": [
+            "Thoughts"
+          ],
+          "operationId": "newThought",
+          "description": "Post a new thought",
+          "responses": {
+            "200": {
+              "description": "A thought",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "allOf": [
+                      {
+                        "xml": {
+                          "name": "CommonResponseProps"
+                        },
+                        "type": "object",
+                        "properties": {
+                          "reqId": {
+                            "type": "string",
+                            "description": "Request id"
+                          },
+                          "data": {
+                            "xml": {
+                              "name": "Thought"
+                            },
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "description": "Thought id"
+                              },
+                              "userId": {
+                                "type": "string",
+                                "description": "User id that created the thought"
+                              },
+                              "formatted": {
+                                "type": "string",
+                                "description": "Thought with format codes"
+                              },
+                              "text": {
+                                "type": "string",
+                                "description": "Text-only version of the thought"
+                              },
+                              "created": {
+                                "type": "string",
+                                "description": "Unix timestamp of the created thought"
+                              }
+                            },
+                            "x-original-ref": [
+                              "#/components/schemas/Thought"
+                            ]
+                          }
+                        },
+                        "x-original-ref": [
+                          "#/components/schemas/CommonResponseProps"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "xml": {
+                              "name": "Thought"
+                            },
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "description": "Thought id"
+                              },
+                              "userId": {
+                                "type": "string",
+                                "description": "User id that created the thought"
+                              },
+                              "formatted": {
+                                "type": "string",
+                                "description": "Thought with format codes"
+                              },
+                              "text": {
+                                "type": "string",
+                                "description": "Text-only version of the thought"
+                              },
+                              "created": {
+                                "type": "string",
+                                "description": "Unix timestamp of the created thought"
+                              }
+                            },
+                            "x-original-ref": [
+                              "#/components/schemas/Thought"
+                            ]
+                          }
+                        }
+                      }
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "reqId": "string",
+                      "data": {
+                        "id": "string",
+                        "userId": "string",
+                        "formatted": "string",
+                        "text": "string",
+                        "created": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "x-original-ref": [
+                "#/components/responses/ThoughtResponse"
+              ]
+            }
+          },
+          "slug": "op-post-thoughts",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Post a new thought"
+        },
+        "endpointName": "thoughts"
+      },
+      "/user/{userId}": {
+        "get": {
+          "description": "Get a user by id",
+          "tags": [
+            "User"
+          ],
+          "operationId": "getUserById",
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "description": "User Id",
+              "schema": {
+                "type": "string",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "x-original-ref": [
+                "#/components/parameters/pUserId"
+              ],
+              "descriptionAsHTML": "User Id"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "get user success response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "allOf": [
+                      {
+                        "xml": {
+                          "name": "CommonResponseProps"
+                        },
+                        "type": "object",
+                        "properties": {
+                          "reqId": {
+                            "type": "string",
+                            "description": "Request id"
+                          },
+                          "data": {
+                            "xml": {
+                              "name": "BtUser"
+                            },
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "description": "User id"
+                              },
+                              "username": {
+                                "type": "string",
+                                "description": "User username"
+                              },
+                              "about": {
+                                "type": "string",
+                                "description": "User's about blurb"
+                              },
+                              "lastPublicPostTime": {
+                                "type": "integer",
+                                "description": "Unix timestamp of last public post",
+                                "default": 0
+                              }
+                            },
+                            "x-original-ref": [
+                              "#/components/schemas/BtUser"
+                            ]
+                          }
+                        },
+                        "x-original-ref": [
+                          "#/components/schemas/CommonResponseProps"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "xml": {
+                              "name": "BtUser"
+                            },
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "description": "User id"
+                              },
+                              "username": {
+                                "type": "string",
+                                "description": "User username"
+                              },
+                              "about": {
+                                "type": "string",
+                                "description": "User's about blurb"
+                              },
+                              "lastPublicPostTime": {
+                                "type": "integer",
+                                "description": "Unix timestamp of last public post",
+                                "default": 0
+                              }
+                            },
+                            "x-original-ref": [
+                              "#/components/schemas/BtUser"
+                            ]
+                          }
+                        }
+                      }
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "reqId": "string",
+                      "data": {
+                        "id": "string",
+                        "username": "string",
+                        "about": "string",
+                        "lastPublicPostTime": 0
+                      }
+                    }
+                  }
+                }
+              },
+              "x-original-ref": [
+                "#/components/responses/GetUserResponse"
+              ]
+            }
+          },
+          "slug": "op-get-user-userid",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Get a user by id",
+          "headers": [],
+          "queryParams": [],
+          "pathParams": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "description": "User Id",
+              "schema": {
+                "type": "string",
+                "summaryAsHTML": "",
+                "descriptionAsHTML": "",
+                "generatedExample": "string"
+              },
+              "x-original-ref": [
+                "#/components/parameters/pUserId"
+              ],
+              "descriptionAsHTML": "User Id"
+            }
+          ],
+          "cookieParams": []
+        },
+        "endpointName": "user"
+      },
+      "/user": {
+        "post": {
+          "tags": [
+            "User"
+          ],
+          "operationId": "createUser",
+          "description": "Create a new user",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "xml": {
+                    "name": "CreateUserBody"
+                  },
+                  "allOf": [
+                    {
+                      "required": [
+                        "username"
+                      ],
+                      "type": "object",
+                      "properties": {
+                        "username": {
+                          "type": "string",
+                          "minLength": 36,
+                          "maxLength": 36,
+                          "required": true
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "username": {
+                          "type": "string",
+                          "minLength": 36,
+                          "maxLength": 36
+                        }
+                      }
+                    }
+                  ],
+                  "x-original-ref": [
+                    "#/components/schemas/CreateUserBody"
+                  ],
+                  "summaryAsHTML": "",
+                  "descriptionAsHTML": "",
+                  "generatedExample": {
+                    "username": "stringstringstringstringstringstring"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "User created success response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "allOf": [
+                      {
+                        "xml": {
+                          "name": "CommonResponseProps"
+                        },
+                        "type": "object",
+                        "properties": {
+                          "reqId": {
+                            "type": "string",
+                            "description": "Request id"
+                          },
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "userId": {
+                                "type": "string"
+                              },
+                              "verifyUrl": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "x-original-ref": [
+                          "#/components/schemas/CommonResponseProps"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "userId": {
+                                "type": "string"
+                              },
+                              "verifyUrl": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "reqId": "string",
+                      "data": {
+                        "userId": "string",
+                        "verifyUrl": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "x-original-ref": [
+                "#/components/responses/UserCreationResponse"
+              ]
+            }
+          },
+          "slug": "op-post-user",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Create a new user"
+        },
+        "put": {
+          "tags": [
+            "User"
+          ],
+          "operationId": "updateUser",
+          "description": "Update a user",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "userId": {
+                      "type": "string",
+                      "summaryAsHTML": "",
+                      "descriptionAsHTML": "",
+                      "generatedExample": "string"
+                    }
+                  },
+                  "summaryAsHTML": "",
+                  "descriptionAsHTML": "",
+                  "generatedExample": {
+                    "userId": "string"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "User created success response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "allOf": [
+                      {
+                        "xml": {
+                          "name": "CommonResponseProps"
+                        },
+                        "type": "object",
+                        "properties": {
+                          "reqId": {
+                            "type": "string",
+                            "description": "Request id"
+                          },
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "userId": {
+                                "type": "string"
+                              },
+                              "verifyUrl": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "x-original-ref": [
+                          "#/components/schemas/CommonResponseProps"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "userId": {
+                                "type": "string"
+                              },
+                              "verifyUrl": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "summaryAsHTML": "",
+                    "descriptionAsHTML": "",
+                    "generatedExample": {
+                      "reqId": "string",
+                      "data": {
+                        "userId": "string",
+                        "verifyUrl": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "x-original-ref": [
+                "#/components/responses/UserCreationResponse"
+              ]
+            }
+          },
+          "slug": "op-put-user",
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "Update a user"
+        },
+        "endpointName": "user"
+      }
+    },
+    "components": {
+      "responses": {
+        "BtMetadataResponse": {
+          "description": "Metadata response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "xml": {
+                      "name": "CommonResponseProps"
+                    },
+                    "type": "object",
+                    "properties": {
+                      "reqId": {
+                        "type": "string",
+                        "description": "Request id"
+                      }
+                    },
+                    "x-original-ref": [
+                      "#/components/schemas/CommonResponseProps"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "xml": {
+                          "name": "BtMetadata"
+                        },
+                        "type": "object",
+                        "properties": {
+                          "postTimeWait": {
+                            "type": "integer",
+                            "description": "Time in seconds that a user has to wait before posting a new thought"
+                          }
+                        },
+                        "x-original-ref": [
+                          "#/components/schemas/BtMetadata"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "x-original-ref": [
+            "#/components/responses/BtMetadataResponse"
+          ]
+        },
+        "ThoughtResponse": {
+          "description": "A thought",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "xml": {
+                      "name": "CommonResponseProps"
+                    },
+                    "type": "object",
+                    "properties": {
+                      "reqId": {
+                        "type": "string",
+                        "description": "Request id"
+                      }
+                    },
+                    "x-original-ref": [
+                      "#/components/schemas/CommonResponseProps"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "xml": {
+                          "name": "Thought"
+                        },
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Thought id"
+                          },
+                          "userId": {
+                            "type": "string",
+                            "description": "User id that created the thought"
+                          },
+                          "formatted": {
+                            "type": "string",
+                            "description": "Thought with format codes"
+                          },
+                          "text": {
+                            "type": "string",
+                            "description": "Text-only version of the thought"
+                          },
+                          "created": {
+                            "type": "string",
+                            "description": "Unix timestamp of the created thought"
+                          }
+                        },
+                        "x-original-ref": [
+                          "#/components/schemas/Thought"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "x-original-ref": [
+            "#/components/responses/ThoughtResponse"
+          ]
+        },
+        "ThoughtStreamResponse": {
+          "description": "Array of thoughts",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "xml": {
+                      "name": "CommonResponseProps"
+                    },
+                    "type": "object",
+                    "properties": {
+                      "reqId": {
+                        "type": "string",
+                        "description": "Request id"
+                      }
+                    },
+                    "x-original-ref": [
+                      "#/components/schemas/CommonResponseProps"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "thoughts": {
+                            "type": "array",
+                            "items": {
+                              "xml": {
+                                "name": "Thought"
+                              },
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "description": "Thought id"
+                                },
+                                "userId": {
+                                  "type": "string",
+                                  "description": "User id that created the thought"
+                                },
+                                "formatted": {
+                                  "type": "string",
+                                  "description": "Thought with format codes"
+                                },
+                                "text": {
+                                  "type": "string",
+                                  "description": "Text-only version of the thought"
+                                },
+                                "created": {
+                                  "type": "string",
+                                  "description": "Unix timestamp of the created thought"
+                                }
+                              },
+                              "x-original-ref": [
+                                "#/components/schemas/Thought"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "x-original-ref": [
+            "#/components/responses/ThoughtStreamResponse"
+          ]
+        },
+        "GetUserResponse": {
+          "description": "get user success response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "xml": {
+                      "name": "CommonResponseProps"
+                    },
+                    "type": "object",
+                    "properties": {
+                      "reqId": {
+                        "type": "string",
+                        "description": "Request id"
+                      }
+                    },
+                    "x-original-ref": [
+                      "#/components/schemas/CommonResponseProps"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "xml": {
+                          "name": "BtUser"
+                        },
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "User id"
+                          },
+                          "username": {
+                            "type": "string",
+                            "description": "User username"
+                          },
+                          "about": {
+                            "type": "string",
+                            "description": "User's about blurb"
+                          },
+                          "lastPublicPostTime": {
+                            "type": "integer",
+                            "description": "Unix timestamp of last public post",
+                            "default": 0
+                          }
+                        },
+                        "x-original-ref": [
+                          "#/components/schemas/BtUser"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "x-original-ref": [
+            "#/components/responses/GetUserResponse"
+          ]
+        },
+        "UserCreationResponse": {
+          "description": "User created success response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "xml": {
+                      "name": "CommonResponseProps"
+                    },
+                    "type": "object",
+                    "properties": {
+                      "reqId": {
+                        "type": "string",
+                        "description": "Request id"
+                      }
+                    },
+                    "x-original-ref": [
+                      "#/components/schemas/CommonResponseProps"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "userId": {
+                            "type": "string"
+                          },
+                          "verifyUrl": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "x-original-ref": [
+            "#/components/responses/UserCreationResponse"
+          ]
+        }
+      },
+      "parameters": {
+        "qLimit": {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "description": "Pagination limit",
+          "schema": {
+            "type": "number"
+          },
+          "x-original-ref": [
+            "#/components/parameters/qLimit"
+          ]
+        },
+        "qAfterTime": {
+          "name": "afterTime",
+          "in": "query",
+          "required": false,
+          "description": "Pagination after thought creation time",
+          "schema": {
+            "type": "number"
+          },
+          "x-original-ref": [
+            "#/components/parameters/qAfterTime"
+          ]
+        },
+        "qUsername": {
+          "name": "username",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "minLength": 15,
+            "maxLength": 15
+          },
+          "x-original-ref": [
+            "#/components/parameters/qUsername"
+          ]
+        },
+        "pUserId": {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "description": "User Id",
+          "schema": {
+            "type": "string"
+          },
+          "x-original-ref": [
+            "#/components/parameters/pUserId"
+          ]
+        },
+        "pThoughtId": {
+          "name": "thoughtId",
+          "in": "path",
+          "required": true,
+          "description": "Thought id",
+          "schema": {
+            "type": "string",
+            "minLength": 36,
+            "maxLength": 36
+          },
+          "x-original-ref": [
+            "#/components/parameters/pThoughtId"
+          ]
+        }
+      },
+      "schemas": {
+        "CreateUserBody": {
+          "xml": {
+            "name": "CreateUserBody"
+          },
+          "allOf": [
+            {
+              "required": [
+                "username"
+              ],
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "minLength": 36,
+                  "maxLength": 36
+                }
+              }
+            },
+            {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "minLength": 36,
+                  "maxLength": 36
+                }
+              }
+            }
+          ],
+          "x-original-ref": [
+            "#/components/schemas/CreateUserBody"
+          ],
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "",
+          "generatedExample": {
+            "username": "stringstringstringstringstringstring"
+          }
+        },
+        "CommonResponseProps": {
+          "xml": {
+            "name": "CommonResponseProps"
+          },
+          "type": "object",
+          "properties": {
+            "reqId": {
+              "type": "string",
+              "description": "Request id",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Request id",
+              "generatedExample": "string"
+            }
+          },
+          "x-original-ref": [
+            "#/components/schemas/CommonResponseProps"
+          ],
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "",
+          "generatedExample": {
+            "reqId": "string"
+          }
+        },
+        "BtMetadata": {
+          "xml": {
+            "name": "BtMetadata"
+          },
+          "type": "object",
+          "properties": {
+            "postTimeWait": {
+              "type": "integer",
+              "description": "Time in seconds that a user has to wait before posting a new thought",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Time in seconds that a user has to wait before posting a new thought",
+              "generatedExample": 0
+            }
+          },
+          "x-original-ref": [
+            "#/components/schemas/BtMetadata"
+          ],
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "",
+          "generatedExample": {
+            "postTimeWait": 0
+          }
+        },
+        "Thought": {
+          "xml": {
+            "name": "Thought"
+          },
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Thought id",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Thought id",
+              "generatedExample": "string"
+            },
+            "userId": {
+              "type": "string",
+              "description": "User id that created the thought",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "User id that created the thought",
+              "generatedExample": "string"
+            },
+            "formatted": {
+              "type": "string",
+              "description": "Thought with format codes",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Thought with format codes",
+              "generatedExample": "string"
+            },
+            "text": {
+              "type": "string",
+              "description": "Text-only version of the thought",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Text-only version of the thought",
+              "generatedExample": "string"
+            },
+            "created": {
+              "type": "string",
+              "description": "Unix timestamp of the created thought",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Unix timestamp of the created thought",
+              "generatedExample": "string"
+            }
+          },
+          "x-original-ref": [
+            "#/components/schemas/Thought"
+          ],
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "",
+          "generatedExample": {
+            "id": "string",
+            "userId": "string",
+            "formatted": "string",
+            "text": "string",
+            "created": "string"
+          }
+        },
+        "BtUser": {
+          "xml": {
+            "name": "BtUser"
+          },
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "User id",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "User id",
+              "generatedExample": "string"
+            },
+            "username": {
+              "type": "string",
+              "description": "User username",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "User username",
+              "generatedExample": "string"
+            },
+            "about": {
+              "type": "string",
+              "description": "User's about blurb",
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "User's about blurb",
+              "generatedExample": "string"
+            },
+            "lastPublicPostTime": {
+              "type": "integer",
+              "description": "Unix timestamp of last public post",
+              "default": 0,
+              "summaryAsHTML": "",
+              "descriptionAsHTML": "Unix timestamp of last public post",
+              "generatedExample": 0
+            }
+          },
+          "x-original-ref": [
+            "#/components/schemas/BtUser"
+          ],
+          "summaryAsHTML": "",
+          "descriptionAsHTML": "",
+          "generatedExample": {
+            "id": "string",
+            "username": "string",
+            "about": "string",
+            "lastPublicPostTime": 0
+          }
+        }
+      }
+    },
+    "basePath": "",
+    "endpoints": [
+      "meta",
+      "thoughts",
+      "user"
+    ],
+    "__commonPrefix": ""
+  },
+  "base_dir": "/Users/theo/projects/apifire/tests/openapi3",
+  "target_dir": "/Users/theo/projects/apifire/sample",
+  "templates": "/Users/theo/projects/apifire/templates/api-server",
+  "curl": false,
+  "template": "api-server",
+  "package": {
+    "name": "boxed-thoughts-api"
+  }
+}

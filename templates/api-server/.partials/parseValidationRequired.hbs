@@ -1,0 +1,24 @@
+{{#each parameters}}
+  {{#equalContext this in "query"}}
+    {{#if required}}'{{{formatVar name}}}',{{/if}}
+  {{/equalContext}}
+  {{#equalContext this in "path"}}
+    {{#if required}}'{{{formatVar name}}}',{{/if}}
+  {{/equalContext}}
+  {{#equalContext this in "body"}}
+    {{{formatVar name}}}: {{{stringify schema}}},
+  {{/equalContext}}
+{{/each}}
+
+{{#with requestBody}}
+{{#with content.[application/json].schema}}
+  {{#if required}}
+    {{{joinArrStr required}}}
+  {{/if}}
+  {{#each allOf}}
+    {{#if required}}
+      {{{joinArrStr required}}}
+    {{/if}}
+  {{/each}}
+{{/with}}
+{{/with}}

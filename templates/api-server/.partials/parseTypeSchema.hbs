@@ -1,0 +1,28 @@
+{{#each properties}}
+  {{#if description}}
+/**
+* {{{description}}}
+*/
+{{/if}}
+  {{@key}}{{#unless required}}?{{/unless}}: {{#isLoneObj this}}{
+{{> parseTypeSchema this}}
+}{{else}}{{{tsType type this}}}{{/isLoneObj}}
+{{/each}}
+
+{{#equalContext this type "array"}}
+items: Array<{{#if items.[x-original-ref]}}
+{{parseRef items.[x-original-ref]}}
+{{else}}
+{{#equalContext this items.type "object"}}
+{
+{{> parseTypeSchema items}}
+}
+{{else}}
+    {{> parseTypeSchema items}}
+{{/equalContext}}
+{{/if}}>
+{{/equalContext}}
+
+{{#if allOf}}
+  {{> parseTypeSchema (combineAllOf allOf)}}
+{{/if}}

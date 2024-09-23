@@ -1,0 +1,733 @@
+openapi: 3.0.0
+info:
+  title: Boxed Thoughts API
+  version: '1.0'
+  description: ''
+  contact:
+    name: Theo Gravity
+    email: theo@suteki.nu
+servers:
+  - url: 'https://api.boxedthoughts.com/v1'
+paths:
+  '/account/{pAccountId}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account:
+                    $ref: '#/components/schemas/Account'
+      operationId: getAccountInfo
+      description: Get account info
+      parameters: []
+    post:
+      summary: ''
+      operationId: createAccount
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: Created account id
+                    format: uuid
+                required:
+                  - id
+      description: Creates a new account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: Account email
+                  format: email
+                passHash:
+                  type: string
+                  description: Hashed password
+                authType:
+                  type: string
+                  description: Authentication type
+                verifyCode:
+                  type: string
+                  description: Code to verify account
+              required:
+                - email
+                - passHash
+                - authType
+                - verifyCode
+        description: ''
+    patch:
+      summary: ''
+      operationId: updateAccount
+      responses:
+        '200':
+          description: OK
+      description: Update account info
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+    parameters:
+      - schema:
+          type: string
+        name: pAccountId
+        in: path
+        required: true
+        description: Account id in path
+  /account/exists:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    type: boolean
+                  username:
+                    type: boolean
+      operationId: checkAccountExists
+      description: Checks if an email or username already exists
+      parameters:
+        - schema:
+            type: string
+            format: email
+          in: query
+          name: email
+          description: Account email
+        - schema:
+            type: string
+            minLength: 1
+            maxLength: 15
+            pattern: '^[A-Za-z0-9_]+'
+          in: query
+          name: username
+          description: Persona username
+    parameters: []
+  '/persona/{pPersonaId}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      operationId: getPersona
+      description: Get a persona
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  persona:
+                    $ref: '#/components/schemas/Persona'
+    patch:
+      summary: ''
+      operationId: updatePersona
+      responses:
+        '200':
+          description: OK
+      description: Updates persona details
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                about:
+                  type: string
+    parameters:
+      - schema:
+          type: string
+        name: pPersonaId
+        in: path
+        required: true
+        description: Persona id in path
+  /account/verifyEmail:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      operationId: verifyAccount
+      description: Verify an account email
+      parameters:
+        - schema:
+            type: string
+            format: email
+          in: query
+          name: email
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: verifyCode
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+    parameters: []
+  /thoughts:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  thoughts:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Thought'
+      operationId: getThoughts
+      description: Get the thoughtstream
+      parameters:
+        - schema:
+            type: number
+            maximum: 100
+            minimum: 1
+          in: query
+          name: limit
+        - schema:
+            type: string
+          in: query
+          name: after
+        - schema:
+            type: string
+            pattern: '^[A-Za-z0-9_]+'
+          in: query
+          name: username
+          description: 'If specified, sorts by a username'
+    post:
+      summary: ''
+      operationId: createThought
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  personaId:
+                    type: string
+                    format: uuid
+                  id:
+                    type: string
+                    format: uuid
+                    description: Thought id
+      description: Create a thought
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                personaId:
+                  type: string
+                  format: uuid
+                content:
+                  type: string
+                  description: The thought content
+                options:
+                  description: Content type options in JSON
+                  type: object
+                type:
+                  type: string
+                  enum:
+                    - bt-code
+                  description: The thought content type
+                visibilityType:
+                  type: string
+                  enum:
+                    - public
+                    - friends
+                    - self
+                  description: To whom the thought should be shown
+              required:
+                - personaId
+                - content
+                - type
+                - visibilityType
+        description: ''
+  /config:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  postTime:
+                    type: number
+                  postingDisabled:
+                    type: boolean
+                    description: If site-wide posting should be disabled
+                  commentLagTime:
+                    type: number
+                    description: Number of seconds a user has to wait between making comments
+                  maintenanceMode:
+                    type: boolean
+                    description: Enter maintenance mode?
+                required:
+                  - postTime
+                  - postingDisabled
+                  - commentLagTime
+                  - maintenanceMode
+      operationId: getSystemConfig
+      description: Gets system configuration
+  '/thoughts/{pThoughtId}/comments':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  comments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ThoughtComment'
+      operationId: getThoughtComments
+      description: Get thought comments
+    parameters:
+      - schema:
+          type: string
+        name: pThoughtId
+        in: path
+        required: true
+        description: Thought id in path
+    post:
+      summary: ''
+      operationId: addThoughtComment
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: Thought id
+      description: Add a comment to a thought
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                personaId:
+                  type: string
+                comment:
+                  type: string
+  '/thoughts/{pThoughtId}':
+    parameters:
+      - schema:
+          type: string
+        name: pThoughtId
+        in: path
+        required: true
+        description: Thought id in path
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  thought:
+                    $ref: '#/components/schemas/Thought'
+      operationId: getThoughtById
+      description: Get a thought by id
+    patch:
+      summary: ''
+      operationId: updateThought
+      responses:
+        '200':
+          description: OK
+      description: Updates a thought
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                visibility:
+                  type: string
+  /persona:
+    post:
+      summary: createPersona
+      operationId: createPersona
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    description: Persona id
+      description: Creates a new persona
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accountId:
+                  type: string
+                  format: uuid
+                username:
+                  type: string
+                  pattern: '^[A-Za-z0-9_]+'
+                  minLength: 1
+                  maxLength: 15
+                about:
+                  type: string
+                age:
+                  type: number
+                  x-stoplight:
+                    id: ss0bkucmdguxp
+              required:
+                - accountId
+                - username
+                - about
+          application/javascript:
+            schema:
+              type: object
+              properties: {}
+        description: ''
+  /account/forgotPass:
+    post:
+      summary: ''
+      operationId: sendForgotPass
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+        description: ''
+      description: Sends a forgot password e-mail
+  /account/forgotPass/verify:
+    post:
+      summary: ''
+      operationId: verifyForgotPass
+      responses:
+        '200':
+          description: OK
+      description: Verifies forgot pass code and updates account password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+  '/persona/{pPersonaId}/blocked':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  blocked:
+                    type: array
+                    description: An array of blocked personas
+                    items:
+                      $ref: '#/components/schemas/BlockedPersona'
+      operationId: getBlockedPersonas
+      description: Gets the user's blocked list of personas
+    parameters:
+      - schema:
+          type: string
+        name: pPersonaId
+        in: path
+        required: true
+        description: Persona id in path
+    patch:
+      summary: ''
+      operationId: addBlockedPersona
+      responses:
+        '200':
+          description: OK
+      description: Adds a persona to the block list
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                personaId:
+                  type: string
+                  format: uuid
+              required:
+                - personaId
+        description: ''
+    delete:
+      summary: ''
+      operationId: removeBlockedPersona
+      responses:
+        '200':
+          description: OK
+      description: Removes a persona from the block list
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                personaId:
+                  type: string
+                  format: uuid
+  '/account/{pAccountId}/personas':
+    parameters:
+      - schema:
+          type: string
+        name: pAccountId
+        in: path
+        required: true
+        description: Account id in path
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  personas:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Persona'
+      operationId: getAccountPersonas
+      description: Gets the personas associated with the account
+components:
+  schemas:
+    Thought:
+      title: Thought
+      type: object
+      description: A Thought
+      properties:
+        id:
+          type: string
+          format: uuid
+        accountId:
+          type: string
+          format: uuid
+        personaId:
+          type: string
+          format: uuid
+        username:
+          type: string
+          pattern: '^[A-Za-z0-9_]+'
+          minLength: 1
+          maxLength: 15
+        content:
+          type: string
+          description: The thought content
+        options:
+          type: object
+          description: Content type options
+        type:
+          type: string
+          enum:
+            - bt-code
+          description: The thought content type
+        commentCount:
+          type: number
+          default: 0
+          description: Number of comments made for the thought
+        visibilityType:
+          type: string
+          default: public
+          enum:
+            - public
+            - friends
+            - self
+            - deleted
+          description: To whom the thought should be shown
+        created:
+          type: integer
+          format: int64
+          description: Unix timestamp in UTC
+        updated:
+          type: integer
+          description: Unix timestamp in UTC
+          format: int64
+      required:
+        - id
+        - accountId
+        - personaId
+        - username
+        - content
+        - type
+        - visibilityType
+      x-examples: {}
+    Account:
+      title: Account
+      type: object
+      description: An account that holds personas
+      properties:
+        id:
+          type: string
+          description: Account id
+          format: uuid
+        email:
+          type: string
+          description: Account email
+        passHash:
+          type: string
+          description: Hashed password
+        authType:
+          type: string
+          description: Authentication type
+          default: arg2
+          enum:
+            - arg2
+        verified:
+          type: boolean
+      required:
+        - id
+        - authType
+    Persona:
+      title: Persona
+      type: object
+      description: A user that is able to post thoughts
+      properties:
+        id:
+          type: string
+          format: uuid
+        username:
+          type: string
+          pattern: '^[A-Za-z0-9_]+'
+          minLength: 1
+          maxLength: 15
+        about:
+          type: string
+          description: User profile blurb
+        lastCommentTime:
+          type: integer
+          format: int64
+          description: Last time user made a comment in unix timestamp format
+        lastPostTime:
+          type: integer
+          format: int64
+          description: Last time user posted in unix timestamp format
+        thoughtCount:
+          type: number
+          default: 0
+        created:
+          type: integer
+          format: int64
+        disabled:
+          type: boolean
+      required:
+        - id
+        - username
+        - lastPostTime
+    ThoughtComment:
+      title: ThoughtComment
+      type: object
+      description: A comment on a thought
+      properties:
+        id:
+          type: string
+          format: uuid
+        thoughtId:
+          type: string
+          format: uuid
+        personaId:
+          type: string
+          format: uuid
+        username:
+          type: string
+          minLength: 1
+          maxLength: 15
+          pattern: '^[A-Za-z0-9_]+'
+        comment:
+          type: string
+        created:
+          type: integer
+          format: int64
+          description: Unix timestamp in UTC
+    BlockedPersona:
+      title: BlockedPersona
+      type: object
+      properties:
+        personaId:
+          type: string
+          format: uuid
+        username:
+          type: string
+      description: A blocked persona
+  requestBodies: {}

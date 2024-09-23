@@ -1,0 +1,12 @@
+.git*
+test/
+.DS_Store
+*.swp
+sample/
+tests/
+.idea/
+
+.editorconfig
+.eslintignore
+.eslintrc
+

@@ -1,0 +1,31 @@
+{{#with content.[application/json].schema}}
+{{#if properties}}
+  {{> reqParams this}}
+{{/if}}
+
+{{#if allOf}}
+  {{> reqParams (combineAllOf allOf)}}
+{{/if}}
+{{/with}}
+
+{{#equal type "array"}}
+items: [],
+{{/equal}}
+
+{{#each properties}}
+{{#equal type "array"}}
+{{{formatVar @key}}}: req.body.{{@key}} as Array<any>,
+{{/equal}}
+{{#equal type "string"}}
+{{{formatVar @key}}}: req.body.{{@key}} as string,
+{{/equal}}
+{{#equal type "integer"}}
+{{{formatVar @key}}}: req.body.{{@key}} as number,
+{{/equal}}
+{{#equal type "number"}}
+{{{formatVar @key}}}: req.body.{{@key}} as number,
+{{/equal}}
+{{#equal type ''}}
+{{{formatVar @key}}}: {{{handleParam (tsType type ..) @key "req.body."}}} as {{{tsType type ..}}},
+{{/equal}}
+{{/each}}
