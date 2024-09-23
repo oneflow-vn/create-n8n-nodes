@@ -67,6 +67,8 @@
     "n8n-workflow": "^1.48.0",
     "oas-validator": "^5.0.8",
     "openapi-sampler": "^1.2.3",
+    "postman-to-openapi": "^3.0.1",
+    "postman-to-swagger": "tecfu/postman-to-swagger",
     "prettier-standard": "^16.4.1",
     "project-name-generator": "^2.1.9",
     "slugg": "^1.2.1",
