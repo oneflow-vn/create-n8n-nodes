@@ -4,6 +4,15 @@ module.exports = {
   packageName: 'n8n-nodes-larksuite',
   credentials: {},
   nodes: {
+    larkAuth: {
+      displayName: 'Lark Auth',
+      name: 'LarkAuth',
+      description: 'Lark Auth Management',
+      openapi: path.resolve(__dirname, 'lark.yml'),
+      tags: [new RegExp('^API Access Token.*')],
+      icon: 'fa:lock',
+      baseUrl: 'https://open.larksuite.com',
+    },
     larkFiles: {
       displayName: 'Lark Files',
       name: 'LarkFiles',
@@ -11,7 +20,7 @@ module.exports = {
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Docs > File Management.*')],
       icon: 'fa:file',
-      baseUrl: 'https://open.feishu.cn/open-apis',
+      baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkSheets: {
       displayName: 'Lark Sheets',
@@ -20,7 +29,7 @@ module.exports = {
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Docs > Sheets.*')],
       icon: 'fa:table',
-      baseUrl: 'https://open.feishu.cn/open-apis',
+      baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkBitable: {
       displayName: 'Lark Bitable',
@@ -29,7 +38,7 @@ module.exports = {
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Docs > Bitable.*')],
       icon: 'fa:table',
-      baseUrl: 'https://open.feishu.cn/open-apis',
+      baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkContacts: {
       displayName: 'Lark Contacts',
@@ -38,7 +47,7 @@ module.exports = {
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Contacts.*')],
       icon: 'fa:address-book',
-      baseUrl: 'https://open.feishu.cn/open-apis',
+      baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkCalendar: {
       displayName: 'Lark Calendar',
@@ -47,7 +56,7 @@ module.exports = {
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Calendar.*')],
       icon: 'fa:calendar',
-      baseUrl: 'https://open.feishu.cn/open-apis',
+      baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkMessenger: {
       displayName: 'Lark Messenger',
@@ -56,7 +65,7 @@ module.exports = {
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Messenger.*')],
       icon: 'fa:comment',
-      baseUrl: 'https://open.feishu.cn/open-apis',
+      baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkAttendance: {
       displayName: 'Lark Attendance',
@@ -65,7 +74,7 @@ module.exports = {
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Attendance*')],
       icon: 'fa:clock',
-      baseUrl: 'https://open.feishu.cn/open-apis',
+      baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkApproval: {
       displayName: 'Lark Approval',
@@ -74,7 +83,7 @@ module.exports = {
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Approval.*')],
       icon: 'fa:check',
-      baseUrl: 'https://open.feishu.cn/open-apis',
+      baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkApps: {
       displayName: 'Lark Apps',
@@ -83,7 +92,7 @@ module.exports = {
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^App Information.*')],
       icon: 'fa:info',
-      baseUrl: 'https://open.feishu.cn/open-apis',
+      baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkAI: {
       displayName: 'Lark AI',
@@ -92,7 +101,7 @@ module.exports = {
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^AI.*')],
       icon: 'fa:robot',
-      baseUrl: 'https://open.feishu.cn/open-apis',
+      baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkCompany: {
       displayName: 'Lark Company',
@@ -101,7 +110,7 @@ module.exports = {
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Company Information.*')],
       icon: 'fa:building',
-      baseUrl: 'https://open.feishu.cn/open-apis',
+      baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkEmail: {
       displayName: 'Lark Email',
@@ -110,7 +119,7 @@ module.exports = {
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Email.*')],
       icon: 'fa:envelope',
-      baseUrl: 'https://open.feishu.cn/open-apis',
+      baseUrl: 'https://open.larksuite.com/open-apis',
     },
   },
 };
