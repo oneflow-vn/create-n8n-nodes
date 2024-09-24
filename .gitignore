@@ -4,3 +4,4 @@ npm-debug.log
 tests/generated*
 .idea/
 sample/
+generated/

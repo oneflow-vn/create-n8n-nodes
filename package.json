@@ -8,7 +8,8 @@
   },
   "scripts": {
     "toc": "toc-md README.md README.md",
-    "generate:petstore": "rm -rf sample && ./cli.js -o sample tests/openapi3/petstorev3.json n8n-nodes"
+    "generate:petstore": "rm -rf sample && ./cli.js -o sample tests/openapi3/petstorev3.json n8n-nodes",
+    "generate:larksuite": "rm -rf sample && ./cli.js -o sample tests/postman/lark.yml n8n-nodes"
   },
   "bugs": {
     "url": "https://github.com/theogravity/apifire/issues"
