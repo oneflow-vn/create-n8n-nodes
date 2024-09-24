@@ -62,14 +62,19 @@ if (options.config && options.config.nodes) {
 process.on('unhandledRejection', (err) => console.error(err));
 
 function runMultipleGenerators (options) {
-  for (const node of Object.values(options.config.nodes)) {
+  const { name } = options;
+  for (const [key, node] of Object.entries(options.config.nodes)) {
+    if (name && key !== name) {
+      continue;
+    }
+
     const nodeOptions = _.merge({}, options, node);
     runGenerator(nodeOptions);
   }
 }
 
 function runGenerator (options) {
-  console.log(yellow('Generating Node'));
+  console.log(yellow('Generating Node'), options.name || '');
 
   generator.generate({
     openapi: openapiFile,

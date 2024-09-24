@@ -72,7 +72,7 @@ module.exports = {
       name: 'LarkApproval',
       description: 'Lark Approval Management',
       openapi: path.resolve(__dirname, 'lark.yml'),
-      tags: [new RegExp('^Approval*')],
+      tags: [new RegExp('^Approval.*')],
       icon: 'fa:check',
       baseUrl: 'https://open.feishu.cn/open-apis',
     },
