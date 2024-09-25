@@ -5,7 +5,7 @@ export class LarkAttendance implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Attendance',
     name: 'LarkAttendance',
-    icon: 'fa:clock',
+    icon: 'file:./icons/larkatentance.png',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',

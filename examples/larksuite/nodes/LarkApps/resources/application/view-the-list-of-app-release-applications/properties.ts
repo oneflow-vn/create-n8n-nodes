@@ -19,7 +19,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Lang',
     name: 'lang',
-    default: 'zh_cn',
+    default: '',
     type: 'string',
     routing: {
       request: {

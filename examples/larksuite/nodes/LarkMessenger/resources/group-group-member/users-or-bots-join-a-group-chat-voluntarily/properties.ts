@@ -20,21 +20,8 @@ export const properties: INodeProperties[] = [
     displayName: 'Chat Id',
     name: 'chat_id',
     required: true,
-    default: 'oc_a0553eda9014c201e6969b478895c230',
-    type: 'string',
-    displayOptions: {
-      show: {
-        resource: ['Messenger Group Group Member'],
-        operation: ['Users or bots join a group chat voluntarily'],
-      },
-    },
-  },
-  {
-    displayName:
-      "PATCH /im/v1/chats/{chat_id}/members/me_join<br/><br/>There's no body available for request, kindly use HTTP Request node to send body",
-    name: 'operation',
-    type: 'notice',
     default: '',
+    type: 'string',
     displayOptions: {
       show: {
         resource: ['Messenger Group Group Member'],

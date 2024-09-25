@@ -19,7 +19,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Type',
     name: 'type',
-    default: 'image',
+    default: '',
     type: 'string',
     routing: {
       request: {
@@ -39,7 +39,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Message Id',
     name: 'message_id',
     required: true,
-    default: 'om_dc13264520392913993dd051dba21dcf',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {
@@ -52,7 +52,7 @@ export const properties: INodeProperties[] = [
     displayName: 'File Key',
     name: 'file_key',
     required: true,
-    default: 'file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

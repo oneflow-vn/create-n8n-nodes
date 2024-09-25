@@ -16,17 +16,4 @@ export const properties: INodeProperties[] = [
       },
     },
   },
-  {
-    displayName:
-      "POST /calendar/v4/calendars/subscription<br/><br/>There's no body available for request, kindly use HTTP Request node to send body",
-    name: 'operation',
-    type: 'notice',
-    default: '',
-    displayOptions: {
-      show: {
-        resource: ['Calendar Calendar'],
-        operation: ['Subscribe to calendar change events'],
-      },
-    },
-  },
 ]

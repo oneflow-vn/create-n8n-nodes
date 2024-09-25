@@ -20,7 +20,7 @@ export const properties: INodeProperties[] = [
     displayName: 'User Id',
     name: 'user_id',
     required: true,
-    default: 'ou_7dab8a3d3cdcc9da365777c7ad535d62',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

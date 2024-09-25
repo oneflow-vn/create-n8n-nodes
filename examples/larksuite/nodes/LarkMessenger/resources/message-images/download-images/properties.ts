@@ -20,7 +20,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Image Key',
     name: 'image_key',
     required: true,
-    default: 'img_8d5181ca-0aed-40f0-b0d1-b1452132afbg',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

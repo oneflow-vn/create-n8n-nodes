@@ -16,17 +16,4 @@ export const properties: INodeProperties[] = [
       },
     },
   },
-  {
-    displayName:
-      "POST /drive/v1/files/upload_all<br/><br/>There's no body available for request, kindly use HTTP Request node to send body",
-    name: 'operation',
-    type: 'notice',
-    default: '',
-    displayOptions: {
-      show: {
-        resource: ['Docs File Management File'],
-        operation: ['Upload a file'],
-      },
-    },
-  },
 ]

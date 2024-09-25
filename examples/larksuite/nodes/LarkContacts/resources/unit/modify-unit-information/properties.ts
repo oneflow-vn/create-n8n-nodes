@@ -20,7 +20,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Unit Id',
     name: 'unit_id',
     required: true,
-    default: 'BU121',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

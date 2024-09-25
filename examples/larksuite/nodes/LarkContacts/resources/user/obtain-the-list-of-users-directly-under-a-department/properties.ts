@@ -19,7 +19,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Department Id',
     name: 'department_id',
-    default: 'od-xxxxxxxxxxxxx',
+    default: '',
     type: 'string',
     routing: {
       request: {

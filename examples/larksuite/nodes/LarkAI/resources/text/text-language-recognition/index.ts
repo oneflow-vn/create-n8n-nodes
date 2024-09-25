@@ -1,8 +1,10 @@
-import { properties } from './properties'
+import { INodePropertyOptions } from 'n8n-workflow'
+import { properties as rawProperties } from './properties'
+import runHooks from './hooks'
 
 export const name = 'Text language recognition'
 
-const option = {
+const rawOption: INodePropertyOptions = {
   name: 'Text language recognition',
   value: 'Text language recognition',
   action: 'Text language recognition',
@@ -13,5 +15,7 @@ const option = {
     },
   },
 }
+
+const { properties, option } = runHooks(rawOption, rawProperties)
 
 export { option, properties }

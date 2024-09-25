@@ -5,7 +5,7 @@ export class LarkAI implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark AI',
     name: 'LarkAI',
-    icon: 'fa:robot',
+    icon: 'file:./icons/larkai.png',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',

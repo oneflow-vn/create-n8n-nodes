@@ -5,7 +5,7 @@ export class LarkBitable implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Bitable',
     name: 'LarkBitable',
-    icon: 'fa:table',
+    icon: 'file:./icons/larkdocs.svg',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',

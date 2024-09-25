@@ -20,7 +20,7 @@ export const properties: INodeProperties[] = [
     displayName: 'File Token',
     name: 'file_token',
     required: true,
-    default: 'boxcnabCdefg12345',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

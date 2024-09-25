@@ -5,7 +5,7 @@ export class LarkApps implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Apps',
     name: 'LarkApps',
-    icon: 'fa:info',
+    icon: 'file:./icons/larkapp.svg',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',

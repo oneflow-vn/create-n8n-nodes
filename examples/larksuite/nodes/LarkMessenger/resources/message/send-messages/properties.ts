@@ -19,7 +19,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Receive Id Type',
     name: 'receive_id_type',
-    default: 'open_id',
+    default: '',
     type: 'string',
     routing: {
       request: {

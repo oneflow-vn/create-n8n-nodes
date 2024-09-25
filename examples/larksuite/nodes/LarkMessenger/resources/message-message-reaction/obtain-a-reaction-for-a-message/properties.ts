@@ -19,7 +19,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Reaction Type',
     name: 'reaction_type',
-    default: 'LAUGH',
+    default: '',
     type: 'string',
     routing: {
       request: {
@@ -39,7 +39,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Message Id',
     name: 'message_id',
     required: true,
-    default: 'om_8964d1b4*********2b31383276113',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

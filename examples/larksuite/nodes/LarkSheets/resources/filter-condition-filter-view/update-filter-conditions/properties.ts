@@ -21,7 +21,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Spreadsheet Token',
     name: 'spreadsheet_token',
     required: true,
-    default: 'shtcnmBA*****yGehy8',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {
@@ -34,7 +34,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Sheet Id',
     name: 'sheet_id',
     required: true,
-    default: '0b**12',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {
@@ -47,7 +47,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Filter View Id',
     name: 'filter_view_id',
     required: true,
-    default: 'pH9hbVcCXA',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {
@@ -60,7 +60,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Condition Id',
     name: 'condition_id',
     required: true,
-    default: 'E',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

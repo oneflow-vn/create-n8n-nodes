@@ -5,7 +5,7 @@ export class LarkContacts implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Contacts',
     name: 'LarkContacts',
-    icon: 'fa:address-book',
+    icon: 'file:./icons/lark.png',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',

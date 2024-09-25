@@ -19,7 +19,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Employee Type',
     name: 'employee_type',
-    default: 'employee_id',
+    default: '',
     type: 'string',
     routing: {
       request: {
@@ -38,7 +38,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Dept Type',
     name: 'dept_type',
-    default: 'od-fcb45c28a45311afd441b8869541ece8',
+    default: '',
     type: 'string',
     routing: {
       request: {

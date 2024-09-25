@@ -21,7 +21,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Public Mailbox Id',
     name: 'public_mailbox_id',
     required: true,
-    default: 'xxxxxxxxxxxxxxx or test_public_mailbox@xxx.xx',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {
@@ -34,7 +34,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Member Id',
     name: 'member_id',
     required: true,
-    default: 'xxxxxxxxxxxxxxx',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

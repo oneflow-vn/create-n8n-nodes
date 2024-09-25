@@ -19,7 +19,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Container Id Type',
     name: 'container_id_type',
-    default: 'chat',
+    default: '',
     type: 'string',
     routing: {
       request: {
@@ -38,7 +38,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Container Id',
     name: 'container_id',
-    default: 'oc_234jsi43d3ssi993d43545f',
+    default: '',
     type: 'string',
     routing: {
       request: {

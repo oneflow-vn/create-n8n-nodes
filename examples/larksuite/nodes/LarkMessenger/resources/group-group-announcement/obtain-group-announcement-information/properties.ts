@@ -20,7 +20,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Chat Id',
     name: 'chat_id',
     required: true,
-    default: 'oc_5ad11d72b830411d72b836c20',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

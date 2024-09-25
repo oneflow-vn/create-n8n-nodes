@@ -20,7 +20,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Message Id',
     name: 'message_id',
     required: true,
-    default: 'om_8964d1b4*********2b31383276113',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {
@@ -33,7 +33,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Reaction Id',
     name: 'reaction_id',
     required: true,
-    default: 'ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

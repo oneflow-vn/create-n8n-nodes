@@ -8,7 +8,46 @@ import * as publicMailbox from './public-mailbox'
 import * as publicMailboxMember from './public-mailbox-member'
 import * as publicMailboxAlias from './public-mailbox-alias'
 
+const resourceSelect: INodeProperties = {
+  displayName: 'Resource',
+  name: 'resource',
+  type: 'options',
+  noDataExpression: true,
+  options: [
+    {
+      name: 'Mail Group',
+      value: 'Email Mail Group',
+    },
+    {
+      name: 'Mail Group Member',
+      value: 'Email Mail Group Member',
+    },
+    {
+      name: 'Mail Group Permission Member',
+      value: 'Email Mail Group Permission Member',
+    },
+    {
+      name: 'Mail Group Alias',
+      value: 'Email Mail Group Alias',
+    },
+    {
+      name: 'Public Mailbox',
+      value: 'Email Public Mailbox',
+    },
+    {
+      name: 'Public Mailbox Member',
+      value: 'Email Public Mailbox Member',
+    },
+    {
+      name: 'Public Mailbox Alias',
+      value: 'Email Public Mailbox Alias',
+    },
+  ],
+  default: '',
+}
+
 export const properties: INodeProperties[] = [
+  resourceSelect,
   ...mailGroup.properties,
   ...mailGroupMember.properties,
   ...mailGroupPermissionMember.properties,

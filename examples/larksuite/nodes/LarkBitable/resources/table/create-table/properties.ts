@@ -20,7 +20,7 @@ export const properties: INodeProperties[] = [
     displayName: 'App Token',
     name: 'app_token',
     required: true,
-    default: 'appbcbWCzen6D8dezhoCH2RpMAh',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

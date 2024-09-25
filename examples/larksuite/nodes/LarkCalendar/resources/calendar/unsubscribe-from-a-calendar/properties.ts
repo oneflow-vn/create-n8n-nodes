@@ -20,21 +20,8 @@ export const properties: INodeProperties[] = [
     displayName: 'Calendar Id',
     name: 'calendar_id',
     required: true,
-    default: 'larksuite.com_xxxxxxxxxx@group.calendar.larksuite.com',
-    type: 'string',
-    displayOptions: {
-      show: {
-        resource: ['Calendar Calendar'],
-        operation: ['Unsubscribe from a calendar'],
-      },
-    },
-  },
-  {
-    displayName:
-      "POST /calendar/v4/calendars/{calendar_id}/unsubscribe<br/><br/>There's no body available for request, kindly use HTTP Request node to send body",
-    name: 'operation',
-    type: 'notice',
     default: '',
+    type: 'string',
     displayOptions: {
       show: {
         resource: ['Calendar Calendar'],

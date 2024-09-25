@@ -21,7 +21,7 @@ export const properties: INodeProperties[] = [
     displayName: 'App Token',
     name: 'app_token',
     required: true,
-    default: 'AppbcbWCzen6D8dezhoCH2RpMAh',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {
@@ -34,7 +34,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Table Id',
     name: 'table_id',
     required: true,
-    default: 'TblsRc9GRRXKqhvW',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {
@@ -47,7 +47,7 @@ export const properties: INodeProperties[] = [
     displayName: 'View Id',
     name: 'view_id',
     required: true,
-    default: 'VIVWTpR1urY',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

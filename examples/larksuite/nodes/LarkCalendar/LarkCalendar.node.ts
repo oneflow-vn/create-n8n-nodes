@@ -5,7 +5,7 @@ export class LarkCalendar implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Calendar',
     name: 'LarkCalendar',
-    icon: 'fa:calendar',
+    icon: 'file:./icons/larkcalendar.svg',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',

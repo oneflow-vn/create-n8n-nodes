@@ -17,25 +17,6 @@ export const properties: INodeProperties[] = [
     },
   },
   {
-    displayName: 'Content Type',
-    name: 'Content-Type',
-    default: 'application/json; charset=utf-8',
-    type: 'string',
-    routing: {
-      request: {
-        headers: {
-          'Content-Type': '={{ $value }}',
-        },
-      },
-    },
-    displayOptions: {
-      show: {
-        resource: ['API Access Token Store Apps'],
-        operation: ['Repush appticket'],
-      },
-    },
-  },
-  {
     displayName: 'App Id',
     name: 'app_id',
     type: 'string',

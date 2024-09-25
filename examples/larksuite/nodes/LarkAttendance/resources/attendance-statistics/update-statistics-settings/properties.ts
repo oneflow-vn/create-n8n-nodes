@@ -19,7 +19,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Employee Type',
     name: 'employee_type',
-    default: 'employee_id',
+    default: '',
     type: 'string',
     routing: {
       request: {
@@ -39,7 +39,7 @@ export const properties: INodeProperties[] = [
     displayName: 'User Stats View Id',
     name: 'user_stats_view_id',
     required: true,
-    default: 'TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

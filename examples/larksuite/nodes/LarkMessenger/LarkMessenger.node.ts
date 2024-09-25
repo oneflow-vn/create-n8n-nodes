@@ -5,7 +5,7 @@ export class LarkMessenger implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Messenger',
     name: 'LarkMessenger',
-    icon: 'fa:comment',
+    icon: 'file:./icons/larkmessage.svg',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',

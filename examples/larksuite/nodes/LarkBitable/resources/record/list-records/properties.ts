@@ -20,7 +20,7 @@ export const properties: INodeProperties[] = [
     displayName: 'App Token',
     name: 'app_token',
     required: true,
-    default: 'bascnd0HM3KAyiZJELxfMHRrGZc',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {
@@ -33,7 +33,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Table Id',
     name: 'table_id',
     required: true,
-    default: 'tblEGB3HKvDrpj71',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

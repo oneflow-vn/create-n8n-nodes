@@ -19,31 +19,12 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Authorization',
     name: 'Authorization',
-    default: 'Bearer {{app_access_token}}',
+    default: '',
     type: 'string',
     routing: {
       request: {
         headers: {
           Authorization: '={{ $value }}',
-        },
-      },
-    },
-    displayOptions: {
-      show: {
-        resource: ['API Access Token User ID'],
-        operation: ['Refresh accesstoken'],
-      },
-    },
-  },
-  {
-    displayName: 'Content Type',
-    name: 'Content-Type',
-    default: 'application/json; charset=utf-8',
-    type: 'string',
-    routing: {
-      request: {
-        headers: {
-          'Content-Type': '={{ $value }}',
         },
       },
     },

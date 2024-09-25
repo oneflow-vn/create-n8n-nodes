@@ -1,6 +1,8 @@
-import { INodeProperties } from 'n8n-workflow'
+import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
 
 import * as basicImageRecognitionOcr from './basic-image-recognition-ocr'
+
+const operations: INodePropertyOptions[] = [basicImageRecognitionOcr.option]
 
 export const name = 'Image Recognition'
 
@@ -14,21 +16,14 @@ const operationSelect: INodeProperties = {
       resource: ['AI Optical Character Recognition Image Recognition'],
     },
   },
-  options: [
-    {
-      name: 'Basic image recognition OCR',
-      value: 'Basic image recognition OCR',
-      action: 'Basic image recognition (OCR)',
-      routing: {
-        request: {
-          method: 'POST',
-          url: '=/optical_char_recognition/v1/image/basic_recognize',
-        },
-      },
-    },
-  ],
   default: '',
 }
+
+// overwrite the options of the operationSelect
+operationSelect.options = operations
+
+// set the default operation
+operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
 export const properties: INodeProperties[] = [
   operationSelect,

@@ -19,7 +19,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Redirect Uri',
     name: 'redirect_uri',
-    default: '{{REDIRECT_URI}}',
+    default: '',
     type: 'string',
     routing: {
       request: {
@@ -38,7 +38,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'App Id',
     name: 'app_id',
-    default: '{{app_id}}',
+    default: '',
     type: 'string',
     routing: {
       request: {
@@ -57,7 +57,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'State',
     name: 'state',
-    default: '{{STATE}}',
+    default: '',
     type: 'string',
     routing: {
       request: {

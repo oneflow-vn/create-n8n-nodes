@@ -1,7 +1,12 @@
-import { INodeProperties } from 'n8n-workflow'
+import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
 
 import * as streamingSpeechRecognitionAsr from './streaming-speech-recognition-asr'
 import * as audioFileSpeechRecognitionAsr from './audio-file-speech-recognition-asr'
+
+const operations: INodePropertyOptions[] = [
+  streamingSpeechRecognitionAsr.option,
+  audioFileSpeechRecognitionAsr.option,
+]
 
 export const name = 'Speech Recognition'
 
@@ -15,32 +20,14 @@ const operationSelect: INodeProperties = {
       resource: ['AI Speech To Text Speech Recognition'],
     },
   },
-  options: [
-    {
-      name: 'Streaming speech recognition ASR',
-      value: 'Streaming speech recognition ASR',
-      action: 'Streaming speech recognition (ASR)',
-      routing: {
-        request: {
-          method: 'POST',
-          url: '=/speech_to_text/v1/speech/stream_recognize',
-        },
-      },
-    },
-    {
-      name: 'Audio file speech recognition ASR',
-      value: 'Audio file speech recognition ASR',
-      action: 'Audio file speech recognition (ASR)',
-      routing: {
-        request: {
-          method: 'POST',
-          url: '=/speech_to_text/v1/speech/file_recognize',
-        },
-      },
-    },
-  ],
   default: '',
 }
+
+// overwrite the options of the operationSelect
+operationSelect.options = operations
+
+// set the default operation
+operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
 export const properties: INodeProperties[] = [
   operationSelect,

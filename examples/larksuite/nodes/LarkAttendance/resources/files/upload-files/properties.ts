@@ -19,7 +19,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'File Name',
     name: 'file_name',
-    default: '人脸照片.jpg',
+    default: '',
     type: 'string',
     routing: {
       request: {
@@ -28,19 +28,6 @@ export const properties: INodeProperties[] = [
         },
       },
     },
-    displayOptions: {
-      show: {
-        resource: ['Attendance Files'],
-        operation: ['Upload files'],
-      },
-    },
-  },
-  {
-    displayName:
-      "POST /attendance/v1/files/upload<br/><br/>There's no body available for request, kindly use HTTP Request node to send body",
-    name: 'operation',
-    type: 'notice',
-    default: '',
     displayOptions: {
       show: {
         resource: ['Attendance Files'],

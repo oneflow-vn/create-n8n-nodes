@@ -20,7 +20,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Ticket',
     name: 'ticket',
     required: true,
-    default: '6990281865xxxxxxxx7843',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

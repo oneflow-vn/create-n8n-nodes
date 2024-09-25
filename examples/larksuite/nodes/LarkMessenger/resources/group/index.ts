@@ -1,4 +1,4 @@
-import { INodeProperties } from 'n8n-workflow'
+import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
 
 import * as createAGroup from './create-a-group'
 import * as obtainTheListOfGroupsWithTheUserOrBot from './obtain-the-list-of-groups-with-the-user-or-bot'
@@ -9,9 +9,40 @@ import * as searchForGroupsVisibleToAUserOrBot from './search-for-groups-visible
 import * as obtainsTheGroupMemberSpeechScopes from './obtains-the-group-member-speech-scopes'
 import * as updatesGroupSpeechScopes from './updates-group-speech-scopes'
 
+const operations: INodePropertyOptions[] = [
+  createAGroup.option,
+  obtainTheListOfGroupsWithTheUserOrBot.option,
+  obtainGroupInformation.option,
+  updateGroupInformation.option,
+  deleteAGroup.option,
+  searchForGroupsVisibleToAUserOrBot.option,
+  obtainsTheGroupMemberSpeechScopes.option,
+  updatesGroupSpeechScopes.option,
+]
+
 export const name = 'Group'
 
+const operationSelect: INodeProperties = {
+  displayName: 'Operation',
+  name: 'operation',
+  type: 'options',
+  noDataExpression: true,
+  displayOptions: {
+    show: {
+      resource: ['Messenger Group'],
+    },
+  },
+  default: '',
+}
+
+// overwrite the options of the operationSelect
+operationSelect.options = operations
+
+// set the default operation
+operationSelect.default = operations.length > 0 ? operations[0].value : ''
+
 export const properties: INodeProperties[] = [
+  operationSelect,
   ...createAGroup.properties,
   ...obtainTheListOfGroupsWithTheUserOrBot.properties,
   ...obtainGroupInformation.properties,

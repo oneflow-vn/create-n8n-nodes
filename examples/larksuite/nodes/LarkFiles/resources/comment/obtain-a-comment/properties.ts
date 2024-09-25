@@ -19,7 +19,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'File Type',
     name: 'file_type',
-    default: 'doc',
+    default: '',
     type: 'string',
     routing: {
       request: {
@@ -39,7 +39,7 @@ export const properties: INodeProperties[] = [
     displayName: 'File Token',
     name: 'file_token',
     required: true,
-    default: 'doccnHh7U87HOFpii5u5G*****',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

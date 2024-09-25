@@ -5,7 +5,7 @@ export class LarkFiles implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Files',
     name: 'LarkFiles',
-    icon: 'fa:file',
+    icon: 'file:./icons/larkdocs.svg',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',

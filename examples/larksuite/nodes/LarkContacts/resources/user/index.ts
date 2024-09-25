@@ -1,4 +1,4 @@
-import { INodeProperties } from 'n8n-workflow'
+import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
 
 import * as createAUser from './create-a-user'
 import * as obtainSingleUserInformation from './obtain-single-user-information'
@@ -8,9 +8,39 @@ import * as deleteAUser from './delete-a-user'
 import * as obtainTheListOfUsersDirectlyUnderADepartment from './obtain-the-list-of-users-directly-under-a-department'
 import * as obtainUserIdViaEmailOrMobileNumber from './obtain-user-id-via-email-or-mobile-number'
 
+const operations: INodePropertyOptions[] = [
+  createAUser.option,
+  obtainSingleUserInformation.option,
+  modifyUserInformationInPart.option,
+  updateUserInformationInWhole.option,
+  deleteAUser.option,
+  obtainTheListOfUsersDirectlyUnderADepartment.option,
+  obtainUserIdViaEmailOrMobileNumber.option,
+]
+
 export const name = 'User'
 
+const operationSelect: INodeProperties = {
+  displayName: 'Operation',
+  name: 'operation',
+  type: 'options',
+  noDataExpression: true,
+  displayOptions: {
+    show: {
+      resource: ['Contacts User'],
+    },
+  },
+  default: '',
+}
+
+// overwrite the options of the operationSelect
+operationSelect.options = operations
+
+// set the default operation
+operationSelect.default = operations.length > 0 ? operations[0].value : ''
+
 export const properties: INodeProperties[] = [
+  operationSelect,
   ...createAUser.properties,
   ...obtainSingleUserInformation.properties,
   ...modifyUserInformationInPart.properties,

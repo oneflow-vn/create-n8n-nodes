@@ -1,4 +1,4 @@
-import { INodeProperties } from 'n8n-workflow'
+import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
 
 import * as createADepartment from './create-a-department'
 import * as obtainSingleDepartmentInformation from './obtain-single-department-information'
@@ -10,9 +10,41 @@ import * as obtainParentDepartmentInformation from './obtain-parent-department-i
 import * as searchForDepartments from './search-for-departments'
 import * as changeDepartmentGroupToCommonGroup from './change-department-group-to-common-group'
 
+const operations: INodePropertyOptions[] = [
+  createADepartment.option,
+  obtainSingleDepartmentInformation.option,
+  modifyDepartmentInformationInPart.option,
+  updateDepartmentInformationInWhole.option,
+  deleteADepartment.option,
+  obtainTheListOfSubdepartments.option,
+  obtainParentDepartmentInformation.option,
+  searchForDepartments.option,
+  changeDepartmentGroupToCommonGroup.option,
+]
+
 export const name = 'Department'
 
+const operationSelect: INodeProperties = {
+  displayName: 'Operation',
+  name: 'operation',
+  type: 'options',
+  noDataExpression: true,
+  displayOptions: {
+    show: {
+      resource: ['Contacts Department'],
+    },
+  },
+  default: '',
+}
+
+// overwrite the options of the operationSelect
+operationSelect.options = operations
+
+// set the default operation
+operationSelect.default = operations.length > 0 ? operations[0].value : ''
+
 export const properties: INodeProperties[] = [
+  operationSelect,
   ...createADepartment.properties,
   ...obtainSingleDepartmentInformation.properties,
   ...modifyDepartmentInformationInPart.properties,

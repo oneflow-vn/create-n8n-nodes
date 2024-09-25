@@ -20,7 +20,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Calendar Id',
     name: 'calendar_id',
     required: true,
-    default: 'larksuite.com_xxxxxxxxxx@group.calendar.larksuite.com',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {
@@ -33,7 +33,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Event Id',
     name: 'event_id',
     required: true,
-    default: '00592a0e-7edf-4678-bc9d-1b77383ef08e_0',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

@@ -20,7 +20,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Timeoff Event Id',
     name: 'timeoff_event_id',
     required: true,
-    default: 'timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

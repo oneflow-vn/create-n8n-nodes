@@ -20,7 +20,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Enum Id',
     name: 'enum_id',
     required: true,
-    default: 'exGeIjow7zIqWMy+ONkFxA==',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

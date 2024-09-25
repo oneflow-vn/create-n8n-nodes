@@ -21,7 +21,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Employee Type',
     name: 'employee_type',
-    default: 'employee_id',
+    default: '',
     type: 'string',
     routing: {
       request: {

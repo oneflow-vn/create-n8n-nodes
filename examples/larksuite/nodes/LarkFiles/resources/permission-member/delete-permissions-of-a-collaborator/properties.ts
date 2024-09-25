@@ -19,7 +19,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Type',
     name: 'type',
-    default: 'doc',
+    default: '',
     type: 'string',
     routing: {
       request: {
@@ -38,7 +38,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Member Type',
     name: 'member_type',
-    default: 'openid',
+    default: '',
     type: 'string',
     routing: {
       request: {
@@ -58,7 +58,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Token',
     name: 'token',
     required: true,
-    default: 'doccnBKgoMyY5OMbUG6FioTXuBe',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {
@@ -71,7 +71,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Member Id',
     name: 'member_id',
     required: true,
-    default: 'ou_7dab8a3d3cdcc9da365777c7ad535d62',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

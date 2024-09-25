@@ -20,8 +20,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Exchange Binding Id',
     name: 'exchange_binding_id',
     required: true,
-    default:
-      'ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20\n\n\ncalendar.v4.exchange_binding.method.delete.request-query-before-content=$$$',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

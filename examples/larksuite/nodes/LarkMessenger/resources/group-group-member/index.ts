@@ -1,4 +1,4 @@
-import { INodeProperties } from 'n8n-workflow'
+import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
 
 import * as addUsersOrBotsToAGroupChat from './add-users-or-bots-to-a-group-chat'
 import * as removeUsersOrBotsFromAGroupChat from './remove-users-or-bots-from-a-group-chat'
@@ -8,9 +8,39 @@ import * as determineWhetherAUserOrBotIsInAGroup from './determine-whether-a-use
 import * as specifyGroupAdministrators from './specify-group-administrators'
 import * as deleteGroupAdministrators from './delete-group-administrators'
 
+const operations: INodePropertyOptions[] = [
+  addUsersOrBotsToAGroupChat.option,
+  removeUsersOrBotsFromAGroupChat.option,
+  obtainGroupMemberList.option,
+  usersOrBotsJoinAGroupChatVoluntarily.option,
+  determineWhetherAUserOrBotIsInAGroup.option,
+  specifyGroupAdministrators.option,
+  deleteGroupAdministrators.option,
+]
+
 export const name = 'Group  Group Member'
 
+const operationSelect: INodeProperties = {
+  displayName: 'Operation',
+  name: 'operation',
+  type: 'options',
+  noDataExpression: true,
+  displayOptions: {
+    show: {
+      resource: ['Messenger Group Group Member'],
+    },
+  },
+  default: '',
+}
+
+// overwrite the options of the operationSelect
+operationSelect.options = operations
+
+// set the default operation
+operationSelect.default = operations.length > 0 ? operations[0].value : ''
+
 export const properties: INodeProperties[] = [
+  operationSelect,
   ...addUsersOrBotsToAGroupChat.properties,
   ...removeUsersOrBotsFromAGroupChat.properties,
   ...obtainGroupMemberList.properties,

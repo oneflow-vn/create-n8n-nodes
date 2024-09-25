@@ -5,7 +5,7 @@ export class LarkApproval implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Approval',
     name: 'LarkApproval',
-    icon: 'fa:check',
+    icon: 'file:./icons/larkapproval.png',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',

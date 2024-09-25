@@ -19,7 +19,7 @@ module.exports = {
       description: 'Lark Files Management',
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Docs > File Management.*')],
-      icon: 'fa:file',
+      icon: './icons/larkdocs.svg',
       baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkSheets: {
@@ -28,7 +28,7 @@ module.exports = {
       description: 'Lark Sheets Management',
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Docs > Sheets.*')],
-      icon: 'fa:table',
+      icon: './icons/larksheet.png',
       baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkBitable: {
@@ -37,7 +37,7 @@ module.exports = {
       description: 'Lark Bitable Management',
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Docs > Bitable.*')],
-      icon: 'fa:table',
+      icon: './icons/larkdocs.svg',
       baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkContacts: {
@@ -46,7 +46,7 @@ module.exports = {
       description: 'Lark Contacts Management',
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Contacts.*')],
-      icon: 'fa:address-book',
+      icon: './icons/lark.png',
       baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkCalendar: {
@@ -55,7 +55,7 @@ module.exports = {
       description: 'Lark Calendar Management',
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Calendar.*')],
-      icon: 'fa:calendar',
+      icon: './icons/larkcalendar.svg',
       baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkMessenger: {
@@ -64,7 +64,7 @@ module.exports = {
       description: 'Lark Messenger Management',
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Messenger.*')],
-      icon: 'fa:comment',
+      icon: './icons/larkmessage.svg',
       baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkAttendance: {
@@ -73,7 +73,7 @@ module.exports = {
       description: 'Lark Attendance Management',
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Attendance*')],
-      icon: 'fa:clock',
+      icon: './icons/larkatentance.png',
       baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkApproval: {
@@ -82,7 +82,7 @@ module.exports = {
       description: 'Lark Approval Management',
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Approval.*')],
-      icon: 'fa:check',
+      icon: './icons/larkapproval.png',
       baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkApps: {
@@ -91,7 +91,7 @@ module.exports = {
       description: 'Lark Apps Management',
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^App Information.*')],
-      icon: 'fa:info',
+      icon: './icons/larkapp.svg',
       baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkAI: {
@@ -100,7 +100,7 @@ module.exports = {
       description: 'Lark AI Management',
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^AI.*')],
-      icon: 'fa:robot',
+      icon: './icons/larkai.png',
       baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkCompany: {
@@ -109,7 +109,7 @@ module.exports = {
       description: 'Lark Company Management',
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Company Information.*')],
-      icon: 'fa:building',
+      icon: './icons/larkcompany.png',
       baseUrl: 'https://open.larksuite.com/open-apis',
     },
     larkEmail: {
@@ -118,8 +118,22 @@ module.exports = {
       description: 'Lark Email Management',
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Email.*')],
-      icon: 'fa:envelope',
+      icon: './icons/larkemail.svg',
       baseUrl: 'https://open.larksuite.com/open-apis',
     },
+  },
+  overwrites: {
+    operations: [{
+      has: "routing.request.headers.Content-Type",
+      set: false,
+    }, {
+      match: {
+        type: 'string',
+      },
+      set: {
+        type: 'string',
+        default: '',
+      }
+    }]
   },
 };

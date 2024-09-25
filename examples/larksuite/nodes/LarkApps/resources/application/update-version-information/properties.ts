@@ -20,7 +20,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'User Id Type',
     name: 'user_id_type',
-    default: 'open_id',
+    default: '',
     type: 'string',
     routing: {
       request: {
@@ -39,7 +39,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Operator Id',
     name: 'operator_id',
-    default: 'ou_4065981088f8ef67a504ba8bd6b24d85',
+    default: '',
     type: 'string',
     routing: {
       request: {
@@ -59,7 +59,7 @@ export const properties: INodeProperties[] = [
     displayName: 'App Id',
     name: 'app_id',
     required: true,
-    default: 'cli_9f3ca975326b501b',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {
@@ -72,7 +72,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Version Id',
     name: 'version_id',
     required: true,
-    default: 'oav_d317f090b7258ad0372aa53963cda70d',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

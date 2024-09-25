@@ -19,7 +19,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'File Tokens',
     name: 'file_tokens',
-    default: 'Boxcnabcdefg',
+    default: '',
     type: 'string',
     routing: {
       request: {

@@ -11,7 +11,58 @@ import * as group from './group'
 import * as groupGroupMember from './group-group-member'
 import * as groupGroupAnnouncement from './group-group-announcement'
 
+const resourceSelect: INodeProperties = {
+  displayName: 'Resource',
+  name: 'resource',
+  type: 'options',
+  noDataExpression: true,
+  options: [
+    {
+      name: 'Message',
+      value: 'Messenger Message',
+    },
+    {
+      name: 'Message  Buzz messages',
+      value: 'Messenger Message Message Buzz Messages',
+    },
+    {
+      name: 'Message  Batch Message',
+      value: 'Messenger Message Batch Message',
+    },
+    {
+      name: 'Message  Images',
+      value: 'Messenger Message Images',
+    },
+    {
+      name: 'Message  Files',
+      value: 'Messenger Message Files',
+    },
+    {
+      name: 'Message  Message Card',
+      value: 'Messenger Message Message Card',
+    },
+    {
+      name: 'Message  Message Reaction',
+      value: 'Messenger Message Message Reaction',
+    },
+    {
+      name: 'Group',
+      value: 'Messenger Group',
+    },
+    {
+      name: 'Group  Group Member',
+      value: 'Messenger Group Group Member',
+    },
+    {
+      name: 'Group  Group Announcement',
+      value: 'Messenger Group Group Announcement',
+    },
+  ],
+  default: '',
+}
+
 export const properties: INodeProperties[] = [
+  resourceSelect,
   ...message.properties,
   ...messageBuzzMessages.properties,
   ...messageBatchMessage.properties,

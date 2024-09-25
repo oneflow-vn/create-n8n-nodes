@@ -19,7 +19,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Shift Name',
     name: 'shift_name',
-    default: 'Morning shift',
+    default: '',
     type: 'string',
     routing: {
       request: {
@@ -28,19 +28,6 @@ export const properties: INodeProperties[] = [
         },
       },
     },
-    displayOptions: {
-      show: {
-        resource: ['Attendance Attendance Shift'],
-        operation: ['Search shift by name'],
-      },
-    },
-  },
-  {
-    displayName:
-      "POST /attendance/v1/shifts/query<br/><br/>There's no body available for request, kindly use HTTP Request node to send body",
-    name: 'operation',
-    type: 'notice',
-    default: '',
     displayOptions: {
       show: {
         resource: ['Attendance Attendance Shift'],

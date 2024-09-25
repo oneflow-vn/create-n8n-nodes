@@ -19,7 +19,7 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Type',
     name: 'type',
-    default: 'doc',
+    default: '',
     type: 'string',
     routing: {
       request: {
@@ -39,7 +39,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Token',
     name: 'token',
     required: true,
-    default: 'doccnBKgoMyY5OMbUG6FioTXuBe',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

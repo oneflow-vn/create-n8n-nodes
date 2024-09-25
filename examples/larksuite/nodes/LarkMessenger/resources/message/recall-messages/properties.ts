@@ -20,7 +20,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Message Id',
     name: 'message_id',
     required: true,
-    default: 'om_dc13264520392913993dd051dba21dcf',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

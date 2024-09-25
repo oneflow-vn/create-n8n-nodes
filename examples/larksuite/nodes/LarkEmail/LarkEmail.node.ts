@@ -5,7 +5,7 @@ export class LarkEmail implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Email',
     name: 'LarkEmail',
-    icon: 'fa:envelope',
+    icon: 'file:./icons/larkemail.svg',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',

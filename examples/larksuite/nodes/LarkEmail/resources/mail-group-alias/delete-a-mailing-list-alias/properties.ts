@@ -20,7 +20,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Mailgroup Id',
     name: 'mailgroup_id',
     required: true,
-    default: 'xxxxxx or test_group@xx.xxx',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {
@@ -33,7 +33,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Alias Id',
     name: 'alias_id',
     required: true,
-    default: 'xxx@xx.xxx',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

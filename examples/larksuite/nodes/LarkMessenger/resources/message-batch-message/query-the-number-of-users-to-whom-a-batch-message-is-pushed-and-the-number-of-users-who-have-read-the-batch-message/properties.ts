@@ -22,7 +22,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Batch Message Id',
     name: 'batch_message_id',
     required: true,
-    default: 'bm_dc13264520392913993dd051dba21dcf',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

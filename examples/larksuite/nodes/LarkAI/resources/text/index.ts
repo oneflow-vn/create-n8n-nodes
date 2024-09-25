@@ -1,7 +1,12 @@
-import { INodeProperties } from 'n8n-workflow'
+import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
 
 import * as translateWithMachineTranslation from './translate-with-machine-translation'
 import * as textLanguageRecognition from './text-language-recognition'
+
+const operations: INodePropertyOptions[] = [
+  translateWithMachineTranslation.option,
+  textLanguageRecognition.option,
+]
 
 export const name = 'Text'
 
@@ -15,32 +20,14 @@ const operationSelect: INodeProperties = {
       resource: ['AI Machine Translation Text'],
     },
   },
-  options: [
-    {
-      name: 'Translate with machine translation',
-      value: 'Translate with machine translation',
-      action: 'Translate with machine translation',
-      routing: {
-        request: {
-          method: 'POST',
-          url: '=/translation/v1/text/translate',
-        },
-      },
-    },
-    {
-      name: 'Text language recognition',
-      value: 'Text language recognition',
-      action: 'Text language recognition',
-      routing: {
-        request: {
-          method: 'POST',
-          url: '=/translation/v1/text/detect',
-        },
-      },
-    },
-  ],
   default: '',
 }
+
+// overwrite the options of the operationSelect
+operationSelect.options = operations
+
+// set the default operation
+operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
 export const properties: INodeProperties[] = [
   operationSelect,

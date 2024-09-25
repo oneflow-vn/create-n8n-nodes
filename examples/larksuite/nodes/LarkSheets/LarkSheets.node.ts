@@ -5,7 +5,7 @@ export class LarkSheets implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Sheets',
     name: 'LarkSheets',
-    icon: 'fa:table',
+    icon: 'file:./icons/larksheet.png',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',

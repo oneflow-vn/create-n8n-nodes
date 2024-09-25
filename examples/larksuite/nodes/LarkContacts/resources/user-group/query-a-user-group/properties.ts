@@ -20,7 +20,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Group Id',
     name: 'group_id',
     required: true,
-    default: 'g193821',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {

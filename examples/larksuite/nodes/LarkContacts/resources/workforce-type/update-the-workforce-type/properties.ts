@@ -20,8 +20,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Enum Id',
     name: 'enum_id',
     required: true,
-    default:
-      'exGeIjow7zIqWMy+ONkFxA\n\n\ncontact.v3.type.i18n_content.prop.locale.string.example=$$$zh_cn',
+    default: '',
     type: 'string',
     displayOptions: {
       show: {
