@@ -1,0 +1,70 @@
+import { INodeProperties } from 'n8n-workflow'
+
+export const properties: INodeProperties[] = [
+  {
+    displayName: 'PATCH /im/v1/messages/{message_id}/urgent_sms',
+    name: 'operation',
+    type: 'notice',
+    typeOptions: {
+      theme: 'info',
+    },
+    default: '',
+    displayOptions: {
+      show: {
+        resource: ['Messenger Message Message Buzz Messages'],
+        operation: ['Send buzz text messages'],
+      },
+    },
+  },
+  {
+    displayName: 'User Id Type',
+    name: 'user_id_type',
+    default: 'open_id',
+    type: 'string',
+    routing: {
+      request: {
+        qs: {
+          user_id_type: '={{ $value }}',
+        },
+      },
+    },
+    displayOptions: {
+      show: {
+        resource: ['Messenger Message Message Buzz Messages'],
+        operation: ['Send buzz text messages'],
+      },
+    },
+  },
+  {
+    displayName: 'Message Id',
+    name: 'message_id',
+    required: true,
+    default: 'om_dc13264520392913993dd051dba21dcf',
+    type: 'string',
+    displayOptions: {
+      show: {
+        resource: ['Messenger Message Message Buzz Messages'],
+        operation: ['Send buzz text messages'],
+      },
+    },
+  },
+  {
+    displayName: 'User Id List',
+    name: 'user_id_list',
+    type: 'json',
+    default: '[\n  null\n]',
+    routing: {
+      request: {
+        body: {
+          user_id_list: '={{ JSON.parse($value) }}',
+        },
+      },
+    },
+    displayOptions: {
+      show: {
+        resource: ['Messenger Message Message Buzz Messages'],
+        operation: ['Send buzz text messages'],
+      },
+    },
+  },
+]

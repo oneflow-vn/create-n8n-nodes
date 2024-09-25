@@ -1,1 +1,4 @@
-export const name = 'Image Recognition'
+export const name = 'Basic image recognition OCR'
+import { properties } from './properties'
+
+export { properties }

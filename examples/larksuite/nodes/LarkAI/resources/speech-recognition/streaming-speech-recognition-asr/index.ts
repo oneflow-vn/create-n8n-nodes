@@ -1,1 +1,4 @@
-export const name = 'Speech Recognition'
+export const name = 'Streaming speech recognition ASR'
+import { properties } from './properties'
+
+export { properties }

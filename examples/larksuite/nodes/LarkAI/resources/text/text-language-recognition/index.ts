@@ -1,1 +1,4 @@
-export const name = 'Text'
+export const name = 'Text language recognition'
+import { properties } from './properties'
+
+export { properties }
