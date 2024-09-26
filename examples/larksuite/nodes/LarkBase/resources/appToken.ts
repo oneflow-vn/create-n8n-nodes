@@ -2,57 +2,62 @@ import { INodeProperties, ILoadOptionsFunctions, INodeListSearchResult, NodeOper
 import { apiRequest } from './genericFunctions';
 
 
-const appTokenLocatorProperty = {
-	type: 'resourceLocator',
-	default: { mode: 'list', value: '' },
-	modes: [
-		{
-			displayName: 'From List',
-			name: 'list',
-			type: 'list',
-			placeholder: 'Choose...',
-			typeOptions: {
-				searchListMethod: 'searchDocsApps',
-				searchFilterRequired: true,
-				searchable: true,
-			},
-		},
-		{
-			displayName: 'By URL',
-			name: 'url',
-			type: 'string',
-			placeholder: 'https://trello.com/c/e123456/card-name',
-			validation: [
-				{
-					type: 'regex',
-					properties: {
-						regex: 'http(s)?://trello.com/c/([a-zA-Z0-9]{2,})/.*',
-						errorMessage: 'Not a valid Trello Card URL',
-					},
-				},
-			],
-			extractValue: {
-				type: 'regex',
-				regex: 'https://trello.com/c/([a-zA-Z0-9]{2,})',
-			},
-		},
-		{
-			displayName: 'ID',
-			name: 'id',
-			type: 'string',
-			validation: [
-				{
-					type: 'regex',
-					properties: {
-						regex: '[a-zA-Z0-9]{2,}',
-						errorMessage: 'Not a valid Trello Card ID',
-					},
-				},
-			],
-			placeholder: 'wiIaGwqE',
-			url: '=https://trello.com/c/{{$value}}',
-		},
-	],
+const appTokenLocatorProperty: INodeProperties = {
+    type: 'resourceLocator',
+    default: { mode: 'list', value: '' },
+    modes: [
+        {
+            displayName: 'From List',
+            name: 'list',
+            type: 'list',
+            placeholder: 'Choose...',
+            typeOptions: {
+                searchListMethod: 'searchDocsApps',
+                searchFilterRequired: true,
+                searchable: true,
+            },
+        },
+        // {
+        //     displayName: 'By URL',
+        //     name: 'url',
+        //     type: 'string',
+        //     // https://oneflowvn.sg.larksuite.com/base/NVCnbrChXaPbhVs8bISltEhngFg?table=tblw3edjUuhDndRz&view=vewc0lt1i1
+        //     placeholder: 'https://your.larksuite.com/base/yourapp?table=tblw3edjUuhDndRz&view=vewc0lt1i1',
+        //     validation: [
+        //         {
+        //             type: 'regex',
+        //             properties: {
+        //                 // regex: any subdomain.any region.larksuite.com/base/any alphanumeric string?/any thing
+        //                 regex: 'https://[a-zA-Z0-9]+.[a-zA-Z0-9]+.larksuite.com/base/[a-zA-Z0-9]+',
+        //                 errorMessage: 'Not a valid LarkSuite App URL',
+        //             },
+        //         },
+        //     ],
+        //     extractValue: {
+        //         type: 'regex',
+        //         // extract the app token from the URL /basee/any alphanumeric string?anything => any alphanumeric string
+        //         regex: '*.larksuite.com/base/([a-zA-Z0-9]+)',
+        //     },
+        // },
+        {
+            displayName: 'ID',
+            name: 'id',
+            type: 'string',
+            validation: [
+                {
+                    type: 'regex',
+                    properties: {
+                        regex: '[a-zA-Z0-9]+',
+                        errorMessage: 'Not a valid LarkSuite App ID',
+                    },
+                },
+            ],
+            placeholder: 'NVCnbrChXaPbhVs8bISltEhngFg',
+            url: '=https://open.larksuite.com/suite/docs?docs_token={{$json["id"]}}',
+        },
+    ],
+    displayName: '',
+    name: ''
 };
 
 function mapAppTokenProperty(property: INodeProperties) {

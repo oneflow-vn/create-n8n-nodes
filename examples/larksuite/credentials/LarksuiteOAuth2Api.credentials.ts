@@ -1,11 +1,11 @@
 import type { ICredentialType, INodeProperties, ICredentialTestRequest } from 'n8n-workflow'
 
 export class LarkSuiteOAuth2Api implements ICredentialType {
-  name = 'larkSuiteOAuth2Api'
+  name = 'larkSuiteOAuth2Api';
 
-  extends = ['oAuth2Api']
+  extends = ['oAuth2Api'];
 
-  displayName = 'LarkSuite OAuth2'
+  displayName = 'LarkSuite OAuth2';
 
 	documentationUrl = 'https://open.larksuite.com/document/server-docs/getting-started/api-access-token/g';
 
@@ -55,5 +55,5 @@ export class LarkSuiteOAuth2Api implements ICredentialType {
       url: 'https://open.larksuite.com/open-apis/authen/v1/user_info',
       method: 'GET',
     }
-  }
+  };
 }

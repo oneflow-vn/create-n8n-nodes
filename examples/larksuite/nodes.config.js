@@ -4,7 +4,7 @@ const credentials = [
 	{
     displayName: 'Tenant Token',
 		name: 'larkSuiteTenantApi',
-		required: true,
+		required: false,
 		displayOptions: {
 			show: {
 				authentication: ['larkSuiteTenantApi'],
@@ -12,9 +12,9 @@ const credentials = [
 		}
 	},
   {
-    displayName: 'OAuth2 Token',
+    displayName: 'OAuth2',
 		name: 'larkSuiteOAuth2Api',
-		required: true,
+		required: false,
 		displayOptions: {
 			show: {
 				authentication: ['larkSuiteOAuth2Api'],

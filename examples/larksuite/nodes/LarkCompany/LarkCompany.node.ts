@@ -20,20 +20,20 @@ export class LarkCompany implements INodeType {
       {
         displayName: 'Tenant Token',
         name: 'larkSuiteTenantApi',
-        required: true,
+        required: false,
         displayOptions: {
           show: {
-            authentication: ['larkSuiteTenantApi'],
+            authentication: ['accessToken'],
           },
         },
       },
       {
-        displayName: 'OAuth2 Token',
+        displayName: 'OAuth2',
         name: 'larkSuiteOAuth2Api',
-        required: true,
+        required: false,
         displayOptions: {
           show: {
-            authentication: ['larkSuiteOAuth2Api'],
+            authentication: ['oAuth2'],
           },
         },
       },
