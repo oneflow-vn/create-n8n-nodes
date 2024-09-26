@@ -1,4 +1,5 @@
 import { INodeProperties } from 'n8n-workflow'
+import runhook from './hooks'
 
 import * as app from './app'
 import * as table from './table'
@@ -36,7 +37,7 @@ const resourceSelect: INodeProperties = {
   default: '',
 }
 
-export const properties: INodeProperties[] = [
+const rawProperties: INodeProperties[] = [
   resourceSelect,
   ...app.properties,
   ...table.properties,
@@ -44,3 +45,7 @@ export const properties: INodeProperties[] = [
   ...record.properties,
   ...field.properties,
 ]
+
+const { properties } = runhook(rawProperties)
+
+export { properties }

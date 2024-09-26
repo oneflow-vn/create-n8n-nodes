@@ -1,4 +1,5 @@
 import { INodeProperties } from 'n8n-workflow'
+import runhook from './hooks'
 
 import * as attendanceGroup from './attendance-group'
 import * as attendanceShift from './attendance-shift'
@@ -56,7 +57,7 @@ const resourceSelect: INodeProperties = {
   default: '',
 }
 
-export const properties: INodeProperties[] = [
+const rawProperties: INodeProperties[] = [
   resourceSelect,
   ...attendanceGroup.properties,
   ...attendanceShift.properties,
@@ -68,3 +69,7 @@ export const properties: INodeProperties[] = [
   ...files.properties,
   ...task.properties,
 ]
+
+const { properties } = runhook(rawProperties)
+
+export { properties }

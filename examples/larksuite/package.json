@@ -36,6 +36,7 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
+      "dist/credentials/LarksuiteTenantApi.credentials.js",
       "dist/credentials/LarksuiteOAuth2Api.credentials.js"
     ],
     "nodes": [

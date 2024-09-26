@@ -1,4 +1,5 @@
 import { INodeProperties } from 'n8n-workflow'
+import runhook from './hooks'
 
 import * as calendar from './calendar'
 import * as acl from './acl'
@@ -56,7 +57,7 @@ const resourceSelect: INodeProperties = {
   default: '',
 }
 
-export const properties: INodeProperties[] = [
+const rawProperties: INodeProperties[] = [
   resourceSelect,
   ...calendar.properties,
   ...acl.properties,
@@ -68,3 +69,7 @@ export const properties: INodeProperties[] = [
   ...setting.properties,
   ...exchangeBinding.properties,
 ]
+
+const { properties } = runhook(rawProperties)
+
+export { properties }

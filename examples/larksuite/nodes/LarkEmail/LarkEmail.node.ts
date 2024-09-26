@@ -5,7 +5,7 @@ export class LarkEmail implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Email',
     name: 'LarkEmail',
-    icon: 'file:./icons/larkemail.svg',
+    icon: 'file:larkemail.svg',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
@@ -19,6 +19,20 @@ export class LarkEmail implements INodeType {
       {
         name: 'larksuiteOAuth2Api',
         required: true,
+        displayOptions: {
+          show: {
+            authentication: ['oauth2'],
+          },
+        },
+      },
+      {
+        name: 'larksuiteTenantApi',
+        required: true,
+        displayOptions: {
+          show: {
+            authentication: ['accessToken'],
+          },
+        },
       },
     ],
     requestDefaults: {

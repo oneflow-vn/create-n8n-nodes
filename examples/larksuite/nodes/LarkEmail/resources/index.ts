@@ -1,4 +1,5 @@
 import { INodeProperties } from 'n8n-workflow'
+import runhook from './hooks'
 
 import * as mailGroup from './mail-group'
 import * as mailGroupMember from './mail-group-member'
@@ -46,7 +47,7 @@ const resourceSelect: INodeProperties = {
   default: '',
 }
 
-export const properties: INodeProperties[] = [
+const rawProperties: INodeProperties[] = [
   resourceSelect,
   ...mailGroup.properties,
   ...mailGroupMember.properties,
@@ -56,3 +57,7 @@ export const properties: INodeProperties[] = [
   ...publicMailboxMember.properties,
   ...publicMailboxAlias.properties,
 ]
+
+const { properties } = runhook(rawProperties)
+
+export { properties }

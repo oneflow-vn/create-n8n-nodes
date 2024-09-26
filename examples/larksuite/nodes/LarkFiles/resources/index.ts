@@ -1,4 +1,5 @@
 import { INodeProperties } from 'n8n-workflow'
+import runhook from './hooks'
 
 import * as file from './file'
 import * as multipartUploadFiles from './multipart-upload-files'
@@ -61,7 +62,7 @@ const resourceSelect: INodeProperties = {
   default: '',
 }
 
-export const properties: INodeProperties[] = [
+const rawProperties: INodeProperties[] = [
   resourceSelect,
   ...file.properties,
   ...multipartUploadFiles.properties,
@@ -74,3 +75,7 @@ export const properties: INodeProperties[] = [
   ...subscription.properties,
   ...documentImport.properties,
 ]
+
+const { properties } = runhook(rawProperties)
+
+export { properties }

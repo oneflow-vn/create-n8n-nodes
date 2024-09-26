@@ -5,7 +5,7 @@ export class LarkCalendar implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Calendar',
     name: 'LarkCalendar',
-    icon: 'file:./icons/larkcalendar.svg',
+    icon: 'file:larkcalendar.svg',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
@@ -19,6 +19,20 @@ export class LarkCalendar implements INodeType {
       {
         name: 'larksuiteOAuth2Api',
         required: true,
+        displayOptions: {
+          show: {
+            authentication: ['oauth2'],
+          },
+        },
+      },
+      {
+        name: 'larksuiteTenantApi',
+        required: true,
+        displayOptions: {
+          show: {
+            authentication: ['accessToken'],
+          },
+        },
       },
     ],
     requestDefaults: {

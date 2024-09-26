@@ -5,7 +5,7 @@ export class LarkContacts implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Contacts',
     name: 'LarkContacts',
-    icon: 'file:./icons/lark.png',
+    icon: 'file:lark.png',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
@@ -19,6 +19,20 @@ export class LarkContacts implements INodeType {
       {
         name: 'larksuiteOAuth2Api',
         required: true,
+        displayOptions: {
+          show: {
+            authentication: ['oauth2'],
+          },
+        },
+      },
+      {
+        name: 'larksuiteTenantApi',
+        required: true,
+        displayOptions: {
+          show: {
+            authentication: ['accessToken'],
+          },
+        },
       },
     ],
     requestDefaults: {

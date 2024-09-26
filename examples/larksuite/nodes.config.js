@@ -1,8 +1,42 @@
 const path = require('path');
 
+const credentials = [
+	{
+		name: 'larksuiteOAuth2Api',
+		required: true,
+		displayOptions: {
+			show: {
+				authentication: ['oauth2'],
+			}
+		}
+	},
+	{
+		name: 'larksuiteTenantApi',
+		required: true,
+		displayOptions: {
+			show: {
+				authentication: ['accessToken'],
+			}
+		}
+	}
+];
+
 module.exports = {
   packageName: 'n8n-nodes-larksuite',
-  credentials: {},
+  credentials: {
+		larksuiteTenantApi: {
+			name: 'larksuiteTenantApi',
+			className: 'LarksuiteTenantApi',
+			displayName: 'Larksuite Tenant API',
+			documentationUrl: 'https://open.larksuite.com/document/server-docs/getting-started/api-access-token/g',
+		},
+		larksuiteOAuth2Api: {
+			name: 'larksuiteOAuth2Api',
+			className: 'LarksuiteOAuth2Api',
+			displayName: 'Larksuite OAuth2 API',
+			documentationUrl: 'https://open.larksuite.com/document/server-docs/getting-started/api-access-token/g',
+		},
+	},
   nodes: {
     larkAuth: {
       displayName: 'Lark Auth',
@@ -12,6 +46,7 @@ module.exports = {
       tags: [new RegExp('^API Access Token.*')],
       icon: 'fa:lock',
       baseUrl: 'https://open.larksuite.com',
+			credentials,
     },
     larkFiles: {
       displayName: 'Lark Files',
@@ -21,6 +56,7 @@ module.exports = {
       tags: [new RegExp('^Docs > File Management.*')],
       icon: './icons/larkdocs.svg',
       baseUrl: 'https://open.larksuite.com/open-apis',
+			credentials,
     },
     larkSheets: {
       displayName: 'Lark Sheets',
@@ -30,6 +66,7 @@ module.exports = {
       tags: [new RegExp('^Docs > Sheets.*')],
       icon: './icons/larksheet.png',
       baseUrl: 'https://open.larksuite.com/open-apis',
+			credentials,
     },
     larkBitable: {
       displayName: 'Lark Bitable',
@@ -37,8 +74,9 @@ module.exports = {
       description: 'Lark Bitable Management',
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Docs > Bitable.*')],
-      icon: './icons/larkdocs.svg',
+      icon: './icons/larkbase.svg',
       baseUrl: 'https://open.larksuite.com/open-apis',
+			credentials,
     },
     larkContacts: {
       displayName: 'Lark Contacts',
@@ -48,6 +86,7 @@ module.exports = {
       tags: [new RegExp('^Contacts.*')],
       icon: './icons/lark.png',
       baseUrl: 'https://open.larksuite.com/open-apis',
+			credentials,
     },
     larkCalendar: {
       displayName: 'Lark Calendar',
@@ -57,6 +96,7 @@ module.exports = {
       tags: [new RegExp('^Calendar.*')],
       icon: './icons/larkcalendar.svg',
       baseUrl: 'https://open.larksuite.com/open-apis',
+			credentials,
     },
     larkMessenger: {
       displayName: 'Lark Messenger',
@@ -66,6 +106,7 @@ module.exports = {
       tags: [new RegExp('^Messenger.*')],
       icon: './icons/larkmessage.svg',
       baseUrl: 'https://open.larksuite.com/open-apis',
+			credentials,
     },
     larkAttendance: {
       displayName: 'Lark Attendance',
@@ -75,6 +116,7 @@ module.exports = {
       tags: [new RegExp('^Attendance*')],
       icon: './icons/larkatentance.png',
       baseUrl: 'https://open.larksuite.com/open-apis',
+			credentials,
     },
     larkApproval: {
       displayName: 'Lark Approval',
@@ -84,6 +126,7 @@ module.exports = {
       tags: [new RegExp('^Approval.*')],
       icon: './icons/larkapproval.png',
       baseUrl: 'https://open.larksuite.com/open-apis',
+			credentials,
     },
     larkApps: {
       displayName: 'Lark Apps',
@@ -93,6 +136,7 @@ module.exports = {
       tags: [new RegExp('^App Information.*')],
       icon: './icons/larkapp.svg',
       baseUrl: 'https://open.larksuite.com/open-apis',
+			credentials,
     },
     larkAI: {
       displayName: 'Lark AI',
@@ -102,6 +146,7 @@ module.exports = {
       tags: [new RegExp('^AI.*')],
       icon: './icons/larkai.png',
       baseUrl: 'https://open.larksuite.com/open-apis',
+			credentials,
     },
     larkCompany: {
       displayName: 'Lark Company',
@@ -111,6 +156,7 @@ module.exports = {
       tags: [new RegExp('^Company Information.*')],
       icon: './icons/larkcompany.png',
       baseUrl: 'https://open.larksuite.com/open-apis',
+			credentials,
     },
     larkEmail: {
       displayName: 'Lark Email',
@@ -120,6 +166,7 @@ module.exports = {
       tags: [new RegExp('^Email.*')],
       icon: './icons/larkemail.svg',
       baseUrl: 'https://open.larksuite.com/open-apis',
+			credentials,
     },
   },
   overwrites: {

@@ -5,7 +5,7 @@ export class LarkBitable implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Bitable',
     name: 'LarkBitable',
-    icon: 'file:./icons/larkdocs.svg',
+    icon: 'file:larkbase.svg',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
@@ -19,6 +19,20 @@ export class LarkBitable implements INodeType {
       {
         name: 'larksuiteOAuth2Api',
         required: true,
+        displayOptions: {
+          show: {
+            authentication: ['oauth2'],
+          },
+        },
+      },
+      {
+        name: 'larksuiteTenantApi',
+        required: true,
+        displayOptions: {
+          show: {
+            authentication: ['accessToken'],
+          },
+        },
       },
     ],
     requestDefaults: {

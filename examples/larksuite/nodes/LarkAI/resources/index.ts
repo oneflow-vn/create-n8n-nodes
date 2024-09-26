@@ -1,4 +1,5 @@
 import { INodeProperties } from 'n8n-workflow'
+import runhook from './hooks'
 
 import * as imageRecognition from './image-recognition'
 import * as speechRecognition from './speech-recognition'
@@ -26,9 +27,13 @@ const resourceSelect: INodeProperties = {
   default: '',
 }
 
-export const properties: INodeProperties[] = [
+const rawProperties: INodeProperties[] = [
   resourceSelect,
   ...imageRecognition.properties,
   ...speechRecognition.properties,
   ...text.properties,
 ]
+
+const { properties } = runhook(rawProperties)
+
+export { properties }

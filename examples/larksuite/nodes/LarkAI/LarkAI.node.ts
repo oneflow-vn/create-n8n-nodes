@@ -5,7 +5,7 @@ export class LarkAI implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark AI',
     name: 'LarkAI',
-    icon: 'file:./icons/larkai.png',
+    icon: 'file:larkai.png',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
@@ -19,6 +19,20 @@ export class LarkAI implements INodeType {
       {
         name: 'larksuiteOAuth2Api',
         required: true,
+        displayOptions: {
+          show: {
+            authentication: ['oauth2'],
+          },
+        },
+      },
+      {
+        name: 'larksuiteTenantApi',
+        required: true,
+        displayOptions: {
+          show: {
+            authentication: ['accessToken'],
+          },
+        },
       },
     ],
     requestDefaults: {

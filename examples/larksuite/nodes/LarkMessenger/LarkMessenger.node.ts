@@ -5,7 +5,7 @@ export class LarkMessenger implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Messenger',
     name: 'LarkMessenger',
-    icon: 'file:./icons/larkmessage.svg',
+    icon: 'file:larkmessage.svg',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
@@ -19,6 +19,20 @@ export class LarkMessenger implements INodeType {
       {
         name: 'larksuiteOAuth2Api',
         required: true,
+        displayOptions: {
+          show: {
+            authentication: ['oauth2'],
+          },
+        },
+      },
+      {
+        name: 'larksuiteTenantApi',
+        required: true,
+        displayOptions: {
+          show: {
+            authentication: ['accessToken'],
+          },
+        },
       },
     ],
     requestDefaults: {

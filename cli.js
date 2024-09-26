@@ -92,7 +92,8 @@ function runGenerator (options) {
     config: options.config,
     packageName: options.packageName,
     icon: options.icon,
-    baseUrl: options.baseUrl
+    baseUrl: options.baseUrl,
+    credentials: options.credentials,
   }).then(() => {
     // TODO: Remove this when the issue is fixed
     // dupeInterfaceRemover(path.resolve(options.output, 'src', 'interfaces', 'api.ts'));

@@ -1,4 +1,5 @@
 import { INodeProperties } from 'n8n-workflow'
+import runhook from './hooks'
 
 import * as apiAccessToken from './api-access-token'
 import * as storeApps from './store-apps'
@@ -31,10 +32,14 @@ const resourceSelect: INodeProperties = {
   default: '',
 }
 
-export const properties: INodeProperties[] = [
+const rawProperties: INodeProperties[] = [
   resourceSelect,
   ...apiAccessToken.properties,
   ...storeApps.properties,
   ...customApps.properties,
   ...userId.properties,
 ]
+
+const { properties } = runhook(rawProperties)
+
+export { properties }

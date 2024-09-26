@@ -1,4 +1,5 @@
 import { INodeProperties } from 'n8n-workflow'
+import runhook from './hooks'
 
 import * as user from './user'
 import * as department from './department'
@@ -51,7 +52,7 @@ const resourceSelect: INodeProperties = {
   default: '',
 }
 
-export const properties: INodeProperties[] = [
+const rawProperties: INodeProperties[] = [
   resourceSelect,
   ...user.properties,
   ...department.properties,
@@ -62,3 +63,7 @@ export const properties: INodeProperties[] = [
   ...customUserFields.properties,
   ...contactScope.properties,
 ]
+
+const { properties } = runhook(rawProperties)
+
+export { properties }

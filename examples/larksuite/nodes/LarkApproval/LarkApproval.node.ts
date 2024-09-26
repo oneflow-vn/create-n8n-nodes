@@ -5,7 +5,7 @@ export class LarkApproval implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Approval',
     name: 'LarkApproval',
-    icon: 'file:./icons/larkapproval.png',
+    icon: 'file:larkapproval.png',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
@@ -19,6 +19,20 @@ export class LarkApproval implements INodeType {
       {
         name: 'larksuiteOAuth2Api',
         required: true,
+        displayOptions: {
+          show: {
+            authentication: ['oauth2'],
+          },
+        },
+      },
+      {
+        name: 'larksuiteTenantApi',
+        required: true,
+        displayOptions: {
+          show: {
+            authentication: ['accessToken'],
+          },
+        },
       },
     ],
     requestDefaults: {

@@ -5,7 +5,7 @@ export class LarkSheets implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Sheets',
     name: 'LarkSheets',
-    icon: 'file:./icons/larksheet.png',
+    icon: 'file:larksheet.png',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
@@ -19,6 +19,20 @@ export class LarkSheets implements INodeType {
       {
         name: 'larksuiteOAuth2Api',
         required: true,
+        displayOptions: {
+          show: {
+            authentication: ['oauth2'],
+          },
+        },
+      },
+      {
+        name: 'larksuiteTenantApi',
+        required: true,
+        displayOptions: {
+          show: {
+            authentication: ['accessToken'],
+          },
+        },
       },
     ],
     requestDefaults: {
