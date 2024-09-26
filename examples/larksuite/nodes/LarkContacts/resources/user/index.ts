@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as createAUser from './create-a-user'
 import * as obtainSingleUserInformation from './obtain-single-user-information'
@@ -39,7 +40,7 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...createAUser.properties,
   ...obtainSingleUserInformation.properties,
@@ -49,3 +50,7 @@ export const properties: INodeProperties[] = [
   ...obtainTheListOfUsersDirectlyUnderADepartment.properties,
   ...obtainUserIdViaEmailOrMobileNumber.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

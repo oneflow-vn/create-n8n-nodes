@@ -1,5 +1,6 @@
 import { INodeType, INodeTypeDescription } from 'n8n-workflow'
 import { properties } from './LarkFiles.properties'
+import { methods } from './LarkFiles.methods'
 
 export class LarkFiles implements INodeType {
   description: INodeTypeDescription = {
@@ -17,20 +18,22 @@ export class LarkFiles implements INodeType {
     outputs: ['main'],
     credentials: [
       {
-        name: 'larksuiteOAuth2Api',
+        displayName: 'Tenant Token',
+        name: 'larkSuiteTenantApi',
         required: true,
         displayOptions: {
           show: {
-            authentication: ['oauth2'],
+            authentication: ['larkSuiteTenantApi'],
           },
         },
       },
       {
-        name: 'larksuiteTenantApi',
+        displayName: 'OAuth2 Token',
+        name: 'larkSuiteOAuth2Api',
         required: true,
         displayOptions: {
           show: {
-            authentication: ['accessToken'],
+            authentication: ['larkSuiteOAuth2Api'],
           },
         },
       },
@@ -44,4 +47,6 @@ export class LarkFiles implements INodeType {
     },
     properties: properties,
   }
+
+  methods = methods
 }

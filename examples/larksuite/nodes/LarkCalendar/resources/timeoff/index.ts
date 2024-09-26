@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as createALeaveEvent from './create-a-leave-event'
 import * as deleteALeaveEvent from './delete-a-leave-event'
@@ -29,8 +30,12 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...createALeaveEvent.properties,
   ...deleteALeaveEvent.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as searchShiftByName from './search-shift-by-name'
 import * as obtainShiftDetails from './obtain-shift-details'
@@ -33,10 +34,14 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...searchShiftByName.properties,
   ...obtainShiftDetails.properties,
   ...deleteShift.properties,
   ...createShifts.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

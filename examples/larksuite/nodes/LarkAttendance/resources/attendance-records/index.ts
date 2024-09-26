@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as batchQueryAttendanceFlowRecord from './batch-query-attendance-flow-record'
 import * as obtainAttendanceFlowRecord from './obtain-attendance-flow-record'
@@ -33,10 +34,14 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...batchQueryAttendanceFlowRecord.properties,
   ...obtainAttendanceFlowRecord.properties,
   ...obtainAttendanceResults.properties,
   ...importAttendanceFlowRecord.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

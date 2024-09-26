@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as createAnImportTask from './create-an-import-task'
 import * as queryTheImportTaskResult from './query-the-import-task-result'
@@ -29,8 +30,12 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...createAnImportTask.properties,
   ...queryTheImportTaskResult.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

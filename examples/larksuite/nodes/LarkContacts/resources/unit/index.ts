@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as createAUnit from './create-a-unit'
 import * as obtainUnitsInBatches from './obtain-units-in-batches'
@@ -41,7 +42,7 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...createAUnit.properties,
   ...obtainUnitsInBatches.properties,
@@ -52,3 +53,7 @@ export const properties: INodeProperties[] = [
   ...dissociateADepartmentWithAUnit.properties,
   ...obtainTheListOfDepartmentsAssociatedWithAUnit.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

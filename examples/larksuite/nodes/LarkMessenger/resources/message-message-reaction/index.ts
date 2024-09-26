@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as addAReactionForAMessage from './add-a-reaction-for-a-message'
 import * as obtainAReactionForAMessage from './obtain-a-reaction-for-a-message'
@@ -31,9 +32,13 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...addAReactionForAMessage.properties,
   ...obtainAReactionForAMessage.properties,
   ...deleteAReactionForAMessage.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

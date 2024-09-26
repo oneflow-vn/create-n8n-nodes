@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as createSubscription from './create-subscription'
 import * as getSubscriptionStatus from './get-subscription-status'
@@ -31,9 +32,13 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...createSubscription.properties,
   ...getSubscriptionStatus.properties,
   ...updateSubscriptionStatus.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

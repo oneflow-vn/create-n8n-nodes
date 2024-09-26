@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as queryTheWorkforceType from './query-the-workforce-type'
 import * as addAWorkforceType from './add-a-workforce-type'
@@ -33,10 +34,14 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...queryTheWorkforceType.properties,
   ...addAWorkforceType.properties,
   ...updateTheWorkforceType.properties,
   ...deleteWorkforceTypes.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

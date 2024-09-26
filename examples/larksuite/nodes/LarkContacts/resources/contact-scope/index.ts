@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as obtainTheRangeOfContactsDataThatAnAppCanAccess from './obtain-the-range-of-contacts-data-that-an-app-can-access'
 
@@ -27,7 +28,11 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...obtainTheRangeOfContactsDataThatAnAppCanAccess.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

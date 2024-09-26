@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as sendMessages from './send-messages'
 import * as readChatHistory from './read-chat-history'
@@ -39,7 +40,7 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...sendMessages.properties,
   ...readChatHistory.properties,
@@ -49,3 +50,7 @@ export const properties: INodeProperties[] = [
   ...queriesTheReadStatusOfAMessage.properties,
   ...obtainResourceFilesInMessages.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

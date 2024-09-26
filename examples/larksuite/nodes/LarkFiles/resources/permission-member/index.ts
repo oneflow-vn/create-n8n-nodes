@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as addPermissions from './add-permissions'
 import * as updatesPermissionsOfACollaborator from './updates-permissions-of-a-collaborator'
@@ -31,9 +32,13 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...addPermissions.properties,
   ...updatesPermissionsOfACollaborator.properties,
   ...deletePermissionsOfACollaborator.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

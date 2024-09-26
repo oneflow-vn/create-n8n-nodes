@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as addMembersToAUserGroup from './add-members-to-a-user-group'
 import * as removeMembersFromAUserGroup from './remove-members-from-a-user-group'
@@ -31,9 +32,13 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...addMembersToAUserGroup.properties,
   ...removeMembersFromAUserGroup.properties,
   ...queryTheListOfMembersInAUserGroup.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

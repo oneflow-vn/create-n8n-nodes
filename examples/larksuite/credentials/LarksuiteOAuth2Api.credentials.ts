@@ -1,13 +1,13 @@
-import type { ICredentialType, INodeProperties } from 'n8n-workflow'
+import type { ICredentialType, INodeProperties, ICredentialTestRequest } from 'n8n-workflow'
 
-export class LarksuiteOAuth2Api implements ICredentialType {
-  name = 'larksuiteOAuth2Api'
+export class LarkSuiteOAuth2Api implements ICredentialType {
+  name = 'larkSuiteOAuth2Api'
 
   extends = ['oAuth2Api']
 
-  displayName = 'Larksuite OAuth2 API'
+  displayName = 'LarkSuite OAuth2'
 
-  documentationUrl = 'larksuite'
+	documentationUrl = 'https://open.larksuite.com/document/server-docs/getting-started/api-access-token/g';
 
   properties: INodeProperties[] = [
     {
@@ -48,5 +48,12 @@ export class LarksuiteOAuth2Api implements ICredentialType {
       type: 'hidden',
       default: 'body',
     },
-  ]
+  ];
+
+  test: ICredentialTestRequest = {
+    request: {
+      url: 'https://open.larksuite.com/open-apis/authen/v1/user_info',
+      method: 'GET',
+    }
+  }
 }

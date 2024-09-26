@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as addUsersOrBotsToAGroupChat from './add-users-or-bots-to-a-group-chat'
 import * as removeUsersOrBotsFromAGroupChat from './remove-users-or-bots-from-a-group-chat'
@@ -39,7 +40,7 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...addUsersOrBotsToAGroupChat.properties,
   ...removeUsersOrBotsFromAGroupChat.properties,
@@ -49,3 +50,7 @@ export const properties: INodeProperties[] = [
   ...specifyGroupAdministrators.properties,
   ...deleteGroupAdministrators.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

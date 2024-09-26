@@ -36,14 +36,13 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/LarksuiteTenantApi.credentials.js",
-      "dist/credentials/LarksuiteOAuth2Api.credentials.js"
+      "dist/credentials/LarkSuiteTenantApi.credentials.js",
+      "dist/credentials/LarkSuiteOAuth2Api.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/LarkAuth/LarkAuth.node",
       "dist/nodes/LarkFiles/LarkFiles.node",
       "dist/nodes/LarkSheets/LarkSheets.node",
-      "dist/nodes/LarkBitable/LarkBitable.node",
+      "dist/nodes/LarkBase/LarkBase.node",
       "dist/nodes/LarkContacts/LarkContacts.node",
       "dist/nodes/LarkCalendar/LarkCalendar.node",
       "dist/nodes/LarkMessenger/LarkMessenger.node",

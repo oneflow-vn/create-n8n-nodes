@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as recallMessagesInBatches from './recall-messages-in-batches'
 import * as queryTheNumberOfUsersToWhomABatchMessageIsPushedAndTheNumberOfUsersWhoHaveReadTheBatchMessage from './query-the-number-of-users-to-whom-a-batch-message-is-pushed-and-the-number-of-users-who-have-read-the-batch-message'
@@ -31,9 +32,13 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...recallMessagesInBatches.properties,
   ...queryTheNumberOfUsersToWhomABatchMessageIsPushedAndTheNumberOfUsersWhoHaveReadTheBatchMessage.properties,
   ...queriesTheOverallProgressOfABatchMessage.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

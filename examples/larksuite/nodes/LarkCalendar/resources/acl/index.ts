@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as createAccessControl from './create-access-control'
 import * as obtainTheAcl from './obtain-the-acl'
@@ -33,10 +34,14 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...createAccessControl.properties,
   ...obtainTheAcl.properties,
   ...deleteAccessControl.properties,
   ...subscribeToChangesInCalendarAccessControl.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

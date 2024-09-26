@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as createAPublicMailbox from './create-a-public-mailbox'
 import * as obtainPublicMailboxesInBatch from './obtain-public-mailboxes-in-batch'
@@ -35,7 +36,7 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...createAPublicMailbox.properties,
   ...obtainPublicMailboxesInBatch.properties,
@@ -43,3 +44,7 @@ export const properties: INodeProperties[] = [
   ...modifyAPublicMailbox.properties,
   ...updateAPublicMailbox.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as getPrimaryCalendar from './get-primary-calendar'
 import * as createACalendar from './create-a-calendar'
@@ -45,7 +46,7 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...getPrimaryCalendar.properties,
   ...createACalendar.properties,
@@ -58,3 +59,7 @@ export const properties: INodeProperties[] = [
   ...unsubscribeFromACalendar.properties,
   ...subscribeToCalendarChangeEvents.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

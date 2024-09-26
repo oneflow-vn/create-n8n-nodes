@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as streamingSpeechRecognitionAsr from './streaming-speech-recognition-asr'
 import * as audioFileSpeechRecognitionAsr from './audio-file-speech-recognition-asr'
@@ -29,8 +30,12 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...streamingSpeechRecognitionAsr.properties,
   ...audioFileSpeechRecognitionAsr.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

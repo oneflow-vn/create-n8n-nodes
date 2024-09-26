@@ -1,5 +1,6 @@
 import { INodeProperties } from 'n8n-workflow'
-import runhook from './hooks'
+import { aggregateNodeMethods } from '../helpers/methods'
+import runHooks from './hooks'
 
 import * as mailGroup from './mail-group'
 import * as mailGroupMember from './mail-group-member'
@@ -9,46 +10,68 @@ import * as publicMailbox from './public-mailbox'
 import * as publicMailboxMember from './public-mailbox-member'
 import * as publicMailboxAlias from './public-mailbox-alias'
 
-const resourceSelect: INodeProperties = {
-  displayName: 'Resource',
-  name: 'resource',
-  type: 'options',
-  noDataExpression: true,
-  options: [
-    {
-      name: 'Mail Group',
-      value: 'Email Mail Group',
-    },
-    {
-      name: 'Mail Group Member',
-      value: 'Email Mail Group Member',
-    },
-    {
-      name: 'Mail Group Permission Member',
-      value: 'Email Mail Group Permission Member',
-    },
-    {
-      name: 'Mail Group Alias',
-      value: 'Email Mail Group Alias',
-    },
-    {
-      name: 'Public Mailbox',
-      value: 'Email Public Mailbox',
-    },
-    {
-      name: 'Public Mailbox Member',
-      value: 'Email Public Mailbox Member',
-    },
-    {
-      name: 'Public Mailbox Alias',
-      value: 'Email Public Mailbox Alias',
-    },
-  ],
-  default: '',
-}
+const authenticationProperties: INodeProperties[] = [
+  {
+    displayName: 'Authentication',
+    name: 'authentication',
+    type: 'options',
+    options: [
+      {
+        name: 'Tenant Token',
+        value: 'larkSuiteTenantApi',
+      },
+      {
+        name: 'OAuth2 Token',
+        value: 'larkSuiteOAuth2Api',
+      },
+    ],
+    default: 'larkSuiteTenantApi',
+  },
+]
+
+const resourceSelect: INodeProperties[] = [
+  {
+    displayName: 'Resource',
+    name: 'resource',
+    type: 'options',
+    noDataExpression: true,
+    options: [
+      {
+        name: 'Mail Group',
+        value: 'Email Mail Group',
+      },
+      {
+        name: 'Mail Group Member',
+        value: 'Email Mail Group Member',
+      },
+      {
+        name: 'Mail Group Permission Member',
+        value: 'Email Mail Group Permission Member',
+      },
+      {
+        name: 'Mail Group Alias',
+        value: 'Email Mail Group Alias',
+      },
+      {
+        name: 'Public Mailbox',
+        value: 'Email Public Mailbox',
+      },
+      {
+        name: 'Public Mailbox Member',
+        value: 'Email Public Mailbox Member',
+      },
+      {
+        name: 'Public Mailbox Alias',
+        value: 'Email Public Mailbox Alias',
+      },
+    ],
+    default: '',
+  },
+]
 
 const rawProperties: INodeProperties[] = [
-  resourceSelect,
+  ...authenticationProperties,
+  ...resourceSelect,
   ...mailGroup.properties,
   ...mailGroupMember.properties,
   ...mailGroupPermissionMember.properties,
@@ -58,6 +81,17 @@ const rawProperties: INodeProperties[] = [
   ...publicMailboxAlias.properties,
 ]
 
-const { properties } = runhook(rawProperties)
+const { properties, methods: selfMethods } = runHooks(rawProperties)
 
-export { properties }
+const methods = aggregateNodeMethods([
+  selfMethods,
+  mailGroup.methods,
+  mailGroupMember.methods,
+  mailGroupPermissionMember.methods,
+  mailGroupAlias.methods,
+  publicMailbox.methods,
+  publicMailboxMember.methods,
+  publicMailboxAlias.methods,
+])
+
+export { properties, methods }

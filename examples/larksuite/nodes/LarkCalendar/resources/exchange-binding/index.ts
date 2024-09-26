@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as connectAnExchangeAccount from './connect-an-exchange-account'
 import * as queryTheConnectionStatus from './query-the-connection-status'
@@ -31,9 +32,13 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...connectAnExchangeAccount.properties,
   ...queryTheConnectionStatus.properties,
   ...disconnectAnExchangeAccount.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

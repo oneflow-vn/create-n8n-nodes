@@ -64,6 +64,12 @@ process.on('unhandledRejection', (err) => console.error(err));
 function runMultipleGenerators (options) {
   const { name } = options;
   for (const [key, node] of Object.entries(options.config.nodes)) {
+
+    if (node.disabled) {
+      console.log(yellow('Skipping Node'), key);
+      continue;
+    }
+
     if (name && key !== name) {
       continue;
     }

@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as deleteFilterConditions from './delete-filter-conditions'
 import * as updateFilterConditions from './update-filter-conditions'
@@ -35,7 +36,7 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...deleteFilterConditions.properties,
   ...updateFilterConditions.properties,
@@ -43,3 +44,7 @@ export const properties: INodeProperties[] = [
   ...queryFilterConditions.properties,
   ...createAFilterCondition.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

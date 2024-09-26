@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as createAGroup from './create-a-group'
 import * as obtainTheListOfGroupsWithTheUserOrBot from './obtain-the-list-of-groups-with-the-user-or-bot'
@@ -41,7 +42,7 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...createAGroup.properties,
   ...obtainTheListOfGroupsWithTheUserOrBot.properties,
@@ -52,3 +53,7 @@ export const properties: INodeProperties[] = [
   ...obtainsTheGroupMemberSpeechScopes.properties,
   ...updatesGroupSpeechScopes.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

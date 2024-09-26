@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as createAMailingListMember from './create-a-mailing-list-member'
 import * as obtainMailingListMembersInBatch from './obtain-mailing-list-members-in-batch'
@@ -33,10 +34,14 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...createAMailingListMember.properties,
   ...obtainMailingListMembersInBatch.properties,
   ...obtainMailingListMemberInformation.properties,
   ...deleteAMailingListMember.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

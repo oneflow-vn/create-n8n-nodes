@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as viewTheListOfAppReleaseApplications from './view-the-list-of-app-release-applications'
 import * as obtainAppsInformation from './obtain-apps-information'
@@ -35,7 +36,7 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...viewTheListOfAppReleaseApplications.properties,
   ...obtainAppsInformation.properties,
@@ -43,3 +44,7 @@ export const properties: INodeProperties[] = [
   ...obtainAppVersionInformation.properties,
   ...updateVersionInformation.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as createADepartment from './create-a-department'
 import * as obtainSingleDepartmentInformation from './obtain-single-department-information'
@@ -43,7 +44,7 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...createADepartment.properties,
   ...obtainSingleDepartmentInformation.properties,
@@ -55,3 +56,7 @@ export const properties: INodeProperties[] = [
   ...searchForDepartments.properties,
   ...changeDepartmentGroupToCommonGroup.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

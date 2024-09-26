@@ -1,15 +1,16 @@
 import type {
 	IAuthenticateGeneric,
 	ICredentialDataDecryptedObject,
+	ICredentialTestRequest,
 	ICredentialType,
 	IHttpRequestHelper,
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class LarksuiteTenantApi implements ICredentialType {
-	name = 'larksuiteTenantApi';
+export class LarkSuiteTenantApi implements ICredentialType {
+	name = 'larkSuiteTenantApi';
 
-	displayName = 'Larksuite Tenant API';
+	displayName = 'LarkSuite Tenant';
 
 	documentationUrl = 'https://open.larksuite.com/document/server-docs/getting-started/api-access-token/g';
 
@@ -27,6 +28,15 @@ export class LarksuiteTenantApi implements ICredentialType {
 			typeOptions: { password: true },
 			default: '',
 		},
+		{
+			displayName: 'Tenant access token',
+			name: 'tenantAccessToken',
+			type: 'hidden',
+			default: '',
+			typeOptions: {
+				expirable: true,
+			}
+		}
 	];
 
 	async preAuthentication(this: IHttpRequestHelper, credentials: ICredentialDataDecryptedObject) {
@@ -34,8 +44,8 @@ export class LarksuiteTenantApi implements ICredentialType {
 			method: 'POST',
 			url: `https://open.larksuite.com/open-apis/auth/v3/tenant_access_token/internal`,
 			body: {
-				client_id: credentials.appId,
-				client_secret: credentials.appSecret,
+				app_id: credentials.appId,
+				app_secret: credentials.appSecret,
 			},
 			headers: {
 				'Content-Type': 'application/json',
@@ -52,5 +62,12 @@ export class LarksuiteTenantApi implements ICredentialType {
 			},
 		},
 	};
+
+	test: ICredentialTestRequest = {
+		request: {
+			method: 'GET',
+			url: 'https://open.larksuite.com/open-apis/tenant/v2/tenant/query',
+		}
+	}
 
 }

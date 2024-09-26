@@ -1,4 +1,5 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
+import runHooks from './hooks'
 
 import * as obtainACommentList from './obtain-a-comment-list'
 import * as addAComment from './add-a-comment'
@@ -37,7 +38,7 @@ operationSelect.options = operations
 // set the default operation
 operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
-export const properties: INodeProperties[] = [
+export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...obtainACommentList.properties,
   ...addAComment.properties,
@@ -46,3 +47,7 @@ export const properties: INodeProperties[] = [
   ...updateAReply.properties,
   ...deleteAReply.properties,
 ]
+
+const { properties, methods } = runHooks(rawProperties)
+
+export { properties, methods }

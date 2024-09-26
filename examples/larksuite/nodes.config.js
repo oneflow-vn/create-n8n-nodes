@@ -2,20 +2,22 @@ const path = require('path');
 
 const credentials = [
 	{
-		name: 'larksuiteOAuth2Api',
+    displayName: 'Tenant Token',
+		name: 'larkSuiteTenantApi',
 		required: true,
 		displayOptions: {
 			show: {
-				authentication: ['oauth2'],
+				authentication: ['larkSuiteTenantApi'],
 			}
 		}
 	},
-	{
-		name: 'larksuiteTenantApi',
+  {
+    displayName: 'OAuth2 Token',
+		name: 'larkSuiteOAuth2Api',
 		required: true,
 		displayOptions: {
 			show: {
-				authentication: ['accessToken'],
+				authentication: ['larkSuiteOAuth2Api'],
 			}
 		}
 	}
@@ -24,21 +26,22 @@ const credentials = [
 module.exports = {
   packageName: 'n8n-nodes-larksuite',
   credentials: {
-		larksuiteTenantApi: {
-			name: 'larksuiteTenantApi',
-			className: 'LarksuiteTenantApi',
-			displayName: 'Larksuite Tenant API',
+		larkSuiteTenantApi: {
+			name: 'larkSuiteTenantApi',
+			className: 'LarkSuiteTenantApi',
+			displayName: 'LarkSuite Tenant API',
 			documentationUrl: 'https://open.larksuite.com/document/server-docs/getting-started/api-access-token/g',
 		},
-		larksuiteOAuth2Api: {
-			name: 'larksuiteOAuth2Api',
-			className: 'LarksuiteOAuth2Api',
-			displayName: 'Larksuite OAuth2 API',
+		larkSuiteOAuth2Api: {
+			name: 'larkSuiteOAuth2Api',
+			className: 'LarkSuiteOAuth2Api',
+			displayName: 'LarkSuite OAuth2 API',
 			documentationUrl: 'https://open.larksuite.com/document/server-docs/getting-started/api-access-token/g',
 		},
 	},
   nodes: {
     larkAuth: {
+      disabled: true,
       displayName: 'Lark Auth',
       name: 'LarkAuth',
       description: 'Lark Auth Management',
@@ -68,10 +71,10 @@ module.exports = {
       baseUrl: 'https://open.larksuite.com/open-apis',
 			credentials,
     },
-    larkBitable: {
-      displayName: 'Lark Bitable',
-      name: 'LarkBitable',
-      description: 'Lark Bitable Management',
+    larkBase: {
+      displayName: 'Lark Base',
+      name: 'LarkBase',
+      description: 'Lark Base Management',
       openapi: path.resolve(__dirname, 'lark.yml'),
       tags: [new RegExp('^Docs > Bitable.*')],
       icon: './icons/larkbase.svg',

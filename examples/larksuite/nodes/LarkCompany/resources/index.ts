@@ -1,24 +1,52 @@
 import { INodeProperties } from 'n8n-workflow'
-import runhook from './hooks'
+import { aggregateNodeMethods } from '../helpers/methods'
+import runHooks from './hooks'
 
 import * as tenant from './tenant'
 
-const resourceSelect: INodeProperties = {
-  displayName: 'Resource',
-  name: 'resource',
-  type: 'options',
-  noDataExpression: true,
-  options: [
-    {
-      name: 'Tenant',
-      value: 'Company Information Tenant',
-    },
-  ],
-  default: '',
-}
+const authenticationProperties: INodeProperties[] = [
+  {
+    displayName: 'Authentication',
+    name: 'authentication',
+    type: 'options',
+    options: [
+      {
+        name: 'Tenant Token',
+        value: 'larkSuiteTenantApi',
+      },
+      {
+        name: 'OAuth2 Token',
+        value: 'larkSuiteOAuth2Api',
+      },
+    ],
+    default: 'larkSuiteTenantApi',
+  },
+]
 
-const rawProperties: INodeProperties[] = [resourceSelect, ...tenant.properties]
+const resourceSelect: INodeProperties[] = [
+  {
+    displayName: 'Resource',
+    name: 'resource',
+    type: 'options',
+    noDataExpression: true,
+    options: [
+      {
+        name: 'Tenant',
+        value: 'Company Information Tenant',
+      },
+    ],
+    default: '',
+  },
+]
 
-const { properties } = runhook(rawProperties)
+const rawProperties: INodeProperties[] = [
+  ...authenticationProperties,
+  ...resourceSelect,
+  ...tenant.properties,
+]
 
-export { properties }
+const { properties, methods: selfMethods } = runHooks(rawProperties)
+
+const methods = aggregateNodeMethods([selfMethods, tenant.methods])
+
+export { properties, methods }
