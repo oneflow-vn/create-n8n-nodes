@@ -18,14 +18,14 @@ const authenticationProperties: INodeProperties[] = [
     options: [
       {
         name: 'Tenant Token',
-        value: 'accessToken',
+        value: 'larkSuiteTenantApi',
       },
       {
         name: 'OAuth2',
-        value: 'oAuth2',
+        value: 'larkSuiteOAuth2Api',
       },
     ],
-    default: 'accessToken',
+    default: 'larkSuiteTenantApi',
   },
 ]
 

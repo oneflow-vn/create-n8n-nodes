@@ -40,6 +40,7 @@
       "dist/credentials/LarkSuiteOAuth2Api.credentials.js"
     ],
     "nodes": [
+      "dist/nodes/LarkAuth/LarkAuth.node",
       "dist/nodes/LarkFiles/LarkFiles.node",
       "dist/nodes/LarkSheets/LarkSheets.node",
       "dist/nodes/LarkBase/LarkBase.node",
