@@ -12,8 +12,9 @@
 </div>
 
 
-
 This tool creates a new N8N node from an openAPI specification. It generates the node files, credentials, and documentation.
+
+<br>
 
 ## Features
 
