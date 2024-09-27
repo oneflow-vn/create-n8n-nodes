@@ -3,12 +3,15 @@
 
 > Command line tool to create a new N8N node from openAPI specification
 
-<div style="display: flex;">
+
+## Overview
+
+<div>
 <img src="./assets/openapi.svg" width="100" height="100" align="left">
 <img src="./assets/n8n.svg" width="100" height="100" align="left">
 </div>
 
-## Overview
+
 
 This tool creates a new N8N node from an openAPI specification. It generates the node files, credentials, and documentation.
 
