@@ -1,253 +1,182 @@
-# apifire
+# Create N8N node
 
-A support library designed to work with the `yeoman` generator, 
-[`apifire-server`](https://github.com/theogravity/apifire-server).
 
-It takes an OpenAPI 3 spec, and generates routes, controllers, and validators for express in Typescript.
+> Command line tool to create a new N8N node from openAPI specification
 
-This library is a work-in-progress (alpha level, in my opinion), and works specifically with the
-author's use-cases.
+<div style="display: flex;">
+<img src="./assets/openapi.svg" width="100" height="100" align="left">
+<img src="./assets/n8n.svg" width="100" height="100" align="left">
+</div>
 
-It's been tested with the following files:
+## Overview
 
-- `tests/openapi3/petstore.yaml`
-- `tests/openapi3/bt-example.yaml`
-- `tests/openapi3/spotlight-example.yaml`
+This tool creates a new N8N node from an openAPI specification. It generates the node files, credentials, and documentation.
 
-Notes:
+## Features
 
-- It is recommended that you use [`Stoplight Studio`](https://stoplight.io/studio) to design your OpenAPI spec
-  * For a well-designed example using Stoplight Studio, see [this OpenAPI definition](https://github.com/theogravity/immutable-x-openapi)
-- For responses, only 200 responses are used with JSON response bodies.
-- It is recommended to create an OpenAPI component type for request bodies and responses (aka Model in Stoplight Studio)
-- Cookies / headers / auth definitions are not used
-- `$ref` is supported in responses and parameters
-- Use `parameters` to define non-post body params, use `requestBody` for body params
-- Content type `application/json` is only supported for `requestBody` and responses
-- Very basic `securitySchemes` support - only the first `security` definition is used to protect an endpoint
-- Post / response bodies *must* be an object type. It *cannot* be an array. You can have properties that are of any type in that object, however.
+- [x] convert postman collection to openAPI
+- [x] Merge multiple openAPI files into one
+- [x] create node files from openAPI specification
+- [x] create credentials file from openAPI specification
+- [X] Multiple credentials
+- [x] Multiple nodes
+- [x] HTTP Routing based nodes
+- [X] Custom node properties
+- [x] Custom node methods
+- [x] Custom node hooks
 
-# Table of Contents
-
-<!-- TOC -->
-- [Fork notice](#fork-notice)
-  - [Changes](#changes)
-- [Install](#install)
-- [Usage](#usage)
-  - [Quick usage](#quick-usage)
-  - [CLI reference](#cli-reference)
-- [Sample output](#sample-output)
-  - [Interfaces](#interfaces)
-  - [Router](#router)
-  - [Validator](#validator)
-  - [Controller](#controller)
-- [Authors](#authors)
-
-<!-- TOC END -->
-
-## Fork notice
-
-This library is a fork of the [`openapi3-generator`](https://github.com/openapi-contrib/openapi3-generator) project.
-
-### Changes
-
-- Uses a custom `json-schema-ref-parser-alt` build that adds a `x-original-ref` property as a reference to the 
-original `$ref` to the output schema, which is useful for static analysis when trying to generate types.
-- The templates that came with `openapi3-generator` were removed.
-- A new set of templates were added to work with `apifire-server`.
-- A prettifier was introduced to prettify the generated Typescript files.
-
-## Install
-
-To use it from the CLI:
+## Installation
 
 ```bash
-npm install -g apifire
+npm install -g @oneflow-vn/n8n-nodegen (TO BE PUBLISHED)
 ```
 
 ## Usage
 
-### Quick usage
-
-In the directory where the `apifire-server` generated service is, run:
-
-`$ apifire api.yaml api-server`
-
-Where `api.yaml` is the OpenAPI 3 spec file. You should always run this command whenever the spec
-file changes.
-
-This will generate the following structure:
-
-```
-/<service root>
-├── src/
-|   ├── controllers-generated/
-|   |   └──  <operation>.ts
-|   ├── interfaces/
-|   |   └──  api.ts
-|   ├── routers/
-|   |   ├── <operation>.router.ts
-|   |   ├── validators/
-|   |   |   └── <operation>.validator.ts
+```bash
+n8n-nodegen --help
 ```
 
-In day-to-day usage, the `controllers-generated/` directory contains the files that you may edit / pluck
-to the service's `controllers/` directory as you will implement your business logic in them.
-
-The other directories and their files should never be modified.
-
-### CLI reference
+### Initialize a new package
 
 ```bash
-  Usage: apifire [options] <openapiFileOrURL> <template>
-
-  Options:
-
-    -V, --version                  output the version number
-    -o, --output <outputDir>       directory where to put the generated files (defaults to current directory)
-    -t, --templates <templateDir>  directory where templates are located (defaults to internal templates directory)
-    -b, --basedir <baseDir>        directory to use as the base when resolving local file references (defaults to OpenAPI file directory)
-    -h, --help                     output usage information
+n8n-nodegen init --openapi <openapi-file> --template oneflow-vn/n8n-nodes-template --output <output-dir>
 ```
+### Configuration
 
-## Sample output
+check the `nodes.config.js` file in the output directory
 
-[Stoplight Studio](https://stoplight.io/studio/) is a recommended way to design your OpenAPI spec.
+```js
+const path = require('path');
 
-The following items were generated using the `tests/openapi3/stoplight-example.yaml` file.
-
-### Interfaces
-
-```typescript
-export interface CreateAccountParams {
-  /**
-   * Account email
-   */
-  email: string
-  /**
-   * Hashed password
-   */
-  passHash: string
-  /**
-   * Authentication type
-   */
-  authType: string
-  /**
-   * Code to verify account
-   */
-  verifyCode: string
-
-  /**
-   * Account id in path
-   */
-  pAccountId: string
-}
-
-export interface CreateAccountResponse {
-  status?: number
-  /**
-   * Created account id
-   */
-  id?: string
-}
-```
-
-### Router
-
-```typescript
-/**
- * Creates a new account
- */
-router.post(
-  '/:pAccountId',
-  async (req: IRequest, res: Response, next: NextFunction) => {
-    const params: ApiInterfaces.CreateAccountParams = {
-      pAccountId: (req.params.pAccountId as unknown) as string,
-
-      email: (req.body.email as unknown) as string,
-      passHash: (req.body.passHash as unknown) as string,
-      authType: (req.body.authType as unknown) as string,
-      verifyCode: (req.body.verifyCode as unknown) as string
+module.exports = {
+  packageName: 'n8n-nodes-<name>',
+  credentials: {
+    yourApi: {
+      displayName: 'Your API',
+      name: 'firecrawlApi',
+      className: 'FirecrawlApi',
+      scheme: 'apiKey',
     }
+  },
+  nodes: {
+    yourNode: {
+      displayName: 'Your Node',
+      name: 'YourNode',
+      description: 'Your Node Description',
+      openapi: path.resolve(__dirname, 'openapi.yml'),
+      icon: 'fa:fire',
+      baseUrl: 'https://your-api.com',
+      credentials: [{
+        displayName: 'Your API',
+        name: 'yourApi',
+        required: true,
+      }],
+    },
+  },
+  // overwrite the generated files
+  overwrites: {
+    operations: [],
+  },
+};
 
-    try {
-      validateCreateAccountParams(params)
-
-      const result = await createAccount(req.context, params)
-      res.status(result.status || 200)
-
-      delete result.status
-
-      res.send(result)
-    } catch (err) {
-      next(err)
-    }
-  }
-)
 ```
 
-### Validator
+### code generation
 
-`apifire` generates validators that validate the incoming request parameters.
+```bash
+pnpm run codegen
+```
 
-```typescript
-const createAccountValidator = ajv.compile({
-  type: 'object',
-  required: ['pAccountId', 'email', 'passHash', 'authType', 'verifyCode'],
-  properties: {
-    pAccountId: { type: 'string' },
-    email: {
-      type: 'string',
+### Overwrite the generated files
+
+We offer two ways to overwrite the generated files:
+- Overwrite the generated files by providing the `overwrites` object in the `nodes.config.js` file. This will overwrite the generated operations when running the `codegen` command.
+- Hook into the node's properties and methods in runtime by replacing th `hooks` files in the generated node directory.
+
+**Overwrites operations**
+
+```js
+  // node.config.js
+  // overwrite the generated files
+	overwrites: {
+		operations: [
+      // unset all operations that have the 'Content-Type' header
+			{
+				has: 'routing.request.headers.Content-Type',
+				set: false,
+			},
+      // match all operations that have the 'type' string and set  default value to ''
+			{
+				match: {
+					type: 'string',
+				},
+				set: {
+					type: 'string',
+					default: '',
+				},
+			},
+      // unset all operations that have the 'Authorization' header
+			{
+				has: 'routing.request.headers.Authorization',
+				set: false,
+			},
+		],
+	},
+
+```
+
+**Overwrites by extensions**
+
+In the root project directory, create a `extensions` directory, the structure should be like the generated node directory. The `extensions` directory will contain the files that you want to overwrite.
+
+```bash
+- root
+  - extensions
+    - YourNode
+      - resources
+        - your-resource
+          - hooks.ts
+```
+
+Basically, when running the `codegen` command, the tool will copy the files from the `extensions` directory to the generated node directory.
+
+example hooks.ts
+
+```ts
+import { INodeProperties, INodeType } from 'n8n-workflow';
+
+export default function runHook(
+	properties: INodeProperties[],
+): {
+	properties: INodeProperties[];
+	methods: INodeType['methods'];
+} {
+	return {
+    // do anything with the properties
+		properties,
+    // all methods that you want to add to the node
+		methods: {
+        listSearch: {
+            searchDocsApps
+        }
     },
-    passHash: {
-      type: 'string',
-    },
-    authType: {
-      type: 'string',
-    },
-    verifyCode: {
-      type: 'string',
-    }
-  }
-})
-
-export function validateCreateAccountParams (params) {
-  const valid = createAccountValidator(params)
-
-  if (!valid) {
-    throw getErrRegistry()
-      .newError('VALIDATION_FAILURE', 'INVALID_REQ_PARAMS')
-      .withSafeMetadata({
-        validations: createAccountValidator.errors
-      })
-  }
+	};
 }
 ```
 
-### Controller
+## Contributing
 
-You fill in your business logic in a controller, which is called by the router.
-
-```typescript
-/**
- * @param {IRequestContext} context
- * @param {Object} params
- * @throws {Error}
- * @return {Promise}
- */
-export async function createAccount (
-  context: IRequestContext,
-  params: ApiInterfaces.CreateAccountParams
-): Promise<ApiInterfaces.CreateAccountResponse> {
-
-  return {
-    id: ''
-  }
-}
-```
+Please make sure to read the [Contributing Guide](./CONTRIBUTING.md) before making a pull request.
 
 ## Authors
 
-* Theo Gravity ([github](http://github.com/richardklose))
-* Fran Méndez ([@fmvilas](http://twitter.com/fmvilas))
-* Richard Klose ([@richardklose](http://github.com/richardklose))
+- [oneflow.vn](https://oneflow.vn)
+
+## Code of Conduct
+
+Please make sure to read the [Code of Conduct](./CODE_OF_CONDUCT.md) before making a pull request.
+
+## License
+
+This project is licensed under the [MIT License](./LICENSE).
