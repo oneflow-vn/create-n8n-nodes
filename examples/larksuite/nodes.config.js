@@ -192,7 +192,7 @@ module.exports = {
 			{
 				has: 'routing.request.headers.Authorization',
 				set: false,
-			},
+			}
 		],
 	},
 };

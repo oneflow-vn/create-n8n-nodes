@@ -1,8 +1,8 @@
 {
-  "name": "apifire",
+  "name": "create-n8n-nodes",
   "main": "./lib/generator.js",
   "version": "0.9.2",
-  "description": "Generates express validators/routers/controllers in Typescript using an OpenAPI 3 spec.",
+  "description": "Generates n8n nodes from OpenAPI 3.0 specs",
   "bin": {
     "apifire": "./cli.js"
   },
@@ -63,8 +63,10 @@
     "handlebars": "^4.7.7",
     "js-yaml": "^4.1.0",
     "json-schema-ref-parser-alt": "^9.0.1",
+    "json-stable-stringify": "^1.1.1",
     "lodash": "^4.17.21",
     "markdown-it": "^13.0.1",
+    "mock-json-schema": "^1.1.1",
     "n8n-workflow": "^1.48.0",
     "oas-validator": "^5.0.8",
     "openapi-sampler": "^1.2.3",

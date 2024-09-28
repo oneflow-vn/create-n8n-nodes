@@ -96,7 +96,7 @@ function runGenerator (options) {
     description: options.description,
     tags: options.tags || null,
     config: options.config,
-    packageName: options.packageName,
+    packageName: options.config.packageName && options.packageName,
     icon: options.icon,
     baseUrl: options.baseUrl,
     credentials: options.credentials,
