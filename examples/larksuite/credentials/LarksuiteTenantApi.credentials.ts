@@ -80,16 +80,12 @@ export class LarkSuiteTenantApi implements ICredentialType {
 		//check whether the token is an API Key or an access token
 		const { tenantAccessToken } = credentials as ILarkSuiteCredentials;
 
-		// @ts-ignore
-		console.log('tenantAccessToken', tenantAccessToken);
 		// Workaround to check whether the token is expired or not
 		// Since the api not returning 401 due to invalid re-authentication handling behavior by n8n
 		// Then we need to check the token expiration manually
 		// @ts-ignore
 		if (!this.isValidToken(tenantAccessToken)) {
 			// manually throw a mock 401 axios error
-			// @ts-ignore
-			console.log('Token is expired');
 			throw {
 				response: {
 					status: 401,
@@ -137,15 +133,6 @@ export class LarkSuiteTenantApi implements ICredentialType {
 
 		return { tenantAccessToken };
 	}
-
-	// authenticate: IAuthenticateGeneric = {
-	// 	type: 'generic',
-	// 	properties: {
-	// 		headers: {
-	// 			Authorization: '=Bearer {{$credentials.tenantAccessToken}}',
-	// 		},
-	// 	},
-	// };
 
 	test: ICredentialTestRequest = {
 		request: {
