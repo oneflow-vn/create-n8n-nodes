@@ -6,18 +6,38 @@
     "noDataExpression": true,
     "options": [
       {
-        "name": "Image Recognition",
-        "value": "AI Optical Character Recognition Image Recognition",
+        "name": "Mail Group",
+        "value": "Email Mail Group",
         "description": ""
       },
       {
-        "name": "Speech Recognition",
-        "value": "AI Speech To Text Speech Recognition",
+        "name": "Mail Group Member",
+        "value": "Email Mail Group Member",
         "description": ""
       },
       {
-        "name": "Text",
-        "value": "AI Machine Translation Text",
+        "name": "Mail Group Permission Member",
+        "value": "Email Mail Group Permission Member",
+        "description": ""
+      },
+      {
+        "name": "Mail Group Alias",
+        "value": "Email Mail Group Alias",
+        "description": ""
+      },
+      {
+        "name": "Public Mailbox",
+        "value": "Email Public Mailbox",
+        "description": ""
+      },
+      {
+        "name": "Public Mailbox Member",
+        "value": "Email Public Mailbox Member",
+        "description": ""
+      },
+      {
+        "name": "Public Mailbox Alias",
+        "value": "Email Public Mailbox Alias",
         "description": ""
       }
     ],
@@ -31,20 +51,80 @@
     "displayOptions": {
       "show": {
         "resource": [
-          "AI Optical Character Recognition Image Recognition"
+          "Email Mail Group"
         ]
       }
     },
     "options": [
       {
-        "name": "Basic Image Recognition Ocr",
-        "value": "Basic Image Recognition Ocr",
-        "action": "Basic image recognition (OCR)",
-        "description": "Basic picture recognition interface, recognize the text in the picture, and return the text list by area\r\n\r\nAPI reference documentation: [Basic image recognition (OCR)]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/ai/optical_char_recognition-v1/image/basic_recognize)",
+        "name": "Create A Mailing List",
+        "value": "Create A Mailing List",
+        "action": "Create a mailing list",
+        "description": "Creates a mailing list.\r\n\r\nAPI reference documentation: [Create a mailing list]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/create)",
         "routing": {
           "request": {
             "method": "POST",
-            "url": "=/optical_char_recognition/v1/image/basic_recognize"
+            "url": "=/mail/v1/mailgroups"
+          }
+        }
+      },
+      {
+        "name": "Obtain Mailing Lists In Batch",
+        "value": "Obtain Mailing Lists In Batch",
+        "action": "Obtain mailing lists in batch",
+        "description": "Obtains mailing lists by pages.\r\n\r\nAPI reference documentation: [Obtain mailing lists in batch]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/mail/v1/mailgroups"
+          }
+        }
+      },
+      {
+        "name": "Obtain A Mailing List",
+        "value": "Obtain A Mailing List",
+        "action": "Obtain a mailing list",
+        "description": "Obtains the information of a mailing list.\r\n\r\nAPI reference documentation: [Obtain a mailing list]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/mail/v1/mailgroups/{{$parameter[\"mailgroup_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Modify A Mailing List",
+        "value": "Modify A Mailing List",
+        "action": "Modify a mailing list",
+        "description": "Updates some fields of a mailing list. The fields not specified are not updated.\r\n\r\nAPI reference documentation: [Modify a mailing list]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/patch)",
+        "routing": {
+          "request": {
+            "method": "PATCH",
+            "url": "=/mail/v1/mailgroups/{{$parameter[\"mailgroup_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Update A Mailing List",
+        "value": "Update A Mailing List",
+        "action": "Update a mailing list",
+        "description": "Updates all information of a mailing list.\r\n\r\nAPI reference documentation: [Update a mailing list]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/update)",
+        "routing": {
+          "request": {
+            "method": "PUT",
+            "url": "=/mail/v1/mailgroups/{{$parameter[\"mailgroup_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Delete A Mailing List",
+        "value": "Delete A Mailing List",
+        "action": "Delete a mailing list",
+        "description": "Deletes a mailing list.\r\n\r\nAPI reference documentation: [Delete a mailing list]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/mail/v1/mailgroups/{{$parameter[\"mailgroup_id\"]}}"
           }
         }
       }
@@ -59,32 +139,56 @@
     "displayOptions": {
       "show": {
         "resource": [
-          "AI Speech To Text Speech Recognition"
+          "Email Mail Group Member"
         ]
       }
     },
     "options": [
       {
-        "name": "Streaming Speech Recognition Asr",
-        "value": "Streaming Speech Recognition Asr",
-        "action": "Streaming speech recognition (ASR)",
-        "description": "A streaming speech recognition API is provided to input an audio clip by clip and receive recognition results in real time. Each audio clip is recommended to be within 100 to 200 ms.\r\n\r\nAPI reference documentation: [Streaming speech recognition (ASR)]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/ai/speech_to_text-v1/speech/stream_recognize)",
+        "name": "Create A Mailing List Member",
+        "value": "Create A Mailing List Member",
+        "action": "Create a mailing list member",
+        "description": "Adds a member to a mailing list.\r\n\r\nAPI reference documentation: [Create a mailing list member]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/create)",
         "routing": {
           "request": {
             "method": "POST",
-            "url": "=/speech_to_text/v1/speech/stream_recognize"
+            "url": "=/mail/v1/mailgroups/{{$parameter[\"mailgroup_id\"]}}/members"
           }
         }
       },
       {
-        "name": "Audio File Speech Recognition Asr",
-        "value": "Audio File Speech Recognition Asr",
-        "action": "Audio file speech recognition (ASR)",
-        "description": "An audio speech recognition API is provided to recognize the entire audio file (less than 60s) at one time.\r\n\r\nAPI reference documentation: [Audio file speech recognition (ASR)]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/ai/speech_to_text-v1/speech/file_recognize)",
+        "name": "Obtain Mailing List Members In Batch",
+        "value": "Obtain Mailing List Members In Batch",
+        "action": "Obtain mailing list members in batch",
+        "description": "Obtains the list of mailing list members by pages.\r\n\r\nAPI reference documentation: [Obtain mailing list members in batch]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/list)",
         "routing": {
           "request": {
-            "method": "POST",
-            "url": "=/speech_to_text/v1/speech/file_recognize"
+            "method": "GET",
+            "url": "=/mail/v1/mailgroups/{{$parameter[\"mailgroup_id\"]}}/members"
+          }
+        }
+      },
+      {
+        "name": "Obtain Mailing List Member Information",
+        "value": "Obtain Mailing List Member Information",
+        "action": "Obtain mailing list member information",
+        "description": "Obtains the information of a mailing list member.\r\n\r\nAPI reference documentation: [Obtain mailing list member information]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/mail/v1/mailgroups/{{$parameter[\"mailgroup_id\"]}}/members/{{$parameter[\"member_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Delete A Mailing List Member",
+        "value": "Delete A Mailing List Member",
+        "action": "Delete a mailing list member",
+        "description": "Deletes a mailing list member.\r\n\r\nAPI reference documentation: [Delete a mailing list member]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/mail/v1/mailgroups/{{$parameter[\"mailgroup_id\"]}}/members/{{$parameter[\"member_id\"]}}"
           }
         }
       }
@@ -99,32 +203,56 @@
     "displayOptions": {
       "show": {
         "resource": [
-          "AI Machine Translation Text"
+          "Email Mail Group Permission Member"
         ]
       }
     },
     "options": [
       {
-        "name": "Translate With Machine Translation",
-        "value": "Translate With Machine Translation",
-        "action": "Translate with machine translation",
-        "description": "Machine translation (MT), supporting Chinese-Japanese-English (zh, ja, en) translation\r\n\r\nAPI reference documentation: [Translate with machine translation]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/translate)",
+        "name": "Create A Member Who Can Send Emails To Mailing List Addresses",
+        "value": "Create A Member Who Can Send Emails To Mailing List Addresses",
+        "action": "Create a member who can send emails to mailing list addresses",
+        "description": "Adds a member with custom permission to the mailing list, who will then be able to send emails to this mailing list.\r\n\r\nAPI reference documentation: [Create a member who can send emails to mailing list addresses]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/create)",
         "routing": {
           "request": {
             "method": "POST",
-            "url": "=/translation/v1/text/translate"
+            "url": "=/mail/v1/mailgroups/{{$parameter[\"mailgroup_id\"]}}/permission_members"
           }
         }
       },
       {
-        "name": "Text Language Recognition",
-        "value": "Text Language Recognition",
-        "action": "Text language recognition",
-        "description": "Machine translation (MT), supporting recognition of over 100 languages. The return value is ISO 639-1 compliant.\r\n\r\nAPI reference documentation: [Text language recognition]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/detect)",
+        "name": "Obtain The Members Who Can Send Emails To Mailing List Addresses In Batch",
+        "value": "Obtain The Members Who Can Send Emails To Mailing List Addresses In Batch",
+        "action": "Obtain the members who can send emails to mailing list addresses in batch",
+        "description": "Obtains the list of members who can send emails to mailing list addresses by pages.\r\n\r\nAPI reference documentation: [Obtain the members who can send emails to mailing list addresses in batch]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/list)",
         "routing": {
           "request": {
-            "method": "POST",
-            "url": "=/translation/v1/text/detect"
+            "method": "GET",
+            "url": "=/mail/v1/mailgroups/{{$parameter[\"mailgroup_id\"]}}/permission_members"
+          }
+        }
+      },
+      {
+        "name": "Obtain A Member Who Can Send Emails To Mailing List Addresses",
+        "value": "Obtain A Member Who Can Send Emails To Mailing List Addresses",
+        "action": "Obtain a member who can send emails to mailing list addresses",
+        "description": "Obtains the information of a member who can send emails to mailing list addresses.\r\n\r\nAPI reference documentation: [Obtain a member who can send emails to mailing list addresses]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/mail/v1/mailgroups/{{$parameter[\"mailgroup_id\"]}}/permission_members/{{$parameter[\"permission_member_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Delete A Member Who Can Send Emails To Mailing List Addresses",
+        "value": "Delete A Member Who Can Send Emails To Mailing List Addresses",
+        "action": "Delete a member who can send emails to mailing list addresses",
+        "description": "Deletes a member with custom permission, who will then be unable to send emails to this mailing list.\r\n\r\nAPI reference documentation: [Delete a member who can send emails to mailing list addresses]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/mail/v1/mailgroups/{{$parameter[\"mailgroup_id\"]}}/permission_members/{{$parameter[\"permission_member_id\"]}}"
           }
         }
       }
@@ -132,7 +260,263 @@
     "default": ""
   },
   {
-    "displayName": "POST /optical_char_recognition/v1/image/basic_recognize",
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Alias"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Create A Mailing List Alias",
+        "value": "Create A Mailing List Alias",
+        "action": "Create a mailing list alias",
+        "description": "Creates a mailing list alias.\r\n\r\nAPI reference documentation: [Create a mailing list alias]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-alias/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/mail/v1/mailgroups/{{$parameter[\"mailgroup_id\"]}}/aliases"
+          }
+        }
+      },
+      {
+        "name": "Obtain All Mailing List Aliases",
+        "value": "Obtain All Mailing List Aliases",
+        "action": "Obtain all mailing list aliases",
+        "description": "Obtains all mailing list aliases.\r\n\r\nAPI reference documentation: [Obtain all mailing list aliases]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-alias/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/mail/v1/mailgroups/{{$parameter[\"mailgroup_id\"]}}/aliases"
+          }
+        }
+      },
+      {
+        "name": "Delete A Mailing List Alias",
+        "value": "Delete A Mailing List Alias",
+        "action": "Delete a mailing list alias",
+        "description": "Deletes a mailing list alias.\r\n\r\nAPI reference documentation: [Delete a mailing list alias]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-alias/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/mail/v1/mailgroups/{{$parameter[\"mailgroup_id\"]}}/aliases/{{$parameter[\"alias_id\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Create A Public Mailbox",
+        "value": "Create A Public Mailbox",
+        "action": "Create a public mailbox",
+        "description": "Creates a public mailbox.\r\n\r\nAPI reference documentation: [Create a public mailbox]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/mail/v1/public_mailboxes"
+          }
+        }
+      },
+      {
+        "name": "Obtain Public Mailboxes In Batch",
+        "value": "Obtain Public Mailboxes In Batch",
+        "action": "Obtain public mailboxes in batch",
+        "description": "Obtains the list of public mailboxes by pages.\r\n\r\nAPI reference documentation: [Obtain public mailboxes in batch]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/mail/v1/public_mailboxes"
+          }
+        }
+      },
+      {
+        "name": "Obtain A Public Mailbox",
+        "value": "Obtain A Public Mailbox",
+        "action": "Obtain a public mailbox",
+        "description": "Obtains public mailbox information.\r\n\r\nAPI reference documentation: [Obtain a public mailbox]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/mail/v1/public_mailboxes/{{$parameter[\"public_mailbox_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Modify A Public Mailbox",
+        "value": "Modify A Public Mailbox",
+        "action": "Modify a public mailbox",
+        "description": "Updates some fields of a public mailbox. The fields not specified are not updated.\r\n\r\nAPI reference documentation: [Modify a public mailbox]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/patch)",
+        "routing": {
+          "request": {
+            "method": "PATCH",
+            "url": "=/mail/v1/public_mailboxes/{{$parameter[\"public_mailbox_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Update A Public Mailbox",
+        "value": "Update A Public Mailbox",
+        "action": "Update a public mailbox",
+        "description": "Updates all information of a public mailbox.\r\n\r\nAPI reference documentation: [Update a public mailbox]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/update)",
+        "routing": {
+          "request": {
+            "method": "PUT",
+            "url": "=/mail/v1/public_mailboxes/{{$parameter[\"public_mailbox_id\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Member"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Create A Public Mailbox Member",
+        "value": "Create A Public Mailbox Member",
+        "action": "Create a public mailbox member",
+        "description": "Adds a member to a public mailbox.\r\n\r\nAPI reference documentation: [Create a public mailbox member]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/mail/v1/public_mailboxes/{{$parameter[\"public_mailbox_id\"]}}/members"
+          }
+        }
+      },
+      {
+        "name": "Obtain Public Mailbox Members In Batch",
+        "value": "Obtain Public Mailbox Members In Batch",
+        "action": "Obtain public mailbox members in batch",
+        "description": "Obtains the list of public mailbox members by pages.\r\n\r\nAPI reference documentation: [Obtain public mailbox members in batch]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/mail/v1/public_mailboxes/{{$parameter[\"public_mailbox_id\"]}}/members"
+          }
+        }
+      },
+      {
+        "name": "Obtain Public Mailbox Member Information",
+        "value": "Obtain Public Mailbox Member Information",
+        "action": "Obtain public mailbox member information",
+        "description": "Obtains the information of a public mailbox member.\r\n\r\nAPI reference documentation: [Obtain public mailbox member information]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/mail/v1/public_mailboxes/{{$parameter[\"public_mailbox_id\"]}}/members/{{$parameter[\"member_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Delete A Public Mailbox Member",
+        "value": "Delete A Public Mailbox Member",
+        "action": "Delete a public mailbox member",
+        "description": "Deletes a member of a public mailbox.\r\n\r\nAPI reference documentation: [Delete a public mailbox member]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/mail/v1/public_mailboxes/{{$parameter[\"public_mailbox_id\"]}}/members/{{$parameter[\"member_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Clear Public Mailbox Members",
+        "value": "Clear Public Mailbox Members",
+        "action": "Clear public mailbox members",
+        "description": "Deletes all members of a public mailbox.\r\n\r\nAPI reference documentation: [Clear public mailbox members]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/clear)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/mail/v1/public_mailboxes/{{$parameter[\"public_mailbox_id\"]}}/members/clear"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Alias"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Create A Public Mailbox Alias",
+        "value": "Create A Public Mailbox Alias",
+        "action": "Create a public mailbox alias",
+        "description": "Creates a public mailbox alias.\r\n\r\nAPI reference documentation: [Create a public mailbox alias]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-alias/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/mail/v1/public_mailboxes/{{$parameter[\"public_mailbox_id\"]}}/aliases"
+          }
+        }
+      },
+      {
+        "name": "Obtain All Public Mailbox Aliases",
+        "value": "Obtain All Public Mailbox Aliases",
+        "action": "Obtain all public mailbox aliases",
+        "description": "Obtains all public mailbox aliases.\r\n\r\nAPI reference documentation: [Obtain all public mailbox aliases]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-alias/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/mail/v1/public_mailboxes/{{$parameter[\"public_mailbox_id\"]}}/aliases"
+          }
+        }
+      },
+      {
+        "name": "Delete A Public Mailbox Alias",
+        "value": "Delete A Public Mailbox Alias",
+        "action": "Delete a public mailbox alias",
+        "description": "Deletes a public mailbox alias.\r\n\r\nAPI reference documentation: [Delete a public mailbox alias]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-alias/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/mail/v1/public_mailboxes/{{$parameter[\"public_mailbox_id\"]}}/aliases/{{$parameter[\"alias_id\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "POST /mail/v1/mailgroups",
     "name": "operation",
     "type": "notice",
     "typeOptions": {
@@ -142,23 +526,23 @@
     "displayOptions": {
       "show": {
         "resource": [
-          "AI Optical Character Recognition Image Recognition"
+          "Email Mail Group"
         ],
         "operation": [
-          "Basic Image Recognition Ocr"
+          "Create A Mailing List"
         ]
       }
     }
   },
   {
-    "displayName": "Image",
-    "name": "image",
+    "displayName": "Description",
+    "name": "description",
     "type": "string",
     "default": "",
     "routing": {
       "request": {
         "body": {
-          "image": "={{ $value }}"
+          "description": "={{ $value }}"
         }
       }
     },
@@ -170,10 +554,94 @@
       },
       "show": {
         "resource": [
-          "AI Optical Character Recognition Image Recognition"
+          "Email Mail Group"
         ],
         "operation": [
-          "Basic Image Recognition Ocr"
+          "Create A Mailing List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Email",
+    "name": "email",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "email": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Email Mail Group"
+        ],
+        "operation": [
+          "Create A Mailing List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Email Mail Group"
+        ],
+        "operation": [
+          "Create A Mailing List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Who Can Send Mail",
+    "name": "who_can_send_mail",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "who_can_send_mail": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Email Mail Group"
+        ],
+        "operation": [
+          "Create A Mailing List"
         ]
       }
     }
@@ -182,7 +650,7 @@
     "displayName": "Custom Body",
     "name": "customBody",
     "type": "json",
-    "default": "{\n  \"image\": \"string\"\n}",
+    "default": "{\n  \"description\": \"string\",\n  \"email\": \"user@example.com\",\n  \"name\": \"string\",\n  \"who_can_send_mail\": \"string\"\n}",
     "description": "Custom body to send.",
     "routing": {
       "send": {
@@ -197,16 +665,16 @@
           true
         ],
         "resource": [
-          "AI Optical Character Recognition Image Recognition"
+          "Email Mail Group"
         ],
         "operation": [
-          "Basic Image Recognition Ocr"
+          "Create A Mailing List"
         ]
       }
     }
   },
   {
-    "displayName": "POST /speech_to_text/v1/speech/stream_recognize",
+    "displayName": "GET /mail/v1/mailgroups",
     "name": "operation",
     "type": "notice",
     "typeOptions": {
@@ -216,61 +684,97 @@
     "displayOptions": {
       "show": {
         "resource": [
-          "AI Speech To Text Speech Recognition"
+          "Email Mail Group"
         ],
         "operation": [
-          "Streaming Speech Recognition Asr"
+          "Obtain Mailing Lists In Batch"
         ]
       }
     }
   },
   {
-    "displayName": "Config",
-    "name": "config",
-    "type": "fixedCollection",
-    "default": {},
-    "options": [
-      {
-        "name": "items",
-        "displayName": "Items",
-        "values": [
-          {
-            "type": "number",
-            "default": 0,
-            "name": "action",
-            "displayName": "action"
-          },
-          {
-            "type": "string",
-            "default": "",
-            "name": "engine_type",
-            "displayName": "engine_type"
-          },
-          {
-            "type": "string",
-            "default": "",
-            "name": "format",
-            "displayName": "format"
-          },
-          {
-            "type": "number",
-            "default": 0,
-            "name": "sequence_id",
-            "displayName": "sequence_id"
-          },
-          {
-            "type": "string",
-            "default": "",
-            "name": "stream_id",
-            "displayName": "stream_id"
-          }
+    "displayName": "GET /mail/v1/mailgroups/{mailgroup_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group"
+        ],
+        "operation": [
+          "Obtain A Mailing List"
         ]
       }
-    ],
+    }
+  },
+  {
+    "displayName": "Mailgroup Id",
+    "name": "mailgroup_id",
+    "required": true,
+    "description": "Mailing list ID or mailing list address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group"
+        ],
+        "operation": [
+          "Obtain A Mailing List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PATCH /mail/v1/mailgroups/{mailgroup_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group"
+        ],
+        "operation": [
+          "Modify A Mailing List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Mailgroup Id",
+    "name": "mailgroup_id",
+    "required": true,
+    "description": "Mailing list ID or mailing list address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group"
+        ],
+        "operation": [
+          "Modify A Mailing List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Description",
+    "name": "description",
+    "type": "string",
+    "default": "",
     "routing": {
       "request": {
         "body": {
-          "config": "={{$value.items}}"
+          "description": "={{ $value }}"
         }
       }
     },
@@ -282,37 +786,23 @@
       },
       "show": {
         "resource": [
-          "AI Speech To Text Speech Recognition"
+          "Email Mail Group"
         ],
         "operation": [
-          "Streaming Speech Recognition Asr"
+          "Modify A Mailing List"
         ]
       }
     }
   },
   {
-    "displayName": "Speech",
-    "name": "speech",
-    "type": "fixedCollection",
-    "default": {},
-    "options": [
-      {
-        "name": "items",
-        "displayName": "Items",
-        "values": [
-          {
-            "type": "string",
-            "default": "",
-            "name": "speech",
-            "displayName": "speech"
-          }
-        ]
-      }
-    ],
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
     "routing": {
       "request": {
         "body": {
-          "speech": "={{$value.items}}"
+          "name": "={{ $value }}"
         }
       }
     },
@@ -324,10 +814,38 @@
       },
       "show": {
         "resource": [
-          "AI Speech To Text Speech Recognition"
+          "Email Mail Group"
         ],
         "operation": [
-          "Streaming Speech Recognition Asr"
+          "Modify A Mailing List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Who Can Send Mail",
+    "name": "who_can_send_mail",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "who_can_send_mail": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Email Mail Group"
+        ],
+        "operation": [
+          "Modify A Mailing List"
         ]
       }
     }
@@ -336,7 +854,7 @@
     "displayName": "Custom Body",
     "name": "customBody",
     "type": "json",
-    "default": "{\n  \"config\": {\n    \"action\": 0,\n    \"engine_type\": \"string\",\n    \"format\": \"string\",\n    \"sequence_id\": 0,\n    \"stream_id\": \"string\"\n  },\n  \"speech\": {\n    \"speech\": \"string\"\n  }\n}",
+    "default": "{\n  \"description\": \"string\",\n  \"name\": \"string\",\n  \"who_can_send_mail\": \"string\"\n}",
     "description": "Custom body to send.",
     "routing": {
       "send": {
@@ -351,16 +869,16 @@
           true
         ],
         "resource": [
-          "AI Speech To Text Speech Recognition"
+          "Email Mail Group"
         ],
         "operation": [
-          "Streaming Speech Recognition Asr"
+          "Modify A Mailing List"
         ]
       }
     }
   },
   {
-    "displayName": "POST /speech_to_text/v1/speech/file_recognize",
+    "displayName": "PUT /mail/v1/mailgroups/{mailgroup_id}",
     "name": "operation",
     "type": "notice",
     "typeOptions": {
@@ -370,49 +888,41 @@
     "displayOptions": {
       "show": {
         "resource": [
-          "AI Speech To Text Speech Recognition"
+          "Email Mail Group"
         ],
         "operation": [
-          "Audio File Speech Recognition Asr"
+          "Update A Mailing List"
         ]
       }
     }
   },
   {
-    "displayName": "Config",
-    "name": "config",
-    "type": "fixedCollection",
-    "default": {},
-    "options": [
-      {
-        "name": "items",
-        "displayName": "Items",
-        "values": [
-          {
-            "type": "string",
-            "default": "",
-            "name": "engine_type",
-            "displayName": "engine_type"
-          },
-          {
-            "type": "string",
-            "default": "",
-            "name": "file_id",
-            "displayName": "file_id"
-          },
-          {
-            "type": "string",
-            "default": "",
-            "name": "format",
-            "displayName": "format"
-          }
+    "displayName": "Mailgroup Id",
+    "name": "mailgroup_id",
+    "required": true,
+    "description": "Mailing list ID or mailing list address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group"
+        ],
+        "operation": [
+          "Update A Mailing List"
         ]
       }
-    ],
+    }
+  },
+  {
+    "displayName": "Description",
+    "name": "description",
+    "type": "string",
+    "default": "",
     "routing": {
       "request": {
         "body": {
-          "config": "={{$value.items}}"
+          "description": "={{ $value }}"
         }
       }
     },
@@ -424,37 +934,23 @@
       },
       "show": {
         "resource": [
-          "AI Speech To Text Speech Recognition"
+          "Email Mail Group"
         ],
         "operation": [
-          "Audio File Speech Recognition Asr"
+          "Update A Mailing List"
         ]
       }
     }
   },
   {
-    "displayName": "Speech",
-    "name": "speech",
-    "type": "fixedCollection",
-    "default": {},
-    "options": [
-      {
-        "name": "items",
-        "displayName": "Items",
-        "values": [
-          {
-            "type": "string",
-            "default": "",
-            "name": "speech",
-            "displayName": "speech"
-          }
-        ]
-      }
-    ],
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
     "routing": {
       "request": {
         "body": {
-          "speech": "={{$value.items}}"
+          "name": "={{ $value }}"
         }
       }
     },
@@ -466,10 +962,38 @@
       },
       "show": {
         "resource": [
-          "AI Speech To Text Speech Recognition"
+          "Email Mail Group"
         ],
         "operation": [
-          "Audio File Speech Recognition Asr"
+          "Update A Mailing List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Who Can Send Mail",
+    "name": "who_can_send_mail",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "who_can_send_mail": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Email Mail Group"
+        ],
+        "operation": [
+          "Update A Mailing List"
         ]
       }
     }
@@ -478,7 +1002,7 @@
     "displayName": "Custom Body",
     "name": "customBody",
     "type": "json",
-    "default": "{\n  \"config\": {\n    \"engine_type\": \"string\",\n    \"file_id\": \"string\",\n    \"format\": \"string\"\n  },\n  \"speech\": {\n    \"speech\": \"string\"\n  }\n}",
+    "default": "{\n  \"description\": \"string\",\n  \"name\": \"string\",\n  \"who_can_send_mail\": \"string\"\n}",
     "description": "Custom body to send.",
     "routing": {
       "send": {
@@ -493,16 +1017,16 @@
           true
         ],
         "resource": [
-          "AI Speech To Text Speech Recognition"
+          "Email Mail Group"
         ],
         "operation": [
-          "Audio File Speech Recognition Asr"
+          "Update A Mailing List"
         ]
       }
     }
   },
   {
-    "displayName": "POST /translation/v1/text/translate",
+    "displayName": "DELETE /mail/v1/mailgroups/{mailgroup_id}",
     "name": "operation",
     "type": "notice",
     "typeOptions": {
@@ -512,103 +1036,78 @@
     "displayOptions": {
       "show": {
         "resource": [
-          "AI Machine Translation Text"
+          "Email Mail Group"
         ],
         "operation": [
-          "Translate With Machine Translation"
+          "Delete A Mailing List"
         ]
       }
     }
   },
   {
-    "displayName": "Glossary",
-    "name": "glossary",
-    "type": "fixedCollection",
-    "default": [],
+    "displayName": "Mailgroup Id",
+    "name": "mailgroup_id",
+    "required": true,
+    "description": "Mailing list ID or mailing list address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group"
+        ],
+        "operation": [
+          "Delete A Mailing List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /mail/v1/mailgroups/{mailgroup_id}/members",
+    "name": "operation",
+    "type": "notice",
     "typeOptions": {
-      "multipleValues": true
+      "theme": "info"
     },
-    "placeholder": "Add item",
-    "options": [
-      {
-        "name": "items",
-        "displayName": "Items",
-        "values": [
-          {
-            "type": "string",
-            "default": "",
-            "name": "from",
-            "displayName": "from"
-          },
-          {
-            "type": "string",
-            "default": "",
-            "name": "to",
-            "displayName": "to"
-          }
-        ]
-      }
-    ],
-    "routing": {
-      "request": {
-        "body": {
-          "glossary": "={{$value.items}}"
-        }
-      }
-    },
+    "default": "",
     "displayOptions": {
-      "hide": {
-        "/options.useCustomBody": [
-          true
-        ]
-      },
       "show": {
         "resource": [
-          "AI Machine Translation Text"
+          "Email Mail Group Member"
         ],
         "operation": [
-          "Translate With Machine Translation"
+          "Create A Mailing List Member"
         ]
       }
     }
   },
   {
-    "displayName": "Source Language",
-    "name": "source_language",
-    "type": "string",
+    "displayName": "Mailgroup Id",
+    "name": "mailgroup_id",
+    "required": true,
+    "description": "Mailing list ID or mailing list address",
     "default": "",
-    "routing": {
-      "request": {
-        "body": {
-          "source_language": "={{ $value }}"
-        }
-      }
-    },
+    "type": "string",
     "displayOptions": {
-      "hide": {
-        "/options.useCustomBody": [
-          true
-        ]
-      },
       "show": {
         "resource": [
-          "AI Machine Translation Text"
+          "Email Mail Group Member"
         ],
         "operation": [
-          "Translate With Machine Translation"
+          "Create A Mailing List Member"
         ]
       }
     }
   },
   {
-    "displayName": "Target Language",
-    "name": "target_language",
+    "displayName": "Department Id",
+    "name": "department_id",
     "type": "string",
     "default": "",
     "routing": {
       "request": {
         "body": {
-          "target_language": "={{ $value }}"
+          "department_id": "={{ $value }}"
         }
       }
     },
@@ -620,23 +1119,23 @@
       },
       "show": {
         "resource": [
-          "AI Machine Translation Text"
+          "Email Mail Group Member"
         ],
         "operation": [
-          "Translate With Machine Translation"
+          "Create A Mailing List Member"
         ]
       }
     }
   },
   {
-    "displayName": "Text",
-    "name": "text",
+    "displayName": "Email",
+    "name": "email",
     "type": "string",
     "default": "",
     "routing": {
       "request": {
         "body": {
-          "text": "={{ $value }}"
+          "email": "={{ $value }}"
         }
       }
     },
@@ -648,10 +1147,66 @@
       },
       "show": {
         "resource": [
-          "AI Machine Translation Text"
+          "Email Mail Group Member"
         ],
         "operation": [
-          "Translate With Machine Translation"
+          "Create A Mailing List Member"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Type",
+    "name": "type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Email Mail Group Member"
+        ],
+        "operation": [
+          "Create A Mailing List Member"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id",
+    "name": "user_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Email Mail Group Member"
+        ],
+        "operation": [
+          "Create A Mailing List Member"
         ]
       }
     }
@@ -660,7 +1215,7 @@
     "displayName": "Custom Body",
     "name": "customBody",
     "type": "json",
-    "default": "{\n  \"glossary\": [\n    {\n      \"from\": \"string\",\n      \"to\": \"string\"\n    }\n  ],\n  \"source_language\": \"string\",\n  \"target_language\": \"string\",\n  \"text\": \"string\"\n}",
+    "default": "{\n  \"department_id\": \"string\",\n  \"email\": \"user@example.com\",\n  \"type\": \"string\",\n  \"user_id\": \"string\"\n}",
     "description": "Custom body to send.",
     "routing": {
       "send": {
@@ -675,16 +1230,16 @@
           true
         ],
         "resource": [
-          "AI Machine Translation Text"
+          "Email Mail Group Member"
         ],
         "operation": [
-          "Translate With Machine Translation"
+          "Create A Mailing List Member"
         ]
       }
     }
   },
   {
-    "displayName": "POST /translation/v1/text/detect",
+    "displayName": "GET /mail/v1/mailgroups/{mailgroup_id}/members",
     "name": "operation",
     "type": "notice",
     "typeOptions": {
@@ -694,23 +1249,188 @@
     "displayOptions": {
       "show": {
         "resource": [
-          "AI Machine Translation Text"
+          "Email Mail Group Member"
         ],
         "operation": [
-          "Text Language Recognition"
+          "Obtain Mailing List Members In Batch"
         ]
       }
     }
   },
   {
-    "displayName": "Text",
-    "name": "text",
+    "displayName": "Mailgroup Id",
+    "name": "mailgroup_id",
+    "required": true,
+    "description": "The unique ID or email address of a mail group",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Member"
+        ],
+        "operation": [
+          "Obtain Mailing List Members In Batch"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /mail/v1/mailgroups/{mailgroup_id}/members/{member_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Member"
+        ],
+        "operation": [
+          "Obtain Mailing List Member Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Mailgroup Id",
+    "name": "mailgroup_id",
+    "required": true,
+    "description": "Mailing list ID or mailing list address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Member"
+        ],
+        "operation": [
+          "Obtain Mailing List Member Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Member Id",
+    "name": "member_id",
+    "required": true,
+    "description": "Unique identifier of the member in the mailing list",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Member"
+        ],
+        "operation": [
+          "Obtain Mailing List Member Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /mail/v1/mailgroups/{mailgroup_id}/members/{member_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Member"
+        ],
+        "operation": [
+          "Delete A Mailing List Member"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Mailgroup Id",
+    "name": "mailgroup_id",
+    "required": true,
+    "description": "The unique ID or email address of a mail group",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Member"
+        ],
+        "operation": [
+          "Delete A Mailing List Member"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Member Id",
+    "name": "member_id",
+    "required": true,
+    "description": "The unique ID of a member in this mail group",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Member"
+        ],
+        "operation": [
+          "Delete A Mailing List Member"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /mail/v1/mailgroups/{mailgroup_id}/permission_members",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Permission Member"
+        ],
+        "operation": [
+          "Create A Member Who Can Send Emails To Mailing List Addresses"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Mailgroup Id",
+    "name": "mailgroup_id",
+    "required": true,
+    "description": "Mailing list ID or mailing list address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Permission Member"
+        ],
+        "operation": [
+          "Create A Member Who Can Send Emails To Mailing List Addresses"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Id",
+    "name": "department_id",
     "type": "string",
     "default": "",
     "routing": {
       "request": {
         "body": {
-          "text": "={{ $value }}"
+          "department_id": "={{ $value }}"
         }
       }
     },
@@ -722,10 +1442,66 @@
       },
       "show": {
         "resource": [
-          "AI Machine Translation Text"
+          "Email Mail Group Permission Member"
         ],
         "operation": [
-          "Text Language Recognition"
+          "Create A Member Who Can Send Emails To Mailing List Addresses"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Type",
+    "name": "type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Email Mail Group Permission Member"
+        ],
+        "operation": [
+          "Create A Member Who Can Send Emails To Mailing List Addresses"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id",
+    "name": "user_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Email Mail Group Permission Member"
+        ],
+        "operation": [
+          "Create A Member Who Can Send Emails To Mailing List Addresses"
         ]
       }
     }
@@ -734,7 +1510,7 @@
     "displayName": "Custom Body",
     "name": "customBody",
     "type": "json",
-    "default": "{\n  \"text\": \"string\"\n}",
+    "default": "{\n  \"department_id\": \"string\",\n  \"type\": \"string\",\n  \"user_id\": \"string\"\n}",
     "description": "Custom body to send.",
     "routing": {
       "send": {
@@ -749,10 +1525,1214 @@
           true
         ],
         "resource": [
-          "AI Machine Translation Text"
+          "Email Mail Group Permission Member"
         ],
         "operation": [
-          "Text Language Recognition"
+          "Create A Member Who Can Send Emails To Mailing List Addresses"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /mail/v1/mailgroups/{mailgroup_id}/permission_members",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Permission Member"
+        ],
+        "operation": [
+          "Obtain The Members Who Can Send Emails To Mailing List Addresses In Batch"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Mailgroup Id",
+    "name": "mailgroup_id",
+    "required": true,
+    "description": "Mailing list ID or mailing list address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Permission Member"
+        ],
+        "operation": [
+          "Obtain The Members Who Can Send Emails To Mailing List Addresses In Batch"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /mail/v1/mailgroups/{mailgroup_id}/permission_members/{permission_member_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Permission Member"
+        ],
+        "operation": [
+          "Obtain A Member Who Can Send Emails To Mailing List Addresses"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Mailgroup Id",
+    "name": "mailgroup_id",
+    "required": true,
+    "description": "Mailing list ID or mailing list address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Permission Member"
+        ],
+        "operation": [
+          "Obtain A Member Who Can Send Emails To Mailing List Addresses"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Permission Member Id",
+    "name": "permission_member_id",
+    "required": true,
+    "description": "Unique identifier of the member in the permissions group",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Permission Member"
+        ],
+        "operation": [
+          "Obtain A Member Who Can Send Emails To Mailing List Addresses"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /mail/v1/mailgroups/{mailgroup_id}/permission_members/{permission_member_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Permission Member"
+        ],
+        "operation": [
+          "Delete A Member Who Can Send Emails To Mailing List Addresses"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Mailgroup Id",
+    "name": "mailgroup_id",
+    "required": true,
+    "description": "The unique ID or email address of a mail group",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Permission Member"
+        ],
+        "operation": [
+          "Delete A Member Who Can Send Emails To Mailing List Addresses"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Permission Member Id",
+    "name": "permission_member_id",
+    "required": true,
+    "description": "The unique ID of a member in this permission group",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Permission Member"
+        ],
+        "operation": [
+          "Delete A Member Who Can Send Emails To Mailing List Addresses"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /mail/v1/mailgroups/{mailgroup_id}/aliases",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Alias"
+        ],
+        "operation": [
+          "Create A Mailing List Alias"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Mailgroup Id",
+    "name": "mailgroup_id",
+    "required": true,
+    "description": "Mailing list ID or mailing list address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Alias"
+        ],
+        "operation": [
+          "Create A Mailing List Alias"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Email Alias",
+    "name": "email_alias",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "email_alias": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Email Mail Group Alias"
+        ],
+        "operation": [
+          "Create A Mailing List Alias"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"email_alias\": \"user@example.com\"\n}",
+    "description": "Custom body to send.",
+    "routing": {
+      "send": {
+        "preSend": [
+          "{{helpers.hooks.preSendActionCustonBody}}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "/options.useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Email Mail Group Alias"
+        ],
+        "operation": [
+          "Create A Mailing List Alias"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /mail/v1/mailgroups/{mailgroup_id}/aliases",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Alias"
+        ],
+        "operation": [
+          "Obtain All Mailing List Aliases"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Mailgroup Id",
+    "name": "mailgroup_id",
+    "required": true,
+    "description": "Mailing list ID or mailing list address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Alias"
+        ],
+        "operation": [
+          "Obtain All Mailing List Aliases"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /mail/v1/mailgroups/{mailgroup_id}/aliases/{alias_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Alias"
+        ],
+        "operation": [
+          "Delete A Mailing List Alias"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Mailgroup Id",
+    "name": "mailgroup_id",
+    "required": true,
+    "description": "Mailing list ID or mailing list address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Alias"
+        ],
+        "operation": [
+          "Delete A Mailing List Alias"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Alias Id",
+    "name": "alias_id",
+    "required": true,
+    "description": "Mailing list alias email address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Mail Group Alias"
+        ],
+        "operation": [
+          "Delete A Mailing List Alias"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /mail/v1/public_mailboxes",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox"
+        ],
+        "operation": [
+          "Create A Public Mailbox"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Email",
+    "name": "email",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "email": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Email Public Mailbox"
+        ],
+        "operation": [
+          "Create A Public Mailbox"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Email Public Mailbox"
+        ],
+        "operation": [
+          "Create A Public Mailbox"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"email\": \"user@example.com\",\n  \"name\": \"string\"\n}",
+    "description": "Custom body to send.",
+    "routing": {
+      "send": {
+        "preSend": [
+          "{{helpers.hooks.preSendActionCustonBody}}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "/options.useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Email Public Mailbox"
+        ],
+        "operation": [
+          "Create A Public Mailbox"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /mail/v1/public_mailboxes",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox"
+        ],
+        "operation": [
+          "Obtain Public Mailboxes In Batch"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /mail/v1/public_mailboxes/{public_mailbox_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox"
+        ],
+        "operation": [
+          "Obtain A Public Mailbox"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Public Mailbox Id",
+    "name": "public_mailbox_id",
+    "required": true,
+    "description": "Unique identifier of a public mailbox or the public mailbox address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox"
+        ],
+        "operation": [
+          "Obtain A Public Mailbox"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PATCH /mail/v1/public_mailboxes/{public_mailbox_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox"
+        ],
+        "operation": [
+          "Modify A Public Mailbox"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Public Mailbox Id",
+    "name": "public_mailbox_id",
+    "required": true,
+    "description": "Unique identifier of a public mailbox or the public mailbox address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox"
+        ],
+        "operation": [
+          "Modify A Public Mailbox"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Email Public Mailbox"
+        ],
+        "operation": [
+          "Modify A Public Mailbox"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"name\": \"string\"\n}",
+    "description": "Custom body to send.",
+    "routing": {
+      "send": {
+        "preSend": [
+          "{{helpers.hooks.preSendActionCustonBody}}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "/options.useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Email Public Mailbox"
+        ],
+        "operation": [
+          "Modify A Public Mailbox"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PUT /mail/v1/public_mailboxes/{public_mailbox_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox"
+        ],
+        "operation": [
+          "Update A Public Mailbox"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Public Mailbox Id",
+    "name": "public_mailbox_id",
+    "required": true,
+    "description": "Unique identifier of a public mailbox or the public mailbox address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox"
+        ],
+        "operation": [
+          "Update A Public Mailbox"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Email Public Mailbox"
+        ],
+        "operation": [
+          "Update A Public Mailbox"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"name\": \"string\"\n}",
+    "description": "Custom body to send.",
+    "routing": {
+      "send": {
+        "preSend": [
+          "{{helpers.hooks.preSendActionCustonBody}}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "/options.useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Email Public Mailbox"
+        ],
+        "operation": [
+          "Update A Public Mailbox"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /mail/v1/public_mailboxes/{public_mailbox_id}/members",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Member"
+        ],
+        "operation": [
+          "Create A Public Mailbox Member"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Public Mailbox Id",
+    "name": "public_mailbox_id",
+    "required": true,
+    "description": "Unique identifier of a public mailbox or the public mailbox address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Member"
+        ],
+        "operation": [
+          "Create A Public Mailbox Member"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Type",
+    "name": "type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Email Public Mailbox Member"
+        ],
+        "operation": [
+          "Create A Public Mailbox Member"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id",
+    "name": "user_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Email Public Mailbox Member"
+        ],
+        "operation": [
+          "Create A Public Mailbox Member"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"type\": \"string\",\n  \"user_id\": \"string\"\n}",
+    "description": "Custom body to send.",
+    "routing": {
+      "send": {
+        "preSend": [
+          "{{helpers.hooks.preSendActionCustonBody}}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "/options.useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Email Public Mailbox Member"
+        ],
+        "operation": [
+          "Create A Public Mailbox Member"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /mail/v1/public_mailboxes/{public_mailbox_id}/members",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Member"
+        ],
+        "operation": [
+          "Obtain Public Mailbox Members In Batch"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Public Mailbox Id",
+    "name": "public_mailbox_id",
+    "required": true,
+    "description": "The unique ID or email address of a public mailbox",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Member"
+        ],
+        "operation": [
+          "Obtain Public Mailbox Members In Batch"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /mail/v1/public_mailboxes/{public_mailbox_id}/members/{member_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Member"
+        ],
+        "operation": [
+          "Obtain Public Mailbox Member Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Public Mailbox Id",
+    "name": "public_mailbox_id",
+    "required": true,
+    "description": "Unique identifier of a public mailbox or the public mailbox address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Member"
+        ],
+        "operation": [
+          "Obtain Public Mailbox Member Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Member Id",
+    "name": "member_id",
+    "required": true,
+    "description": "Unique identifier of the member in the public mailbox",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Member"
+        ],
+        "operation": [
+          "Obtain Public Mailbox Member Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /mail/v1/public_mailboxes/{public_mailbox_id}/members/{member_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Member"
+        ],
+        "operation": [
+          "Delete A Public Mailbox Member"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Public Mailbox Id",
+    "name": "public_mailbox_id",
+    "required": true,
+    "description": "Unique identifier of a public mailbox or the public mailbox address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Member"
+        ],
+        "operation": [
+          "Delete A Public Mailbox Member"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Member Id",
+    "name": "member_id",
+    "required": true,
+    "description": "Unique identifier of the member in the public mailbox",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Member"
+        ],
+        "operation": [
+          "Delete A Public Mailbox Member"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /mail/v1/public_mailboxes/{public_mailbox_id}/members/clear",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Member"
+        ],
+        "operation": [
+          "Clear Public Mailbox Members"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Public Mailbox Id",
+    "name": "public_mailbox_id",
+    "required": true,
+    "description": "Unique identifier of a public mailbox or the public mailbox address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Member"
+        ],
+        "operation": [
+          "Clear Public Mailbox Members"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /mail/v1/public_mailboxes/{public_mailbox_id}/members/clear<br/><br/>There's no body available for request, kindly use HTTP Request node to send body",
+    "name": "operation",
+    "type": "notice",
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Member"
+        ],
+        "operation": [
+          "Clear Public Mailbox Members"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{}",
+    "description": "Custom body to send.",
+    "routing": {
+      "send": {
+        "preSend": [
+          "{{helpers.hooks.preSendActionCustonBody}}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "/options.useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Email Public Mailbox Member"
+        ],
+        "operation": [
+          "Clear Public Mailbox Members"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /mail/v1/public_mailboxes/{public_mailbox_id}/aliases",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Alias"
+        ],
+        "operation": [
+          "Create A Public Mailbox Alias"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Public Mailbox Id",
+    "name": "public_mailbox_id",
+    "required": true,
+    "description": "Public mailbox ID or public mailbox address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Alias"
+        ],
+        "operation": [
+          "Create A Public Mailbox Alias"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Email Alias",
+    "name": "email_alias",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "email_alias": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Email Public Mailbox Alias"
+        ],
+        "operation": [
+          "Create A Public Mailbox Alias"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"email_alias\": \"user@example.com\"\n}",
+    "description": "Custom body to send.",
+    "routing": {
+      "send": {
+        "preSend": [
+          "{{helpers.hooks.preSendActionCustonBody}}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "/options.useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Email Public Mailbox Alias"
+        ],
+        "operation": [
+          "Create A Public Mailbox Alias"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /mail/v1/public_mailboxes/{public_mailbox_id}/aliases",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Alias"
+        ],
+        "operation": [
+          "Obtain All Public Mailbox Aliases"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Public Mailbox Id",
+    "name": "public_mailbox_id",
+    "required": true,
+    "description": "Public mailbox ID or public mailbox address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Alias"
+        ],
+        "operation": [
+          "Obtain All Public Mailbox Aliases"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /mail/v1/public_mailboxes/{public_mailbox_id}/aliases/{alias_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Alias"
+        ],
+        "operation": [
+          "Delete A Public Mailbox Alias"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Public Mailbox Id",
+    "name": "public_mailbox_id",
+    "required": true,
+    "description": "Public mailbox ID or public mailbox address",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Alias"
+        ],
+        "operation": [
+          "Delete A Public Mailbox Alias"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Alias Id",
+    "name": "alias_id",
+    "required": true,
+    "description": "Public mailbox alias",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Email Public Mailbox Alias"
+        ],
+        "operation": [
+          "Delete A Public Mailbox Alias"
         ]
       }
     }
