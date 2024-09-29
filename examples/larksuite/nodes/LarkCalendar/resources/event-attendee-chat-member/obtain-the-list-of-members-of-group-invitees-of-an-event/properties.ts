@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName:
@@ -13,7 +19,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Calendar Event Attendee Chat Member'],
-        operation: ['Obtain the list of members of group invitees of an event'],
+        operation: ['Obtain The List Of Members Of Group Invitees Of An Event'],
       },
     },
   },
@@ -21,12 +27,14 @@ export const properties: INodeProperties[] = [
     displayName: 'Calendar Id',
     name: 'calendar_id',
     required: true,
+    description:
+      'Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Calendar Event Attendee Chat Member'],
-        operation: ['Obtain the list of members of group invitees of an event'],
+        operation: ['Obtain The List Of Members Of Group Invitees Of An Event'],
       },
     },
   },
@@ -34,12 +42,14 @@ export const properties: INodeProperties[] = [
     displayName: 'Event Id',
     name: 'event_id',
     required: true,
+    description:
+      'Event ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Calendar Event Attendee Chat Member'],
-        operation: ['Obtain the list of members of group invitees of an event'],
+        operation: ['Obtain The List Of Members Of Group Invitees Of An Event'],
       },
     },
   },
@@ -47,13 +57,16 @@ export const properties: INodeProperties[] = [
     displayName: 'Attendee Id',
     name: 'attendee_id',
     required: true,
+    description:
+      'Group invitee ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Calendar Event Attendee Chat Member'],
-        operation: ['Obtain the list of members of group invitees of an event'],
+        operation: ['Obtain The List Of Members Of Group Invitees Of An Event'],
       },
     },
   },
 ]
+/* eslint-disable */

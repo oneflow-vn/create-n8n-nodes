@@ -11,8 +11,9 @@ const operations: INodePropertyOptions[] = [
   sendPhoneCallBuzz.option,
 ]
 
-export const name = 'Message  Buzz messages'
+export const name = 'Message  Buzz Messages'
 
+/* eslint-disable */
 const operationSelect: INodeProperties = {
   displayName: 'Operation',
   name: 'operation',
@@ -25,6 +26,7 @@ const operationSelect: INodeProperties = {
   },
   default: '',
 }
+/* eslint-disable */
 
 // overwrite the options of the operationSelect
 operationSelect.options = operations

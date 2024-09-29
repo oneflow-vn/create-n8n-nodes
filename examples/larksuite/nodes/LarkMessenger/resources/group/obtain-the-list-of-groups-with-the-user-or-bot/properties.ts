@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /im/v1/chats',
@@ -12,8 +18,9 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Messenger Group'],
-        operation: ['Obtain the list of groups with the user or bot'],
+        operation: ['Obtain The List Of Groups With The User Or Bot'],
       },
     },
   },
 ]
+/* eslint-disable */

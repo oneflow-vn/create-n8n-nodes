@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName:
@@ -13,13 +19,14 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['App Information Application'],
-        operation: ['Obtain app version information'],
+        operation: ['Obtain App Version Information'],
       },
     },
   },
   {
     displayName: 'Lang',
     name: 'lang',
+    description: 'Language of app information',
     default: '',
     type: 'string',
     routing: {
@@ -32,7 +39,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['App Information Application'],
-        operation: ['Obtain app version information'],
+        operation: ['Obtain App Version Information'],
       },
     },
   },
@@ -40,12 +47,14 @@ export const properties: INodeProperties[] = [
     displayName: 'App Id',
     name: 'app_id',
     required: true,
+    description:
+      'App\'s app_id. To query the version information of other apps, you must request the [Obtain app version information]({{document_base_url}}/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN) scope. To only query the version information of this app, enter "me" or the app_id.',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['App Information Application'],
-        operation: ['Obtain app version information'],
+        operation: ['Obtain App Version Information'],
       },
     },
   },
@@ -53,13 +62,15 @@ export const properties: INodeProperties[] = [
     displayName: 'Version Id',
     name: 'version_id',
     required: true,
+    description: 'ID that uniquely identifies the app version',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['App Information Application'],
-        operation: ['Obtain app version information'],
+        operation: ['Obtain App Version Information'],
       },
     },
   },
 ]
+/* eslint-disable */

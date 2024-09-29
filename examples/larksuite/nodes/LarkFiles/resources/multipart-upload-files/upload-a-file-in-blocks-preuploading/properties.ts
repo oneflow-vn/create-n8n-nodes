@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /drive/v1/files/upload_prepare',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Docs File Management File Multipart Upload Files'],
-        operation: ['Upload a file in blocks Preuploading'],
+        operation: ['Upload A File In Blocks Preuploading'],
       },
     },
   },
@@ -21,6 +27,7 @@ export const properties: INodeProperties[] = [
     name: 'file_name',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -29,9 +36,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management File Multipart Upload Files'],
-        operation: ['Upload a file in blocks Preuploading'],
+        operation: ['Upload A File In Blocks Preuploading'],
       },
     },
   },
@@ -40,6 +50,7 @@ export const properties: INodeProperties[] = [
     name: 'parent_node',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -48,9 +59,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management File Multipart Upload Files'],
-        operation: ['Upload a file in blocks Preuploading'],
+        operation: ['Upload A File In Blocks Preuploading'],
       },
     },
   },
@@ -59,6 +73,7 @@ export const properties: INodeProperties[] = [
     name: 'parent_type',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -67,9 +82,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management File Multipart Upload Files'],
-        operation: ['Upload a file in blocks Preuploading'],
+        operation: ['Upload A File In Blocks Preuploading'],
       },
     },
   },
@@ -78,6 +96,7 @@ export const properties: INodeProperties[] = [
     name: 'size',
     type: 'number',
     default: 0,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -86,10 +105,34 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management File Multipart Upload Files'],
-        operation: ['Upload a file in blocks Preuploading'],
+        operation: ['Upload A File In Blocks Preuploading'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default:
+      '{\n  "file_name": "string",\n  "parent_node": "string",\n  "parent_type": "string",\n  "size": 0\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Docs File Management File Multipart Upload Files'],
+        operation: ['Upload A File In Blocks Preuploading'],
       },
     },
   },
 ]
+/* eslint-disable */

@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /bitable/v1/apps/{app_token}/tables/{table_id}/views',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Docs Bitable View'],
-        operation: ['List view'],
+        operation: ['List View'],
       },
     },
   },
@@ -20,12 +26,13 @@ export const properties: INodeProperties[] = [
     displayName: 'App Token',
     name: 'app_token',
     required: true,
+    description: 'Bitable app token',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Docs Bitable View'],
-        operation: ['List view'],
+        operation: ['List View'],
       },
     },
   },
@@ -33,13 +40,15 @@ export const properties: INodeProperties[] = [
     displayName: 'Table Id',
     name: 'table_id',
     required: true,
+    description: 'Table id',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Docs Bitable View'],
-        operation: ['List view'],
+        operation: ['List View'],
       },
     },
   },
 ]
+/* eslint-disable */

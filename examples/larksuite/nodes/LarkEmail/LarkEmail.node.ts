@@ -5,14 +5,14 @@ import { methods } from './LarkEmail.methods'
 export class LarkEmail implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Email',
-    name: 'LarkEmail',
+    name: 'larkEmail',
     icon: 'file:larkemail.svg',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
     description: 'Lark Email Management',
     defaults: {
-      name: 'LarkEmail',
+      name: 'Lark Email',
     },
     inputs: ['main'],
     outputs: ['main'],
@@ -23,7 +23,7 @@ export class LarkEmail implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteTenantApi'],
+            authentication: ['larkSuiteTenantApi'],
           },
         },
       },
@@ -33,7 +33,7 @@ export class LarkEmail implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteOAuth2Api'],
+            authentication: ['larkSuiteOAuth2Api'],
           },
         },
       },

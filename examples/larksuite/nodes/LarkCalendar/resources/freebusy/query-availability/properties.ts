@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /calendar/v4/freebusy/list',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Calendar Freebusy'],
-        operation: ['Query availability'],
+        operation: ['Query Availability'],
       },
     },
   },
@@ -21,6 +27,7 @@ export const properties: INodeProperties[] = [
     name: 'room_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -29,9 +36,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Freebusy'],
-        operation: ['Query availability'],
+        operation: ['Query Availability'],
       },
     },
   },
@@ -40,6 +50,7 @@ export const properties: INodeProperties[] = [
     name: 'time_max',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -48,9 +59,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Freebusy'],
-        operation: ['Query availability'],
+        operation: ['Query Availability'],
       },
     },
   },
@@ -59,6 +73,7 @@ export const properties: INodeProperties[] = [
     name: 'time_min',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -67,9 +82,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Freebusy'],
-        operation: ['Query availability'],
+        operation: ['Query Availability'],
       },
     },
   },
@@ -78,6 +96,7 @@ export const properties: INodeProperties[] = [
     name: 'user_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -86,10 +105,34 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Freebusy'],
-        operation: ['Query availability'],
+        operation: ['Query Availability'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default:
+      '{\n  "room_id": "string",\n  "time_max": "1970-01-01T00:00:00.000Z",\n  "time_min": "1970-01-01T00:00:00.000Z",\n  "user_id": "string"\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Calendar Freebusy'],
+        operation: ['Query Availability'],
       },
     },
   },
 ]
+/* eslint-disable */

@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /mail/v1/mailgroups/{mailgroup_id}/members',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Email Mail Group Member'],
-        operation: ['Create a mailing list member'],
+        operation: ['Create A Mailing List Member'],
       },
     },
   },
@@ -20,12 +26,13 @@ export const properties: INodeProperties[] = [
     displayName: 'Mailgroup Id',
     name: 'mailgroup_id',
     required: true,
+    description: 'Mailing list ID or mailing list address',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Email Mail Group Member'],
-        operation: ['Create a mailing list member'],
+        operation: ['Create A Mailing List Member'],
       },
     },
   },
@@ -34,6 +41,7 @@ export const properties: INodeProperties[] = [
     name: 'department_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -42,9 +50,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Email Mail Group Member'],
-        operation: ['Create a mailing list member'],
+        operation: ['Create A Mailing List Member'],
       },
     },
   },
@@ -53,6 +64,7 @@ export const properties: INodeProperties[] = [
     name: 'email',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -61,9 +73,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Email Mail Group Member'],
-        operation: ['Create a mailing list member'],
+        operation: ['Create A Mailing List Member'],
       },
     },
   },
@@ -72,6 +87,7 @@ export const properties: INodeProperties[] = [
     name: 'type',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -80,9 +96,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Email Mail Group Member'],
-        operation: ['Create a mailing list member'],
+        operation: ['Create A Mailing List Member'],
       },
     },
   },
@@ -91,6 +110,7 @@ export const properties: INodeProperties[] = [
     name: 'user_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -99,10 +119,34 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Email Mail Group Member'],
-        operation: ['Create a mailing list member'],
+        operation: ['Create A Mailing List Member'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default:
+      '{\n  "department_id": "string",\n  "email": "user@example.com",\n  "type": "string",\n  "user_id": "string"\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Email Mail Group Member'],
+        operation: ['Create A Mailing List Member'],
       },
     },
   },
 ]
+/* eslint-disable */

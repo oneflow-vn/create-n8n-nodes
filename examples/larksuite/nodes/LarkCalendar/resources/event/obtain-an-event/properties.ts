@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /calendar/v4/calendars/{calendar_id}/events/{event_id}',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Calendar Event'],
-        operation: ['Obtain an event'],
+        operation: ['Obtain An Event'],
       },
     },
   },
@@ -20,12 +26,14 @@ export const properties: INodeProperties[] = [
     displayName: 'Calendar Id',
     name: 'calendar_id',
     required: true,
+    description:
+      'Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Calendar Event'],
-        operation: ['Obtain an event'],
+        operation: ['Obtain An Event'],
       },
     },
   },
@@ -33,13 +41,16 @@ export const properties: INodeProperties[] = [
     displayName: 'Event Id',
     name: 'event_id',
     required: true,
+    description:
+      'Event ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Calendar Event'],
-        operation: ['Obtain an event'],
+        operation: ['Obtain An Event'],
       },
     },
   },
 ]
+/* eslint-disable */

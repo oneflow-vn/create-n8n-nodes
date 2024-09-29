@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /contact/v3/users/batch_get_id',
@@ -12,46 +18,111 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Contacts User'],
-        operation: ['Obtain user ID via email or mobile number'],
+        operation: ['Obtain User Id Via Email Or Mobile Number'],
       },
     },
   },
   {
     displayName: 'Emails',
     name: 'emails',
-    type: 'json',
-    default: '[\n  null\n]',
+    type: 'fixedCollection',
+    default: [],
+    typeOptions: {
+      multipleValues: true,
+    },
+    description: undefined,
+    placeholder: 'Add item',
+    options: [
+      {
+        name: 'items',
+        displayName: 'Items',
+        values: [
+          {
+            name: 'Item',
+            displayName: 'Item',
+            type: 'string',
+            default: '',
+          },
+        ],
+      },
+    ],
     routing: {
       request: {
         body: {
-          emails: '={{ JSON.parse($value) }}',
+          emails: '={{$value.items}}',
         },
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Contacts User'],
-        operation: ['Obtain user ID via email or mobile number'],
+        operation: ['Obtain User Id Via Email Or Mobile Number'],
       },
     },
   },
   {
     displayName: 'Mobiles',
     name: 'mobiles',
-    type: 'json',
-    default: '[\n  null\n]',
+    type: 'fixedCollection',
+    default: [],
+    typeOptions: {
+      multipleValues: true,
+    },
+    description: undefined,
+    placeholder: 'Add item',
+    options: [
+      {
+        name: 'items',
+        displayName: 'Items',
+        values: [
+          {
+            name: 'Item',
+            displayName: 'Item',
+            type: 'string',
+            default: '',
+          },
+        ],
+      },
+    ],
     routing: {
       request: {
         body: {
-          mobiles: '={{ JSON.parse($value) }}',
+          mobiles: '={{$value.items}}',
         },
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Contacts User'],
-        operation: ['Obtain user ID via email or mobile number'],
+        operation: ['Obtain User Id Via Email Or Mobile Number'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default:
+      '{\n  "emails": [\n    "user@example.com"\n  ],\n  "mobiles": [\n    "string"\n  ]\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Contacts User'],
+        operation: ['Obtain User Id Via Email Or Mobile Number'],
       },
     },
   },
 ]
+/* eslint-disable */

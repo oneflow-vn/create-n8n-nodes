@@ -1,13 +1,22 @@
 import { INodePropertyOptions } from 'n8n-workflow'
+
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
 import { properties as rawProperties } from './properties'
 import runHooks from './hooks'
 
-export const name = 'Update filter conditions'
+export const name = 'Update Filter Conditions'
 
+/* eslint-disable */
 const rawOption: INodePropertyOptions = {
-  name: 'Update filter conditions',
-  value: 'Update filter conditions',
+  name: 'Update Filter Conditions',
+  value: 'Update Filter Conditions',
   action: 'Update filter conditions',
+  description:
+    '::: note\nFor filter condition parameters, see [User guide for using filter conditions in the filter view]({{document_base_url}}/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)\n:::\nThis API is used to update filter conditions for a column in the range of a filter view. The condition ID is the letter designation of the column.\r\n\r\nAPI reference documentation: [Update filter conditions]({{document_base_url}}/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update)',
   routing: {
     request: {
       method: 'PUT',
@@ -15,6 +24,7 @@ const rawOption: INodePropertyOptions = {
     },
   },
 }
+/* eslint-disable */
 
 const { properties, option } = runHooks(rawOption, rawProperties)
 

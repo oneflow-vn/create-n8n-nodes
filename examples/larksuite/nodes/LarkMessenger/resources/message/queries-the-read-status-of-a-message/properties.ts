@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /im/v1/messages/{message_id}/read_users',
@@ -12,13 +18,15 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Messenger Message'],
-        operation: ['Queries the read status of a message'],
+        operation: ['Queries The Read Status Of A Message'],
       },
     },
   },
   {
     displayName: 'User Id Type',
     name: 'user_id_type',
+    description:
+      'User ID categories. Optional values: open_id, union_id, user_id',
     default: '',
     type: 'string',
     routing: {
@@ -31,7 +39,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Messenger Message'],
-        operation: ['Queries the read status of a message'],
+        operation: ['Queries The Read Status Of A Message'],
       },
     },
   },
@@ -39,13 +47,15 @@ export const properties: INodeProperties[] = [
     displayName: 'Message Id',
     name: 'message_id',
     required: true,
+    description: 'ID of the message to be queried',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Messenger Message'],
-        operation: ['Queries the read status of a message'],
+        operation: ['Queries The Read Status Of A Message'],
       },
     },
   },
 ]
+/* eslint-disable */

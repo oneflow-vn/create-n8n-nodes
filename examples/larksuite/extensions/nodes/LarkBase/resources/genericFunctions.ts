@@ -7,6 +7,23 @@ import type {
 	IRequestOptions,
 } from 'n8n-workflow';
 
+async function selectCredentials(this: IHookFunctions | IExecuteFunctions | ILoadOptionsFunctions, operation: string): Promise<string> {
+	const creds = ['larkSuiteOAuth2Api', 'larkSuiteTenantApi'];
+
+	for (const cred of creds) {
+		try {
+			if (await this.getCredentials(cred)) {
+				return cred;
+			}
+		} catch (error) {
+			// console.error(error);
+			// Do nothing
+		}
+	}
+
+	throw new Error(`No credentials found for operation ${operation}`);
+}
+
 /**
  * Make an API request to Trello
  *
@@ -32,7 +49,9 @@ export async function apiRequest(
 		delete options.body;
 	}
 
-	return await this.helpers.requestWithAuthentication.call(this, 'larkSuiteOAuth2Api', options);
+	const credentialsType = await selectCredentials.call(this, endpoint);
+
+	return await this.helpers.requestWithAuthentication.call(this, credentialsType, options);
 }
 
 export async function apiRequestAllItems(

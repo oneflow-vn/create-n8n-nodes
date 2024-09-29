@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /approval/v4/instances/preview',
@@ -21,6 +27,7 @@ export const properties: INodeProperties[] = [
     name: 'approval_code',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -29,6 +36,9 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Approval API Reference'],
         operation: ['Approval Preview'],
@@ -40,6 +50,7 @@ export const properties: INodeProperties[] = [
     name: 'department_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -48,6 +59,9 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Approval API Reference'],
         operation: ['Approval Preview'],
@@ -59,6 +73,7 @@ export const properties: INodeProperties[] = [
     name: 'form',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -67,6 +82,9 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Approval API Reference'],
         operation: ['Approval Preview'],
@@ -78,6 +96,7 @@ export const properties: INodeProperties[] = [
     name: 'instance_code',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -86,6 +105,9 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Approval API Reference'],
         operation: ['Approval Preview'],
@@ -97,6 +119,7 @@ export const properties: INodeProperties[] = [
     name: 'locale',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -105,6 +128,9 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Approval API Reference'],
         operation: ['Approval Preview'],
@@ -116,6 +142,7 @@ export const properties: INodeProperties[] = [
     name: 'task_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -124,6 +151,9 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Approval API Reference'],
         operation: ['Approval Preview'],
@@ -135,6 +165,7 @@ export const properties: INodeProperties[] = [
     name: 'user_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -143,10 +174,34 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Approval API Reference'],
         operation: ['Approval Preview'],
       },
     },
   },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default:
+      '{\n  "approval_code": "string",\n  "department_id": "string",\n  "form": "string",\n  "instance_code": "string",\n  "locale": "string",\n  "task_id": "string",\n  "user_id": "string"\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Approval API Reference'],
+        operation: ['Approval Preview'],
+      },
+    },
+  },
 ]
+/* eslint-disable */

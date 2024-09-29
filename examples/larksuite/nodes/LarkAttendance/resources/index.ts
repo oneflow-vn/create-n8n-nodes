@@ -41,42 +41,71 @@ const resourceSelect: INodeProperties[] = [
       {
         name: 'Attendance Group',
         value: 'Attendance Attendance Group',
+        description: '',
       },
       {
         name: 'Attendance Shift',
         value: 'Attendance Attendance Shift',
+        description: '',
       },
       {
         name: 'Attendance Schedule',
         value: 'Attendance Attendance Schedule',
+        description: '',
       },
       {
         name: 'Attendance Statistics',
         value: 'Attendance Attendance Statistics',
+        description: '',
       },
       {
         name: 'Attendance Records',
         value: 'Attendance Attendance Records',
+        description: '',
       },
       {
         name: 'Attendance Correction',
         value: 'Attendance Attendance Correction',
+        description: '',
       },
       {
         name: 'User Settings',
         value: 'Attendance User Settings',
+        description: '',
       },
       {
         name: 'Files',
         value: 'Attendance Files',
+        description: '',
       },
       {
         name: 'Task',
         value:
           'Attendance Attendance（ Historical Version） API Reference Task',
+        description: '',
       },
     ],
     default: '',
+  },
+]
+
+const extraProperties: INodeProperties[] = [
+  {
+    displayName: 'Options',
+    name: 'options',
+    type: 'collection',
+    placeholder: 'Add option',
+    default: {},
+    options: [
+      {
+        displayName: 'Use Custom Body',
+        name: 'useCustomBody',
+        type: 'boolean',
+        description: 'Wether to use a custom body',
+        required: true,
+        default: false,
+      },
+    ],
   },
 ]
 
@@ -92,6 +121,7 @@ const rawProperties: INodeProperties[] = [
   ...userSettings.properties,
   ...files.properties,
   ...task.properties,
+  ...extraProperties,
 ]
 
 const { properties, methods: selfMethods } = runHooks(rawProperties)

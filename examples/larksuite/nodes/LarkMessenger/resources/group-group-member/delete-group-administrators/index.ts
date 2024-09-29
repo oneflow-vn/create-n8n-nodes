@@ -1,13 +1,22 @@
 import { INodePropertyOptions } from 'n8n-workflow'
+
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
 import { properties as rawProperties } from './properties'
 import runHooks from './hooks'
 
-export const name = 'Delete group administrators'
+export const name = 'Delete Group Administrators'
 
+/* eslint-disable */
 const rawOption: INodePropertyOptions = {
-  name: 'Delete group administrators',
-  value: 'Delete group administrators',
+  name: 'Delete Group Administrators',
+  value: 'Delete Group Administrators',
   action: 'Delete group administrators',
+  description:
+    'Deletes the specified group admins (users or bots)\r\n\r\nAPI reference documentation: [Delete group administrators]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-managers/delete_managers)',
   routing: {
     request: {
       method: 'POST',
@@ -15,6 +24,7 @@ const rawOption: INodePropertyOptions = {
     },
   },
 }
+/* eslint-disable */
 
 const { properties, option } = runHooks(rawOption, rawProperties)
 

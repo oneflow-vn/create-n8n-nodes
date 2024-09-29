@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'PATCH /mail/v1/mailgroups/{mailgroup_id}',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Email Mail Group'],
-        operation: ['Modify a mailing list'],
+        operation: ['Modify A Mailing List'],
       },
     },
   },
@@ -20,12 +26,13 @@ export const properties: INodeProperties[] = [
     displayName: 'Mailgroup Id',
     name: 'mailgroup_id',
     required: true,
+    description: 'Mailing list ID or mailing list address',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Email Mail Group'],
-        operation: ['Modify a mailing list'],
+        operation: ['Modify A Mailing List'],
       },
     },
   },
@@ -34,15 +41,21 @@ export const properties: INodeProperties[] = [
     name: 'description',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
-        body: {},
+        body: {
+          description: '={{ $value }}',
+        },
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Email Mail Group'],
-        operation: ['Modify a mailing list'],
+        operation: ['Modify A Mailing List'],
       },
     },
   },
@@ -51,6 +64,7 @@ export const properties: INodeProperties[] = [
     name: 'name',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -59,9 +73,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Email Mail Group'],
-        operation: ['Modify a mailing list'],
+        operation: ['Modify A Mailing List'],
       },
     },
   },
@@ -70,6 +87,7 @@ export const properties: INodeProperties[] = [
     name: 'who_can_send_mail',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -78,10 +96,34 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Email Mail Group'],
-        operation: ['Modify a mailing list'],
+        operation: ['Modify A Mailing List'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default:
+      '{\n  "description": "string",\n  "name": "string",\n  "who_can_send_mail": "string"\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Email Mail Group'],
+        operation: ['Modify A Mailing List'],
       },
     },
   },
 ]
+/* eslint-disable */

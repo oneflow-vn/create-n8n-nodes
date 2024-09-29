@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName:
@@ -14,7 +20,7 @@ export const properties: INodeProperties[] = [
       show: {
         resource: ['Email Mail Group Permission Member'],
         operation: [
-          'Obtain a member who can send emails to mailing list addresses',
+          'Obtain A Member Who Can Send Emails To Mailing List Addresses',
         ],
       },
     },
@@ -23,13 +29,14 @@ export const properties: INodeProperties[] = [
     displayName: 'Mailgroup Id',
     name: 'mailgroup_id',
     required: true,
+    description: 'Mailing list ID or mailing list address',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Email Mail Group Permission Member'],
         operation: [
-          'Obtain a member who can send emails to mailing list addresses',
+          'Obtain A Member Who Can Send Emails To Mailing List Addresses',
         ],
       },
     },
@@ -38,15 +45,17 @@ export const properties: INodeProperties[] = [
     displayName: 'Permission Member Id',
     name: 'permission_member_id',
     required: true,
+    description: 'Unique identifier of the member in the permissions group',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Email Mail Group Permission Member'],
         operation: [
-          'Obtain a member who can send emails to mailing list addresses',
+          'Obtain A Member Who Can Send Emails To Mailing List Addresses',
         ],
       },
     },
   },
 ]
+/* eslint-disable */

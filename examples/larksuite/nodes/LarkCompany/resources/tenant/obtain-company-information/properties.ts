@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /tenant/v2/tenant/query',
@@ -12,8 +18,9 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Company Information Tenant'],
-        operation: ['Obtain company information'],
+        operation: ['Obtain Company Information'],
       },
     },
   },
 ]
+/* eslint-disable */

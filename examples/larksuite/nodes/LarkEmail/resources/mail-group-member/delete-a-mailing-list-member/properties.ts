@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName:
@@ -13,7 +19,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Email Mail Group Member'],
-        operation: ['Delete a mailing list member'],
+        operation: ['Delete A Mailing List Member'],
       },
     },
   },
@@ -21,12 +27,13 @@ export const properties: INodeProperties[] = [
     displayName: 'Mailgroup Id',
     name: 'mailgroup_id',
     required: true,
+    description: 'The unique ID or email address of a mail group',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Email Mail Group Member'],
-        operation: ['Delete a mailing list member'],
+        operation: ['Delete A Mailing List Member'],
       },
     },
   },
@@ -34,13 +41,15 @@ export const properties: INodeProperties[] = [
     displayName: 'Member Id',
     name: 'member_id',
     required: true,
+    description: 'The unique ID of a member in this mail group',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Email Mail Group Member'],
-        operation: ['Delete a mailing list member'],
+        operation: ['Delete A Mailing List Member'],
       },
     },
   },
 ]
+/* eslint-disable */

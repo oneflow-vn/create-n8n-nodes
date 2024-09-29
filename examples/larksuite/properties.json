@@ -1,0 +1,760 @@
+[
+  {
+    "displayName": "Resource",
+    "name": "resource",
+    "type": "options",
+    "noDataExpression": true,
+    "options": [
+      {
+        "name": "Image Recognition",
+        "value": "AI Optical Character Recognition Image Recognition",
+        "description": ""
+      },
+      {
+        "name": "Speech Recognition",
+        "value": "AI Speech To Text Speech Recognition",
+        "description": ""
+      },
+      {
+        "name": "Text",
+        "value": "AI Machine Translation Text",
+        "description": ""
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "AI Optical Character Recognition Image Recognition"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Basic Image Recognition Ocr",
+        "value": "Basic Image Recognition Ocr",
+        "action": "Basic image recognition (OCR)",
+        "description": "Basic picture recognition interface, recognize the text in the picture, and return the text list by area\r\n\r\nAPI reference documentation: [Basic image recognition (OCR)]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/ai/optical_char_recognition-v1/image/basic_recognize)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/optical_char_recognition/v1/image/basic_recognize"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "AI Speech To Text Speech Recognition"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Streaming Speech Recognition Asr",
+        "value": "Streaming Speech Recognition Asr",
+        "action": "Streaming speech recognition (ASR)",
+        "description": "A streaming speech recognition API is provided to input an audio clip by clip and receive recognition results in real time. Each audio clip is recommended to be within 100 to 200 ms.\r\n\r\nAPI reference documentation: [Streaming speech recognition (ASR)]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/ai/speech_to_text-v1/speech/stream_recognize)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/speech_to_text/v1/speech/stream_recognize"
+          }
+        }
+      },
+      {
+        "name": "Audio File Speech Recognition Asr",
+        "value": "Audio File Speech Recognition Asr",
+        "action": "Audio file speech recognition (ASR)",
+        "description": "An audio speech recognition API is provided to recognize the entire audio file (less than 60s) at one time.\r\n\r\nAPI reference documentation: [Audio file speech recognition (ASR)]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/ai/speech_to_text-v1/speech/file_recognize)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/speech_to_text/v1/speech/file_recognize"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "AI Machine Translation Text"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Translate With Machine Translation",
+        "value": "Translate With Machine Translation",
+        "action": "Translate with machine translation",
+        "description": "Machine translation (MT), supporting Chinese-Japanese-English (zh, ja, en) translation\r\n\r\nAPI reference documentation: [Translate with machine translation]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/translate)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/translation/v1/text/translate"
+          }
+        }
+      },
+      {
+        "name": "Text Language Recognition",
+        "value": "Text Language Recognition",
+        "action": "Text language recognition",
+        "description": "Machine translation (MT), supporting recognition of over 100 languages. The return value is ISO 639-1 compliant.\r\n\r\nAPI reference documentation: [Text language recognition]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/detect)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/translation/v1/text/detect"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "POST /optical_char_recognition/v1/image/basic_recognize",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "AI Optical Character Recognition Image Recognition"
+        ],
+        "operation": [
+          "Basic Image Recognition Ocr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Image",
+    "name": "image",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "image": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "AI Optical Character Recognition Image Recognition"
+        ],
+        "operation": [
+          "Basic Image Recognition Ocr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"image\": \"string\"\n}",
+    "description": "Custom body to send.",
+    "routing": {
+      "send": {
+        "preSend": [
+          "{{helpers.hooks.preSendActionCustonBody}}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "/options.useCustomBody": [
+          true
+        ],
+        "resource": [
+          "AI Optical Character Recognition Image Recognition"
+        ],
+        "operation": [
+          "Basic Image Recognition Ocr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /speech_to_text/v1/speech/stream_recognize",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "AI Speech To Text Speech Recognition"
+        ],
+        "operation": [
+          "Streaming Speech Recognition Asr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Config",
+    "name": "config",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "number",
+            "default": 0,
+            "name": "action",
+            "displayName": "action"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "name": "engine_type",
+            "displayName": "engine_type"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "name": "format",
+            "displayName": "format"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "name": "sequence_id",
+            "displayName": "sequence_id"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "name": "stream_id",
+            "displayName": "stream_id"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "config": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "AI Speech To Text Speech Recognition"
+        ],
+        "operation": [
+          "Streaming Speech Recognition Asr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Speech",
+    "name": "speech",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "name": "speech",
+            "displayName": "speech"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "speech": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "AI Speech To Text Speech Recognition"
+        ],
+        "operation": [
+          "Streaming Speech Recognition Asr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"config\": {\n    \"action\": 0,\n    \"engine_type\": \"string\",\n    \"format\": \"string\",\n    \"sequence_id\": 0,\n    \"stream_id\": \"string\"\n  },\n  \"speech\": {\n    \"speech\": \"string\"\n  }\n}",
+    "description": "Custom body to send.",
+    "routing": {
+      "send": {
+        "preSend": [
+          "{{helpers.hooks.preSendActionCustonBody}}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "/options.useCustomBody": [
+          true
+        ],
+        "resource": [
+          "AI Speech To Text Speech Recognition"
+        ],
+        "operation": [
+          "Streaming Speech Recognition Asr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /speech_to_text/v1/speech/file_recognize",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "AI Speech To Text Speech Recognition"
+        ],
+        "operation": [
+          "Audio File Speech Recognition Asr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Config",
+    "name": "config",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "name": "engine_type",
+            "displayName": "engine_type"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "name": "file_id",
+            "displayName": "file_id"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "name": "format",
+            "displayName": "format"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "config": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "AI Speech To Text Speech Recognition"
+        ],
+        "operation": [
+          "Audio File Speech Recognition Asr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Speech",
+    "name": "speech",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "name": "speech",
+            "displayName": "speech"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "speech": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "AI Speech To Text Speech Recognition"
+        ],
+        "operation": [
+          "Audio File Speech Recognition Asr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"config\": {\n    \"engine_type\": \"string\",\n    \"file_id\": \"string\",\n    \"format\": \"string\"\n  },\n  \"speech\": {\n    \"speech\": \"string\"\n  }\n}",
+    "description": "Custom body to send.",
+    "routing": {
+      "send": {
+        "preSend": [
+          "{{helpers.hooks.preSendActionCustonBody}}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "/options.useCustomBody": [
+          true
+        ],
+        "resource": [
+          "AI Speech To Text Speech Recognition"
+        ],
+        "operation": [
+          "Audio File Speech Recognition Asr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /translation/v1/text/translate",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "AI Machine Translation Text"
+        ],
+        "operation": [
+          "Translate With Machine Translation"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Glossary",
+    "name": "glossary",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "name": "from",
+            "displayName": "from"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "name": "to",
+            "displayName": "to"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "glossary": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "AI Machine Translation Text"
+        ],
+        "operation": [
+          "Translate With Machine Translation"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Source Language",
+    "name": "source_language",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "source_language": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "AI Machine Translation Text"
+        ],
+        "operation": [
+          "Translate With Machine Translation"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Target Language",
+    "name": "target_language",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "target_language": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "AI Machine Translation Text"
+        ],
+        "operation": [
+          "Translate With Machine Translation"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Text",
+    "name": "text",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "text": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "AI Machine Translation Text"
+        ],
+        "operation": [
+          "Translate With Machine Translation"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"glossary\": [\n    {\n      \"from\": \"string\",\n      \"to\": \"string\"\n    }\n  ],\n  \"source_language\": \"string\",\n  \"target_language\": \"string\",\n  \"text\": \"string\"\n}",
+    "description": "Custom body to send.",
+    "routing": {
+      "send": {
+        "preSend": [
+          "{{helpers.hooks.preSendActionCustonBody}}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "/options.useCustomBody": [
+          true
+        ],
+        "resource": [
+          "AI Machine Translation Text"
+        ],
+        "operation": [
+          "Translate With Machine Translation"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /translation/v1/text/detect",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "AI Machine Translation Text"
+        ],
+        "operation": [
+          "Text Language Recognition"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Text",
+    "name": "text",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "text": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "/options.useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "AI Machine Translation Text"
+        ],
+        "operation": [
+          "Text Language Recognition"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"text\": \"string\"\n}",
+    "description": "Custom body to send.",
+    "routing": {
+      "send": {
+        "preSend": [
+          "{{helpers.hooks.preSendActionCustonBody}}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "/options.useCustomBody": [
+          true
+        ],
+        "resource": [
+          "AI Machine Translation Text"
+        ],
+        "operation": [
+          "Text Language Recognition"
+        ]
+      }
+    }
+  }
+]

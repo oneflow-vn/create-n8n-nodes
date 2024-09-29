@@ -5,14 +5,14 @@ import { methods } from './LarkContacts.methods'
 export class LarkContacts implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Contacts',
-    name: 'LarkContacts',
+    name: 'larkContacts',
     icon: 'file:lark.png',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
     description: 'Lark Contacts Management',
     defaults: {
-      name: 'LarkContacts',
+      name: 'Lark Contacts',
     },
     inputs: ['main'],
     outputs: ['main'],
@@ -23,7 +23,7 @@ export class LarkContacts implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteTenantApi'],
+            authentication: ['larkSuiteTenantApi'],
           },
         },
       },
@@ -33,7 +33,7 @@ export class LarkContacts implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteOAuth2Api'],
+            authentication: ['larkSuiteOAuth2Api'],
           },
         },
       },

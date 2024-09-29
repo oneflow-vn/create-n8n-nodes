@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName:
@@ -13,7 +19,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Calendar Event Attendee'],
-        operation: ['Delete event invitees'],
+        operation: ['Delete Event Invitees'],
       },
     },
   },
@@ -21,12 +27,14 @@ export const properties: INodeProperties[] = [
     displayName: 'Calendar Id',
     name: 'calendar_id',
     required: true,
+    description:
+      'Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Calendar Event Attendee'],
-        operation: ['Delete event invitees'],
+        operation: ['Delete Event Invitees'],
       },
     },
   },
@@ -34,31 +42,55 @@ export const properties: INodeProperties[] = [
     displayName: 'Event Id',
     name: 'event_id',
     required: true,
+    description:
+      'Event ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Calendar Event Attendee'],
-        operation: ['Delete event invitees'],
+        operation: ['Delete Event Invitees'],
       },
     },
   },
   {
     displayName: 'Attendee Ids',
     name: 'attendee_ids',
-    type: 'json',
-    default: '[\n  null\n]',
+    type: 'fixedCollection',
+    default: [],
+    typeOptions: {
+      multipleValues: true,
+    },
+    description: undefined,
+    placeholder: 'Add item',
+    options: [
+      {
+        name: 'items',
+        displayName: 'Items',
+        values: [
+          {
+            name: 'Item',
+            displayName: 'Item',
+            type: 'string',
+            default: '',
+          },
+        ],
+      },
+    ],
     routing: {
       request: {
         body: {
-          attendee_ids: '={{ JSON.parse($value) }}',
+          attendee_ids: '={{$value.items}}',
         },
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Event Attendee'],
-        operation: ['Delete event invitees'],
+        operation: ['Delete Event Invitees'],
       },
     },
   },
@@ -67,6 +99,7 @@ export const properties: INodeProperties[] = [
     name: 'instance_start_time_admin',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -75,9 +108,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Event Attendee'],
-        operation: ['Delete event invitees'],
+        operation: ['Delete Event Invitees'],
       },
     },
   },
@@ -86,6 +122,7 @@ export const properties: INodeProperties[] = [
     name: 'is_enable_admin',
     type: 'boolean',
     default: true,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -94,9 +131,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Event Attendee'],
-        operation: ['Delete event invitees'],
+        operation: ['Delete Event Invitees'],
       },
     },
   },
@@ -105,6 +145,7 @@ export const properties: INodeProperties[] = [
     name: 'need_notification',
     type: 'boolean',
     default: true,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -113,10 +154,34 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Event Attendee'],
-        operation: ['Delete event invitees'],
+        operation: ['Delete Event Invitees'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default:
+      '{\n  "attendee_ids": [\n    "string"\n  ],\n  "instance_start_time_admin": "string",\n  "is_enable_admin": true,\n  "need_notification": true\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Calendar Event Attendee'],
+        operation: ['Delete Event Invitees'],
       },
     },
   },
 ]
+/* eslint-disable */

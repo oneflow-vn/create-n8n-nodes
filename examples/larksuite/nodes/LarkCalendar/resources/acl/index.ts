@@ -13,8 +13,9 @@ const operations: INodePropertyOptions[] = [
   subscribeToChangesInCalendarAccessControl.option,
 ]
 
-export const name = 'ACL'
+export const name = 'Acl'
 
+/* eslint-disable */
 const operationSelect: INodeProperties = {
   displayName: 'Operation',
   name: 'operation',
@@ -27,6 +28,7 @@ const operationSelect: INodeProperties = {
   },
   default: '',
 }
+/* eslint-disable */
 
 // overwrite the options of the operationSelect
 operationSelect.options = operations

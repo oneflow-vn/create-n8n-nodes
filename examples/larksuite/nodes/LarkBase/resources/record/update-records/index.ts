@@ -1,13 +1,22 @@
 import { INodePropertyOptions } from 'n8n-workflow'
+
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
 import { properties as rawProperties } from './properties'
 import runHooks from './hooks'
 
 export const name = 'Update Records'
 
+/* eslint-disable */
 const rawOption: INodePropertyOptions = {
   name: 'Update Records',
   value: 'Update Records',
   action: 'Update Records',
+  description:
+    'Update Records\r\n\r\nAPI reference documentation: [Update Records]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/batch_update)',
   routing: {
     request: {
       method: 'POST',
@@ -15,6 +24,7 @@ const rawOption: INodePropertyOptions = {
     },
   },
 }
+/* eslint-disable */
 
 const { properties, option } = runHooks(rawOption, rawProperties)
 

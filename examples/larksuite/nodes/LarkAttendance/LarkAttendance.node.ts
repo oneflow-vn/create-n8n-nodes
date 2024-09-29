@@ -5,14 +5,14 @@ import { methods } from './LarkAttendance.methods'
 export class LarkAttendance implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Attendance',
-    name: 'LarkAttendance',
+    name: 'larkAttendance',
     icon: 'file:larkatentance.png',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
     description: 'Lark Attendance Management',
     defaults: {
-      name: 'LarkAttendance',
+      name: 'Lark Attendance',
     },
     inputs: ['main'],
     outputs: ['main'],
@@ -23,7 +23,7 @@ export class LarkAttendance implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteTenantApi'],
+            authentication: ['larkSuiteTenantApi'],
           },
         },
       },
@@ -33,7 +33,7 @@ export class LarkAttendance implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteOAuth2Api'],
+            authentication: ['larkSuiteOAuth2Api'],
           },
         },
       },

@@ -5,14 +5,14 @@ import { methods } from './LarkCalendar.methods'
 export class LarkCalendar implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Calendar',
-    name: 'LarkCalendar',
+    name: 'larkCalendar',
     icon: 'file:larkcalendar.svg',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
     description: 'Lark Calendar Management',
     defaults: {
-      name: 'LarkCalendar',
+      name: 'Lark Calendar',
     },
     inputs: ['main'],
     outputs: ['main'],
@@ -23,7 +23,7 @@ export class LarkCalendar implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteTenantApi'],
+            authentication: ['larkSuiteTenantApi'],
           },
         },
       },
@@ -33,7 +33,7 @@ export class LarkCalendar implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteOAuth2Api'],
+            authentication: ['larkSuiteOAuth2Api'],
           },
         },
       },

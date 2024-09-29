@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'DELETE /im/v1/chats/{chat_id}',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Messenger Group'],
-        operation: ['Delete a group'],
+        operation: ['Delete A Group'],
       },
     },
   },
@@ -20,13 +26,16 @@ export const properties: INodeProperties[] = [
     displayName: 'Chat Id',
     name: 'chat_id',
     required: true,
+    description:
+      'Group ID. For details, refer to [Group ID description]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description).',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Messenger Group'],
-        operation: ['Delete a group'],
+        operation: ['Delete A Group'],
       },
     },
   },
 ]
+/* eslint-disable */

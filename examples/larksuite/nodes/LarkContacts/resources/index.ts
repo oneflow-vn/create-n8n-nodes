@@ -40,37 +40,65 @@ const resourceSelect: INodeProperties[] = [
       {
         name: 'User',
         value: 'Contacts User',
+        description: '',
       },
       {
         name: 'Department',
         value: 'Contacts Department',
+        description: '',
       },
       {
         name: 'User Group',
         value: 'Contacts User Group',
+        description: '',
       },
       {
         name: 'User Group Member',
         value: 'Contacts User Group User Group Member',
+        description: '',
       },
       {
         name: 'Unit',
         value: 'Contacts Unit',
+        description: '',
       },
       {
         name: 'Workforce Type',
         value: 'Contacts Workforce Type',
+        description: '',
       },
       {
         name: 'Custom User Fields',
         value: 'Contacts Custom User Fields',
+        description: '',
       },
       {
         name: 'Contact Scope',
         value: 'Contacts Contact Scope',
+        description: '',
       },
     ],
     default: '',
+  },
+]
+
+const extraProperties: INodeProperties[] = [
+  {
+    displayName: 'Options',
+    name: 'options',
+    type: 'collection',
+    placeholder: 'Add option',
+    default: {},
+    options: [
+      {
+        displayName: 'Use Custom Body',
+        name: 'useCustomBody',
+        type: 'boolean',
+        description: 'Wether to use a custom body',
+        required: true,
+        default: false,
+      },
+    ],
   },
 ]
 
@@ -85,6 +113,7 @@ const rawProperties: INodeProperties[] = [
   ...workforceType.properties,
   ...customUserFields.properties,
   ...contactScope.properties,
+  ...extraProperties,
 ]
 
 const { properties, methods: selfMethods } = runHooks(rawProperties)

@@ -1,5 +1,5 @@
 {
-  "name": "n8n-nodes-lark-open-platform",
+  "name": "n8n-nodes-larksuite",
   "version": "0.1.0",
   "description": "",
   "keywords": [
@@ -28,7 +28,10 @@
     "format": "prettier nodes credentials --write",
     "lint": "eslint nodes credentials package.json",
     "lintfix": "eslint nodes credentials package.json --fix",
-    "prepublishOnly": "pnpm build && pnpm lint -c .eslintrc.prepublish.js nodes credentials package.json"
+    "prepublishOnly": "pnpm build && pnpm lint -c .eslintrc.prepublish.js nodes credentials package.json",
+    "merge:api": "npx openapi-merge-cli --config ./openapi.config.json",
+    "p2o": "p2o ./collection.json -f ./openapi.yml",
+    "codegen": "node ../../cli.js -o . -c nodes.config.js ./openapi.yml ../templates/n8n-nodes"
   },
   "files": [
     "dist"
@@ -40,19 +43,19 @@
       "dist/credentials/LarkSuiteOAuth2Api.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/LarkAuth/LarkAuth.node",
-      "dist/nodes/LarkFiles/LarkFiles.node",
-      "dist/nodes/LarkSheets/LarkSheets.node",
-      "dist/nodes/LarkBase/LarkBase.node",
-      "dist/nodes/LarkContacts/LarkContacts.node",
-      "dist/nodes/LarkCalendar/LarkCalendar.node",
-      "dist/nodes/LarkMessenger/LarkMessenger.node",
-      "dist/nodes/LarkAttendance/LarkAttendance.node",
-      "dist/nodes/LarkApproval/LarkApproval.node",
-      "dist/nodes/LarkApps/LarkApps.node",
-      "dist/nodes/LarkAI/LarkAI.node",
-      "dist/nodes/LarkCompany/LarkCompany.node",
-      "dist/nodes/LarkEmail/LarkEmail.node"
+      "dist/nodes/LarkAuth/LarkAuth.node.js",
+      "dist/nodes/LarkFiles/LarkFiles.node.js",
+      "dist/nodes/LarkSheets/LarkSheets.node.js",
+      "dist/nodes/LarkBase/LarkBase.node.js",
+      "dist/nodes/LarkContacts/LarkContacts.node.js",
+      "dist/nodes/LarkCalendar/LarkCalendar.node.js",
+      "dist/nodes/LarkMessenger/LarkMessenger.node.js",
+      "dist/nodes/LarkAttendance/LarkAttendance.node.js",
+      "dist/nodes/LarkApproval/LarkApproval.node.js",
+      "dist/nodes/LarkApps/LarkApps.node.js",
+      "dist/nodes/LarkAI/LarkAI.node.js",
+      "dist/nodes/LarkCompany/LarkCompany.node.js",
+      "dist/nodes/LarkEmail/LarkEmail.node.js"
     ]
   },
   "devDependencies": {

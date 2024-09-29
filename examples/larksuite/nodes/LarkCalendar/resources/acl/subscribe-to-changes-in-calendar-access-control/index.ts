@@ -1,13 +1,22 @@
 import { INodePropertyOptions } from 'n8n-workflow'
+
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
 import { properties as rawProperties } from './properties'
 import runHooks from './hooks'
 
-export const name = 'Subscribe to changes in calendar access control'
+export const name = 'Subscribe To Changes In Calendar Access Control'
 
+/* eslint-disable */
 const rawOption: INodePropertyOptions = {
-  name: 'Subscribe to changes in calendar access control',
-  value: 'Subscribe to changes in calendar access control',
+  name: 'Subscribe To Changes In Calendar Access Control',
+  value: 'Subscribe To Changes In Calendar Access Control',
   action: 'Subscribe to changes in calendar access control\n',
+  description:
+    'This API is used to subscribe to calendar member changes in a calendar as a user.\r\n\r\nAPI reference documentation: [Subscribe to changes in calendar access control\n]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/subscription)',
   routing: {
     request: {
       method: 'POST',
@@ -15,6 +24,7 @@ const rawOption: INodePropertyOptions = {
     },
   },
 }
+/* eslint-disable */
 
 const { properties, option } = runHooks(rawOption, rawProperties)
 

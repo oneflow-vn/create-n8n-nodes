@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /im/v1/messages/{message_id}',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Messenger Message'],
-        operation: ['Obtain content of a specific message'],
+        operation: ['Obtain Content Of A Specific Message'],
       },
     },
   },
@@ -20,13 +26,15 @@ export const properties: INodeProperties[] = [
     displayName: 'Message Id',
     name: 'message_id',
     required: true,
+    description: 'ID of the message whose content is to be obtained',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Messenger Message'],
-        operation: ['Obtain content of a specific message'],
+        operation: ['Obtain Content Of A Specific Message'],
       },
     },
   },
 ]
+/* eslint-disable */

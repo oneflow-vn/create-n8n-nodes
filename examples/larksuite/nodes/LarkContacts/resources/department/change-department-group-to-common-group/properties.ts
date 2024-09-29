@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /contact/v3/departments/unbind_department_chat',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Contacts Department'],
-        operation: ['Change department group to common group'],
+        operation: ['Change Department Group To Common Group'],
       },
     },
   },
@@ -21,6 +27,7 @@ export const properties: INodeProperties[] = [
     name: 'department_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -29,10 +36,33 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Contacts Department'],
-        operation: ['Change department group to common group'],
+        operation: ['Change Department Group To Common Group'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default: '{\n  "department_id": "string"\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Contacts Department'],
+        operation: ['Change Department Group To Common Group'],
       },
     },
   },
 ]
+/* eslint-disable */

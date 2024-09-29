@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /drive/v1/import_tasks/{ticket}',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Docs File Management Document Import'],
-        operation: ['Query the import task result'],
+        operation: ['Query The Import Task Result'],
       },
     },
   },
@@ -20,13 +26,15 @@ export const properties: INodeProperties[] = [
     displayName: 'Ticket',
     name: 'ticket',
     required: true,
+    description: 'ID of the import task',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Docs File Management Document Import'],
-        operation: ['Query the import task result'],
+        operation: ['Query The Import Task Result'],
       },
     },
   },
 ]
+/* eslint-disable */

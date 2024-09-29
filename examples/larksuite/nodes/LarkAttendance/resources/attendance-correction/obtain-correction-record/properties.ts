@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /attendance/v1/user_task_remedys/query',
@@ -12,13 +18,15 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Attendance Attendance Correction'],
-        operation: ['Obtain correction record'],
+        operation: ['Obtain Correction Record'],
       },
     },
   },
   {
     displayName: 'Employee Type',
     name: 'employee_type',
+    description:
+      'Type of employee ID for user_ids in request body and user_id in response body',
     default: '',
     type: 'string',
     routing: {
@@ -31,7 +39,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Attendance Attendance Correction'],
-        operation: ['Obtain correction record'],
+        operation: ['Obtain Correction Record'],
       },
     },
   },
@@ -40,6 +48,7 @@ export const properties: INodeProperties[] = [
     name: 'check_time_from',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -48,9 +57,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Attendance Attendance Correction'],
-        operation: ['Obtain correction record'],
+        operation: ['Obtain Correction Record'],
       },
     },
   },
@@ -59,6 +71,7 @@ export const properties: INodeProperties[] = [
     name: 'check_time_to',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -67,29 +80,75 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Attendance Attendance Correction'],
-        operation: ['Obtain correction record'],
+        operation: ['Obtain Correction Record'],
       },
     },
   },
   {
     displayName: 'User Ids',
     name: 'user_ids',
-    type: 'json',
-    default: '[\n  null\n]',
+    type: 'fixedCollection',
+    default: [],
+    typeOptions: {
+      multipleValues: true,
+    },
+    description: undefined,
+    placeholder: 'Add item',
+    options: [
+      {
+        name: 'items',
+        displayName: 'Items',
+        values: [
+          {
+            name: 'Item',
+            displayName: 'Item',
+            type: 'string',
+            default: '',
+          },
+        ],
+      },
+    ],
     routing: {
       request: {
         body: {
-          user_ids: '={{ JSON.parse($value) }}',
+          user_ids: '={{$value.items}}',
         },
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Attendance Attendance Correction'],
-        operation: ['Obtain correction record'],
+        operation: ['Obtain Correction Record'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default:
+      '{\n  "check_time_from": "string",\n  "check_time_to": "string",\n  "user_ids": [\n    "string"\n  ]\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Attendance Attendance Correction'],
+        operation: ['Obtain Correction Record'],
       },
     },
   },
 ]
+/* eslint-disable */

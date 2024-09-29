@@ -5,14 +5,14 @@ import { methods } from './LarkAI.methods'
 export class LarkAI implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark AI',
-    name: 'LarkAI',
+    name: 'larkAi',
     icon: 'file:larkai.png',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
     description: 'Lark AI Management',
     defaults: {
-      name: 'LarkAI',
+      name: 'Lark AI',
     },
     inputs: ['main'],
     outputs: ['main'],
@@ -23,7 +23,7 @@ export class LarkAI implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteTenantApi'],
+            authentication: ['larkSuiteTenantApi'],
           },
         },
       },
@@ -33,7 +33,7 @@ export class LarkAI implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteOAuth2Api'],
+            authentication: ['larkSuiteOAuth2Api'],
           },
         },
       },

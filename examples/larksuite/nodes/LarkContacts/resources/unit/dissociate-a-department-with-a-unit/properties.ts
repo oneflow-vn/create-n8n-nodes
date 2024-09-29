@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /contact/v3/unit/unbind_department',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Contacts Unit'],
-        operation: ['Dissociate a department with a unit'],
+        operation: ['Dissociate A Department With A Unit'],
       },
     },
   },
@@ -21,6 +27,7 @@ export const properties: INodeProperties[] = [
     name: 'department_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -29,9 +36,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Contacts Unit'],
-        operation: ['Dissociate a department with a unit'],
+        operation: ['Dissociate A Department With A Unit'],
       },
     },
   },
@@ -40,6 +50,7 @@ export const properties: INodeProperties[] = [
     name: 'department_id_type',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -48,9 +59,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Contacts Unit'],
-        operation: ['Dissociate a department with a unit'],
+        operation: ['Dissociate A Department With A Unit'],
       },
     },
   },
@@ -59,6 +73,7 @@ export const properties: INodeProperties[] = [
     name: 'unit_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -67,10 +82,34 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Contacts Unit'],
-        operation: ['Dissociate a department with a unit'],
+        operation: ['Dissociate A Department With A Unit'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default:
+      '{\n  "department_id": "string",\n  "department_id_type": "string",\n  "unit_id": "string"\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Contacts Unit'],
+        operation: ['Dissociate A Department With A Unit'],
       },
     },
   },
 ]
+/* eslint-disable */

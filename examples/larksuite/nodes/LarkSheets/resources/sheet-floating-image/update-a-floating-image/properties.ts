@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName:
@@ -13,7 +19,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Docs Sheets Sheet Floating Image'],
-        operation: ['Update a floating image'],
+        operation: ['Update A Floating Image'],
       },
     },
   },
@@ -21,12 +27,13 @@ export const properties: INodeProperties[] = [
     displayName: 'Spreadsheet Token',
     name: 'spreadsheet_token',
     required: true,
+    description: 'Spreadsheet token',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Docs Sheets Sheet Floating Image'],
-        operation: ['Update a floating image'],
+        operation: ['Update A Floating Image'],
       },
     },
   },
@@ -34,12 +41,13 @@ export const properties: INodeProperties[] = [
     displayName: 'Sheet Id',
     name: 'sheet_id',
     required: true,
+    description: 'Sheet ID',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Docs Sheets Sheet Floating Image'],
-        operation: ['Update a floating image'],
+        operation: ['Update A Floating Image'],
       },
     },
   },
@@ -47,12 +55,13 @@ export const properties: INodeProperties[] = [
     displayName: 'Float Image Id',
     name: 'float_image_id',
     required: true,
+    description: 'Floating image ID',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Docs Sheets Sheet Floating Image'],
-        operation: ['Update a floating image'],
+        operation: ['Update A Floating Image'],
       },
     },
   },
@@ -61,6 +70,7 @@ export const properties: INodeProperties[] = [
     name: 'float_image_token',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -69,9 +79,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs Sheets Sheet Floating Image'],
-        operation: ['Update a floating image'],
+        operation: ['Update A Floating Image'],
       },
     },
   },
@@ -80,6 +93,7 @@ export const properties: INodeProperties[] = [
     name: 'height',
     type: 'number',
     default: 0,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -88,9 +102,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs Sheets Sheet Floating Image'],
-        operation: ['Update a floating image'],
+        operation: ['Update A Floating Image'],
       },
     },
   },
@@ -99,6 +116,7 @@ export const properties: INodeProperties[] = [
     name: 'offset_x',
     type: 'number',
     default: 0,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -107,9 +125,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs Sheets Sheet Floating Image'],
-        operation: ['Update a floating image'],
+        operation: ['Update A Floating Image'],
       },
     },
   },
@@ -118,6 +139,7 @@ export const properties: INodeProperties[] = [
     name: 'offset_y',
     type: 'number',
     default: 0,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -126,9 +148,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs Sheets Sheet Floating Image'],
-        operation: ['Update a floating image'],
+        operation: ['Update A Floating Image'],
       },
     },
   },
@@ -137,6 +162,7 @@ export const properties: INodeProperties[] = [
     name: 'range',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -145,9 +171,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs Sheets Sheet Floating Image'],
-        operation: ['Update a floating image'],
+        operation: ['Update A Floating Image'],
       },
     },
   },
@@ -156,6 +185,7 @@ export const properties: INodeProperties[] = [
     name: 'width',
     type: 'number',
     default: 0,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -164,10 +194,34 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs Sheets Sheet Floating Image'],
-        operation: ['Update a floating image'],
+        operation: ['Update A Floating Image'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default:
+      '{\n  "float_image_token": "string",\n  "height": 0,\n  "offset_x": 0,\n  "offset_y": 0,\n  "range": "string",\n  "width": 0\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Docs Sheets Sheet Floating Image'],
+        operation: ['Update A Floating Image'],
       },
     },
   },
 ]
+/* eslint-disable */

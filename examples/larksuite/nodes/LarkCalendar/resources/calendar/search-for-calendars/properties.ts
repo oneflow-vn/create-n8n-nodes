@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /calendar/v4/calendars/search',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Calendar Calendar'],
-        operation: ['Search for calendars'],
+        operation: ['Search For Calendars'],
       },
     },
   },
@@ -21,6 +27,7 @@ export const properties: INodeProperties[] = [
     name: 'query',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -29,10 +36,33 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Calendar'],
-        operation: ['Search for calendars'],
+        operation: ['Search For Calendars'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default: '{\n  "query": "string"\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Calendar Calendar'],
+        operation: ['Search For Calendars'],
       },
     },
   },
 ]
+/* eslint-disable */

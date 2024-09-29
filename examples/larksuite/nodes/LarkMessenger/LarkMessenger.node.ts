@@ -5,14 +5,14 @@ import { methods } from './LarkMessenger.methods'
 export class LarkMessenger implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Messenger',
-    name: 'LarkMessenger',
+    name: 'larkMessenger',
     icon: 'file:larkmessage.svg',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
     description: 'Lark Messenger Management',
     defaults: {
-      name: 'LarkMessenger',
+      name: 'Lark Messenger',
     },
     inputs: ['main'],
     outputs: ['main'],
@@ -23,7 +23,7 @@ export class LarkMessenger implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteTenantApi'],
+            authentication: ['larkSuiteTenantApi'],
           },
         },
       },
@@ -33,7 +33,7 @@ export class LarkMessenger implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteOAuth2Api'],
+            authentication: ['larkSuiteOAuth2Api'],
           },
         },
       },

@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /im/v1/chats',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Messenger Group'],
-        operation: ['Create a group'],
+        operation: ['Create A Group'],
       },
     },
   },
@@ -21,6 +27,7 @@ export const properties: INodeProperties[] = [
     name: 'avatar',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -29,28 +36,53 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Messenger Group'],
-        operation: ['Create a group'],
+        operation: ['Create A Group'],
       },
     },
   },
   {
     displayName: 'Bot Id List',
     name: 'bot_id_list',
-    type: 'json',
-    default: '[\n  null\n]',
+    type: 'fixedCollection',
+    default: [],
+    typeOptions: {
+      multipleValues: true,
+    },
+    description: undefined,
+    placeholder: 'Add item',
+    options: [
+      {
+        name: 'items',
+        displayName: 'Items',
+        values: [
+          {
+            name: 'Item',
+            displayName: 'Item',
+            type: 'string',
+            default: '',
+          },
+        ],
+      },
+    ],
     routing: {
       request: {
         body: {
-          bot_id_list: '={{ JSON.parse($value) }}',
+          bot_id_list: '={{$value.items}}',
         },
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Messenger Group'],
-        operation: ['Create a group'],
+        operation: ['Create A Group'],
       },
     },
   },
@@ -59,6 +91,7 @@ export const properties: INodeProperties[] = [
     name: 'chat_mode',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -67,9 +100,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Messenger Group'],
-        operation: ['Create a group'],
+        operation: ['Create A Group'],
       },
     },
   },
@@ -78,6 +114,7 @@ export const properties: INodeProperties[] = [
     name: 'chat_type',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -86,9 +123,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Messenger Group'],
-        operation: ['Create a group'],
+        operation: ['Create A Group'],
       },
     },
   },
@@ -97,15 +137,21 @@ export const properties: INodeProperties[] = [
     name: 'description',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
-        body: {},
+        body: {
+          description: '={{ $value }}',
+        },
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Messenger Group'],
-        operation: ['Create a group'],
+        operation: ['Create A Group'],
       },
     },
   },
@@ -114,6 +160,7 @@ export const properties: INodeProperties[] = [
     name: 'external',
     type: 'boolean',
     default: true,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -122,28 +169,64 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Messenger Group'],
-        operation: ['Create a group'],
+        operation: ['Create A Group'],
       },
     },
   },
   {
     displayName: 'I 18 N Names',
     name: 'i18n_names',
-    type: 'json',
-    default: '{}',
+    type: 'fixedCollection',
+    default: {},
+    description: undefined,
+    options: [
+      {
+        name: 'items',
+        displayName: 'Items',
+        values: [
+          {
+            type: 'string',
+            default: '',
+            description: undefined,
+            name: 'en_us',
+            displayName: 'en_us',
+          },
+          {
+            type: 'string',
+            default: '',
+            description: undefined,
+            name: 'ja_jp',
+            displayName: 'ja_jp',
+          },
+          {
+            type: 'string',
+            default: '',
+            description: undefined,
+            name: 'zh_cn',
+            displayName: 'zh_cn',
+          },
+        ],
+      },
+    ],
     routing: {
       request: {
         body: {
-          i18n_names: '={{ JSON.parse($value) }}',
+          i18n_names: '={{$value.items}}',
         },
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Messenger Group'],
-        operation: ['Create a group'],
+        operation: ['Create A Group'],
       },
     },
   },
@@ -152,6 +235,7 @@ export const properties: INodeProperties[] = [
     name: 'join_message_visibility',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -160,28 +244,53 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Messenger Group'],
-        operation: ['Create a group'],
+        operation: ['Create A Group'],
       },
     },
   },
   {
     displayName: 'Labels',
     name: 'labels',
-    type: 'json',
-    default: '[\n  null\n]',
+    type: 'fixedCollection',
+    default: [],
+    typeOptions: {
+      multipleValues: true,
+    },
+    description: undefined,
+    placeholder: 'Add item',
+    options: [
+      {
+        name: 'items',
+        displayName: 'Items',
+        values: [
+          {
+            name: 'Item',
+            displayName: 'Item',
+            type: 'string',
+            default: '',
+          },
+        ],
+      },
+    ],
     routing: {
       request: {
         body: {
-          labels: '={{ JSON.parse($value) }}',
+          labels: '={{$value.items}}',
         },
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Messenger Group'],
-        operation: ['Create a group'],
+        operation: ['Create A Group'],
       },
     },
   },
@@ -190,6 +299,7 @@ export const properties: INodeProperties[] = [
     name: 'leave_message_visibility',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -198,9 +308,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Messenger Group'],
-        operation: ['Create a group'],
+        operation: ['Create A Group'],
       },
     },
   },
@@ -209,6 +322,7 @@ export const properties: INodeProperties[] = [
     name: 'membership_approval',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -217,9 +331,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Messenger Group'],
-        operation: ['Create a group'],
+        operation: ['Create A Group'],
       },
     },
   },
@@ -228,6 +345,7 @@ export const properties: INodeProperties[] = [
     name: 'name',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -236,9 +354,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Messenger Group'],
-        operation: ['Create a group'],
+        operation: ['Create A Group'],
       },
     },
   },
@@ -247,6 +368,7 @@ export const properties: INodeProperties[] = [
     name: 'owner_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -255,29 +377,75 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Messenger Group'],
-        operation: ['Create a group'],
+        operation: ['Create A Group'],
       },
     },
   },
   {
     displayName: 'User Id List',
     name: 'user_id_list',
-    type: 'json',
-    default: '[\n  null\n]',
+    type: 'fixedCollection',
+    default: [],
+    typeOptions: {
+      multipleValues: true,
+    },
+    description: undefined,
+    placeholder: 'Add item',
+    options: [
+      {
+        name: 'items',
+        displayName: 'Items',
+        values: [
+          {
+            name: 'Item',
+            displayName: 'Item',
+            type: 'string',
+            default: '',
+          },
+        ],
+      },
+    ],
     routing: {
       request: {
         body: {
-          user_id_list: '={{ JSON.parse($value) }}',
+          user_id_list: '={{$value.items}}',
         },
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Messenger Group'],
-        operation: ['Create a group'],
+        operation: ['Create A Group'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default:
+      '{\n  "avatar": "string",\n  "bot_id_list": [\n    "string"\n  ],\n  "chat_mode": "string",\n  "chat_type": "string",\n  "description": "string",\n  "external": true,\n  "i18n_names": {\n    "en_us": "string",\n    "ja_jp": "string",\n    "zh_cn": "string"\n  },\n  "join_message_visibility": "string",\n  "labels": [\n    "string"\n  ],\n  "leave_message_visibility": "string",\n  "membership_approval": "string",\n  "name": "string",\n  "owner_id": "string",\n  "user_id_list": [\n    "string"\n  ]\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Messenger Group'],
+        operation: ['Create A Group'],
       },
     },
   },
 ]
+/* eslint-disable */

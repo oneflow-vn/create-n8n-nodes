@@ -1,14 +1,15 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
 import runHooks from './hooks'
 
-import * as code2SessionUsedInGadgetScenarios from './code-2-session-used-in-gadget-scenarios'
+import * as code2SessionusedInGadgetScenarios from './code-2-sessionused-in-gadget-scenarios'
 
 const operations: INodePropertyOptions[] = [
-  code2SessionUsedInGadgetScenarios.option,
+  code2SessionusedInGadgetScenarios.option,
 ]
 
-export const name = 'API Access Token'
+export const name = 'Api Access Token'
 
+/* eslint-disable */
 const operationSelect: INodeProperties = {
   displayName: 'Operation',
   name: 'operation',
@@ -21,6 +22,7 @@ const operationSelect: INodeProperties = {
   },
   default: '',
 }
+/* eslint-disable */
 
 // overwrite the options of the operationSelect
 operationSelect.options = operations
@@ -30,7 +32,7 @@ operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
 export const rawProperties: INodeProperties[] = [
   operationSelect,
-  ...code2SessionUsedInGadgetScenarios.properties,
+  ...code2SessionusedInGadgetScenarios.properties,
 ]
 
 const { properties, methods } = runHooks(rawProperties)

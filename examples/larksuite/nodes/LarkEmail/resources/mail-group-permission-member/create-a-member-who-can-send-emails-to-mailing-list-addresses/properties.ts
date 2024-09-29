@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /mail/v1/mailgroups/{mailgroup_id}/permission_members',
@@ -13,7 +19,7 @@ export const properties: INodeProperties[] = [
       show: {
         resource: ['Email Mail Group Permission Member'],
         operation: [
-          'Create a member who can send emails to mailing list addresses',
+          'Create A Member Who Can Send Emails To Mailing List Addresses',
         ],
       },
     },
@@ -22,13 +28,14 @@ export const properties: INodeProperties[] = [
     displayName: 'Mailgroup Id',
     name: 'mailgroup_id',
     required: true,
+    description: 'Mailing list ID or mailing list address',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Email Mail Group Permission Member'],
         operation: [
-          'Create a member who can send emails to mailing list addresses',
+          'Create A Member Who Can Send Emails To Mailing List Addresses',
         ],
       },
     },
@@ -38,6 +45,7 @@ export const properties: INodeProperties[] = [
     name: 'department_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -46,10 +54,13 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Email Mail Group Permission Member'],
         operation: [
-          'Create a member who can send emails to mailing list addresses',
+          'Create A Member Who Can Send Emails To Mailing List Addresses',
         ],
       },
     },
@@ -59,6 +70,7 @@ export const properties: INodeProperties[] = [
     name: 'type',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -67,10 +79,13 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Email Mail Group Permission Member'],
         operation: [
-          'Create a member who can send emails to mailing list addresses',
+          'Create A Member Who Can Send Emails To Mailing List Addresses',
         ],
       },
     },
@@ -80,6 +95,7 @@ export const properties: INodeProperties[] = [
     name: 'user_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -88,12 +104,38 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Email Mail Group Permission Member'],
         operation: [
-          'Create a member who can send emails to mailing list addresses',
+          'Create A Member Who Can Send Emails To Mailing List Addresses',
+        ],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default:
+      '{\n  "department_id": "string",\n  "type": "string",\n  "user_id": "string"\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Email Mail Group Permission Member'],
+        operation: [
+          'Create A Member Who Can Send Emails To Mailing List Addresses',
         ],
       },
     },
   },
 ]
+/* eslint-disable */

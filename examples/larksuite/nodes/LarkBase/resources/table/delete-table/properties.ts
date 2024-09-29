@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'DELETE /bitable/v1/apps/{app_token}/tables/{table_id}',
@@ -20,6 +26,7 @@ export const properties: INodeProperties[] = [
     displayName: 'App Token',
     name: 'app_token',
     required: true,
+    description: 'bitable app token',
     default: '',
     type: 'string',
     displayOptions: {
@@ -33,6 +40,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Table Id',
     name: 'table_id',
     required: true,
+    description: 'table id',
     default: '',
     type: 'string',
     displayOptions: {
@@ -43,3 +51,4 @@ export const properties: INodeProperties[] = [
     },
   },
 ]
+/* eslint-disable */

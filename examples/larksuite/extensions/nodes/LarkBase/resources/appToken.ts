@@ -3,6 +3,8 @@ import { apiRequest } from './genericFunctions';
 
 
 const appTokenLocatorProperty: INodeProperties = {
+		displayName: 'App Token',
+		name: 'app_token',
     type: 'resourceLocator',
     default: { mode: 'list', value: '' },
     modes: [
@@ -53,11 +55,9 @@ const appTokenLocatorProperty: INodeProperties = {
                 },
             ],
             placeholder: 'NVCnbrChXaPbhVs8bISltEhngFg',
-            url: '=https://open.larksuite.com/suite/docs?docs_token={{$json["id"]}}',
+						url: '=http://api-base-url.com/?id={{$value}}',
         },
     ],
-    displayName: '',
-    name: ''
 };
 
 function mapAppTokenProperty(property: INodeProperties) {

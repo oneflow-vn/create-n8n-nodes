@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /open-apis/authen/v1/access_token',
@@ -12,46 +18,28 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['API Access Token User ID'],
-        operation: ['Obtain the loggedin user ID'],
+        operation: ['Obtain The Loggedin User Id'],
       },
     },
   },
   {
-    displayName: 'Grant Type',
-    name: 'grant_type',
-    type: 'string',
-    default: '',
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default: '{}',
+    description: 'Custom body to send.',
     routing: {
-      request: {
-        body: {
-          grant_type: '={{ $value }}',
-        },
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
       },
     },
     displayOptions: {
       show: {
+        '/options.useCustomBody': [true],
         resource: ['API Access Token User ID'],
-        operation: ['Obtain the loggedin user ID'],
-      },
-    },
-  },
-  {
-    displayName: 'Code',
-    name: 'code',
-    type: 'string',
-    default: '',
-    routing: {
-      request: {
-        body: {
-          code: '={{ $value }}',
-        },
-      },
-    },
-    displayOptions: {
-      show: {
-        resource: ['API Access Token User ID'],
-        operation: ['Obtain the loggedin user ID'],
+        operation: ['Obtain The Loggedin User Id'],
       },
     },
   },
 ]
+/* eslint-disable */

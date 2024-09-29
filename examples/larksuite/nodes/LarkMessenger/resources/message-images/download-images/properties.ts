@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /im/v1/images/{image_key}',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Messenger Message Images'],
-        operation: ['Download images'],
+        operation: ['Download Images'],
       },
     },
   },
@@ -20,13 +26,15 @@ export const properties: INodeProperties[] = [
     displayName: 'Image Key',
     name: 'image_key',
     required: true,
+    description: 'Image key',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Messenger Message Images'],
-        operation: ['Download images'],
+        operation: ['Download Images'],
       },
     },
   },
 ]
+/* eslint-disable */

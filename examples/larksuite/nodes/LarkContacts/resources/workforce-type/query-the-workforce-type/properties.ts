@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /contact/v3/employee_type_enums',
@@ -12,8 +18,9 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Contacts Workforce Type'],
-        operation: ['Query the workforce type'],
+        operation: ['Query The Workforce Type'],
       },
     },
   },
 ]
+/* eslint-disable */

@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /approval/v4/instances/add_sign',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Approval API Reference'],
-        operation: ['Approval Task AddSign'],
+        operation: ['Approval Task Addsign'],
       },
     },
   },
@@ -21,6 +27,7 @@ export const properties: INodeProperties[] = [
     name: 'add_sign_type',
     type: 'number',
     default: 0,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -29,28 +36,53 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Approval API Reference'],
-        operation: ['Approval Task AddSign'],
+        operation: ['Approval Task Addsign'],
       },
     },
   },
   {
     displayName: 'Add Sign User Ids',
     name: 'add_sign_user_ids',
-    type: 'json',
-    default: '[\n  null\n]',
+    type: 'fixedCollection',
+    default: [],
+    typeOptions: {
+      multipleValues: true,
+    },
+    description: undefined,
+    placeholder: 'Add item',
+    options: [
+      {
+        name: 'items',
+        displayName: 'Items',
+        values: [
+          {
+            name: 'Item',
+            displayName: 'Item',
+            type: 'string',
+            default: '',
+          },
+        ],
+      },
+    ],
     routing: {
       request: {
         body: {
-          add_sign_user_ids: '={{ JSON.parse($value) }}',
+          add_sign_user_ids: '={{$value.items}}',
         },
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Approval API Reference'],
-        operation: ['Approval Task AddSign'],
+        operation: ['Approval Task Addsign'],
       },
     },
   },
@@ -59,6 +91,7 @@ export const properties: INodeProperties[] = [
     name: 'approval_code',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -67,9 +100,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Approval API Reference'],
-        operation: ['Approval Task AddSign'],
+        operation: ['Approval Task Addsign'],
       },
     },
   },
@@ -78,6 +114,7 @@ export const properties: INodeProperties[] = [
     name: 'approval_method',
     type: 'number',
     default: 0,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -86,9 +123,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Approval API Reference'],
-        operation: ['Approval Task AddSign'],
+        operation: ['Approval Task Addsign'],
       },
     },
   },
@@ -97,6 +137,7 @@ export const properties: INodeProperties[] = [
     name: 'comment',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -105,9 +146,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Approval API Reference'],
-        operation: ['Approval Task AddSign'],
+        operation: ['Approval Task Addsign'],
       },
     },
   },
@@ -116,6 +160,7 @@ export const properties: INodeProperties[] = [
     name: 'instance_code',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -124,9 +169,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Approval API Reference'],
-        operation: ['Approval Task AddSign'],
+        operation: ['Approval Task Addsign'],
       },
     },
   },
@@ -135,6 +183,7 @@ export const properties: INodeProperties[] = [
     name: 'task_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -143,9 +192,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Approval API Reference'],
-        operation: ['Approval Task AddSign'],
+        operation: ['Approval Task Addsign'],
       },
     },
   },
@@ -154,6 +206,7 @@ export const properties: INodeProperties[] = [
     name: 'user_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -162,10 +215,34 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Approval API Reference'],
-        operation: ['Approval Task AddSign'],
+        operation: ['Approval Task Addsign'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default:
+      '{\n  "add_sign_type": 0,\n  "add_sign_user_ids": [\n    "string"\n  ],\n  "approval_code": "string",\n  "approval_method": 0,\n  "comment": "string",\n  "instance_code": "string",\n  "task_id": "string",\n  "user_id": "string"\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Approval API Reference'],
+        operation: ['Approval Task Addsign'],
       },
     },
   },
 ]
+/* eslint-disable */

@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName:
@@ -21,6 +27,7 @@ export const properties: INodeProperties[] = [
     displayName: 'App Token',
     name: 'app_token',
     required: true,
+    description: 'bitable app_token',
     default: '',
     type: 'string',
     displayOptions: {
@@ -34,6 +41,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Table Id',
     name: 'table_id',
     required: true,
+    description: 'table_id',
     default: '',
     type: 'string',
     displayOptions: {
@@ -46,20 +54,62 @@ export const properties: INodeProperties[] = [
   {
     displayName: 'Records',
     name: 'records',
-    type: 'json',
-    default: '[\n  null\n]',
+    type: 'fixedCollection',
+    default: [],
+    typeOptions: {
+      multipleValues: true,
+    },
+    description: undefined,
+    placeholder: 'Add item',
+    options: [
+      {
+        name: 'items',
+        displayName: 'Items',
+        values: [
+          {
+            name: 'Item',
+            displayName: 'Item',
+            type: 'string',
+            default: '',
+          },
+        ],
+      },
+    ],
     routing: {
       request: {
         body: {
-          records: '={{ JSON.parse($value) }}',
+          records: '={{$value.items}}',
         },
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs Bitable Record'],
         operation: ['Delete Records'],
       },
     },
   },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default: '{\n  "records": [\n    "string"\n  ]\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Docs Bitable Record'],
+        operation: ['Delete Records'],
+      },
+    },
+  },
 ]
+/* eslint-disable */

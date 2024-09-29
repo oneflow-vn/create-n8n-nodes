@@ -42,45 +42,75 @@ const resourceSelect: INodeProperties[] = [
       {
         name: 'Message',
         value: 'Messenger Message',
+        description: '',
       },
       {
-        name: 'Message  Buzz messages',
+        name: 'Message  Buzz Messages',
         value: 'Messenger Message Message Buzz Messages',
+        description: '',
       },
       {
         name: 'Message  Batch Message',
         value: 'Messenger Message Batch Message',
+        description: '',
       },
       {
         name: 'Message  Images',
         value: 'Messenger Message Images',
+        description: '',
       },
       {
         name: 'Message  Files',
         value: 'Messenger Message Files',
+        description: '',
       },
       {
         name: 'Message  Message Card',
         value: 'Messenger Message Message Card',
+        description: '',
       },
       {
         name: 'Message  Message Reaction',
         value: 'Messenger Message Message Reaction',
+        description: '',
       },
       {
         name: 'Group',
         value: 'Messenger Group',
+        description: '',
       },
       {
         name: 'Group  Group Member',
         value: 'Messenger Group Group Member',
+        description: '',
       },
       {
         name: 'Group  Group Announcement',
         value: 'Messenger Group Group Announcement',
+        description: '',
       },
     ],
     default: '',
+  },
+]
+
+const extraProperties: INodeProperties[] = [
+  {
+    displayName: 'Options',
+    name: 'options',
+    type: 'collection',
+    placeholder: 'Add option',
+    default: {},
+    options: [
+      {
+        displayName: 'Use Custom Body',
+        name: 'useCustomBody',
+        type: 'boolean',
+        description: 'Wether to use a custom body',
+        required: true,
+        default: false,
+      },
+    ],
   },
 ]
 
@@ -97,6 +127,7 @@ const rawProperties: INodeProperties[] = [
   ...group.properties,
   ...groupGroupMember.properties,
   ...groupGroupAnnouncement.properties,
+  ...extraProperties,
 ]
 
 const { properties, methods: selfMethods } = runHooks(rawProperties)

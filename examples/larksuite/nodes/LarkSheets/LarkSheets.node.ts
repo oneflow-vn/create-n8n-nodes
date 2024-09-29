@@ -5,14 +5,14 @@ import { methods } from './LarkSheets.methods'
 export class LarkSheets implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Sheets',
-    name: 'LarkSheets',
+    name: 'larkSheets',
     icon: 'file:larksheet.png',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
     description: 'Lark Sheets Management',
     defaults: {
-      name: 'LarkSheets',
+      name: 'Lark Sheets',
     },
     inputs: ['main'],
     outputs: ['main'],
@@ -23,7 +23,7 @@ export class LarkSheets implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteTenantApi'],
+            authentication: ['larkSuiteTenantApi'],
           },
         },
       },
@@ -33,7 +33,7 @@ export class LarkSheets implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteOAuth2Api'],
+            authentication: ['larkSuiteOAuth2Api'],
           },
         },
       },

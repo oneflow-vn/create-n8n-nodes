@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /calendar/v4/calendars',
@@ -12,8 +18,9 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Calendar Calendar'],
-        operation: ['Obtain calendar list'],
+        operation: ['Obtain Calendar List'],
       },
     },
   },
 ]
+/* eslint-disable */

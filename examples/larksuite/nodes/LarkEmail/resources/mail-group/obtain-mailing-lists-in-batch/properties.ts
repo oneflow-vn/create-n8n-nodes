@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /mail/v1/mailgroups',
@@ -12,8 +18,9 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Email Mail Group'],
-        operation: ['Obtain mailing lists in batch'],
+        operation: ['Obtain Mailing Lists In Batch'],
       },
     },
   },
 ]
+/* eslint-disable */

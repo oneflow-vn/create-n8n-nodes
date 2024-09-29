@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /drive/v1/files/{file_token}/comments',
@@ -12,13 +18,14 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Docs File Management Comment'],
-        operation: ['Add a comment'],
+        operation: ['Add A Comment'],
       },
     },
   },
   {
     displayName: 'File Type',
     name: 'file_type',
+    description: 'Type of the document',
     default: '',
     type: 'string',
     routing: {
@@ -31,7 +38,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Docs File Management Comment'],
-        operation: ['Add a comment'],
+        operation: ['Add A Comment'],
       },
     },
   },
@@ -39,12 +46,13 @@ export const properties: INodeProperties[] = [
     displayName: 'File Token',
     name: 'file_token',
     required: true,
+    description: 'Token of the document',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Docs File Management Comment'],
-        operation: ['Add a comment'],
+        operation: ['Add A Comment'],
       },
     },
   },
@@ -53,6 +61,7 @@ export const properties: INodeProperties[] = [
     name: 'comment_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -61,9 +70,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management Comment'],
-        operation: ['Add a comment'],
+        operation: ['Add A Comment'],
       },
     },
   },
@@ -72,6 +84,7 @@ export const properties: INodeProperties[] = [
     name: 'create_time',
     type: 'number',
     default: 0,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -80,9 +93,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management Comment'],
-        operation: ['Add a comment'],
+        operation: ['Add A Comment'],
       },
     },
   },
@@ -91,6 +107,7 @@ export const properties: INodeProperties[] = [
     name: 'is_solved',
     type: 'boolean',
     default: true,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -99,9 +116,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management Comment'],
-        operation: ['Add a comment'],
+        operation: ['Add A Comment'],
       },
     },
   },
@@ -111,6 +131,7 @@ export const properties: INodeProperties[] = [
     type: 'json',
     default:
       '{\n  "replies": [\n    {\n      "content": {\n        "elements": [\n          {\n            "docs_link": {},\n            "person": {},\n            "text_run": {}\n          }\n        ]\n      }\n    }\n  ]\n}',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -119,9 +140,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management Comment'],
-        operation: ['Add a comment'],
+        operation: ['Add A Comment'],
       },
     },
   },
@@ -130,6 +154,7 @@ export const properties: INodeProperties[] = [
     name: 'solved_time',
     type: 'number',
     default: 0,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -138,9 +163,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management Comment'],
-        operation: ['Add a comment'],
+        operation: ['Add A Comment'],
       },
     },
   },
@@ -149,6 +177,7 @@ export const properties: INodeProperties[] = [
     name: 'solver_user_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -157,9 +186,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management Comment'],
-        operation: ['Add a comment'],
+        operation: ['Add A Comment'],
       },
     },
   },
@@ -168,6 +200,7 @@ export const properties: INodeProperties[] = [
     name: 'update_time',
     type: 'number',
     default: 0,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -176,9 +209,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management Comment'],
-        operation: ['Add a comment'],
+        operation: ['Add A Comment'],
       },
     },
   },
@@ -187,6 +223,7 @@ export const properties: INodeProperties[] = [
     name: 'user_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -195,10 +232,34 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management Comment'],
-        operation: ['Add a comment'],
+        operation: ['Add A Comment'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default:
+      '{\n  "comment_id": "string",\n  "create_time": 0,\n  "is_solved": true,\n  "reply_list": {\n    "replies": [\n      {\n        "content": {\n          "elements": [\n            {\n              "docs_link": {\n                "url": "https://example.com/path"\n              },\n              "person": {\n                "user_id": "string"\n              },\n              "text_run": {\n                "text": "string"\n              },\n              "type": "string"\n            }\n          ]\n        },\n        "create_time": 0,\n        "reply_id": "string",\n        "update_time": 0,\n        "user_id": "string"\n      }\n    ]\n  },\n  "solved_time": 0,\n  "solver_user_id": "string",\n  "update_time": 0,\n  "user_id": "string"\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Docs File Management Comment'],
+        operation: ['Add A Comment'],
       },
     },
   },
 ]
+/* eslint-disable */

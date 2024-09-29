@@ -37,25 +37,50 @@ const resourceSelect: INodeProperties[] = [
       {
         name: 'App',
         value: 'Docs Bitable App',
+        description: '',
       },
       {
         name: 'Table',
         value: 'Docs Bitable Table',
+        description: '',
       },
       {
-        name: 'view',
+        name: 'View',
         value: 'Docs Bitable View',
+        description: '',
       },
       {
-        name: 'record',
+        name: 'Record',
         value: 'Docs Bitable Record',
+        description: '',
       },
       {
         name: 'Field',
         value: 'Docs Bitable Field',
+        description: '',
       },
     ],
     default: '',
+  },
+]
+
+const extraProperties: INodeProperties[] = [
+  {
+    displayName: 'Options',
+    name: 'options',
+    type: 'collection',
+    placeholder: 'Add option',
+    default: {},
+    options: [
+      {
+        displayName: 'Use Custom Body',
+        name: 'useCustomBody',
+        type: 'boolean',
+        description: 'Wether to use a custom body',
+        required: true,
+        default: false,
+      },
+    ],
   },
 ]
 
@@ -67,6 +92,7 @@ const rawProperties: INodeProperties[] = [
   ...view.properties,
   ...record.properties,
   ...field.properties,
+  ...extraProperties,
 ]
 
 const { properties, methods: selfMethods } = runHooks(rawProperties)

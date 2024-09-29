@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /mail/v1/mailgroups/{mailgroup_id}/aliases',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Email Mail Group Alias'],
-        operation: ['Obtain all mailing list aliases'],
+        operation: ['Obtain All Mailing List Aliases'],
       },
     },
   },
@@ -20,13 +26,15 @@ export const properties: INodeProperties[] = [
     displayName: 'Mailgroup Id',
     name: 'mailgroup_id',
     required: true,
+    description: 'Mailing list ID or mailing list address',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Email Mail Group Alias'],
-        operation: ['Obtain all mailing list aliases'],
+        operation: ['Obtain All Mailing List Aliases'],
       },
     },
   },
 ]
+/* eslint-disable */

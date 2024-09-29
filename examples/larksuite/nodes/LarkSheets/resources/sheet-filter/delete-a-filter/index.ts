@@ -1,13 +1,22 @@
 import { INodePropertyOptions } from 'n8n-workflow'
+
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
 import { properties as rawProperties } from './properties'
 import runHooks from './hooks'
 
-export const name = 'Delete a filter'
+export const name = 'Delete A Filter'
 
+/* eslint-disable */
 const rawOption: INodePropertyOptions = {
-  name: 'Delete a filter',
-  value: 'Delete a filter',
+  name: 'Delete A Filter',
+  value: 'Delete A Filter',
   action: 'Delete a filter',
+  description:
+    'This API is used to delete the filter of a sheet.\r\n\r\nAPI reference documentation: [Delete a filter]({{document_base_url}}/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/delete)',
   routing: {
     request: {
       method: 'DELETE',
@@ -15,6 +24,7 @@ const rawOption: INodePropertyOptions = {
     },
   },
 }
+/* eslint-disable */
 
 const { properties, option } = runHooks(rawOption, rawProperties)
 

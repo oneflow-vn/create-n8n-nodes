@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /application/v6/applications/underauditlist',
@@ -12,13 +18,14 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['App Information Application'],
-        operation: ['View the list of app release applications'],
+        operation: ['View The List Of App Release Applications'],
       },
     },
   },
   {
     displayName: 'Lang',
     name: 'lang',
+    description: 'Specifies the language of returned results',
     default: '',
     type: 'string',
     routing: {
@@ -31,8 +38,9 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['App Information Application'],
-        operation: ['View the list of app release applications'],
+        operation: ['View The List Of App Release Applications'],
       },
     },
   },
 ]
+/* eslint-disable */

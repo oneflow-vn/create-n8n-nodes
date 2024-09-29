@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /drive/v1/files/{file_token}/comments',
@@ -12,13 +18,14 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Docs File Management Comment'],
-        operation: ['Obtain a comment list'],
+        operation: ['Obtain A Comment List'],
       },
     },
   },
   {
     displayName: 'File Type',
     name: 'file_type',
+    description: 'Type of the document',
     default: '',
     type: 'string',
     routing: {
@@ -31,7 +38,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Docs File Management Comment'],
-        operation: ['Obtain a comment list'],
+        operation: ['Obtain A Comment List'],
       },
     },
   },
@@ -39,13 +46,15 @@ export const properties: INodeProperties[] = [
     displayName: 'File Token',
     name: 'file_token',
     required: true,
+    description: 'Token of the document',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Docs File Management Comment'],
-        operation: ['Obtain a comment list'],
+        operation: ['Obtain A Comment List'],
       },
     },
   },
 ]
+/* eslint-disable */

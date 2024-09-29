@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /open-apis/authen/v1/user_info',
@@ -12,8 +18,9 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['API Access Token User ID'],
-        operation: ['Obtain user information'],
+        operation: ['Obtain User Information'],
       },
     },
   },
 ]
+/* eslint-disable */

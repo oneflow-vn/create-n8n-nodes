@@ -1,13 +1,22 @@
 import { INodePropertyOptions } from 'n8n-workflow'
+
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
 import { properties as rawProperties } from './properties'
 import runHooks from './hooks'
 
-export const name = 'Create a Record'
+export const name = 'Create A Record'
 
+/* eslint-disable */
 const rawOption: INodePropertyOptions = {
-  name: 'Create a Record',
-  value: 'Create a Record',
+  name: 'Create A Record',
+  value: 'Create A Record',
   action: 'Create a Record',
+  description:
+    'Create a Record\r\n\r\nAPI reference documentation: [Create a Record]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/create)',
   routing: {
     request: {
       method: 'POST',
@@ -15,6 +24,7 @@ const rawOption: INodePropertyOptions = {
     },
   },
 }
+/* eslint-disable */
 
 const { properties, option } = runHooks(rawOption, rawProperties)
 

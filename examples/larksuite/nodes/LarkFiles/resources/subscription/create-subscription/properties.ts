@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /drive/v1/files/{file_token}/subscriptions',
@@ -20,6 +26,7 @@ export const properties: INodeProperties[] = [
     displayName: 'File Token',
     name: 'file_token',
     required: true,
+    description: 'file token',
     default: '',
     type: 'string',
     displayOptions: {
@@ -34,6 +41,7 @@ export const properties: INodeProperties[] = [
     name: 'subscription_type',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -42,6 +50,9 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management Subscription'],
         operation: ['Create Subscription'],
@@ -53,6 +64,7 @@ export const properties: INodeProperties[] = [
     name: 'file_type',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -61,10 +73,33 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management Subscription'],
         operation: ['Create Subscription'],
       },
     },
   },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default: '{\n  "subscription_type": "string",\n  "file_type": "string"\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Docs File Management Subscription'],
+        operation: ['Create Subscription'],
+      },
+    },
+  },
 ]
+/* eslint-disable */

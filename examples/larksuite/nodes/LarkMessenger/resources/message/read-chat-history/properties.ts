@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /im/v1/messages',
@@ -12,13 +18,14 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Messenger Message'],
-        operation: ['Read chat history'],
+        operation: ['Read Chat History'],
       },
     },
   },
   {
     displayName: 'Container Id Type',
     name: 'container_id_type',
+    description: 'Container type, which currently only supports "chat"',
     default: '',
     type: 'string',
     routing: {
@@ -31,13 +38,14 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Messenger Message'],
-        operation: ['Read chat history'],
+        operation: ['Read Chat History'],
       },
     },
   },
   {
     displayName: 'Container Id',
     name: 'container_id',
+    description: 'Container ID, which is namely the chat ID',
     default: '',
     type: 'string',
     routing: {
@@ -50,8 +58,9 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Messenger Message'],
-        operation: ['Read chat history'],
+        operation: ['Read Chat History'],
       },
     },
   },
 ]
+/* eslint-disable */

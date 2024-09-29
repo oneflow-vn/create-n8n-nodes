@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /open-apis/auth/v3/app_ticket/resend/',
@@ -12,46 +18,28 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['API Access Token Store Apps'],
-        operation: ['Repush appticket'],
+        operation: ['Repush Appticket'],
       },
     },
   },
   {
-    displayName: 'App Id',
-    name: 'app_id',
-    type: 'string',
-    default: '',
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default: '{}',
+    description: 'Custom body to send.',
     routing: {
-      request: {
-        body: {
-          app_id: '={{ $value }}',
-        },
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
       },
     },
     displayOptions: {
       show: {
+        '/options.useCustomBody': [true],
         resource: ['API Access Token Store Apps'],
-        operation: ['Repush appticket'],
-      },
-    },
-  },
-  {
-    displayName: 'App Secret',
-    name: 'app_secret',
-    type: 'string',
-    default: '',
-    routing: {
-      request: {
-        body: {
-          app_secret: '={{ $value }}',
-        },
-      },
-    },
-    displayOptions: {
-      show: {
-        resource: ['API Access Token Store Apps'],
-        operation: ['Repush appticket'],
+        operation: ['Repush Appticket'],
       },
     },
   },
 ]
+/* eslint-disable */

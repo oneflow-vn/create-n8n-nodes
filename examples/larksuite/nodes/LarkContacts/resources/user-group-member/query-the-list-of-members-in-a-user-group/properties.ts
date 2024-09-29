@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /contact/v3/group/{group_id}/member/simplelist',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Contacts User Group User Group Member'],
-        operation: ['Query the list of members in a user group'],
+        operation: ['Query The List Of Members In A User Group'],
       },
     },
   },
@@ -20,13 +26,15 @@ export const properties: INodeProperties[] = [
     displayName: 'Group Id',
     name: 'group_id',
     required: true,
+    description: 'User group ID',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Contacts User Group User Group Member'],
-        operation: ['Query the list of members in a user group'],
+        operation: ['Query The List Of Members In A User Group'],
       },
     },
   },
 ]
+/* eslint-disable */

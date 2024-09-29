@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'DELETE /contact/v3/group/{group_id}',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Contacts User Group'],
-        operation: ['Delete a user group'],
+        operation: ['Delete A User Group'],
       },
     },
   },
@@ -20,13 +26,15 @@ export const properties: INodeProperties[] = [
     displayName: 'Group Id',
     name: 'group_id',
     required: true,
+    description: 'ID of the user group to be deleted',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Contacts User Group'],
-        operation: ['Delete a user group'],
+        operation: ['Delete A User Group'],
       },
     },
   },
 ]
+/* eslint-disable */

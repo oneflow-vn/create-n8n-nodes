@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /contact/v3/unit/{unit_id}',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Contacts Unit'],
-        operation: ['Obtain unit information'],
+        operation: ['Obtain Unit Information'],
       },
     },
   },
@@ -20,13 +26,15 @@ export const properties: INodeProperties[] = [
     displayName: 'Unit Id',
     name: 'unit_id',
     required: true,
+    description: 'Unit ID',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Contacts Unit'],
-        operation: ['Obtain unit information'],
+        operation: ['Obtain Unit Information'],
       },
     },
   },
 ]
+/* eslint-disable */

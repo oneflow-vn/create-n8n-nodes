@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /bitable/v1/apps/{app_token}/tables/{table_id}/fields',
@@ -20,6 +26,7 @@ export const properties: INodeProperties[] = [
     displayName: 'App Token',
     name: 'app_token',
     required: true,
+    description: 'bitable app token',
     default: '',
     type: 'string',
     displayOptions: {
@@ -33,6 +40,7 @@ export const properties: INodeProperties[] = [
     displayName: 'Table Id',
     name: 'table_id',
     required: true,
+    description: 'table id',
     default: '',
     type: 'string',
     displayOptions: {
@@ -47,6 +55,7 @@ export const properties: INodeProperties[] = [
     name: 'field_name',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -55,6 +64,9 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs Bitable Field'],
         operation: ['Create Field'],
@@ -66,6 +78,7 @@ export const properties: INodeProperties[] = [
     name: 'Type',
     type: 'number',
     default: 0,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -74,10 +87,33 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs Bitable Field'],
         operation: ['Create Field'],
       },
     },
   },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default: '{\n  "field_name": "string",\n  "Type": 0\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Docs Bitable Field'],
+        operation: ['Create Field'],
+      },
+    },
+  },
 ]
+/* eslint-disable */

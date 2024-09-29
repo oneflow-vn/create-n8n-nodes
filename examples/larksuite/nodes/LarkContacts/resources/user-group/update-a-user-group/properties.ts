@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'PATCH /contact/v3/group/{group_id}',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Contacts User Group'],
-        operation: ['Update a user group'],
+        operation: ['Update A User Group'],
       },
     },
   },
@@ -20,12 +26,13 @@ export const properties: INodeProperties[] = [
     displayName: 'Group Id',
     name: 'group_id',
     required: true,
+    description: 'User group ID',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Contacts User Group'],
-        operation: ['Update a user group'],
+        operation: ['Update A User Group'],
       },
     },
   },
@@ -34,15 +41,21 @@ export const properties: INodeProperties[] = [
     name: 'description',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
-        body: {},
+        body: {
+          description: '={{ $value }}',
+        },
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Contacts User Group'],
-        operation: ['Update a user group'],
+        operation: ['Update A User Group'],
       },
     },
   },
@@ -51,6 +64,7 @@ export const properties: INodeProperties[] = [
     name: 'name',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -59,10 +73,33 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Contacts User Group'],
-        operation: ['Update a user group'],
+        operation: ['Update A User Group'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default: '{\n  "description": "string",\n  "name": "string"\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Contacts User Group'],
+        operation: ['Update A User Group'],
       },
     },
   },
 ]
+/* eslint-disable */

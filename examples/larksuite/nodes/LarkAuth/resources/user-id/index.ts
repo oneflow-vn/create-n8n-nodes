@@ -2,19 +2,20 @@ import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
 import runHooks from './hooks'
 
 import * as obtainTheLoggedinUserId from './obtain-the-loggedin-user-id'
-import * as requestUserAuthenticationBrowseOpen from './request-user-authentication-browse-open'
+import * as requestUserAuthenticationbrowseOpen from './request-user-authenticationbrowse-open'
 import * as refreshAccesstoken from './refresh-accesstoken'
 import * as obtainUserInformation from './obtain-user-information'
 
 const operations: INodePropertyOptions[] = [
   obtainTheLoggedinUserId.option,
-  requestUserAuthenticationBrowseOpen.option,
+  requestUserAuthenticationbrowseOpen.option,
   refreshAccesstoken.option,
   obtainUserInformation.option,
 ]
 
-export const name = 'User ID'
+export const name = 'User Id'
 
+/* eslint-disable */
 const operationSelect: INodeProperties = {
   displayName: 'Operation',
   name: 'operation',
@@ -27,6 +28,7 @@ const operationSelect: INodeProperties = {
   },
   default: '',
 }
+/* eslint-disable */
 
 // overwrite the options of the operationSelect
 operationSelect.options = operations
@@ -37,7 +39,7 @@ operationSelect.default = operations.length > 0 ? operations[0].value : ''
 export const rawProperties: INodeProperties[] = [
   operationSelect,
   ...obtainTheLoggedinUserId.properties,
-  ...requestUserAuthenticationBrowseOpen.properties,
+  ...requestUserAuthenticationbrowseOpen.properties,
   ...refreshAccesstoken.properties,
   ...obtainUserInformation.properties,
 ]

@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName:
@@ -13,7 +19,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Docs File Management Subscription'],
-        operation: ['Update subscription status'],
+        operation: ['Update Subscription Status'],
       },
     },
   },
@@ -21,12 +27,13 @@ export const properties: INodeProperties[] = [
     displayName: 'File Token',
     name: 'file_token',
     required: true,
+    description: 'File token',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Docs File Management Subscription'],
-        operation: ['Update subscription status'],
+        operation: ['Update Subscription Status'],
       },
     },
   },
@@ -34,12 +41,13 @@ export const properties: INodeProperties[] = [
     displayName: 'Subscription Id',
     name: 'subscription_id',
     required: true,
+    description: 'Subscription ID',
     default: '1234567890987654321',
     type: 'number',
     displayOptions: {
       show: {
         resource: ['Docs File Management Subscription'],
-        operation: ['Update subscription status'],
+        operation: ['Update Subscription Status'],
       },
     },
   },
@@ -48,6 +56,7 @@ export const properties: INodeProperties[] = [
     name: 'is_subscribe',
     type: 'boolean',
     default: true,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -56,9 +65,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management Subscription'],
-        operation: ['Update subscription status'],
+        operation: ['Update Subscription Status'],
       },
     },
   },
@@ -67,6 +79,7 @@ export const properties: INodeProperties[] = [
     name: 'file_type',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -75,10 +88,33 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management Subscription'],
-        operation: ['Update subscription status'],
+        operation: ['Update Subscription Status'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default: '{\n  "is_subscribe": true,\n  "file_type": "string"\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Docs File Management Subscription'],
+        operation: ['Update Subscription Status'],
       },
     },
   },
 ]
+/* eslint-disable */

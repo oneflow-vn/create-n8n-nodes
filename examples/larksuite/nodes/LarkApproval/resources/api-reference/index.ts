@@ -1,18 +1,19 @@
 import { INodeProperties, INodePropertyOptions } from 'n8n-workflow'
 import runHooks from './hooks'
 
-import * as approvalTaskAddSign from './approval-task-add-sign'
+import * as approvalTaskAddsign from './approval-task-addsign'
 import * as approvalPreview from './approval-preview'
 import * as taskListFromUserPerspective from './task-list-from-user-perspective'
 
 const operations: INodePropertyOptions[] = [
-  approvalTaskAddSign.option,
+  approvalTaskAddsign.option,
   approvalPreview.option,
   taskListFromUserPerspective.option,
 ]
 
-export const name = 'API Reference'
+export const name = 'Api Reference'
 
+/* eslint-disable */
 const operationSelect: INodeProperties = {
   displayName: 'Operation',
   name: 'operation',
@@ -25,6 +26,7 @@ const operationSelect: INodeProperties = {
   },
   default: '',
 }
+/* eslint-disable */
 
 // overwrite the options of the operationSelect
 operationSelect.options = operations
@@ -34,7 +36,7 @@ operationSelect.default = operations.length > 0 ? operations[0].value : ''
 
 export const rawProperties: INodeProperties[] = [
   operationSelect,
-  ...approvalTaskAddSign.properties,
+  ...approvalTaskAddsign.properties,
   ...approvalPreview.properties,
   ...taskListFromUserPerspective.properties,
 ]

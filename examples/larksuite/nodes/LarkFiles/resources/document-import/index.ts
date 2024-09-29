@@ -9,8 +9,9 @@ const operations: INodePropertyOptions[] = [
   queryTheImportTaskResult.option,
 ]
 
-export const name = 'document import'
+export const name = 'Document Import'
 
+/* eslint-disable */
 const operationSelect: INodeProperties = {
   displayName: 'Operation',
   name: 'operation',
@@ -23,6 +24,7 @@ const operationSelect: INodeProperties = {
   },
   default: '',
 }
+/* eslint-disable */
 
 // overwrite the options of the operationSelect
 operationSelect.options = operations

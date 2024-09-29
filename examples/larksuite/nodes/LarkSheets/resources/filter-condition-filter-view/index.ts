@@ -15,8 +15,9 @@ const operations: INodePropertyOptions[] = [
   createAFilterCondition.option,
 ]
 
-export const name = 'Filter condition  filter view'
+export const name = 'Filter Condition  Filter View'
 
+/* eslint-disable */
 const operationSelect: INodeProperties = {
   displayName: 'Operation',
   name: 'operation',
@@ -29,6 +30,7 @@ const operationSelect: INodeProperties = {
   },
   default: '',
 }
+/* eslint-disable */
 
 // overwrite the options of the operationSelect
 operationSelect.options = operations

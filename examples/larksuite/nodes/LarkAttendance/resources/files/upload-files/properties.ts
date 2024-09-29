@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /attendance/v1/files/upload',
@@ -12,13 +18,14 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Attendance Files'],
-        operation: ['Upload files'],
+        operation: ['Upload Files'],
       },
     },
   },
   {
     displayName: 'File Name',
     name: 'file_name',
+    description: 'File name with a suffix',
     default: '',
     type: 'string',
     routing: {
@@ -31,8 +38,28 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Attendance Files'],
-        operation: ['Upload files'],
+        operation: ['Upload Files'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default: '{}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Attendance Files'],
+        operation: ['Upload Files'],
       },
     },
   },
 ]
+/* eslint-disable */

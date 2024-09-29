@@ -7,8 +7,9 @@ const operations: INodePropertyOptions[] = [
   updateCommonSettingsOfADocument.option,
 ]
 
-export const name = 'permissionpublic'
+export const name = 'Permissionpublic'
 
+/* eslint-disable */
 const operationSelect: INodeProperties = {
   displayName: 'Operation',
   name: 'operation',
@@ -21,6 +22,7 @@ const operationSelect: INodeProperties = {
   },
   default: '',
 }
+/* eslint-disable */
 
 // overwrite the options of the operationSelect
 operationSelect.options = operations

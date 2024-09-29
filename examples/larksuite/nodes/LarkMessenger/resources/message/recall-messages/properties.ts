@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'DELETE /im/v1/messages/{message_id}',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Messenger Message'],
-        operation: ['Recall messages'],
+        operation: ['Recall Messages'],
       },
     },
   },
@@ -20,13 +26,15 @@ export const properties: INodeProperties[] = [
     displayName: 'Message Id',
     name: 'message_id',
     required: true,
+    description: 'ID of the message to be recalled',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Messenger Message'],
-        operation: ['Recall messages'],
+        operation: ['Recall Messages'],
       },
     },
   },
 ]
+/* eslint-disable */

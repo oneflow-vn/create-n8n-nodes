@@ -1,13 +1,22 @@
 import { INodePropertyOptions } from 'n8n-workflow'
+
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
 import { properties as rawProperties } from './properties'
 import runHooks from './hooks'
 
-export const name = 'Create event invitees'
+export const name = 'Create Event Invitees'
 
+/* eslint-disable */
 const rawOption: INodePropertyOptions = {
-  name: 'Create event invitees',
-  value: 'Create event invitees',
+  name: 'Create Event Invitees',
+  value: 'Create Event Invitees',
   action: 'Create event invitees\n',
+  description:
+    'Adds event invitees to an event in batch.\r\n\r\nAPI reference documentation: [Create event invitees\n]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/create)',
   routing: {
     request: {
       method: 'POST',
@@ -15,6 +24,7 @@ const rawOption: INodePropertyOptions = {
     },
   },
 }
+/* eslint-disable */
 
 const { properties, option } = runHooks(rawOption, rawProperties)
 

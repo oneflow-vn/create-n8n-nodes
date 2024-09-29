@@ -5,14 +5,14 @@ import { methods } from './LarkApproval.methods'
 export class LarkApproval implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Approval',
-    name: 'LarkApproval',
+    name: 'larkApproval',
     icon: 'file:larkapproval.png',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
     description: 'Lark Approval Management',
     defaults: {
-      name: 'LarkApproval',
+      name: 'Lark Approval',
     },
     inputs: ['main'],
     outputs: ['main'],
@@ -23,7 +23,7 @@ export class LarkApproval implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteTenantApi'],
+            authentication: ['larkSuiteTenantApi'],
           },
         },
       },
@@ -33,7 +33,7 @@ export class LarkApproval implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteOAuth2Api'],
+            authentication: ['larkSuiteOAuth2Api'],
           },
         },
       },

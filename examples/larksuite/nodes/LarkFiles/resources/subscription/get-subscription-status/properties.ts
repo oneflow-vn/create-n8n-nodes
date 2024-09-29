@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName:
@@ -13,7 +19,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Docs File Management Subscription'],
-        operation: ['Get subscription status'],
+        operation: ['Get Subscription Status'],
       },
     },
   },
@@ -21,12 +27,13 @@ export const properties: INodeProperties[] = [
     displayName: 'File Token',
     name: 'file_token',
     required: true,
+    description: 'file token',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Docs File Management Subscription'],
-        operation: ['Get subscription status'],
+        operation: ['Get Subscription Status'],
       },
     },
   },
@@ -34,13 +41,15 @@ export const properties: INodeProperties[] = [
     displayName: 'Subscription Id',
     name: 'subscription_id',
     required: true,
+    description: 'Subscription ID',
     default: '1234567890987654321',
     type: 'number',
     displayOptions: {
       show: {
         resource: ['Docs File Management Subscription'],
-        operation: ['Get subscription status'],
+        operation: ['Get Subscription Status'],
       },
     },
   },
 ]
+/* eslint-disable */

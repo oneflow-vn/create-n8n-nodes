@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName:
@@ -13,7 +19,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Docs Bitable View'],
-        operation: ['Delete view'],
+        operation: ['Delete View'],
       },
     },
   },
@@ -21,12 +27,13 @@ export const properties: INodeProperties[] = [
     displayName: 'App Token',
     name: 'app_token',
     required: true,
+    description: 'Bitable app token',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Docs Bitable View'],
-        operation: ['Delete view'],
+        operation: ['Delete View'],
       },
     },
   },
@@ -34,12 +41,13 @@ export const properties: INodeProperties[] = [
     displayName: 'Table Id',
     name: 'table_id',
     required: true,
+    description: 'Table id',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Docs Bitable View'],
-        operation: ['Delete view'],
+        operation: ['Delete View'],
       },
     },
   },
@@ -47,13 +55,15 @@ export const properties: INodeProperties[] = [
     displayName: 'View Id',
     name: 'view_id',
     required: true,
+    description: 'View Id',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Docs Bitable View'],
-        operation: ['Delete view'],
+        operation: ['Delete View'],
       },
     },
   },
 ]
+/* eslint-disable */

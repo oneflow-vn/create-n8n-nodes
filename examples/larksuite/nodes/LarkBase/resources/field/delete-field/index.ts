@@ -1,13 +1,22 @@
 import { INodePropertyOptions } from 'n8n-workflow'
+
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
 import { properties as rawProperties } from './properties'
 import runHooks from './hooks'
 
 export const name = 'Delete Field'
 
+/* eslint-disable */
 const rawOption: INodePropertyOptions = {
   name: 'Delete Field',
   value: 'Delete Field',
   action: 'Delete Field',
+  description:
+    'Delete a field\r\n\r\nAPI reference documentation: [Delete Field]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/delete)',
   routing: {
     request: {
       method: 'DELETE',
@@ -15,6 +24,7 @@ const rawOption: INodePropertyOptions = {
     },
   },
 }
+/* eslint-disable */
 
 const { properties, option } = runHooks(rawOption, rawProperties)
 

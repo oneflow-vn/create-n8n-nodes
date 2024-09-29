@@ -5,8 +5,9 @@ import * as createSpreadsheet from './create-spreadsheet'
 
 const operations: INodePropertyOptions[] = [createSpreadsheet.option]
 
-export const name = 'spreadsheet'
+export const name = 'Spreadsheet'
 
+/* eslint-disable */
 const operationSelect: INodeProperties = {
   displayName: 'Operation',
   name: 'operation',
@@ -19,6 +20,7 @@ const operationSelect: INodeProperties = {
   },
   default: '',
 }
+/* eslint-disable */
 
 // overwrite the options of the operationSelect
 operationSelect.options = operations

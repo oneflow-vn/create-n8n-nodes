@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /approval/v4/tasks/query',
@@ -12,13 +18,14 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Approval API Reference'],
-        operation: ['Task list from user perspective'],
+        operation: ['Task List From User Perspective'],
       },
     },
   },
   {
     displayName: 'User Id',
     name: 'user_id',
+    description: 'User ID to query',
     default: '',
     type: 'string',
     routing: {
@@ -31,13 +38,15 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Approval API Reference'],
-        operation: ['Task list from user perspective'],
+        operation: ['Task List From User Perspective'],
       },
     },
   },
   {
     displayName: 'Topic',
     name: 'topic',
+    description:
+      'Topic of task group to query, such as "Pending", "Done", etc.',
     default: '1',
     type: 'number',
     routing: {
@@ -50,8 +59,9 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Approval API Reference'],
-        operation: ['Task list from user perspective'],
+        operation: ['Task List From User Perspective'],
       },
     },
   },
 ]
+/* eslint-disable */

@@ -34,23 +34,47 @@ const resourceSelect: INodeProperties[] = [
     noDataExpression: true,
     options: [
       {
-        name: 'API Access Token',
+        name: 'Api Access Token',
         value: 'API Access Token',
+        description: '',
       },
       {
-        name: 'Store apps',
+        name: 'Store Apps',
         value: 'API Access Token Store Apps',
+        description: '',
       },
       {
-        name: 'Custom apps',
+        name: 'Custom Apps',
         value: 'API Access Token Custom Apps',
+        description: '',
       },
       {
-        name: 'User ID',
+        name: 'User Id',
         value: 'API Access Token User ID',
+        description: '',
       },
     ],
     default: '',
+  },
+]
+
+const extraProperties: INodeProperties[] = [
+  {
+    displayName: 'Options',
+    name: 'options',
+    type: 'collection',
+    placeholder: 'Add option',
+    default: {},
+    options: [
+      {
+        displayName: 'Use Custom Body',
+        name: 'useCustomBody',
+        type: 'boolean',
+        description: 'Wether to use a custom body',
+        required: true,
+        default: false,
+      },
+    ],
   },
 ]
 
@@ -61,6 +85,7 @@ const rawProperties: INodeProperties[] = [
   ...storeApps.properties,
   ...customApps.properties,
   ...userId.properties,
+  ...extraProperties,
 ]
 
 const { properties, methods: selfMethods } = runHooks(rawProperties)

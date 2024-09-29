@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /contact/v3/scopes',
@@ -12,8 +18,9 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Contacts Contact Scope'],
-        operation: ['Obtain the range of contacts data that an app can access'],
+        operation: ['Obtain The Range Of Contacts Data That An App Can Access'],
       },
     },
   },
 ]
+/* eslint-disable */

@@ -27,15 +27,36 @@ const resourceSelect: INodeProperties[] = [
   {
     displayName: 'Resource',
     name: 'resource',
-    type: 'options',
+    type: 'hidden',
     noDataExpression: true,
     options: [
       {
         name: 'Tenant',
         value: 'Company Information Tenant',
+        description: '',
       },
     ],
     default: '',
+  },
+]
+
+const extraProperties: INodeProperties[] = [
+  {
+    displayName: 'Options',
+    name: 'options',
+    type: 'collection',
+    placeholder: 'Add option',
+    default: {},
+    options: [
+      {
+        displayName: 'Use Custom Body',
+        name: 'useCustomBody',
+        type: 'boolean',
+        description: 'Wether to use a custom body',
+        required: true,
+        default: false,
+      },
+    ],
   },
 ]
 
@@ -43,6 +64,7 @@ const rawProperties: INodeProperties[] = [
   ...authenticationProperties,
   ...resourceSelect,
   ...tenant.properties,
+  ...extraProperties,
 ]
 
 const { properties, methods: selfMethods } = runHooks(rawProperties)

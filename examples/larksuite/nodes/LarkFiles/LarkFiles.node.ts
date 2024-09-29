@@ -5,14 +5,14 @@ import { methods } from './LarkFiles.methods'
 export class LarkFiles implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Files',
-    name: 'LarkFiles',
+    name: 'larkFiles',
     icon: 'file:larkdocs.svg',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
     description: 'Lark Files Management',
     defaults: {
-      name: 'LarkFiles',
+      name: 'Lark Files',
     },
     inputs: ['main'],
     outputs: ['main'],
@@ -23,7 +23,7 @@ export class LarkFiles implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteTenantApi'],
+            authentication: ['larkSuiteTenantApi'],
           },
         },
       },
@@ -33,7 +33,7 @@ export class LarkFiles implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteOAuth2Api'],
+            authentication: ['larkSuiteOAuth2Api'],
           },
         },
       },

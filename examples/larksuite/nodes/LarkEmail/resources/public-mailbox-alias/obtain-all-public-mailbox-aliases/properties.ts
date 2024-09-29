@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /mail/v1/public_mailboxes/{public_mailbox_id}/aliases',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Email Public Mailbox Alias'],
-        operation: ['Obtain all public mailbox aliases'],
+        operation: ['Obtain All Public Mailbox Aliases'],
       },
     },
   },
@@ -20,13 +26,15 @@ export const properties: INodeProperties[] = [
     displayName: 'Public Mailbox Id',
     name: 'public_mailbox_id',
     required: true,
+    description: 'Public mailbox ID or public mailbox address',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Email Public Mailbox Alias'],
-        operation: ['Obtain all public mailbox aliases'],
+        operation: ['Obtain All Public Mailbox Aliases'],
       },
     },
   },
 ]
+/* eslint-disable */

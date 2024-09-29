@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /calendar/v4/timeoff_events',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Calendar Timeoff'],
-        operation: ['Create a leave event'],
+        operation: ['Create A Leave Event'],
       },
     },
   },
@@ -21,15 +27,21 @@ export const properties: INodeProperties[] = [
     name: 'description',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
-        body: {},
+        body: {
+          description: '={{ $value }}',
+        },
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Timeoff'],
-        operation: ['Create a leave event'],
+        operation: ['Create A Leave Event'],
       },
     },
   },
@@ -38,6 +50,7 @@ export const properties: INodeProperties[] = [
     name: 'end_time',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -46,9 +59,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Timeoff'],
-        operation: ['Create a leave event'],
+        operation: ['Create A Leave Event'],
       },
     },
   },
@@ -57,6 +73,7 @@ export const properties: INodeProperties[] = [
     name: 'start_time',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -65,9 +82,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Timeoff'],
-        operation: ['Create a leave event'],
+        operation: ['Create A Leave Event'],
       },
     },
   },
@@ -76,6 +96,7 @@ export const properties: INodeProperties[] = [
     name: 'timezone',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -84,9 +105,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Timeoff'],
-        operation: ['Create a leave event'],
+        operation: ['Create A Leave Event'],
       },
     },
   },
@@ -95,15 +119,21 @@ export const properties: INodeProperties[] = [
     name: 'title',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
-        body: {},
+        body: {
+          title: '={{ $value }}',
+        },
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Timeoff'],
-        operation: ['Create a leave event'],
+        operation: ['Create A Leave Event'],
       },
     },
   },
@@ -112,6 +142,7 @@ export const properties: INodeProperties[] = [
     name: 'user_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -120,10 +151,34 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Timeoff'],
-        operation: ['Create a leave event'],
+        operation: ['Create A Leave Event'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default:
+      '{\n  "description": "string",\n  "end_time": "string",\n  "start_time": "string",\n  "timezone": "string",\n  "title": "string",\n  "user_id": "string"\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Calendar Timeoff'],
+        operation: ['Create A Leave Event'],
       },
     },
   },
 ]
+/* eslint-disable */

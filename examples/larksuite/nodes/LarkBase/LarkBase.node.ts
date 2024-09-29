@@ -5,14 +5,14 @@ import { methods } from './LarkBase.methods'
 export class LarkBase implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Base',
-    name: 'LarkBase',
+    name: 'larkBase',
     icon: 'file:larkbase.svg',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
     description: 'Lark Base Management',
     defaults: {
-      name: 'LarkBase',
+      name: 'Lark Base',
     },
     inputs: ['main'],
     outputs: ['main'],
@@ -23,7 +23,7 @@ export class LarkBase implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteTenantApi'],
+            authentication: ['larkSuiteTenantApi'],
           },
         },
       },
@@ -33,7 +33,7 @@ export class LarkBase implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteOAuth2Api'],
+            authentication: ['larkSuiteOAuth2Api'],
           },
         },
       },

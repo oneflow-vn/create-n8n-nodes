@@ -1,13 +1,21 @@
 import { INodePropertyOptions } from 'n8n-workflow'
+
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
 import { properties as rawProperties } from './properties'
 import runHooks from './hooks'
 
-export const name = 'code2sessionUsed in Gadget scenarios'
+export const name = 'Code2sessionused In Gadget Scenarios'
 
+/* eslint-disable */
 const rawOption: INodePropertyOptions = {
-  name: 'code2sessionUsed in Gadget scenarios',
-  value: 'code2sessionUsed in Gadget scenarios',
+  name: 'Code2sessionused In Gadget Scenarios',
+  value: 'Code2sessionused In Gadget Scenarios',
   action: 'code2session【Used in Gadget scenarios】',
+  description: 'code2session【Used in Gadget scenarios】',
   routing: {
     request: {
       method: 'POST',
@@ -15,6 +23,7 @@ const rawOption: INodePropertyOptions = {
     },
   },
 }
+/* eslint-disable */
 
 const { properties, option } = runHooks(rawOption, rawProperties)
 

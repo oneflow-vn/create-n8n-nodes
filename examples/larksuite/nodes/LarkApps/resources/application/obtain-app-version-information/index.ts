@@ -1,13 +1,22 @@
 import { INodePropertyOptions } from 'n8n-workflow'
+
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
 import { properties as rawProperties } from './properties'
 import runHooks from './hooks'
 
-export const name = 'Obtain app version information'
+export const name = 'Obtain App Version Information'
 
+/* eslint-disable */
 const rawOption: INodePropertyOptions = {
-  name: 'Obtain app version information',
-  value: 'Obtain app version information',
+  name: 'Obtain App Version Information',
+  value: 'Obtain App Version Information',
   action: 'Obtain app version information',
+  description:
+    'Obtains the version information of an app based on app_id and version_id.\r\n\r\nAPI reference documentation: [Obtain app version information]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/get)',
   routing: {
     request: {
       method: 'GET',
@@ -15,6 +24,7 @@ const rawOption: INodePropertyOptions = {
     },
   },
 }
+/* eslint-disable */
 
 const { properties, option } = runHooks(rawOption, rawProperties)
 

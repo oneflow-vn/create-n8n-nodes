@@ -1,13 +1,22 @@
 import { INodePropertyOptions } from 'n8n-workflow'
+
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
 import { properties as rawProperties } from './properties'
 import runHooks from './hooks'
 
-export const name = 'New view'
+export const name = 'New View'
 
+/* eslint-disable */
 const rawOption: INodePropertyOptions = {
-  name: 'New view',
-  value: 'New view',
+  name: 'New View',
+  value: 'New View',
   action: 'New view',
+  description:
+    'Add a view to the data table\r\n\r\nAPI reference documentation: [New view]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/create)',
   routing: {
     request: {
       method: 'POST',
@@ -15,6 +24,7 @@ const rawOption: INodePropertyOptions = {
     },
   },
 }
+/* eslint-disable */
 
 const { properties, option } = runHooks(rawOption, rawProperties)
 

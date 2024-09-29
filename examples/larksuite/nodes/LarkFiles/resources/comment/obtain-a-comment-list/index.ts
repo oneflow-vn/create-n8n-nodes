@@ -1,13 +1,22 @@
 import { INodePropertyOptions } from 'n8n-workflow'
+
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
 import { properties as rawProperties } from './properties'
 import runHooks from './hooks'
 
-export const name = 'Obtain a comment list'
+export const name = 'Obtain A Comment List'
 
+/* eslint-disable */
 const rawOption: INodePropertyOptions = {
-  name: 'Obtain a comment list',
-  value: 'Obtain a comment list',
+  name: 'Obtain A Comment List',
+  value: 'Obtain A Comment List',
   action: 'Obtain a comment list',
+  description:
+    'Obtains all Doc comments in Docs by pages.\r\n\r\nAPI reference documentation: [Obtain a comment list]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/list)',
   routing: {
     request: {
       method: 'GET',
@@ -15,6 +24,7 @@ const rawOption: INodePropertyOptions = {
     },
   },
 }
+/* eslint-disable */
 
 const { properties, option } = runHooks(rawOption, rawProperties)
 

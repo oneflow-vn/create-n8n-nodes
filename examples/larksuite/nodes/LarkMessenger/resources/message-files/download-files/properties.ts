@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'GET /im/v1/files/{file_key}',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Messenger Message Files'],
-        operation: ['Download files'],
+        operation: ['Download Files'],
       },
     },
   },
@@ -20,13 +26,15 @@ export const properties: INodeProperties[] = [
     displayName: 'File Key',
     name: 'file_key',
     required: true,
+    description: 'File key',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Messenger Message Files'],
-        operation: ['Download files'],
+        operation: ['Download Files'],
       },
     },
   },
 ]
+/* eslint-disable */

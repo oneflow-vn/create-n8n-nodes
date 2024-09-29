@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /drive/v1/files/upload_finish',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Docs File Management File Multipart Upload Files'],
-        operation: ['Complete uploading a file in blocks'],
+        operation: ['Complete Uploading A File In Blocks'],
       },
     },
   },
@@ -21,6 +27,7 @@ export const properties: INodeProperties[] = [
     name: 'block_num',
     type: 'number',
     default: 0,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -29,9 +36,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management File Multipart Upload Files'],
-        operation: ['Complete uploading a file in blocks'],
+        operation: ['Complete Uploading A File In Blocks'],
       },
     },
   },
@@ -40,6 +50,7 @@ export const properties: INodeProperties[] = [
     name: 'upload_id',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -48,10 +59,33 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Docs File Management File Multipart Upload Files'],
-        operation: ['Complete uploading a file in blocks'],
+        operation: ['Complete Uploading A File In Blocks'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default: '{\n  "block_num": 0,\n  "upload_id": "string"\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Docs File Management File Multipart Upload Files'],
+        operation: ['Complete Uploading A File In Blocks'],
       },
     },
   },
 ]
+/* eslint-disable */

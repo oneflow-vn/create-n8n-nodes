@@ -5,14 +5,14 @@ import { methods } from './LarkCompany.methods'
 export class LarkCompany implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'Lark Company',
-    name: 'LarkCompany',
+    name: 'larkCompany',
     icon: 'file:larkcompany.png',
     group: ['transform'],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
     description: 'Lark Company Management',
     defaults: {
-      name: 'LarkCompany',
+      name: 'Lark Company',
     },
     inputs: ['main'],
     outputs: ['main'],
@@ -23,7 +23,7 @@ export class LarkCompany implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteTenantApi'],
+            authentication: ['larkSuiteTenantApi'],
           },
         },
       },
@@ -33,7 +33,7 @@ export class LarkCompany implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            authentication: ['=larkSuiteOAuth2Api'],
+            authentication: ['larkSuiteOAuth2Api'],
           },
         },
       },

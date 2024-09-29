@@ -37,35 +37,62 @@ const resourceSelect: INodeProperties[] = [
     noDataExpression: true,
     options: [
       {
-        name: 'spreadsheet',
+        name: 'Spreadsheet',
         value: 'Docs Sheets Spreadsheet',
+        description: '',
       },
       {
         name: 'Sheet  Filter',
         value: 'Docs Sheets Sheet Filter',
+        description: '',
       },
       {
-        name: 'Sheet  Filter view',
+        name: 'Sheet  Filter View',
         value: 'Docs Sheets Sheet Filter View',
+        description: '',
       },
       {
-        name: 'Filter condition  filter view',
+        name: 'Filter Condition  Filter View',
         value: 'Docs Sheets Filter Condition Filter View',
+        description: '',
       },
       {
         name: 'Sheet  Row Column',
         value: 'Docs Sheets Sheet Row Column',
+        description: '',
       },
       {
         name: 'Sheet  Data',
         value: 'Docs Sheets Sheet Data',
+        description: '',
       },
       {
-        name: 'Sheet  Floating image',
+        name: 'Sheet  Floating Image',
         value: 'Docs Sheets Sheet Floating Image',
+        description: '',
       },
     ],
     default: '',
+  },
+]
+
+const extraProperties: INodeProperties[] = [
+  {
+    displayName: 'Options',
+    name: 'options',
+    type: 'collection',
+    placeholder: 'Add option',
+    default: {},
+    options: [
+      {
+        displayName: 'Use Custom Body',
+        name: 'useCustomBody',
+        type: 'boolean',
+        description: 'Wether to use a custom body',
+        required: true,
+        default: false,
+      },
+    ],
   },
 ]
 
@@ -79,6 +106,7 @@ const rawProperties: INodeProperties[] = [
   ...sheetRowColumn.properties,
   ...sheetData.properties,
   ...sheetFloatingImage.properties,
+  ...extraProperties,
 ]
 
 const { properties, methods: selfMethods } = runHooks(rawProperties)

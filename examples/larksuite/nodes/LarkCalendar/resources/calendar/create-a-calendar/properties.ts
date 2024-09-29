@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'POST /calendar/v4/calendars',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Calendar Calendar'],
-        operation: ['Create a calendar'],
+        operation: ['Create A Calendar'],
       },
     },
   },
@@ -21,6 +27,7 @@ export const properties: INodeProperties[] = [
     name: 'color',
     type: 'number',
     default: 0,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -29,9 +36,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Calendar'],
-        operation: ['Create a calendar'],
+        operation: ['Create A Calendar'],
       },
     },
   },
@@ -40,15 +50,21 @@ export const properties: INodeProperties[] = [
     name: 'description',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
-        body: {},
+        body: {
+          description: '={{ $value }}',
+        },
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Calendar'],
-        operation: ['Create a calendar'],
+        operation: ['Create A Calendar'],
       },
     },
   },
@@ -57,6 +73,7 @@ export const properties: INodeProperties[] = [
     name: 'permissions',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -65,9 +82,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Calendar'],
-        operation: ['Create a calendar'],
+        operation: ['Create A Calendar'],
       },
     },
   },
@@ -76,6 +96,7 @@ export const properties: INodeProperties[] = [
     name: 'summary',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -84,9 +105,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Calendar'],
-        operation: ['Create a calendar'],
+        operation: ['Create A Calendar'],
       },
     },
   },
@@ -95,6 +119,7 @@ export const properties: INodeProperties[] = [
     name: 'summary_alias',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -103,10 +128,34 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Calendar'],
-        operation: ['Create a calendar'],
+        operation: ['Create A Calendar'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default:
+      '{\n  "color": 0,\n  "description": "string",\n  "permissions": "string",\n  "summary": "string",\n  "summary_alias": "string"\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Calendar Calendar'],
+        operation: ['Create A Calendar'],
       },
     },
   },
 ]
+/* eslint-disable */

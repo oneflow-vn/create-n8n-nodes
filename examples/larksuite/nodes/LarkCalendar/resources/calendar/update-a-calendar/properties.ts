@@ -1,5 +1,11 @@
 import { INodeProperties } from 'n8n-workflow'
 
+/* eslint-disable */
+// @ts-ignore
+import * as helpers from '../../../helpers'
+/* eslint-disable */
+
+/* eslint-disable */
 export const properties: INodeProperties[] = [
   {
     displayName: 'PATCH /calendar/v4/calendars/{calendar_id}',
@@ -12,7 +18,7 @@ export const properties: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['Calendar Calendar'],
-        operation: ['Update a calendar'],
+        operation: ['Update A Calendar'],
       },
     },
   },
@@ -20,12 +26,14 @@ export const properties: INodeProperties[] = [
     displayName: 'Calendar Id',
     name: 'calendar_id',
     required: true,
+    description:
+      'Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).',
     default: '',
     type: 'string',
     displayOptions: {
       show: {
         resource: ['Calendar Calendar'],
-        operation: ['Update a calendar'],
+        operation: ['Update A Calendar'],
       },
     },
   },
@@ -34,6 +42,7 @@ export const properties: INodeProperties[] = [
     name: 'color',
     type: 'number',
     default: 0,
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -42,9 +51,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Calendar'],
-        operation: ['Update a calendar'],
+        operation: ['Update A Calendar'],
       },
     },
   },
@@ -53,15 +65,21 @@ export const properties: INodeProperties[] = [
     name: 'description',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
-        body: {},
+        body: {
+          description: '={{ $value }}',
+        },
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Calendar'],
-        operation: ['Update a calendar'],
+        operation: ['Update A Calendar'],
       },
     },
   },
@@ -70,6 +88,7 @@ export const properties: INodeProperties[] = [
     name: 'permissions',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -78,9 +97,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Calendar'],
-        operation: ['Update a calendar'],
+        operation: ['Update A Calendar'],
       },
     },
   },
@@ -89,6 +111,7 @@ export const properties: INodeProperties[] = [
     name: 'summary',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -97,9 +120,12 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Calendar'],
-        operation: ['Update a calendar'],
+        operation: ['Update A Calendar'],
       },
     },
   },
@@ -108,6 +134,7 @@ export const properties: INodeProperties[] = [
     name: 'summary_alias',
     type: 'string',
     default: '',
+    description: undefined,
     routing: {
       request: {
         body: {
@@ -116,10 +143,34 @@ export const properties: INodeProperties[] = [
       },
     },
     displayOptions: {
+      hide: {
+        '/options.useCustomBody': [true],
+      },
       show: {
         resource: ['Calendar Calendar'],
-        operation: ['Update a calendar'],
+        operation: ['Update A Calendar'],
+      },
+    },
+  },
+  {
+    displayName: 'Custom Body',
+    name: 'customBody',
+    type: 'json',
+    default:
+      '{\n  "color": 0,\n  "description": "string",\n  "permissions": "string",\n  "summary": "string",\n  "summary_alias": "string"\n}',
+    description: 'Custom body to send.',
+    routing: {
+      send: {
+        preSend: [helpers.hooks.preSendActionCustonBody],
+      },
+    },
+    displayOptions: {
+      show: {
+        '/options.useCustomBody': [true],
+        resource: ['Calendar Calendar'],
+        operation: ['Update A Calendar'],
       },
     },
   },
 ]
+/* eslint-disable */

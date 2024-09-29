@@ -42,45 +42,75 @@ const resourceSelect: INodeProperties[] = [
       {
         name: 'File',
         value: 'Docs File Management File',
+        description: '',
       },
       {
         name: 'Multipart Upload Files',
         value: 'Docs File Management File Multipart Upload Files',
+        description: '',
       },
       {
         name: 'Permission Member',
         value: 'Docs File Management Permission Permission Member',
+        description: '',
       },
       {
-        name: 'permissionpublic',
+        name: 'Permissionpublic',
         value: 'Docs File Management Permission Permission Public',
+        description: '',
       },
       {
         name: 'Statistics',
         value: 'Docs File Management Statistics',
+        description: '',
       },
       {
         name: 'Media',
         value: 'Docs File Management Media',
+        description: '',
       },
       {
         name: 'Multipart Upload Media',
         value: 'Docs File Management Media Multipart Upload Media',
+        description: '',
       },
       {
         name: 'Comment',
         value: 'Docs File Management Comment',
+        description: '',
       },
       {
         name: 'Subscription',
         value: 'Docs File Management Subscription',
+        description: '',
       },
       {
-        name: 'document import',
+        name: 'Document Import',
         value: 'Docs File Management Document Import',
+        description: '',
       },
     ],
     default: '',
+  },
+]
+
+const extraProperties: INodeProperties[] = [
+  {
+    displayName: 'Options',
+    name: 'options',
+    type: 'collection',
+    placeholder: 'Add option',
+    default: {},
+    options: [
+      {
+        displayName: 'Use Custom Body',
+        name: 'useCustomBody',
+        type: 'boolean',
+        description: 'Wether to use a custom body',
+        required: true,
+        default: false,
+      },
+    ],
   },
 ]
 
@@ -97,6 +127,7 @@ const rawProperties: INodeProperties[] = [
   ...comment.properties,
   ...subscription.properties,
   ...documentImport.properties,
+  ...extraProperties,
 ]
 
 const { properties, methods: selfMethods } = runHooks(rawProperties)
