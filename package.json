@@ -4,12 +4,10 @@
   "version": "0.9.2",
   "description": "Generates n8n nodes from OpenAPI 3.0 specs",
   "bin": {
-    "apifire": "./cli.js"
+    "create-n8n-nodes": "./cli.js"
   },
   "scripts": {
-    "toc": "toc-md README.md README.md",
-    "generate:petstore": "rm -rf sample && ./cli.js -o sample tests/openapi3/petstorev3.json n8n-nodes",
-    "generate:larksuite": "rm -rf sample && ./cli.js -o sample tests/postman/lark.yml n8n-nodes"
+    "toc": "toc-md README.md README.md"
   },
   "bugs": {
     "url": "https://github.com/theogravity/apifire/issues"
@@ -23,37 +21,27 @@
   },
   "keywords": [
     "openapi",
-    "openapi3",
-    "OASv3",
-    "rest",
-    "es6",
-    "es7",
-    "es2015",
-    "node.js",
-    "codegen",
-    "docgen",
+    "n8n",
+    "nodes",
     "generator",
-    "documentation",
-    "markdown",
-    "express",
-    "typescript",
-    "service",
-    "api"
+    "cli",
+    "swagger",
+    "workflow",
+    "create-n8n-nodes",
+    "n8n-nodes",
+    "n8n-nodes-generator",
+    "n8n-nodes-cli"
   ],
   "license": "Apache-2.0",
-  "author": "Theo Gravity <theo@suteki.nu>",
+  "author": "oneflow.vn <contact@oneflow.vn>",
   "contributors": [
     {
-      "name": "Fran Méndez",
-      "email": "fmvilas@gmail.com",
-      "url": "http://fmvilas.com"
-    },
-    {
-      "name": "Richard Klose",
-      "email": "richard.klose@gmail.com"
+      "name": "Oneflow,vn",
+      "email": "contact@oneflow.vn",
+      "url": "http://oneflow.vn"
     }
   ],
-  "homepage": "https://github.com/theogravity/apifire",
+  "homepage": "https://docs.oneflow.vn/packages/create-n8n-nodes",
   "dependencies": {
     "@devlikeapro/n8n-openapi-node": "^0.1.0",
     "@types/lodash": "^4.17.7",
