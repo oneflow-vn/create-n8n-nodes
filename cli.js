@@ -20,6 +20,12 @@ program
   .option('-d --destination <destination>', 'destination directory to use', process.cwd())
   .option('-c, --config <configFile>', 'configuration file to use', (configFile) => {
     config = loadConfigFile(configFile);
+
+    // Hotfix: Remove the credentials from the config file
+    if (config.credentials) {
+      config.credentialDefs = config.credentials;
+      delete config.credentials;
+    }
   });
 
 /**
@@ -92,7 +98,7 @@ program
   });
 
 /**
- * create-n8n-nodes p2o 
+ * create-n8n-nodes p2o
  * Convert Postman to OpenAPI command
  * Converts Postman collection to OpenAPI file
  */
