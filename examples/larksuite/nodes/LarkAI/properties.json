@@ -1,0 +1,798 @@
+[
+  {
+    "displayName": "Resource",
+    "name": "resource",
+    "type": "options",
+    "noDataExpression": true,
+    "options": [
+      {
+        "name": "Image Recognition",
+        "value": "Image Recognition",
+        "description": ""
+      },
+      {
+        "name": "Speech Recognition",
+        "value": "Speech Recognition",
+        "description": ""
+      },
+      {
+        "name": "Text",
+        "value": "Text",
+        "description": ""
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Image Recognition"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Basic Image Recognition Ocr",
+        "value": "Basic Image Recognition Ocr",
+        "action": "Basic Image Recognition Ocr Ai Optical Character Recognition Image Recognition",
+        "description": "Basic picture recognition interface, recognize the text in the picture, and return the text list by area API reference documentation: [Basic image recognition (OCR)]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/ai/optical_char_recognition-v1/image/basic_recognize)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/optical_char_recognition/v1/image/basic_recognize"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Speech Recognition"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Streaming Speech Recognition Asr",
+        "value": "Streaming Speech Recognition Asr",
+        "action": "Streaming Speech Recognition Asr Ai Speech To Text Speech Recognition",
+        "description": "A streaming speech recognition API is provided to input an audio clip by clip and receive recognition results in real time. Each audio clip is recommended to be within 100 to 200 ms. API reference documentation: [Streaming speech recognition (ASR)]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/ai/speech_to_text-v1/speech/stream_recognize)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/speech_to_text/v1/speech/stream_recognize"
+          }
+        }
+      },
+      {
+        "name": "Audio File Speech Recognition Asr",
+        "value": "Audio File Speech Recognition Asr",
+        "action": "Audio File Speech Recognition Asr Ai Speech To Text Speech Recognition",
+        "description": "An audio speech recognition API is provided to recognize the entire audio file (less than 60s) at one time. API reference documentation: [Audio file speech recognition (ASR)]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/ai/speech_to_text-v1/speech/file_recognize)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/speech_to_text/v1/speech/file_recognize"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Text"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Translate With Machine Translation",
+        "value": "Translate With Machine Translation",
+        "action": "Translate With Machine Translation Ai Machine Translation Text",
+        "description": "Machine translation (MT), supporting Chinese-Japanese-English (zh, ja, en) translation API reference documentation: [Translate with machine translation]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/translate)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/translation/v1/text/translate"
+          }
+        }
+      },
+      {
+        "name": "Text Language Recognition",
+        "value": "Text Language Recognition",
+        "action": "Text Language Recognition Ai Machine Translation Text",
+        "description": "Machine translation (MT), supporting recognition of over 100 languages. The return value is ISO 639-1 compliant. API reference documentation: [Text language recognition]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/detect)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/translation/v1/text/detect"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "POST /optical_char_recognition/v1/image/basic_recognize",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Image Recognition"
+        ],
+        "operation": [
+          "Basic Image Recognition Ocr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Image",
+    "name": "image",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "image": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Image Recognition"
+        ],
+        "operation": [
+          "Basic Image Recognition Ocr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"image\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Image Recognition"
+        ],
+        "operation": [
+          "Basic Image Recognition Ocr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /speech_to_text/v1/speech/stream_recognize",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Speech Recognition"
+        ],
+        "operation": [
+          "Streaming Speech Recognition Asr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Config",
+    "name": "config",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "action",
+            "displayName": "Action"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "engine_type",
+            "displayName": "Engine Type"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "format",
+            "displayName": "Format"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "sequence_id",
+            "displayName": "Sequence Id"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "stream_id",
+            "displayName": "Stream Id"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "config": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Speech Recognition"
+        ],
+        "operation": [
+          "Streaming Speech Recognition Asr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Speech",
+    "name": "speech",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "speech",
+            "displayName": "Speech"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "speech": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Speech Recognition"
+        ],
+        "operation": [
+          "Streaming Speech Recognition Asr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"config\": {\n    \"action\": 0,\n    \"engine_type\": \"string\",\n    \"format\": \"string\",\n    \"sequence_id\": 0,\n    \"stream_id\": \"string\"\n  },\n  \"speech\": {\n    \"speech\": \"string\"\n  }\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Speech Recognition"
+        ],
+        "operation": [
+          "Streaming Speech Recognition Asr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /speech_to_text/v1/speech/file_recognize",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Speech Recognition"
+        ],
+        "operation": [
+          "Audio File Speech Recognition Asr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Config",
+    "name": "config",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "engine_type",
+            "displayName": "Engine Type"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "file_id",
+            "displayName": "File Id"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "format",
+            "displayName": "Format"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "config": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Speech Recognition"
+        ],
+        "operation": [
+          "Audio File Speech Recognition Asr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Speech",
+    "name": "speech",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "speech",
+            "displayName": "Speech"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "speech": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Speech Recognition"
+        ],
+        "operation": [
+          "Audio File Speech Recognition Asr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"config\": {\n    \"engine_type\": \"string\",\n    \"file_id\": \"string\",\n    \"format\": \"string\"\n  },\n  \"speech\": {\n    \"speech\": \"string\"\n  }\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Speech Recognition"
+        ],
+        "operation": [
+          "Audio File Speech Recognition Asr"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /translation/v1/text/translate",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Text"
+        ],
+        "operation": [
+          "Translate With Machine Translation"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Glossary",
+    "name": "glossary",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "from",
+            "displayName": "From"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "to",
+            "displayName": "To"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "glossary": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Text"
+        ],
+        "operation": [
+          "Translate With Machine Translation"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Source Language",
+    "name": "source_language",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "source_language": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Text"
+        ],
+        "operation": [
+          "Translate With Machine Translation"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Target Language",
+    "name": "target_language",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "target_language": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Text"
+        ],
+        "operation": [
+          "Translate With Machine Translation"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Text",
+    "name": "text",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "text": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Text"
+        ],
+        "operation": [
+          "Translate With Machine Translation"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"glossary\": [\n    {\n      \"from\": \"string\",\n      \"to\": \"string\"\n    }\n  ],\n  \"source_language\": \"string\",\n  \"target_language\": \"string\",\n  \"text\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Text"
+        ],
+        "operation": [
+          "Translate With Machine Translation"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /translation/v1/text/detect",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Text"
+        ],
+        "operation": [
+          "Text Language Recognition"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Text",
+    "name": "text",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "text": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Text"
+        ],
+        "operation": [
+          "Text Language Recognition"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"text\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Text"
+        ],
+        "operation": [
+          "Text Language Recognition"
+        ]
+      }
+    }
+  }
+]

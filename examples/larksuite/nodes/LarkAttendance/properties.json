@@ -1,0 +1,4616 @@
+[
+  {
+    "displayName": "Resource",
+    "name": "resource",
+    "type": "options",
+    "noDataExpression": true,
+    "options": [
+      {
+        "name": "Attendance Group",
+        "value": "Attendance Group",
+        "description": ""
+      },
+      {
+        "name": "Attendance Shift",
+        "value": "Attendance Shift",
+        "description": ""
+      },
+      {
+        "name": "Attendance Schedule",
+        "value": "Attendance Schedule",
+        "description": ""
+      },
+      {
+        "name": "Attendance Statistics",
+        "value": "Attendance Statistics",
+        "description": ""
+      },
+      {
+        "name": "Attendance Records",
+        "value": "Attendance Records",
+        "description": ""
+      },
+      {
+        "name": "Attendance Correction",
+        "value": "Attendance Correction",
+        "description": ""
+      },
+      {
+        "name": "User Settings",
+        "value": "User Settings",
+        "description": ""
+      },
+      {
+        "name": "Files",
+        "value": "Files",
+        "description": ""
+      },
+      {
+        "name": "Task",
+        "value": "Task",
+        "description": ""
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Group"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Create Or Modify Attendance Groups",
+        "value": "Create Or Modify Attendance Groups",
+        "action": "Create Or Modify Attendance Groups Attendance Attendance Group",
+        "description": "Attendance groups are used to set attendance policy for a department or employee in a specific place and within a specific time period (including clock-in/out, late in, early out, sick leave, marital leave, funeral leave, public holidays, business hours, and overtime). You can use attendance groups to set attendance rules such as attendance methods, attendance time, and attendance locations for departments or specific employees. API reference documentation: [Create or modify attendance groups]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/attendance/v1/groups"
+          }
+        }
+      },
+      {
+        "name": "Obtain Attendance Group Details",
+        "value": "Obtain Attendance Group Details",
+        "action": "Obtain Attendance Group Details Attendance Attendance Group",
+        "description": "Obtains attendance group details via an attendance group ID. API reference documentation: [Obtain attendance group details]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/attendance/v1/groups/{{$parameter[\"group_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Delete Attendance Group",
+        "value": "Delete Attendance Group",
+        "action": "Delete Attendance Group Attendance Attendance Group",
+        "description": "Deletes a shift via shift ID. API reference documentation: [Delete attendance group]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/attendance/v1/groups/{{$parameter[\"group_id\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Shift"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Search Shift By Name",
+        "value": "Search Shift By Name",
+        "action": "Search Shift By Name Attendance Attendance Shift",
+        "description": "Searches the shift information by the name of the shift. API reference documentation: [Search shift by name]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/attendance/v1/shifts/query"
+          }
+        }
+      },
+      {
+        "name": "Obtain Shift Details",
+        "value": "Obtain Shift Details",
+        "action": "Obtain Shift Details Attendance Attendance Shift",
+        "description": "Obtains shift details via shift ID. API reference documentation: [Obtain shift details]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/attendance/v1/shifts/{{$parameter[\"shift_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Delete Shift",
+        "value": "Delete Shift",
+        "action": "Delete Shift Attendance Attendance Shift",
+        "description": "Deletes a shift via shift ID. API reference documentation: [Delete shift]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/attendance/v1/shifts/{{$parameter[\"shift_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Create Shifts",
+        "value": "Create Shifts",
+        "action": "Create Shifts Attendance Attendance Shift",
+        "description": "Shift is a general term used to describe the time rules for an attendance task, such as how many attendances are required for a shift, on and off time of each attendance, how long is the attendance delay being considered as late, and how long is the attendance delay being considered as lack. API reference documentation: [Create shifts]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/attendance/v1/shifts"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Schedule"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Query Schedule Information",
+        "value": "Query Schedule Information",
+        "action": "Query Schedule Information Attendance Attendance Schedule",
+        "description": "This API is used to query schedule information for multiple users. The query time span can't exceed 30 days. API reference documentation: [Query schedule information]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_daily_shift/query)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/attendance/v1/user_daily_shifts/query"
+          }
+        }
+      },
+      {
+        "name": "Create Or Modify Schedule",
+        "value": "Create Or Modify Schedule",
+        "action": "Create Or Modify Schedule Attendance Attendance Schedule",
+        "description": "A schedule describes the shifts that the employees in an attendance group are assigned to work each day. Currently, a schedule can be created for one or more people for a period of one full month. API reference documentation: [Create or modify schedule]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_daily_shift/batch_create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/attendance/v1/user_daily_shifts/batch_create"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Query Statistics Headers",
+        "value": "Query Statistics Headers",
+        "action": "Query Statistics Headers Attendance Attendance Statistics",
+        "description": "Queries the statistics headers for daily or monthly statistics supported by the attendance statistics. API reference documentation: [Query statistics headers]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_field/query)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/attendance/v1/user_stats_fields/query"
+          }
+        }
+      },
+      {
+        "name": "Query Statistics Settings",
+        "value": "Query Statistics Settings",
+        "action": "Query Statistics Settings Attendance Attendance Statistics",
+        "description": "Queries the header settings of statistical report for daily statistics or monthly statistics customized by developers. API reference documentation: [Query statistics settings]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/attendance/v1/user_stats_views/query"
+          }
+        }
+      },
+      {
+        "name": "Update Statistics Settings",
+        "value": "Update Statistics Settings",
+        "action": "Update Statistics Settings Attendance Attendance Statistics",
+        "description": "Updates the header settings of statistical report for daily statistics or monthly statistics customized by developers. API reference documentation: [Update statistics settings]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/update)",
+        "routing": {
+          "request": {
+            "method": "PUT",
+            "url": "=/attendance/v1/user_stats_views/{{$parameter[\"user_stats_view_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Query Statistical Data",
+        "value": "Query Statistical Data",
+        "action": "Query Statistical Data Attendance Attendance Statistics",
+        "description": "Queries statistical data for daily or monthly statistics. API reference documentation: [Query statistical data]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_data/query)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/attendance/v1/user_stats_datas/query"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Records"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Batch Query Attendance Flow Record",
+        "value": "Batch Query Attendance Flow Record",
+        "action": "Batch Query Attendance Flow Record Attendance Attendance Records",
+        "description": "This API is used to batch query the actual attendance flow records of employees within your authorization scope. If the shift set by the company for an employee is clock-in at 9:00 am and clock-out at 6:00 pm and the employee punches in and out several times during this period, this API will return all attendance records. API reference documentation: [Batch query attendance flow record]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/attendance/v1/user_flows/query"
+          }
+        }
+      },
+      {
+        "name": "Obtain Attendance Flow Record",
+        "value": "Obtain Attendance Flow Record",
+        "action": "Obtain Attendance Flow Record Attendance Attendance Records",
+        "description": "Obtains user attendance flow record via the attendance record ID. API reference documentation: [Obtain attendance flow record]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/attendance/v1/user_flows/{{$parameter[\"user_flow_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Obtain Attendance Results",
+        "value": "Obtain Attendance Results",
+        "action": "Obtain Attendance Results Attendance Attendance Records",
+        "description": "Obtains the actual attendance results of employees in the Company, including the clock-in/out result. API reference documentation: [Obtain attendance results]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/attendance/v1/user_tasks/query"
+          }
+        }
+      },
+      {
+        "name": "Import Attendance Flow Record",
+        "value": "Import Attendance Flow Record",
+        "action": "Import Attendance Flow Record Attendance Attendance Records",
+        "description": "Imports the attendance flow record of authorized employees. After the import, the final attendance status and result can be calculated according to the shift rules of the employee's attendance group. API reference documentation: [Import attendance flow record]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/attendance/v1/user_flows/batch_create"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Correction"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Obtain Correction Record",
+        "value": "Obtain Correction Record",
+        "action": "Obtain Correction Record Attendance Attendance Correction",
+        "description": "Obtains correction records of authorized employees. API reference documentation: [Obtain correction record]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/query)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/attendance/v1/user_task_remedys/query"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Settings"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Modify User Settings",
+        "value": "Modify User Settings",
+        "action": "Modify User Settings Attendance User Settings",
+        "description": "Modifies the user settings of employees in your authorization scope, including face photo file IDs. API reference documentation: [Modify user settings]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/modify)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/attendance/v1/user_settings/modify"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Files"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Upload Files",
+        "value": "Upload Files",
+        "action": "Upload Files Attendance Files",
+        "description": "Uploads a file and obtains its file ID. This ID can be used as the face_key parameter in the \"Modify user settings\" API. API reference documentation: [Upload files]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/attendance/v1/files/upload"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Task"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Get User Attendance Data",
+        "value": "Get User Attendance Data",
+        "action": "Get User Attendance Data Attendance Attendance Historical Version Api Reference Task",
+        "description": "API reference documentation: [Get User Attendance Data]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/Attendance//RetrieveUserApprovals)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/attendance/v1/user_approvals/query"
+          }
+        }
+      },
+      {
+        "name": "Add Approved Data In Feishu Attendance",
+        "value": "Add Approved Data In Feishu Attendance",
+        "action": "Add Approved Data In Feishu Attendance Attendance Attendance Historical Version Api Reference Task",
+        "description": "API reference documentation: [Add Approved Data in Feishu Attendance]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/Attendance//AddApprovalsInLarkAttendance)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/attendance/v1/user_approvals"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "POST /attendance/v1/groups",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Group"
+        ],
+        "operation": [
+          "Create Or Modify Attendance Groups"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "description": "User ID type",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Group"
+        ],
+        "operation": [
+          "Create Or Modify Attendance Groups"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Dept Type",
+    "name": "dept_type",
+    "description": "Department ID type",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "dept_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Group"
+        ],
+        "operation": [
+          "Create Or Modify Attendance Groups"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Group",
+    "name": "group",
+    "type": "collection",
+    "default": {},
+    "typeOptions": {},
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "type": "boolean",
+        "default": true,
+        "description": "",
+        "name": "allow_out_punch",
+        "displayName": "Allow Out Punch"
+      },
+      {
+        "type": "boolean",
+        "default": true,
+        "description": "",
+        "name": "allow_pc_punch",
+        "displayName": "Allow Pc Punch"
+      },
+      {
+        "type": "boolean",
+        "default": true,
+        "description": "",
+        "name": "allow_remedy",
+        "displayName": "Allow Remedy"
+      },
+      {
+        "type": "fixedCollection",
+        "default": [],
+        "typeOptions": {
+          "multipleValues": true
+        },
+        "displayName": "Bind Dept Ids",
+        "name": "bind_dept_ids",
+        "description": "",
+        "placeholder": "Add item",
+        "options": [
+          {
+            "name": "items",
+            "displayName": "Items",
+            "values": [
+              {
+                "name": "Item",
+                "displayName": "Item",
+                "type": "string",
+                "default": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "fixedCollection",
+        "default": [],
+        "typeOptions": {
+          "multipleValues": true
+        },
+        "displayName": "Bind User Ids",
+        "name": "bind_user_ids",
+        "description": "",
+        "placeholder": "Add item",
+        "options": [
+          {
+            "name": "items",
+            "displayName": "Items",
+            "values": [
+              {
+                "name": "Item",
+                "displayName": "Item",
+                "type": "string",
+                "default": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "number",
+        "default": 0,
+        "description": "",
+        "name": "calendar_id",
+        "displayName": "Calendar Id"
+      },
+      {
+        "type": "boolean",
+        "default": true,
+        "description": "",
+        "name": "effect_now",
+        "displayName": "Effect Now"
+      },
+      {
+        "type": "fixedCollection",
+        "default": [],
+        "typeOptions": {
+          "multipleValues": true
+        },
+        "displayName": "Except Dept Ids",
+        "name": "except_dept_ids",
+        "description": "",
+        "placeholder": "Add item",
+        "options": [
+          {
+            "name": "items",
+            "displayName": "Items",
+            "values": [
+              {
+                "name": "Item",
+                "displayName": "Item",
+                "type": "string",
+                "default": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "fixedCollection",
+        "default": [],
+        "typeOptions": {
+          "multipleValues": true
+        },
+        "displayName": "Except User Ids",
+        "name": "except_user_ids",
+        "description": "",
+        "placeholder": "Add item",
+        "options": [
+          {
+            "name": "items",
+            "displayName": "Items",
+            "values": [
+              {
+                "name": "Item",
+                "displayName": "Item",
+                "type": "string",
+                "default": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "boolean",
+        "default": true,
+        "description": "",
+        "name": "face_downgrade",
+        "displayName": "Face Downgrade"
+      },
+      {
+        "type": "boolean",
+        "default": true,
+        "description": "",
+        "name": "face_punch",
+        "displayName": "Face Punch"
+      },
+      {
+        "type": "number",
+        "default": 0,
+        "description": "",
+        "name": "face_punch_cfg",
+        "displayName": "Face Punch Cfg"
+      },
+      {
+        "type": "fixedCollection",
+        "default": {},
+        "description": "",
+        "options": [
+          {
+            "name": "items",
+            "displayName": "Items",
+            "values": [
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "free_end_time",
+                "displayName": "Free End Time"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "free_start_time",
+                "displayName": "Free Start Time"
+              },
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "punch_day",
+                "displayName": "Punch Day"
+              },
+              {
+                "type": "boolean",
+                "default": true,
+                "description": "",
+                "name": "work_day_no_punch_as_lack",
+                "displayName": "Work Day No Punch As Lack"
+              }
+            ]
+          }
+        ],
+        "name": "free_punch_cfg",
+        "displayName": "Free Punch Cfg"
+      },
+      {
+        "type": "number",
+        "default": 0,
+        "description": "",
+        "name": "gps_range",
+        "displayName": "Gps Range"
+      },
+      {
+        "type": "string",
+        "default": "",
+        "description": "",
+        "name": "group_id",
+        "displayName": "Group Id"
+      },
+      {
+        "type": "fixedCollection",
+        "default": [],
+        "typeOptions": {
+          "multipleValues": true
+        },
+        "displayName": "Group Leader Ids",
+        "name": "group_leader_ids",
+        "description": "",
+        "placeholder": "Add item",
+        "options": [
+          {
+            "name": "items",
+            "displayName": "Items",
+            "values": [
+              {
+                "name": "Item",
+                "displayName": "Item",
+                "type": "string",
+                "default": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "string",
+        "default": "",
+        "description": "",
+        "name": "group_name",
+        "displayName": "Group Name"
+      },
+      {
+        "type": "number",
+        "default": 0,
+        "description": "",
+        "name": "group_type",
+        "displayName": "Group Type"
+      },
+      {
+        "type": "boolean",
+        "default": true,
+        "description": "",
+        "name": "hide_staff_punch_time",
+        "displayName": "Hide Staff Punch Time"
+      },
+      {
+        "type": "fixedCollection",
+        "default": [],
+        "typeOptions": {
+          "multipleValues": true
+        },
+        "displayName": "Locations",
+        "name": "locations",
+        "description": "",
+        "placeholder": "Add item",
+        "options": [
+          {
+            "name": "items",
+            "displayName": "Items",
+            "values": [
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "address",
+                "displayName": "Address"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "bssid",
+                "displayName": "Bssid"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "feature",
+                "displayName": "Feature"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "ip",
+                "displayName": "Ip"
+              },
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "latitude",
+                "displayName": "Latitude"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "location_name",
+                "displayName": "Location Name"
+              },
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "location_type",
+                "displayName": "Location Type"
+              },
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "longitude",
+                "displayName": "Longitude"
+              },
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "map_type",
+                "displayName": "Map Type"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "ssid",
+                "displayName": "Ssid"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "fixedCollection",
+        "default": [],
+        "typeOptions": {
+          "multipleValues": true
+        },
+        "displayName": "Machines",
+        "name": "machines",
+        "description": "",
+        "placeholder": "Add item",
+        "options": [
+          {
+            "name": "items",
+            "displayName": "Items",
+            "values": [
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "machine_name",
+                "displayName": "Machine Name"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "machine_sn",
+                "displayName": "Machine Sn"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "fixedCollection",
+        "default": [],
+        "typeOptions": {
+          "multipleValues": true
+        },
+        "displayName": "Need Punch Special Days",
+        "name": "need_punch_special_days",
+        "description": "",
+        "placeholder": "Add item",
+        "options": [
+          {
+            "name": "items",
+            "displayName": "Items",
+            "values": [
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "punch_day",
+                "displayName": "Punch Day"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "shift_id",
+                "displayName": "Shift Id"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "fixedCollection",
+        "default": [],
+        "typeOptions": {
+          "multipleValues": true
+        },
+        "displayName": "No Need Punch Special Days",
+        "name": "no_need_punch_special_days",
+        "description": "",
+        "placeholder": "Add item",
+        "options": [
+          {
+            "name": "items",
+            "displayName": "Items",
+            "values": [
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "punch_day",
+                "displayName": "Punch Day"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "shift_id",
+                "displayName": "Shift Id"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "fixedCollection",
+        "default": [],
+        "typeOptions": {
+          "multipleValues": true
+        },
+        "displayName": "Punch Day Shift Ids",
+        "name": "punch_day_shift_ids",
+        "description": "",
+        "placeholder": "Add item",
+        "options": [
+          {
+            "name": "items",
+            "displayName": "Items",
+            "values": [
+              {
+                "name": "Item",
+                "displayName": "Item",
+                "type": "string",
+                "default": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "boolean",
+        "default": true,
+        "description": "",
+        "name": "remedy_date_limit",
+        "displayName": "Remedy Date Limit"
+      },
+      {
+        "type": "number",
+        "default": 0,
+        "description": "",
+        "name": "remedy_date_num",
+        "displayName": "Remedy Date Num"
+      },
+      {
+        "type": "boolean",
+        "default": true,
+        "description": "",
+        "name": "remedy_limit",
+        "displayName": "Remedy Limit"
+      },
+      {
+        "type": "number",
+        "default": 0,
+        "description": "",
+        "name": "remedy_limit_count",
+        "displayName": "Remedy Limit Count"
+      },
+      {
+        "type": "boolean",
+        "default": true,
+        "description": "",
+        "name": "replace_basic_pic",
+        "displayName": "Replace Basic Pic"
+      },
+      {
+        "type": "boolean",
+        "default": true,
+        "description": "",
+        "name": "show_cumulative_time",
+        "displayName": "Show Cumulative Time"
+      },
+      {
+        "type": "boolean",
+        "default": true,
+        "description": "",
+        "name": "show_over_time",
+        "displayName": "Show Over Time"
+      },
+      {
+        "type": "string",
+        "default": "",
+        "description": "",
+        "name": "time_zone",
+        "displayName": "Time Zone"
+      },
+      {
+        "type": "boolean",
+        "default": true,
+        "description": "",
+        "name": "work_day_no_punch_as_lack",
+        "displayName": "Work Day No Punch As Lack"
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "group": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Group"
+        ],
+        "operation": [
+          "Create Or Modify Attendance Groups"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"group\": {\n    \"allow_out_punch\": true,\n    \"allow_pc_punch\": true,\n    \"allow_remedy\": true,\n    \"bind_dept_ids\": [\n      \"string\"\n    ],\n    \"bind_user_ids\": [\n      \"string\"\n    ],\n    \"calendar_id\": 0,\n    \"effect_now\": true,\n    \"except_dept_ids\": [\n      \"string\"\n    ],\n    \"except_user_ids\": [\n      \"string\"\n    ],\n    \"face_downgrade\": true,\n    \"face_punch\": true,\n    \"face_punch_cfg\": 0,\n    \"free_punch_cfg\": {\n      \"free_end_time\": \"string\",\n      \"free_start_time\": \"string\",\n      \"punch_day\": 0,\n      \"work_day_no_punch_as_lack\": true\n    },\n    \"gps_range\": 0,\n    \"group_id\": \"string\",\n    \"group_leader_ids\": [\n      \"string\"\n    ],\n    \"group_name\": \"string\",\n    \"group_type\": 0,\n    \"hide_staff_punch_time\": true,\n    \"locations\": [\n      {\n        \"address\": \"string\",\n        \"bssid\": \"string\",\n        \"feature\": \"string\",\n        \"ip\": \"string\",\n        \"latitude\": 0,\n        \"location_name\": \"string\",\n        \"location_type\": 0,\n        \"longitude\": 0,\n        \"map_type\": 0,\n        \"ssid\": \"string\"\n      }\n    ],\n    \"machines\": [\n      {\n        \"machine_name\": \"string\",\n        \"machine_sn\": \"string\"\n      }\n    ],\n    \"need_punch_special_days\": [\n      {\n        \"punch_day\": 0,\n        \"shift_id\": \"string\"\n      }\n    ],\n    \"no_need_punch_special_days\": [\n      {\n        \"punch_day\": 0,\n        \"shift_id\": \"string\"\n      }\n    ],\n    \"punch_day_shift_ids\": [\n      \"string\"\n    ],\n    \"remedy_date_limit\": true,\n    \"remedy_date_num\": 0,\n    \"remedy_limit\": true,\n    \"remedy_limit_count\": 0,\n    \"replace_basic_pic\": true,\n    \"show_cumulative_time\": true,\n    \"show_over_time\": true,\n    \"time_zone\": \"string\",\n    \"work_day_no_punch_as_lack\": true\n  }\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Attendance Group"
+        ],
+        "operation": [
+          "Create Or Modify Attendance Groups"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /attendance/v1/groups/{group_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Group"
+        ],
+        "operation": [
+          "Obtain Attendance Group Details"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "description": "User ID type",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Group"
+        ],
+        "operation": [
+          "Obtain Attendance Group Details"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Dept Type",
+    "name": "dept_type",
+    "description": "Department ID type",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "dept_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Group"
+        ],
+        "operation": [
+          "Obtain Attendance Group Details"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Group Id",
+    "name": "group_id",
+    "required": true,
+    "description": "Attendance group ID is obtained as follows: 1) [Create or modify attendance groups]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create) 2) [Query attendance group by name]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search) 3) [Obtain attendance results]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)",
+    "default": "6919358128597097404",
+    "type": "number",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Group"
+        ],
+        "operation": [
+          "Obtain Attendance Group Details"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /attendance/v1/groups/{group_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Group"
+        ],
+        "operation": [
+          "Delete Attendance Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Group Id",
+    "name": "group_id",
+    "required": true,
+    "description": "Attendance group ID is obtained as follows: 1) [Create or modify attendance groups]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create) 2) [Query attendance group by name]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search) 3) [Obtain attendance results]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)",
+    "default": "6919358128597097404",
+    "type": "number",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Group"
+        ],
+        "operation": [
+          "Delete Attendance Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /attendance/v1/shifts/query",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Shift"
+        ],
+        "operation": [
+          "Search Shift By Name"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Shift Name",
+    "name": "shift_name",
+    "description": "Shift name",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "shift_name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Shift"
+        ],
+        "operation": [
+          "Search Shift By Name"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Attendance Shift"
+        ],
+        "operation": [
+          "Search Shift By Name"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /attendance/v1/shifts/{shift_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Shift"
+        ],
+        "operation": [
+          "Obtain Shift Details"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Shift Id",
+    "name": "shift_id",
+    "required": true,
+    "description": "Shift ID, which can be obtained as follows: 1) [Search shift by name]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 2) [Create a shift]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)",
+    "default": "6919358778597097404",
+    "type": "number",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Shift"
+        ],
+        "operation": [
+          "Obtain Shift Details"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /attendance/v1/shifts/{shift_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Shift"
+        ],
+        "operation": [
+          "Delete Shift"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Shift Id",
+    "name": "shift_id",
+    "required": true,
+    "description": "Shift ID, which can be obtained as follows: 1) [Search shift by name]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 2) [Create a shift]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)",
+    "default": "6919358778597097404",
+    "type": "number",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Shift"
+        ],
+        "operation": [
+          "Delete Shift"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /attendance/v1/shifts",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Shift"
+        ],
+        "operation": [
+          "Create Shifts"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Flexible Minutes",
+    "name": "flexible_minutes",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "flexible_minutes": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Shift"
+        ],
+        "operation": [
+          "Create Shifts"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Is Flexible",
+    "name": "is_flexible",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "is_flexible": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Shift"
+        ],
+        "operation": [
+          "Create Shifts"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Late Off Late On Rule",
+    "name": "late_off_late_on_rule",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "late_off_minutes",
+            "displayName": "Late Off Minutes"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "late_on_minutes",
+            "displayName": "Late On Minutes"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "late_off_late_on_rule": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Shift"
+        ],
+        "operation": [
+          "Create Shifts"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "No Need Off",
+    "name": "no_need_off",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "no_need_off": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Shift"
+        ],
+        "operation": [
+          "Create Shifts"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Punch Time Rule",
+    "name": "punch_time_rule",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "early_minutes_as_early",
+            "displayName": "Early Minutes As Early"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "early_minutes_as_lack",
+            "displayName": "Early Minutes As Lack"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "late_minutes_as_lack",
+            "displayName": "Late Minutes As Lack"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "late_minutes_as_late",
+            "displayName": "Late Minutes As Late"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "off_delay_minutes",
+            "displayName": "Off Delay Minutes"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "off_time",
+            "displayName": "Off Time"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "on_advance_minutes",
+            "displayName": "On Advance Minutes"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "on_time",
+            "displayName": "On Time"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "punch_time_rule": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Shift"
+        ],
+        "operation": [
+          "Create Shifts"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Punch Times",
+    "name": "punch_times",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "punch_times": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Shift"
+        ],
+        "operation": [
+          "Create Shifts"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Rest Time Rule",
+    "name": "rest_time_rule",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "rest_begin_time",
+            "displayName": "Rest Begin Time"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "rest_end_time",
+            "displayName": "Rest End Time"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "rest_time_rule": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Shift"
+        ],
+        "operation": [
+          "Create Shifts"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Shift Name",
+    "name": "shift_name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "shift_name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Shift"
+        ],
+        "operation": [
+          "Create Shifts"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"flexible_minutes\": 0,\n  \"is_flexible\": true,\n  \"late_off_late_on_rule\": [\n    {\n      \"late_off_minutes\": 0,\n      \"late_on_minutes\": 0\n    }\n  ],\n  \"no_need_off\": true,\n  \"punch_time_rule\": [\n    {\n      \"early_minutes_as_early\": 0,\n      \"early_minutes_as_lack\": 0,\n      \"late_minutes_as_lack\": 0,\n      \"late_minutes_as_late\": 0,\n      \"off_delay_minutes\": 0,\n      \"off_time\": \"string\",\n      \"on_advance_minutes\": 0,\n      \"on_time\": \"string\"\n    }\n  ],\n  \"punch_times\": 0,\n  \"rest_time_rule\": [\n    {\n      \"rest_begin_time\": \"string\",\n      \"rest_end_time\": \"string\"\n    }\n  ],\n  \"shift_name\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Attendance Shift"
+        ],
+        "operation": [
+          "Create Shifts"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /attendance/v1/user_daily_shifts/query",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Schedule"
+        ],
+        "operation": [
+          "Query Schedule Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "description": "Type of employee ID for user_ids in request body and user_id in response body",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Schedule"
+        ],
+        "operation": [
+          "Query Schedule Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Check Date From",
+    "name": "check_date_from",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "check_date_from": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Schedule"
+        ],
+        "operation": [
+          "Query Schedule Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Check Date To",
+    "name": "check_date_to",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "check_date_to": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Schedule"
+        ],
+        "operation": [
+          "Query Schedule Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Ids",
+    "name": "user_ids",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "user_ids": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Schedule"
+        ],
+        "operation": [
+          "Query Schedule Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"check_date_from\": 0,\n  \"check_date_to\": 0,\n  \"user_ids\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Attendance Schedule"
+        ],
+        "operation": [
+          "Query Schedule Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /attendance/v1/user_daily_shifts/batch_create",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Schedule"
+        ],
+        "operation": [
+          "Create Or Modify Schedule"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "description": "Type of employee ID for user_id in request body and in response body",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Schedule"
+        ],
+        "operation": [
+          "Create Or Modify Schedule"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Daily Shifts",
+    "name": "user_daily_shifts",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "day_no",
+            "displayName": "Day No"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "group_id",
+            "displayName": "Group Id"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "month",
+            "displayName": "Month"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "shift_id",
+            "displayName": "Shift Id"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "user_id",
+            "displayName": "User Id"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "user_daily_shifts": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Schedule"
+        ],
+        "operation": [
+          "Create Or Modify Schedule"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"user_daily_shifts\": [\n    {\n      \"day_no\": 0,\n      \"group_id\": \"string\",\n      \"month\": 0,\n      \"shift_id\": \"string\",\n      \"user_id\": \"string\"\n    }\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Attendance Schedule"
+        ],
+        "operation": [
+          "Create Or Modify Schedule"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /attendance/v1/user_stats_fields/query",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistics Headers"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "description": "Type of employee ID for user_id in response body",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistics Headers"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "End Date",
+    "name": "end_date",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "end_date": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistics Headers"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Locale",
+    "name": "locale",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "locale": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistics Headers"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Start Date",
+    "name": "start_date",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "start_date": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistics Headers"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Stats Type",
+    "name": "stats_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "stats_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistics Headers"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"end_date\": 0,\n  \"locale\": \"string\",\n  \"start_date\": 0,\n  \"stats_type\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistics Headers"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /attendance/v1/user_stats_views/query",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistics Settings"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "description": "Type of employee ID for user_id in response body",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistics Settings"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Locale",
+    "name": "locale",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "locale": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistics Settings"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Stats Type",
+    "name": "stats_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "stats_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistics Settings"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"locale\": \"string\",\n  \"stats_type\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistics Settings"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PUT /attendance/v1/user_stats_views/{user_stats_view_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Update Statistics Settings"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "description": "Employee ID type",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Update Statistics Settings"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Stats View Id",
+    "name": "user_stats_view_id",
+    "required": true,
+    "description": "User view ID is obtained as follows: 1) [Query statistics settings]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Update Statistics Settings"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "View",
+    "name": "view",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "fixedCollection",
+            "default": [],
+            "typeOptions": {
+              "multipleValues": true
+            },
+            "displayName": "Items",
+            "name": "items",
+            "description": "",
+            "placeholder": "Add item",
+            "options": [
+              {
+                "name": "items",
+                "displayName": "Items",
+                "values": [
+                  {
+                    "type": "fixedCollection",
+                    "default": [],
+                    "typeOptions": {
+                      "multipleValues": true
+                    },
+                    "displayName": "Child Items",
+                    "name": "child_items",
+                    "description": "",
+                    "placeholder": "Add item",
+                    "options": [
+                      {
+                        "name": "items",
+                        "displayName": "Items",
+                        "values": [
+                          {
+                            "type": "string",
+                            "default": "",
+                            "description": "",
+                            "name": "code",
+                            "displayName": "Code"
+                          },
+                          {
+                            "type": "string",
+                            "default": "",
+                            "description": "",
+                            "name": "value",
+                            "displayName": "Value"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "code",
+                    "displayName": "Code"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "stats_type",
+            "displayName": "Stats Type"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "user_id",
+            "displayName": "User Id"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "view_id",
+            "displayName": "View Id"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "view": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Update Statistics Settings"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"view\": {\n    \"items\": [\n      {\n        \"child_items\": [\n          {\n            \"code\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"code\": \"string\"\n      }\n    ],\n    \"stats_type\": \"string\",\n    \"user_id\": \"string\",\n    \"view_id\": \"string\"\n  }\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Update Statistics Settings"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /attendance/v1/user_stats_datas/query",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistical Data"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "description": "Type of employee ID for user_ids in request body and user_id in response body",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistical Data"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Current Group Only",
+    "name": "current_group_only",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "current_group_only": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistical Data"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "End Date",
+    "name": "end_date",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "end_date": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistical Data"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Locale",
+    "name": "locale",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "locale": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistical Data"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Need History",
+    "name": "need_history",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "need_history": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistical Data"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Start Date",
+    "name": "start_date",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "start_date": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistical Data"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Stats Type",
+    "name": "stats_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "stats_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistical Data"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Ids",
+    "name": "user_ids",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "user_ids": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistical Data"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"current_group_only\": true,\n  \"end_date\": 0,\n  \"locale\": \"string\",\n  \"need_history\": true,\n  \"start_date\": 0,\n  \"stats_type\": \"string\",\n  \"user_ids\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Attendance Statistics"
+        ],
+        "operation": [
+          "Query Statistical Data"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /attendance/v1/user_flows/query",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Batch Query Attendance Flow Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "description": "Type of employee ID for user_ids in request body and user_id in response body",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Batch Query Attendance Flow Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Check Time From",
+    "name": "check_time_from",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "check_time_from": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Batch Query Attendance Flow Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Check Time To",
+    "name": "check_time_to",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "check_time_to": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Batch Query Attendance Flow Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Ids",
+    "name": "user_ids",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "user_ids": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Batch Query Attendance Flow Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"check_time_from\": \"string\",\n  \"check_time_to\": \"string\",\n  \"user_ids\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Batch Query Attendance Flow Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /attendance/v1/user_flows/{user_flow_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Obtain Attendance Flow Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "description": "Type of employee ID for user_id and creator_id in response body",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Obtain Attendance Flow Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Flow Id",
+    "name": "user_flow_id",
+    "required": true,
+    "description": "Attendance flow record ID, which is obtained as follows: 1) [Batch query of attendance flow record]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query) 2) [Obtain attendance results]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query) 3) [Import attendance flow record]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)",
+    "default": "6708236686834352397",
+    "type": "number",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Obtain Attendance Flow Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /attendance/v1/user_tasks/query",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Obtain Attendance Results"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "description": "Employee ID type",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Obtain Attendance Results"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Check Date From",
+    "name": "check_date_from",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "check_date_from": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Obtain Attendance Results"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Check Date To",
+    "name": "check_date_to",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "check_date_to": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Obtain Attendance Results"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Ids",
+    "name": "user_ids",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "user_ids": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Obtain Attendance Results"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"check_date_from\": 0,\n  \"check_date_to\": 0,\n  \"user_ids\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Obtain Attendance Results"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /attendance/v1/user_flows/batch_create",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Import Attendance Flow Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "description": "Type of employee ID for user_id and creator_id in request body and response body",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Import Attendance Flow Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Flow Records",
+    "name": "flow_records",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "collection",
+            "default": {},
+            "typeOptions": {},
+            "displayName": "Item",
+            "name": "item",
+            "description": "",
+            "placeholder": "Add item",
+            "options": [
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "bssid",
+                "displayName": "Bssid"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "check_time",
+                "displayName": "Check Time"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "comment",
+                "displayName": "Comment"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "creator_id",
+                "displayName": "Creator Id"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "device_id",
+                "displayName": "Device Id"
+              },
+              {
+                "type": "boolean",
+                "default": true,
+                "description": "",
+                "name": "is_field",
+                "displayName": "Is Field"
+              },
+              {
+                "type": "boolean",
+                "default": true,
+                "description": "",
+                "name": "is_wifi",
+                "displayName": "Is Wifi"
+              },
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "latitude",
+                "displayName": "Latitude"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "location_name",
+                "displayName": "Location Name"
+              },
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "longitude",
+                "displayName": "Longitude"
+              },
+              {
+                "type": "fixedCollection",
+                "default": [],
+                "typeOptions": {
+                  "multipleValues": true
+                },
+                "displayName": "Photo Urls",
+                "name": "photo_urls",
+                "description": "",
+                "placeholder": "Add item",
+                "options": [
+                  {
+                    "name": "items",
+                    "displayName": "Items",
+                    "values": [
+                      {
+                        "name": "Item",
+                        "displayName": "Item",
+                        "type": "string",
+                        "default": ""
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "record_id",
+                "displayName": "Record Id"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "ssid",
+                "displayName": "Ssid"
+              },
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "type",
+                "displayName": "Type"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "user_id",
+                "displayName": "User Id"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "flow_records": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Import Attendance Flow Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"flow_records\": [\n    {\n      \"bssid\": \"https://example.com/path\",\n      \"check_time\": \"string\",\n      \"comment\": \"string\",\n      \"creator_id\": \"string\",\n      \"device_id\": \"string\",\n      \"is_field\": true,\n      \"is_wifi\": true,\n      \"latitude\": 0,\n      \"location_name\": \"string\",\n      \"longitude\": 0,\n      \"photo_urls\": [\n        \"https://example.com/path\"\n      ],\n      \"record_id\": \"string\",\n      \"ssid\": \"https://example.com/path\",\n      \"type\": 0,\n      \"user_id\": \"string\"\n    }\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Attendance Records"
+        ],
+        "operation": [
+          "Import Attendance Flow Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /attendance/v1/user_task_remedys/query",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Correction"
+        ],
+        "operation": [
+          "Obtain Correction Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "description": "Type of employee ID for user_ids in request body and user_id in response body",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Attendance Correction"
+        ],
+        "operation": [
+          "Obtain Correction Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Check Time From",
+    "name": "check_time_from",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "check_time_from": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Correction"
+        ],
+        "operation": [
+          "Obtain Correction Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Check Time To",
+    "name": "check_time_to",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "check_time_to": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Correction"
+        ],
+        "operation": [
+          "Obtain Correction Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Ids",
+    "name": "user_ids",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "user_ids": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Attendance Correction"
+        ],
+        "operation": [
+          "Obtain Correction Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"check_time_from\": \"string\",\n  \"check_time_to\": \"string\",\n  \"user_ids\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Attendance Correction"
+        ],
+        "operation": [
+          "Obtain Correction Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /attendance/v1/user_settings/modify",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Settings"
+        ],
+        "operation": [
+          "Modify User Settings"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "description": "Type of employee ID for user_id in request body and in response body",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Settings"
+        ],
+        "operation": [
+          "Modify User Settings"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Setting",
+    "name": "user_setting",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "face_key",
+            "displayName": "Face Key"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "user_id",
+            "displayName": "User Id"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "user_setting": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User Settings"
+        ],
+        "operation": [
+          "Modify User Settings"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"user_setting\": {\n    \"face_key\": \"string\",\n    \"user_id\": \"string\"\n  }\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "User Settings"
+        ],
+        "operation": [
+          "Modify User Settings"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /attendance/v1/files/upload",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Files"
+        ],
+        "operation": [
+          "Upload Files"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Name",
+    "name": "file_name",
+    "description": "File name with a suffix",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "file_name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Files"
+        ],
+        "operation": [
+          "Upload Files"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /attendance/v1/files/upload<br/><br/>There's no body available for request, kindly use HTTP Request node to send body",
+    "name": "operation",
+    "type": "notice",
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Files"
+        ],
+        "operation": [
+          "Upload Files"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"file\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Files"
+        ],
+        "operation": [
+          "Upload Files"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /attendance/v1/user_approvals/query",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Task"
+        ],
+        "operation": [
+          "Get User Attendance Data"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "description": "员工工号类型，使用employee_id或者employee_no",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Task"
+        ],
+        "operation": [
+          "Get User Attendance Data"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Check Date From",
+    "name": "check_date_from",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "check_date_from": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Task"
+        ],
+        "operation": [
+          "Get User Attendance Data"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Check Date To",
+    "name": "check_date_to",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "check_date_to": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Task"
+        ],
+        "operation": [
+          "Get User Attendance Data"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Ids",
+    "name": "user_ids",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "user_ids": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Task"
+        ],
+        "operation": [
+          "Get User Attendance Data"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"check_date_from\": 0,\n  \"check_date_to\": 0,\n  \"user_ids\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Task"
+        ],
+        "operation": [
+          "Get User Attendance Data"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /attendance/v1/user_approvals",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Task"
+        ],
+        "operation": [
+          "Add Approved Data In Feishu Attendance"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "description": "员工工号类型，使用employee_id或者employee_no",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Task"
+        ],
+        "operation": [
+          "Add Approved Data In Feishu Attendance"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Approval",
+    "name": "user_approval",
+    "type": "collection",
+    "default": {},
+    "typeOptions": {},
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "type": "string",
+        "default": "",
+        "description": "",
+        "name": "date",
+        "displayName": "Date"
+      },
+      {
+        "type": "fixedCollection",
+        "default": [],
+        "typeOptions": {
+          "multipleValues": true
+        },
+        "displayName": "Leaves",
+        "name": "leaves",
+        "description": "",
+        "placeholder": "Add item",
+        "options": [
+          {
+            "name": "items",
+            "displayName": "Items",
+            "values": [
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "default_locale",
+                "displayName": "Default Locale"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "end_time",
+                "displayName": "End Time"
+              },
+              {
+                "type": "fixedCollection",
+                "default": {},
+                "description": "",
+                "options": [
+                  {
+                    "name": "items",
+                    "displayName": "Items",
+                    "values": [
+                      {
+                        "type": "string",
+                        "default": "",
+                        "description": "",
+                        "name": "ch",
+                        "displayName": "Ch"
+                      },
+                      {
+                        "type": "string",
+                        "default": "",
+                        "description": "",
+                        "name": "en",
+                        "displayName": "En"
+                      },
+                      {
+                        "type": "string",
+                        "default": "",
+                        "description": "",
+                        "name": "ja",
+                        "displayName": "Ja"
+                      }
+                    ]
+                  }
+                ],
+                "name": "i18n_names",
+                "displayName": "I18n Names"
+              },
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "interval",
+                "displayName": "Interval"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "reason",
+                "displayName": "Reason"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "start_time",
+                "displayName": "Start Time"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "uniq_id",
+                "displayName": "Uniq Id"
+              },
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "unit",
+                "displayName": "Unit"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "fixedCollection",
+        "default": [],
+        "typeOptions": {
+          "multipleValues": true
+        },
+        "displayName": "Outs",
+        "name": "outs",
+        "description": "",
+        "placeholder": "Add item",
+        "options": [
+          {
+            "name": "items",
+            "displayName": "Items",
+            "values": [
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "default_locale",
+                "displayName": "Default Locale"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "end_time",
+                "displayName": "End Time"
+              },
+              {
+                "type": "fixedCollection",
+                "default": {},
+                "description": "",
+                "options": [
+                  {
+                    "name": "items",
+                    "displayName": "Items",
+                    "values": [
+                      {
+                        "type": "string",
+                        "default": "",
+                        "description": "",
+                        "name": "ch",
+                        "displayName": "Ch"
+                      },
+                      {
+                        "type": "string",
+                        "default": "",
+                        "description": "",
+                        "name": "en",
+                        "displayName": "En"
+                      },
+                      {
+                        "type": "string",
+                        "default": "",
+                        "description": "",
+                        "name": "ja",
+                        "displayName": "Ja"
+                      }
+                    ]
+                  }
+                ],
+                "name": "i18n_names",
+                "displayName": "I18n Names"
+              },
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "interval",
+                "displayName": "Interval"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "reason",
+                "displayName": "Reason"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "start_time",
+                "displayName": "Start Time"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "uniq_id",
+                "displayName": "Uniq Id"
+              },
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "unit",
+                "displayName": "Unit"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "fixedCollection",
+        "default": [],
+        "typeOptions": {
+          "multipleValues": true
+        },
+        "displayName": "Overtime Works",
+        "name": "overtime_works",
+        "description": "",
+        "placeholder": "Add item",
+        "options": [
+          {
+            "name": "items",
+            "displayName": "Items",
+            "values": [
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "category",
+                "displayName": "Category"
+              },
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "duration",
+                "displayName": "Duration"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "end_time",
+                "displayName": "End Time"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "start_time",
+                "displayName": "Start Time"
+              },
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "type",
+                "displayName": "Type"
+              },
+              {
+                "type": "number",
+                "default": 0,
+                "description": "",
+                "name": "unit",
+                "displayName": "Unit"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "fixedCollection",
+        "default": [],
+        "typeOptions": {
+          "multipleValues": true
+        },
+        "displayName": "Trips",
+        "name": "trips",
+        "description": "",
+        "placeholder": "Add item",
+        "options": [
+          {
+            "name": "items",
+            "displayName": "Items",
+            "values": [
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "end_time",
+                "displayName": "End Time"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "reason",
+                "displayName": "Reason"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "start_time",
+                "displayName": "Start Time"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "string",
+        "default": "",
+        "description": "",
+        "name": "user_id",
+        "displayName": "User Id"
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "user_approval": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Task"
+        ],
+        "operation": [
+          "Add Approved Data In Feishu Attendance"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"user_approval\": {\n    \"date\": \"string\",\n    \"leaves\": [\n      {\n        \"default_locale\": \"string\",\n        \"end_time\": \"string\",\n        \"i18n_names\": {\n          \"ch\": \"string\",\n          \"en\": \"string\",\n          \"ja\": \"string\"\n        },\n        \"interval\": 0,\n        \"reason\": \"string\",\n        \"start_time\": \"string\",\n        \"uniq_id\": \"string\",\n        \"unit\": 0\n      }\n    ],\n    \"outs\": [\n      {\n        \"default_locale\": \"string\",\n        \"end_time\": \"string\",\n        \"i18n_names\": {\n          \"ch\": \"string\",\n          \"en\": \"string\",\n          \"ja\": \"string\"\n        },\n        \"interval\": 0,\n        \"reason\": \"string\",\n        \"start_time\": \"string\",\n        \"uniq_id\": \"string\",\n        \"unit\": 0\n      }\n    ],\n    \"overtime_works\": [\n      {\n        \"category\": 0,\n        \"duration\": 0,\n        \"end_time\": \"string\",\n        \"start_time\": \"string\",\n        \"type\": 0,\n        \"unit\": 0\n      }\n    ],\n    \"trips\": [\n      {\n        \"end_time\": \"string\",\n        \"reason\": \"string\",\n        \"start_time\": \"string\"\n      }\n    ],\n    \"user_id\": \"string\"\n  }\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Task"
+        ],
+        "operation": [
+          "Add Approved Data In Feishu Attendance"
+        ]
+      }
+    }
+  }
+]

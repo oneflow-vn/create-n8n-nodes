@@ -1,0 +1,1234 @@
+[
+  {
+    "displayName": "Resource",
+    "name": "resource",
+    "type": "options",
+    "noDataExpression": true,
+    "options": [
+      {
+        "name": "Api Access Token",
+        "value": "Api Access Token",
+        "description": ""
+      },
+      {
+        "name": "Store Apps",
+        "value": "Store Apps",
+        "description": ""
+      },
+      {
+        "name": "Custom Apps",
+        "value": "Custom Apps",
+        "description": ""
+      },
+      {
+        "name": "User Id",
+        "value": "User Id",
+        "description": ""
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Store Apps"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Get App Access Token",
+        "value": "Get App Access Token",
+        "action": "Get App Access Token Api Access Token Store Apps",
+        "description": "## Reference 1. 商店应用的注册，请参考[应用商店应用创建](https://{{baseUrl}}/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g#401f1e86) 2. app_ticket的获取请参考[获取应用的 app_ticket](https://{{baseUrl}}/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g#f02f09e8) ## Success Response Sample ``` { \"app_access_token\": \"a-ce92ce3a2dc6c6f43a5c736bde3013adc7edc634\", \"code\": 0, \"expire\": 7167, \"msg\": \"ok\" } ```",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/open-apis/auth/v3/app_access_token/"
+          }
+        }
+      },
+      {
+        "name": "Get Tenant Access Token",
+        "value": "Get Tenant Access Token",
+        "action": "Get Tenant Access Token Api Access Token Store Apps",
+        "description": "1. 商店应用的注册，请参考[应用商店应用创建](https://{{baseUrl}}/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g#401f1e86) 2. app_access_token的获取请参考[获取 app_access_token（应用商店应用）](https://{{baseUrl}}/document/ukTMukTMukTM/uEjNz4SM2MjLxYzM)，或接口（1.1.1） 3. tenant_key的获取方式参考[获取企业唯一标识 tenant_key](https://{{baseUrl}}/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/open-apis/auth/v3/tenant_access_token/"
+          }
+        }
+      },
+      {
+        "name": "Re Push App Ticket",
+        "value": "Re Push App Ticket",
+        "action": "Re Push App Ticket Api Access Token Store Apps",
+        "description": "Re-push app_ticket",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/open-apis/auth/v3/app_ticket/resend/"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Custom Apps"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Get App Access Token",
+        "value": "Get App Access Token",
+        "action": "Get App Access Token Api Access Token Custom Apps",
+        "description": "1. 接口文档参考 [获取app_access_token（企业自建应用）](https://{{baseUrl}}/document/ukTMukTMukTM/uADN14CM0UjLwQTN) 2. 注册应用参考 [获取用户身份访问凭证](https://{{baseUrl}}/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/get-#3f769f25)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/open-apis/auth/v3/app_access_token/internal/"
+          }
+        }
+      },
+      {
+        "name": "Get Tenant Access Token",
+        "value": "Get Tenant Access Token",
+        "action": "Get Tenant Access Token Api Access Token Custom Apps",
+        "description": "1. 接口文档参考 [获取tenant_access_token（企业自建应用）](https://{{baseUrl}}/document/ukTMukTMukTM/uIjNz4iM2MjLyYzM) 2. 注册应用参考 [获取用户身份访问凭证](https://{{baseUrl}}/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/get-#3f769f25)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/open-apis/auth/v3/tenant_access_token/internal/"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Id"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Obtain The Logged In User Id",
+        "value": "Obtain The Logged In User Id",
+        "action": "Obtain The Logged In User Id Api Access Token User Id",
+        "description": "## Reference 1. 接口参考 [获取登录用户身份](https://{{baseUrl}}/document/ukTMukTMukTM/uEDO4UjLxgDO14SM4gTN) 2. *注* 参数中的`code`字段 从1.3.2获取，参考 [请求用户身份](https://{{baseUrl}}/document/ukTMukTMukTM/ukzN4UjL5cDO14SO3gTN)，拼装完成的URL如 `https://{{baseUrl}}/open-apis/authen/v1/index?redirect_uri=https%3A%2F%2Fttx21n.web.bytedance.net%2F&app_id=cli_9f434d2bb52f100c&state=11` **（浏览器打开）**; 注意code可能过期，如果失败请重新获取； 3. 响应中的 `access_token` 即为 user_access_token; ## Success Response Sample ``` { \"code\": 0, \"data\": { \"access_token\": \"u-Lr1RT7S8fJUES03mT5FtWf\", \"avatar_big\": \"https://s1-fs.pstatp.com/static-resource/v1/31d0fc66-5175-4848-98e9-6cedbc10820g~?image_size=640x640&cut_type=&quality=&format=image&sticker_format=.webp\", \"avatar_middle\": \"https://s1-fs.pstatp.com/static-resource/v1/31d0fc66-5175-4848-98e9-6cedbc10820g~?image_size=240x240&cut_type=&quality=&format=image&sticker_format=.webp\", \"avatar_thumb\": \"https://s1-fs.pstatp.com/static-resource/v1/31d0fc66-5175-4848-98e9-6cedbc10820g~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp\", \"avatar_url\": \"https://s1-fs.pstatp.com/static-resource/v1/31d0fc66-5175-4848-98e9-6cedbc10820g~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp\", \"email\": \"\", \"en_name\": \"敬之Lynx1\", \"expires_in\": 6900, \"mobile\": \"+86199998888\", \"name\": \"敬之Lynx1\", \"open_id\": \"ou_e0ddd8cfc3524b973bef3d0e83400e67\", \"refresh_expires_in\": 2591700, \"refresh_token\": \"ur-0aXNdq9LZXtsac0Y90XmXb\", \"tenant_key\": \"2cc0cbb58a8e175e\", \"token_type\": \"Bearer\", \"union_id\": \"on_c9e970ebba9f25f7a711e6104e08b68f\", \"user_id\": \"2482944f\" }, \"msg\": \"success\" } ```",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/open-apis/authen/v1/access_token"
+          }
+        }
+      },
+      {
+        "name": "Request User Authentication Browse Open",
+        "value": "Request User Authentication Browse Open",
+        "action": "Request User Authentication Browse Open Api Access Token User Id",
+        "description": "**！！！！注意！！！！** 这个接口请从操作系统浏览器中打开，选择账号，点击`授权`，跳转到目标页面之后，从浏览器的地址栏中获取到当前用户的code；",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/open-apis/authen/v1/index"
+          },
+          "output": {
+            "postReceive": [
+              {
+                "type": "setKeyValue",
+                "properties": {
+                  "data": "={{$response.body}}"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Refresh Access Token",
+        "value": "Refresh Access Token",
+        "action": "Refresh Access Token Api Access Token User Id",
+        "description": "## Reference 1. 接口参考[刷新 access_token](https://{{baseUrl}}/document/ukTMukTMukTM/uQDO4UjL0gDO14CN4gTN) 2. *注意* 参数中的`refresh_token` 是 1.3.1 获取登录用户身份接口返回结果中的refresh_token字段，而非access_token字段；并且该refresh_token只能用一次；用错的情况下会获得以下 ``` { \"code\": 20007, \"msg\": \"generate access_token fail\" } ``` ## Success Response Sample ``` { \"code\": 0, \"data\": { \"access_token\": \"u-In71D01i3jngErbYTYKdjf\", \"avatar_big\": \"https://s3-fs.pstatp.com/static-resource/v1/31d0fc66-5175-4848-98e9-6cedbc10820g~?image_size=640x640&cut_type=&quality=&format=image&sticker_format=.webp\", \"avatar_middle\": \"https://s1-fs.pstatp.com/static-resource/v1/31d0fc66-5175-4848-98e9-6cedbc10820g~?image_size=240x240&cut_type=&quality=&format=image&sticker_format=.webp\", \"avatar_thumb\": \"https://s3-fs.pstatp.com/static-resource/v1/31d0fc66-5175-4848-98e9-6cedbc10820g~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp\", \"avatar_url\": \"https://s3-fs.pstatp.com/static-resource/v1/31d0fc66-5175-4848-98e9-6cedbc10820g~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp\", \"email\": \"\", \"en_name\": \"敬之Lynx1\", \"expires_in\": 6900, \"mobile\": \"+86199998888\", \"name\": \"敬之Lynx1\", \"open_id\": \"ou_e0ddd8cfc3524b973bef3d0e83400e67\", \"refresh_expires_in\": 2591700, \"refresh_token\": \"ur-OI8USnxkLOOlEB5WqUvyme\", \"tenant_key\": \"2cc0cbb58a8e175e\", \"token_type\": \"Bearer\", \"union_id\": \"on_c9e970ebba9f25f7a711e6104e08b68f\", \"user_id\": \"2482944f\" }, \"msg\": \"success\" } ```",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/open-apis/authen/v1/refresh_access_token"
+          }
+        }
+      },
+      {
+        "name": "Obtain User Information",
+        "value": "Obtain User Information",
+        "action": "Obtain User Information Api Access Token User Id",
+        "description": "## Reference 1. 接口参考 [获取用户身份(身份验证)]() 2. **注** `user_access_token` 从1.3.1接口中获取，响应体中的`access_token` 字段 ## Success Response Sample ``` { \"code\": 0, \"data\": { \"avatar_big\": \"https://s3-fs.pstatp.com/static-resource/v1/31d0fc66-5175-4848-98e9-6cedbc10820g~?image_size=640x640&cut_type=&quality=&format=image&sticker_format=.webp\", \"avatar_middle\": \"https://s1-fs.pstatp.com/static-resource/v1/31d0fc66-5175-4848-98e9-6cedbc10820g~?image_size=240x240&cut_type=&quality=&format=image&sticker_format=.webp\", \"avatar_thumb\": \"https://s3-fs.pstatp.com/static-resource/v1/31d0fc66-5175-4848-98e9-6cedbc10820g~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp\", \"avatar_url\": \"https://s3-fs.pstatp.com/static-resource/v1/31d0fc66-5175-4848-98e9-6cedbc10820g~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp\", \"email\": \"\", \"en_name\": \"敬之Lynx1\", \"mobile\": \"+86199998888\", \"name\": \"敬之Lynx1\", \"open_id\": \"ou_e0ddd8cfc3524b973bef3d0e83400e67\", \"tenant_key\": \"2cc0cbb58a8e175e\", \"union_id\": \"on_c9e970ebba9f25f7a711e6104e08b68f\", \"user_id\": \"2482944f\" }, \"msg\": \"success\" } ```",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/open-apis/authen/v1/user_info"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Api Access Token"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Code2session Used In Gadget Scenarios",
+        "value": "Code2session Used In Gadget Scenarios",
+        "action": "Code2session Used In Gadget Scenarios Api Access Token",
+        "description": "code2session【Used in Gadget scenarios】",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/open-apis/mina/v2/tokenLoginValidate"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "POST /open-apis/auth/v3/app_access_token/",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Store Apps"
+        ],
+        "operation": [
+          "Get App Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Id",
+    "name": "app_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "app_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Store Apps"
+        ],
+        "operation": [
+          "Get App Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Secret",
+    "name": "app_secret",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "app_secret": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Store Apps"
+        ],
+        "operation": [
+          "Get App Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Ticket",
+    "name": "app_ticket",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "app_ticket": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Store Apps"
+        ],
+        "operation": [
+          "Get App Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"app_id\": \"string\",\n  \"app_secret\": \"string\",\n  \"app_ticket\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Store Apps"
+        ],
+        "operation": [
+          "Get App Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /open-apis/auth/v3/tenant_access_token/",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Store Apps"
+        ],
+        "operation": [
+          "Get Tenant Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Access Token",
+    "name": "app_access_token",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "app_access_token": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Store Apps"
+        ],
+        "operation": [
+          "Get Tenant Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Tenant Key",
+    "name": "tenant_key",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "tenant_key": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Store Apps"
+        ],
+        "operation": [
+          "Get Tenant Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"app_access_token\": \"string\",\n  \"tenant_key\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Store Apps"
+        ],
+        "operation": [
+          "Get Tenant Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /open-apis/auth/v3/app_ticket/resend/",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Store Apps"
+        ],
+        "operation": [
+          "Re Push App Ticket"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Id",
+    "name": "app_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "app_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Store Apps"
+        ],
+        "operation": [
+          "Re Push App Ticket"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Secret",
+    "name": "app_secret",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "app_secret": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Store Apps"
+        ],
+        "operation": [
+          "Re Push App Ticket"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"app_id\": \"string\",\n  \"app_secret\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Store Apps"
+        ],
+        "operation": [
+          "Re Push App Ticket"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /open-apis/auth/v3/app_access_token/internal/",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Custom Apps"
+        ],
+        "operation": [
+          "Get App Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Id",
+    "name": "app_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "app_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Custom Apps"
+        ],
+        "operation": [
+          "Get App Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Secret",
+    "name": "app_secret",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "app_secret": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Custom Apps"
+        ],
+        "operation": [
+          "Get App Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"app_id\": \"string\",\n  \"app_secret\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Custom Apps"
+        ],
+        "operation": [
+          "Get App Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /open-apis/auth/v3/tenant_access_token/internal/",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Custom Apps"
+        ],
+        "operation": [
+          "Get Tenant Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Id",
+    "name": "app_id",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "headers": {
+          "app_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Custom Apps"
+        ],
+        "operation": [
+          "Get Tenant Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Secret",
+    "name": "app_secret",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "headers": {
+          "app_secret": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Custom Apps"
+        ],
+        "operation": [
+          "Get Tenant Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Id",
+    "name": "app_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "app_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Custom Apps"
+        ],
+        "operation": [
+          "Get Tenant Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Secret",
+    "name": "app_secret",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "app_secret": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Custom Apps"
+        ],
+        "operation": [
+          "Get Tenant Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"app_id\": \"string\",\n  \"app_secret\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Custom Apps"
+        ],
+        "operation": [
+          "Get Tenant Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /open-apis/authen/v1/access_token",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Id"
+        ],
+        "operation": [
+          "Obtain The Logged In User Id"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Grant Type",
+    "name": "grant_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "grant_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User Id"
+        ],
+        "operation": [
+          "Obtain The Logged In User Id"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Code",
+    "name": "code",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "code": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User Id"
+        ],
+        "operation": [
+          "Obtain The Logged In User Id"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"grant_type\": \"string\",\n  \"code\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "User Id"
+        ],
+        "operation": [
+          "Obtain The Logged In User Id"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /open-apis/authen/v1/index",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Id"
+        ],
+        "operation": [
+          "Request User Authentication Browse Open"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Redirect Uri",
+    "name": "redirect_uri",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "redirect_uri": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Id"
+        ],
+        "operation": [
+          "Request User Authentication Browse Open"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Id",
+    "name": "app_id",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "app_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Id"
+        ],
+        "operation": [
+          "Request User Authentication Browse Open"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "State",
+    "name": "state",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "state": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Id"
+        ],
+        "operation": [
+          "Request User Authentication Browse Open"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /open-apis/authen/v1/refresh_access_token",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Id"
+        ],
+        "operation": [
+          "Refresh Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Grant Type",
+    "name": "grant_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "grant_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User Id"
+        ],
+        "operation": [
+          "Refresh Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Refresh Token",
+    "name": "refresh_token",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "refresh_token": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User Id"
+        ],
+        "operation": [
+          "Refresh Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"grant_type\": \"string\",\n  \"refresh_token\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "User Id"
+        ],
+        "operation": [
+          "Refresh Access Token"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /open-apis/authen/v1/user_info",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Id"
+        ],
+        "operation": [
+          "Obtain User Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /open-apis/mina/v2/tokenLoginValidate",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Api Access Token"
+        ],
+        "operation": [
+          "Code2session Used In Gadget Scenarios"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Code",
+    "name": "code",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "code": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Api Access Token"
+        ],
+        "operation": [
+          "Code2session Used In Gadget Scenarios"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"code\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Api Access Token"
+        ],
+        "operation": [
+          "Code2session Used In Gadget Scenarios"
+        ]
+      }
+    }
+  }
+]

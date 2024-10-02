@@ -31,7 +31,7 @@
     "prepublishOnly": "pnpm build && pnpm lint -c .eslintrc.prepublish.js nodes credentials package.json",
     "merge:api": "npx openapi-merge-cli --config ./openapi.config.json",
     "p2o": "p2o ./collection.json -f ./openapi.yml",
-    "codegen": "node ../../cli.js -o . -c nodes.config.js ./openapi.yml ../templates/n8n-nodes"
+    "codegen": "create-n8n-nodes generate -o . -c nodes.config.js -a ./openapi.yml -t ../../templates/n8n-nodes"
   },
   "files": [
     "dist"

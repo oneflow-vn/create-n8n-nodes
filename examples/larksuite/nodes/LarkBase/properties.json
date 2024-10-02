@@ -1,0 +1,2663 @@
+[
+  {
+    "displayName": "Resource",
+    "name": "resource",
+    "type": "options",
+    "noDataExpression": true,
+    "options": [
+      {
+        "name": "App",
+        "value": "App",
+        "description": ""
+      },
+      {
+        "name": "Table",
+        "value": "Table",
+        "description": ""
+      },
+      {
+        "name": "View",
+        "value": "View",
+        "description": ""
+      },
+      {
+        "name": "Record",
+        "value": "Record",
+        "description": ""
+      },
+      {
+        "name": "Field",
+        "value": "Field",
+        "description": ""
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "App"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Get App Information",
+        "value": "Get App Information",
+        "action": "Get App Information Docs Bitable App",
+        "description": "Get App information through app_token API reference documentation: [Get App Information]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Table"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "List All Tables",
+        "value": "List All Tables",
+        "action": "List All Tables Docs Bitable Table",
+        "description": "According to app_token, get all tables under app API reference documentation: [List all tables]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables"
+          }
+        }
+      },
+      {
+        "name": "Create Table",
+        "value": "Create Table",
+        "action": "Create Table Docs Bitable Table",
+        "description": "Create a table API reference documentation: [Create Table]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables"
+          }
+        }
+      },
+      {
+        "name": "Batch Create Table",
+        "value": "Batch Create Table",
+        "action": "Batch Create Table Docs Bitable Table",
+        "description": "Batch Create Table API reference documentation: [Batch Create Table]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/batch_create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/batch_create"
+          }
+        }
+      },
+      {
+        "name": "Delete Table",
+        "value": "Delete Table",
+        "action": "Delete Table Docs Bitable Table",
+        "description": "Delete a table API reference documentation: [Delete Table]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/{{$parameter[\"table_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Batch Delete Table",
+        "value": "Batch Delete Table",
+        "action": "Batch Delete Table Docs Bitable Table",
+        "description": "Batch Delete Table API reference documentation: [Batch Delete Table]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/batch_delete)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/batch_delete"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "View"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "List View",
+        "value": "List View",
+        "action": "List View Docs Bitable View",
+        "description": "Get all views of the data table based on app_token and table_id API reference documentation: [List view]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/{{$parameter[\"table_id\"]}}/views"
+          }
+        }
+      },
+      {
+        "name": "New View",
+        "value": "New View",
+        "action": "New View Docs Bitable View",
+        "description": "Add a view to the data table API reference documentation: [New view]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/{{$parameter[\"table_id\"]}}/views"
+          }
+        }
+      },
+      {
+        "name": "Delete View",
+        "value": "Delete View",
+        "action": "Delete View Docs Bitable View",
+        "description": "Delete views from data tables API reference documentation: [Delete view]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/{{$parameter[\"table_id\"]}}/views/{{$parameter[\"view_id\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "List Records",
+        "value": "List Records",
+        "action": "List Records Docs Bitable Record",
+        "description": "list records,Up to 100 lines at a time, paging is supported（Currently, two-way link and the return of search reference fields are not supported. The search reference field can be converted into a formula field. The search reference is essentially a lookup formula） API reference documentation: [List records]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/{{$parameter[\"table_id\"]}}/records"
+          }
+        }
+      },
+      {
+        "name": "Create A Record",
+        "value": "Create A Record",
+        "action": "Create A Record Docs Bitable Record",
+        "description": "Create a Record API reference documentation: [Create a Record]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/{{$parameter[\"table_id\"]}}/records"
+          }
+        }
+      },
+      {
+        "name": "Get Records",
+        "value": "Get Records",
+        "action": "Get Records Docs Bitable Record",
+        "description": "Get records API reference documentation: [Get records]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/{{$parameter[\"table_id\"]}}/records/{{$parameter[\"record_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Update A Record",
+        "value": "Update A Record",
+        "action": "Update A Record Docs Bitable Record",
+        "description": "Update a Record API reference documentation: [Update a Record]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/update)",
+        "routing": {
+          "request": {
+            "method": "PUT",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/{{$parameter[\"table_id\"]}}/records/{{$parameter[\"record_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Delete A Record",
+        "value": "Delete A Record",
+        "action": "Delete A Record Docs Bitable Record",
+        "description": "Delete a Record API reference documentation: [Delete a Record]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/{{$parameter[\"table_id\"]}}/records/{{$parameter[\"record_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Create Records",
+        "value": "Create Records",
+        "action": "Create Records Docs Bitable Record",
+        "description": "Create Records API reference documentation: [Create Records]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/batch_create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/{{$parameter[\"table_id\"]}}/records/batch_create"
+          }
+        }
+      },
+      {
+        "name": "Update Records",
+        "value": "Update Records",
+        "action": "Update Records Docs Bitable Record",
+        "description": "Update Records API reference documentation: [Update Records]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/batch_update)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/{{$parameter[\"table_id\"]}}/records/batch_update"
+          }
+        }
+      },
+      {
+        "name": "Delete Records",
+        "value": "Delete Records",
+        "action": "Delete Records Docs Bitable Record",
+        "description": "Delete Records API reference documentation: [Delete Records]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/batch_delete)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/{{$parameter[\"table_id\"]}}/records/batch_delete"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Field"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "List All Fields",
+        "value": "List All Fields",
+        "action": "List All Fields Docs Bitable Field",
+        "description": "Get all fields according to app_token and table_id API reference documentation: [List all fields]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/{{$parameter[\"table_id\"]}}/fields"
+          }
+        }
+      },
+      {
+        "name": "Create Field",
+        "value": "Create Field",
+        "action": "Create Field Docs Bitable Field",
+        "description": "Create a field API reference documentation: [Create Field]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/{{$parameter[\"table_id\"]}}/fields"
+          }
+        }
+      },
+      {
+        "name": "Update Field",
+        "value": "Update Field",
+        "action": "Update Field Docs Bitable Field",
+        "description": "Update a field API reference documentation: [Update Field]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/update)",
+        "routing": {
+          "request": {
+            "method": "PUT",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/{{$parameter[\"table_id\"]}}/fields/{{$parameter[\"field_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Delete Field",
+        "value": "Delete Field",
+        "action": "Delete Field Docs Bitable Field",
+        "description": "Delete a field API reference documentation: [Delete Field]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/bitable/v1/apps/{{$parameter[\"app_token\"]}}/tables/{{$parameter[\"table_id\"]}}/fields/{{$parameter[\"field_id\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "GET /bitable/v1/apps/{app_token}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "App"
+        ],
+        "operation": [
+          "Get App Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "App"
+        ],
+        "operation": [
+          "Get App Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /bitable/v1/apps/{app_token}/tables",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Table"
+        ],
+        "operation": [
+          "List All Tables"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Table"
+        ],
+        "operation": [
+          "List All Tables"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /bitable/v1/apps/{app_token}/tables",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Table"
+        ],
+        "operation": [
+          "Create Table"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Table"
+        ],
+        "operation": [
+          "Create Table"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table",
+    "name": "table",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "name",
+            "displayName": "Name"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "table": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Table"
+        ],
+        "operation": [
+          "Create Table"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"table\": {\n    \"name\": \"string\"\n  }\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Table"
+        ],
+        "operation": [
+          "Create Table"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /bitable/v1/apps/{app_token}/tables/batch_create",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Table"
+        ],
+        "operation": [
+          "Batch Create Table"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Table"
+        ],
+        "operation": [
+          "Batch Create Table"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Tables",
+    "name": "tables",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "name",
+            "displayName": "Name"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "tables": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Table"
+        ],
+        "operation": [
+          "Batch Create Table"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"tables\": [\n    {\n      \"name\": \"string\"\n    }\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Table"
+        ],
+        "operation": [
+          "Batch Create Table"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /bitable/v1/apps/{app_token}/tables/{table_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Table"
+        ],
+        "operation": [
+          "Delete Table"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Table"
+        ],
+        "operation": [
+          "Delete Table"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table Id",
+    "name": "table_id",
+    "required": true,
+    "description": "table id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Table"
+        ],
+        "operation": [
+          "Delete Table"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /bitable/v1/apps/{app_token}/tables/batch_delete",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Table"
+        ],
+        "operation": [
+          "Batch Delete Table"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Table"
+        ],
+        "operation": [
+          "Batch Delete Table"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table Ids",
+    "name": "table_ids",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "table_ids": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Table"
+        ],
+        "operation": [
+          "Batch Delete Table"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"table_ids\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Table"
+        ],
+        "operation": [
+          "Batch Delete Table"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /bitable/v1/apps/{app_token}/tables/{table_id}/views",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "View"
+        ],
+        "operation": [
+          "List View"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "Bitable app token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "View"
+        ],
+        "operation": [
+          "List View"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table Id",
+    "name": "table_id",
+    "required": true,
+    "description": "Table id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "View"
+        ],
+        "operation": [
+          "List View"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /bitable/v1/apps/{app_token}/tables/{table_id}/views",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "View"
+        ],
+        "operation": [
+          "New View"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "Bitable app token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "View"
+        ],
+        "operation": [
+          "New View"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table Id",
+    "name": "table_id",
+    "required": true,
+    "description": "Table id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "View"
+        ],
+        "operation": [
+          "New View"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "View Name",
+    "name": "view_name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "view_name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "View"
+        ],
+        "operation": [
+          "New View"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "View Type",
+    "name": "view_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "view_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "View"
+        ],
+        "operation": [
+          "New View"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"view_name\": \"string\",\n  \"view_type\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "View"
+        ],
+        "operation": [
+          "New View"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /bitable/v1/apps/{app_token}/tables/{table_id}/views/{view_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "View"
+        ],
+        "operation": [
+          "Delete View"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "Bitable app token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "View"
+        ],
+        "operation": [
+          "Delete View"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table Id",
+    "name": "table_id",
+    "required": true,
+    "description": "Table id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "View"
+        ],
+        "operation": [
+          "Delete View"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "View Id",
+    "name": "view_id",
+    "required": true,
+    "description": "View Id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "View"
+        ],
+        "operation": [
+          "Delete View"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /bitable/v1/apps/{app_token}/tables/{table_id}/records",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "List Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app_token\t",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "List Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table Id",
+    "name": "table_id",
+    "required": true,
+    "description": "table id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "List Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /bitable/v1/apps/{app_token}/tables/{table_id}/records",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Create A Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app_token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Create A Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table Id",
+    "name": "table_id",
+    "required": true,
+    "description": "table_id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Create A Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Records",
+    "name": "records",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "json",
+            "default": "{}",
+            "description": "",
+            "name": "fields",
+            "displayName": "Fields"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "records": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Create A Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"records\": [\n    {\n      \"fields\": {}\n    }\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Create A Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /bitable/v1/apps/{app_token}/tables/{table_id}/records/{record_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Get Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app_token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Get Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table Id",
+    "name": "table_id",
+    "required": true,
+    "description": "table id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Get Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Record Id",
+    "name": "record_id",
+    "required": true,
+    "description": "record id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Get Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PUT /bitable/v1/apps/{app_token}/tables/{table_id}/records/{record_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Update A Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app_token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Update A Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table Id",
+    "name": "table_id",
+    "required": true,
+    "description": "table_id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Update A Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Record Id",
+    "name": "record_id",
+    "required": true,
+    "description": "record_id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Update A Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Fields",
+    "name": "fields",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "manpower",
+            "displayName": "Manpower"
+          },
+          {
+            "type": "fixedCollection",
+            "default": [],
+            "typeOptions": {
+              "multipleValues": true
+            },
+            "displayName": "Performer",
+            "name": "performer",
+            "description": "",
+            "placeholder": "Add item",
+            "options": [
+              {
+                "name": "items",
+                "displayName": "Items",
+                "values": [
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "id",
+                    "displayName": "Id"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "description",
+            "displayName": "Description"
+          },
+          {
+            "type": "fixedCollection",
+            "default": [],
+            "typeOptions": {
+              "multipleValues": true
+            },
+            "displayName": "Corresponding Okr",
+            "name": "corresponding OKR",
+            "description": "",
+            "placeholder": "Add item",
+            "options": [
+              {
+                "name": "items",
+                "displayName": "Items",
+                "values": [
+                  {
+                    "name": "Item",
+                    "displayName": "Item",
+                    "type": "string",
+                    "default": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "deadline",
+            "displayName": "Deadline"
+          },
+          {
+            "type": "boolean",
+            "default": true,
+            "description": "",
+            "name": "completed",
+            "displayName": "Completed"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "status",
+            "displayName": "Status"
+          },
+          {
+            "type": "fixedCollection",
+            "default": [],
+            "typeOptions": {
+              "multipleValues": true
+            },
+            "displayName": "Department",
+            "name": "department",
+            "description": "",
+            "placeholder": "Add item",
+            "options": [
+              {
+                "name": "items",
+                "displayName": "Items",
+                "values": [
+                  {
+                    "name": "Item",
+                    "displayName": "Item",
+                    "type": "string",
+                    "default": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "fields": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Update A Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"fields\": {\n    \"manpower\": 0,\n    \"performer\": [\n      {\n        \"id\": \"string\"\n      }\n    ],\n    \"description\": \"string\",\n    \"corresponding OKR\": [\n      \"string\"\n    ],\n    \"deadline\": 0,\n    \"completed\": true,\n    \"status\": \"string\",\n    \"department\": [\n      \"string\"\n    ]\n  }\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Update A Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /bitable/v1/apps/{app_token}/tables/{table_id}/records/{record_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Delete A Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app_token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Delete A Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table Id",
+    "name": "table_id",
+    "required": true,
+    "description": "table_id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Delete A Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Record Id",
+    "name": "record_id",
+    "required": true,
+    "description": "record_id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Delete A Record"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /bitable/v1/apps/{app_token}/tables/{table_id}/records/batch_create",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Create Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app_token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Create Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table Id",
+    "name": "table_id",
+    "required": true,
+    "description": "table_id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Create Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Records",
+    "name": "records",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "json",
+            "default": "{}",
+            "description": "",
+            "name": "fields",
+            "displayName": "Fields"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "records": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Create Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"records\": [\n    {\n      \"fields\": {}\n    }\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Create Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /bitable/v1/apps/{app_token}/tables/{table_id}/records/batch_update",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Update Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app_token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Update Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table Id",
+    "name": "table_id",
+    "required": true,
+    "description": "table_id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Update Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Records",
+    "name": "records",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "record_id",
+            "displayName": "Record Id"
+          },
+          {
+            "type": "fixedCollection",
+            "default": {},
+            "description": "",
+            "options": [
+              {
+                "name": "items",
+                "displayName": "Items",
+                "values": [
+                  {
+                    "type": "number",
+                    "default": 0,
+                    "description": "",
+                    "name": "manpower",
+                    "displayName": "Manpower"
+                  },
+                  {
+                    "type": "fixedCollection",
+                    "default": [],
+                    "typeOptions": {
+                      "multipleValues": true
+                    },
+                    "displayName": "Performer",
+                    "name": "performer",
+                    "description": "",
+                    "placeholder": "Add item",
+                    "options": [
+                      {
+                        "name": "items",
+                        "displayName": "Items",
+                        "values": [
+                          {
+                            "type": "string",
+                            "default": "",
+                            "description": "",
+                            "name": "id",
+                            "displayName": "Id"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "description",
+                    "displayName": "Description"
+                  },
+                  {
+                    "type": "fixedCollection",
+                    "default": [],
+                    "typeOptions": {
+                      "multipleValues": true
+                    },
+                    "displayName": "Corresponding Okr",
+                    "name": "corresponding OKR",
+                    "description": "",
+                    "placeholder": "Add item",
+                    "options": [
+                      {
+                        "name": "items",
+                        "displayName": "Items",
+                        "values": [
+                          {
+                            "name": "Item",
+                            "displayName": "Item",
+                            "type": "string",
+                            "default": ""
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "number",
+                    "default": 0,
+                    "description": "",
+                    "name": "deadline",
+                    "displayName": "Deadline"
+                  },
+                  {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "",
+                    "name": "completed",
+                    "displayName": "Completed"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "status",
+                    "displayName": "Status"
+                  },
+                  {
+                    "type": "fixedCollection",
+                    "default": [],
+                    "typeOptions": {
+                      "multipleValues": true
+                    },
+                    "displayName": "Department",
+                    "name": "department",
+                    "description": "",
+                    "placeholder": "Add item",
+                    "options": [
+                      {
+                        "name": "items",
+                        "displayName": "Items",
+                        "values": [
+                          {
+                            "name": "Item",
+                            "displayName": "Item",
+                            "type": "string",
+                            "default": ""
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "name": "fields",
+            "displayName": "Fields"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "records": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Update Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"records\": [\n    {\n      \"record_id\": \"string\",\n      \"fields\": {\n        \"manpower\": 0,\n        \"performer\": [\n          {\n            \"id\": \"string\"\n          }\n        ],\n        \"description\": \"string\",\n        \"corresponding OKR\": [\n          \"string\"\n        ],\n        \"deadline\": 0,\n        \"completed\": true,\n        \"status\": \"string\",\n        \"department\": [\n          \"string\"\n        ]\n      }\n    }\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Update Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /bitable/v1/apps/{app_token}/tables/{table_id}/records/batch_delete",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Delete Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app_token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Delete Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table Id",
+    "name": "table_id",
+    "required": true,
+    "description": "table_id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Delete Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Records",
+    "name": "records",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "records": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Delete Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"records\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Record"
+        ],
+        "operation": [
+          "Delete Records"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /bitable/v1/apps/{app_token}/tables/{table_id}/fields",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "List All Fields"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "List All Fields"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table Id",
+    "name": "table_id",
+    "required": true,
+    "description": "table id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "List All Fields"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /bitable/v1/apps/{app_token}/tables/{table_id}/fields",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "Create Field"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "Create Field"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table Id",
+    "name": "table_id",
+    "required": true,
+    "description": "table id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "Create Field"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Field Name",
+    "name": "field_name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "field_name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "Create Field"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Type",
+    "name": "Type",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "Type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "Create Field"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"field_name\": \"string\",\n  \"Type\": 0\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "Create Field"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PUT /bitable/v1/apps/{app_token}/tables/{table_id}/fields/{field_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "Update Field"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "Update Field"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table Id",
+    "name": "table_id",
+    "required": true,
+    "description": "table id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "Update Field"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Field Id",
+    "name": "field_id",
+    "required": true,
+    "description": "field id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "Update Field"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Field Name",
+    "name": "field_name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "field_name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "Update Field"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Type",
+    "name": "Type",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "Type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "Update Field"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"field_name\": \"string\",\n  \"Type\": 0\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "Update Field"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /bitable/v1/apps/{app_token}/tables/{table_id}/fields/{field_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "Delete Field"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "App Token",
+    "name": "app_token",
+    "required": true,
+    "description": "bitable app token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "Delete Field"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Table Id",
+    "name": "table_id",
+    "required": true,
+    "description": "table id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "Delete Field"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Field Id",
+    "name": "field_id",
+    "required": true,
+    "description": "field id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Field"
+        ],
+        "operation": [
+          "Delete Field"
+        ]
+      }
+    }
+  }
+]

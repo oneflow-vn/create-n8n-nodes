@@ -1,0 +1,4904 @@
+[
+  {
+    "displayName": "Resource",
+    "name": "resource",
+    "type": "options",
+    "noDataExpression": true,
+    "options": [
+      {
+        "name": "Calendar",
+        "value": "Calendar",
+        "description": ""
+      },
+      {
+        "name": "Calendar",
+        "value": "Calendar",
+        "description": ""
+      },
+      {
+        "name": "Acl",
+        "value": "Acl",
+        "description": ""
+      },
+      {
+        "name": "Event",
+        "value": "Event",
+        "description": ""
+      },
+      {
+        "name": "Event Attendee",
+        "value": "Event Attendee",
+        "description": ""
+      },
+      {
+        "name": "Event Attendee Chat Member",
+        "value": "Event Attendee Chat Member",
+        "description": ""
+      },
+      {
+        "name": "Freebusy",
+        "value": "Freebusy",
+        "description": ""
+      },
+      {
+        "name": "Timeoff",
+        "value": "Timeoff",
+        "description": ""
+      },
+      {
+        "name": "Setting",
+        "value": "Setting",
+        "description": ""
+      },
+      {
+        "name": "Exchange Binding",
+        "value": "Exchange Binding",
+        "description": ""
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Calendar"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Get Primary Calendar",
+        "value": "Get Primary Calendar",
+        "action": "Get Primary Calendar Calendar Calendar",
+        "description": "Get the primary calendar information for the current identity. API reference documentation: [Get primary calendar]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/calendar/v4/calendars/primary"
+          }
+        }
+      },
+      {
+        "name": "Create A Calendar",
+        "value": "Create A Calendar",
+        "action": "Create A Calendar Calendar Calendar",
+        "description": "This API is used to create a shared calendar for the current identity (app or user). The identity is determined by the token type of Authorization in the header. API reference documentation: [Create a calendar]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/calendar/v4/calendars"
+          }
+        }
+      },
+      {
+        "name": "Obtain Calendar List",
+        "value": "Obtain Calendar List",
+        "action": "Obtain Calendar List Calendar Calendar",
+        "description": "This API is used to obtain calendar list by pages under the current identity (app or user). The identity is determined by the token type of Authorization in the header. API reference documentation: [Obtain calendar list]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/calendar/v4/calendars"
+          }
+        }
+      },
+      {
+        "name": "Delete A Calendar",
+        "value": "Delete A Calendar",
+        "action": "Delete A Calendar Calendar Calendar",
+        "description": "This API is used to delete a shared calendar as the current identity (app or user). The identity is determined by the token type of Authorization in the header. API reference documentation: [Delete a calendar]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Obtain A Calendar",
+        "value": "Obtain A Calendar",
+        "action": "Obtain A Calendar Calendar Calendar",
+        "description": "This API is used to obtain calendar information by calendar ID as the current identity (app or user). The identity is determined by the token type of Authorization in the header. API reference documentation: [Obtain a calendar]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Update A Calendar",
+        "value": "Update A Calendar",
+        "action": "Update A Calendar Calendar Calendar",
+        "description": "This API is used to modify calendar information as the current identity (app or user). The identity is determined by the token type of Authorization in the header. API reference documentation: [Update a calendar]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/patch)",
+        "routing": {
+          "request": {
+            "method": "PATCH",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Search For Calendars",
+        "value": "Search For Calendars",
+        "action": "Search For Calendars Calendar Calendar",
+        "description": "This API is used to query public calendars or a user's primary calendar based on keywords. API reference documentation: [Search for calendars]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/calendar/v4/calendars/search"
+          }
+        }
+      },
+      {
+        "name": "Subscribe To A Calendar",
+        "value": "Subscribe To A Calendar",
+        "action": "Subscribe To A Calendar Calendar Calendar",
+        "description": "This API is used to subscribe to a calendar as the current identity (app or user). The identity is determined by the token type of Authorization in the header. API reference documentation: [Subscribe to a calendar]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscribe)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}/subscribe"
+          }
+        }
+      },
+      {
+        "name": "Unsubscribe From A Calendar",
+        "value": "Unsubscribe From A Calendar",
+        "action": "Unsubscribe From A Calendar Calendar Calendar",
+        "description": "This API is used to unsubscribe from a calendar as the current identity (app or user). The identity is determined by the token type of Authorization in the header. API reference documentation: [Unsubscribe from a calendar]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscribe)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}/unsubscribe"
+          }
+        }
+      },
+      {
+        "name": "Subscribe To Calendar Change Events",
+        "value": "Subscribe To Calendar Change Events",
+        "action": "Subscribe To Calendar Change Events Calendar Calendar",
+        "description": "This API is used to subscribe to all changes in the calendars under the current identity as a user. API reference documentation: [Subscribe to calendar change events]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscription)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/calendar/v4/calendars/subscription"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Acl"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Create Access Control",
+        "value": "Create Access Control",
+        "action": "Create Access Control Calendar Acl",
+        "description": "This API is used to add access control (i.e., calendar members) to a calendar as the current identity (user or app). The identity is determined by the token type of Authorization in the header. API reference documentation: [Create access control]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}/acls"
+          }
+        }
+      },
+      {
+        "name": "Obtain The Acl",
+        "value": "Obtain The Acl",
+        "action": "Obtain The Acl Calendar Acl",
+        "description": "This API is used to obtain the ACL of a calendar as the current identity (app or user). The identity is determined by the token type of Authorization in the header. API reference documentation: [Obtain the ACL]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}/acls"
+          }
+        }
+      },
+      {
+        "name": "Delete Access Control",
+        "value": "Delete Access Control",
+        "action": "Delete Access Control Calendar Acl",
+        "description": "This API is used to delete access control (i.e., calendar members) from a calendar as the current identity (user or app). The identity is determined by the token type of Authorization in the header. API reference documentation: [Delete access control]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}/acls/{{$parameter[\"acl_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Subscribe To Changes In Calendar Access Control",
+        "value": "Subscribe To Changes In Calendar Access Control",
+        "action": "Subscribe To Changes In Calendar Access Control Calendar Acl",
+        "description": "This API is used to subscribe to calendar member changes in a calendar as a user. API reference documentation: [Subscribe to changes in calendar access control ]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/subscription)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}/acls/subscription"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Delete An Event",
+        "value": "Delete An Event",
+        "action": "Delete An Event Calendar Event",
+        "description": "This API is used to delete an event from a calendar as the current identity (app or user). The identity is determined by the token type of Authorization in the header. API reference documentation: [Delete an event]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}/events/{{$parameter[\"event_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Obtain An Event",
+        "value": "Obtain An Event",
+        "action": "Obtain An Event Calendar Event",
+        "description": "This API is used to obtain an event in a calendar as the current identity (app or user). The identity is determined by the token type of Authorization in the header. API reference documentation: [Obtain an event]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}/events/{{$parameter[\"event_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Update An Event",
+        "value": "Update An Event",
+        "action": "Update An Event Calendar Event",
+        "description": "This API is used to update an event in a calendar as the current identity (app or user). The identity is determined by the token type of Authorization in the header. API reference documentation: [Update an event]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/patch)",
+        "routing": {
+          "request": {
+            "method": "PATCH",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}/events/{{$parameter[\"event_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Create An Event",
+        "value": "Create An Event",
+        "action": "Create An Event Calendar Event",
+        "description": "This API is used to create an event in a calendar as the current identity (app or user). The identity is determined by the token type of Authorization in the header. API reference documentation: [Create an event]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}/events"
+          }
+        }
+      },
+      {
+        "name": "Obtain Event List",
+        "value": "Obtain Event List",
+        "action": "Obtain Event List Calendar Event",
+        "description": "This API is used to obtain the event list of a calendar as the current identity (app or user). The identity is determined by the token type of Authorization in the header. API reference documentation: [Obtain event list]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}/events"
+          }
+        }
+      },
+      {
+        "name": "Search For Events",
+        "value": "Search For Events",
+        "action": "Search For Events Calendar Event",
+        "description": "This API is used to search for events in a calendar as a user. The identity is determined by the token type of Authorization in the header. API reference documentation: [Search for events]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}/events/search"
+          }
+        }
+      },
+      {
+        "name": "Subscribe To Event Changes",
+        "value": "Subscribe To Event Changes",
+        "action": "Subscribe To Event Changes Calendar Event",
+        "description": "This API is used to subscribe to event changes in a calendar as a user. API reference documentation: [Subscribe to event changes]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/subscription)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}/events/subscription"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Create Event Invitees",
+        "value": "Create Event Invitees",
+        "action": "Create Event Invitees Calendar Event Attendee",
+        "description": "Adds event invitees to an event in batch. API reference documentation: [Create event invitees ]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}/events/{{$parameter[\"event_id\"]}}/attendees"
+          }
+        }
+      },
+      {
+        "name": "Obtain Event Invitee List",
+        "value": "Obtain Event Invitee List",
+        "action": "Obtain Event Invitee List Calendar Event Attendee",
+        "description": "Obtains the invitee list of an event. If the event invitee list contains groups, call the [Obtain the list of members of group invitees]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee-chat_member/list) API. API reference documentation: [Obtain event invitee list]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}/events/{{$parameter[\"event_id\"]}}/attendees"
+          }
+        }
+      },
+      {
+        "name": "Delete Event Invitees",
+        "value": "Delete Event Invitees",
+        "action": "Delete Event Invitees Calendar Event Attendee",
+        "description": "Deletes event invitees from an event in batch. API reference documentation: [Delete event invitees]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/batch_delete)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}/events/{{$parameter[\"event_id\"]}}/attendees/batch_delete"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event Attendee Chat Member"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Obtain The List Of Members Of Group Invitees Of An Event",
+        "value": "Obtain The List Of Members Of Group Invitees Of An Event",
+        "action": "Obtain The List Of Members Of Group Invitees Of An Event Calendar Event Attendee Chat Member",
+        "description": "Obtains the list of members of group invitees of an event. API reference documentation: [Obtain the list of members of group invitees of an event]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee-chat_member/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/calendar/v4/calendars/{{$parameter[\"calendar_id\"]}}/events/{{$parameter[\"event_id\"]}}/attendees/{{$parameter[\"attendee_id\"]}}/chat_members"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Freebusy"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Query Availability",
+        "value": "Query Availability",
+        "action": "Query Availability Calendar Freebusy",
+        "description": "Queries the availability information of a user's primary calendar or a room. API reference documentation: [Query availability]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/freebusy/list)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/calendar/v4/freebusy/list"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Timeoff"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Create A Leave Event",
+        "value": "Create A Leave Event",
+        "action": "Create A Leave Event Calendar Timeoff",
+        "description": "Creates a leave event for a specified user. The event can be a common leave event or an all-day event. After a leave event is created, the leave information will be displayed in the personal signature page within a specified period of time. API reference documentation: [Create a leave event]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/calendar/v4/timeoff_events"
+          }
+        }
+      },
+      {
+        "name": "Delete A Leave Event",
+        "value": "Delete A Leave Event",
+        "action": "Delete A Leave Event Calendar Timeoff",
+        "description": "Deletes a specified leave event. After a leave event is deleted, the leave information disappears from the personal signature page of the user. An app can only delete leave events created by the app. API reference documentation: [Delete a leave event]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/calendar/v4/timeoff_events/{{$parameter[\"timeoff_event_id\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Setting"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Generate Caldav Configuration",
+        "value": "Generate Caldav Configuration",
+        "action": "Generate Caldav Configuration Calendar Setting",
+        "description": "This API is used to generate a CalDAV account and password for the user to sync Lark calendar information to calendars on the local device. API reference documentation: [Generate CalDAV configuration]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/setting/generate_caldav_conf)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/calendar/v4/settings/generate_caldav_conf"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Exchange Binding"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Connect An Exchange Account",
+        "value": "Connect An Exchange Account",
+        "action": "Connect An Exchange Account Calendar Exchange Binding",
+        "description": "This API is used to connect an Exchange account to a Lark account. After the connection is created, you can import calendar data from Exchange. API reference documentation: [Connect an Exchange account]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/calendar/v4/exchange_bindings"
+          }
+        }
+      },
+      {
+        "name": "Query The Connection Status",
+        "value": "Query The Connection Status",
+        "action": "Query The Connection Status Calendar Exchange Binding",
+        "description": "This API is used to query the connection status of an Exchange account, as well as whether calendar data is synced from Exchange. API reference documentation: [Query the connection status]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/calendar/v4/exchange_bindings/{{$parameter[\"exchange_binding_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Disconnect An Exchange Account",
+        "value": "Disconnect An Exchange Account",
+        "action": "Disconnect An Exchange Account Calendar Exchange Binding",
+        "description": "This API is used to disconnect an Exchange account from a Lark account. The Exchange account can be connected to other Lark accounts only after it is disconnected. API reference documentation: [Disconnect an Exchange account]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/calendar/v4/exchange_bindings/{{$parameter[\"exchange_binding_id\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "POST /calendar/v4/calendars/primary",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Get Primary Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Get Primary Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /calendar/v4/calendars",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Create A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Color",
+    "name": "color",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "color": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Create A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Description",
+    "name": "description",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "description": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Create A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Permissions",
+    "name": "permissions",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "permissions": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Create A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Summary",
+    "name": "summary",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "summary": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Create A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Summary Alias",
+    "name": "summary_alias",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "summary_alias": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Create A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"color\": 0,\n  \"description\": \"string\",\n  \"permissions\": \"string\",\n  \"summary\": \"string\",\n  \"summary_alias\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Create A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /calendar/v4/calendars",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Obtain Calendar List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /calendar/v4/calendars/{calendar_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Delete A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Delete A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /calendar/v4/calendars/{calendar_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Obtain A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Obtain A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PATCH /calendar/v4/calendars/{calendar_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Update A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Update A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Color",
+    "name": "color",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "color": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Update A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Description",
+    "name": "description",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "description": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Update A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Permissions",
+    "name": "permissions",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "permissions": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Update A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Summary",
+    "name": "summary",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "summary": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Update A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Summary Alias",
+    "name": "summary_alias",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "summary_alias": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Update A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"color\": 0,\n  \"description\": \"string\",\n  \"permissions\": \"string\",\n  \"summary\": \"string\",\n  \"summary_alias\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Update A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /calendar/v4/calendars/search",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Search For Calendars"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Query",
+    "name": "query",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "query": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Search For Calendars"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"query\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Search For Calendars"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /calendar/v4/calendars/{calendar_id}/subscribe",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Subscribe To A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Subscribe To A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Subscribe To A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /calendar/v4/calendars/{calendar_id}/unsubscribe",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Unsubscribe From A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Unsubscribe From A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Unsubscribe From A Calendar"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /calendar/v4/calendars/subscription",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Subscribe To Calendar Change Events"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Calendar"
+        ],
+        "operation": [
+          "Subscribe To Calendar Change Events"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /calendar/v4/calendars/{calendar_id}/acls",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Acl"
+        ],
+        "operation": [
+          "Create Access Control"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Acl"
+        ],
+        "operation": [
+          "Create Access Control"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Role",
+    "name": "role",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "role": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Acl"
+        ],
+        "operation": [
+          "Create Access Control"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Scope",
+    "name": "scope",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "type",
+            "displayName": "Type"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "user_id",
+            "displayName": "User Id"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "scope": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Acl"
+        ],
+        "operation": [
+          "Create Access Control"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"role\": \"string\",\n  \"scope\": {\n    \"type\": \"string\",\n    \"user_id\": \"string\"\n  }\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Acl"
+        ],
+        "operation": [
+          "Create Access Control"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /calendar/v4/calendars/{calendar_id}/acls",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Acl"
+        ],
+        "operation": [
+          "Obtain The Acl"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Acl"
+        ],
+        "operation": [
+          "Obtain The Acl"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /calendar/v4/calendars/{calendar_id}/acls/{acl_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Acl"
+        ],
+        "operation": [
+          "Delete Access Control"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Acl"
+        ],
+        "operation": [
+          "Delete Access Control"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Acl Id",
+    "name": "acl_id",
+    "required": true,
+    "description": "ACL resource ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Acl"
+        ],
+        "operation": [
+          "Delete Access Control"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /calendar/v4/calendars/{calendar_id}/acls/subscription",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Acl"
+        ],
+        "operation": [
+          "Subscribe To Changes In Calendar Access Control"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Acl"
+        ],
+        "operation": [
+          "Subscribe To Changes In Calendar Access Control"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Acl"
+        ],
+        "operation": [
+          "Subscribe To Changes In Calendar Access Control"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /calendar/v4/calendars/{calendar_id}/events/{event_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Delete An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Delete An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Event Id",
+    "name": "event_id",
+    "required": true,
+    "description": "Event ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Delete An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /calendar/v4/calendars/{calendar_id}/events/{event_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Obtain An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Obtain An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Event Id",
+    "name": "event_id",
+    "required": true,
+    "description": "Event ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Obtain An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PATCH /calendar/v4/calendars/{calendar_id}/events/{event_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Event Id",
+    "name": "event_id",
+    "required": true,
+    "description": "Event ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Attendee Ability",
+    "name": "attendee_ability",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "attendee_ability": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Color",
+    "name": "color",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "color": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Description",
+    "name": "description",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "description": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "End Time",
+    "name": "end_time",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "date",
+            "displayName": "Date"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "timestamp",
+            "displayName": "Timestamp"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "timezone",
+            "displayName": "Timezone"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "end_time": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Free Busy Status",
+    "name": "free_busy_status",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "free_busy_status": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Location",
+    "name": "location",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "address",
+            "displayName": "Address"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "latitude",
+            "displayName": "Latitude"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "longitude",
+            "displayName": "Longitude"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "name",
+            "displayName": "Name"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "location": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Need Notification",
+    "name": "need_notification",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "need_notification": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Recurrence",
+    "name": "recurrence",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "recurrence": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Reminders",
+    "name": "reminders",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "minutes",
+            "displayName": "Minutes"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "reminders": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Schemas",
+    "name": "schemas",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "app_link",
+            "displayName": "App Link"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "ui_name",
+            "displayName": "Ui Name"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "ui_status",
+            "displayName": "Ui Status"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "schemas": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Start Time",
+    "name": "start_time",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "date",
+            "displayName": "Date"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "timestamp",
+            "displayName": "Timestamp"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "timezone",
+            "displayName": "Timezone"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "start_time": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Summary",
+    "name": "summary",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "summary": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Vchat",
+    "name": "vchat",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "description",
+            "displayName": "Description"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "icon_type",
+            "displayName": "Icon Type"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "meeting_url",
+            "displayName": "Meeting Url"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "vc_type",
+            "displayName": "Vc Type"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "vchat": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Visibility",
+    "name": "visibility",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "visibility": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"attendee_ability\": \"string\",\n  \"color\": 0,\n  \"description\": \"string\",\n  \"end_time\": {\n    \"date\": \"string\",\n    \"timestamp\": \"string\",\n    \"timezone\": \"string\"\n  },\n  \"free_busy_status\": \"string\",\n  \"location\": {\n    \"address\": \"string\",\n    \"latitude\": 0,\n    \"longitude\": 0,\n    \"name\": \"string\"\n  },\n  \"need_notification\": true,\n  \"recurrence\": \"string\",\n  \"reminders\": [\n    {\n      \"minutes\": 0\n    }\n  ],\n  \"schemas\": [\n    {\n      \"app_link\": \"string\",\n      \"ui_name\": \"string\",\n      \"ui_status\": \"string\"\n    }\n  ],\n  \"start_time\": {\n    \"date\": \"string\",\n    \"timestamp\": \"string\",\n    \"timezone\": \"string\"\n  },\n  \"summary\": \"string\",\n  \"vchat\": {\n    \"description\": \"string\",\n    \"icon_type\": \"string\",\n    \"meeting_url\": \"https://example.com/path\",\n    \"vc_type\": \"string\"\n  },\n  \"visibility\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Update An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /calendar/v4/calendars/{calendar_id}/events",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Create An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Create An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Attendee Ability",
+    "name": "attendee_ability",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "attendee_ability": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Create An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Color",
+    "name": "color",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "color": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Create An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Description",
+    "name": "description",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "description": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Create An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "End Time",
+    "name": "end_time",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "date",
+            "displayName": "Date"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "timestamp",
+            "displayName": "Timestamp"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "timezone",
+            "displayName": "Timezone"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "end_time": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Create An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Free Busy Status",
+    "name": "free_busy_status",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "free_busy_status": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Create An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Location",
+    "name": "location",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "address",
+            "displayName": "Address"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "latitude",
+            "displayName": "Latitude"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "longitude",
+            "displayName": "Longitude"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "name",
+            "displayName": "Name"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "location": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Create An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Need Notification",
+    "name": "need_notification",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "need_notification": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Create An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Recurrence",
+    "name": "recurrence",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "recurrence": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Create An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Reminders",
+    "name": "reminders",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "minutes",
+            "displayName": "Minutes"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "reminders": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Create An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Schemas",
+    "name": "schemas",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "app_link",
+            "displayName": "App Link"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "ui_name",
+            "displayName": "Ui Name"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "ui_status",
+            "displayName": "Ui Status"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "schemas": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Create An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Start Time",
+    "name": "start_time",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "date",
+            "displayName": "Date"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "timestamp",
+            "displayName": "Timestamp"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "timezone",
+            "displayName": "Timezone"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "start_time": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Create An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Summary",
+    "name": "summary",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "summary": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Create An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Vchat",
+    "name": "vchat",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "description",
+            "displayName": "Description"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "icon_type",
+            "displayName": "Icon Type"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "meeting_url",
+            "displayName": "Meeting Url"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "vc_type",
+            "displayName": "Vc Type"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "vchat": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Create An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Visibility",
+    "name": "visibility",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "visibility": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Create An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"attendee_ability\": \"string\",\n  \"color\": 0,\n  \"description\": \"string\",\n  \"end_time\": {\n    \"date\": \"string\",\n    \"timestamp\": \"string\",\n    \"timezone\": \"string\"\n  },\n  \"free_busy_status\": \"string\",\n  \"location\": {\n    \"address\": \"string\",\n    \"latitude\": 0,\n    \"longitude\": 0,\n    \"name\": \"string\"\n  },\n  \"need_notification\": true,\n  \"recurrence\": \"string\",\n  \"reminders\": [\n    {\n      \"minutes\": 0\n    }\n  ],\n  \"schemas\": [\n    {\n      \"app_link\": \"string\",\n      \"ui_name\": \"string\",\n      \"ui_status\": \"string\"\n    }\n  ],\n  \"start_time\": {\n    \"date\": \"string\",\n    \"timestamp\": \"string\",\n    \"timezone\": \"string\"\n  },\n  \"summary\": \"string\",\n  \"vchat\": {\n    \"description\": \"string\",\n    \"icon_type\": \"string\",\n    \"meeting_url\": \"https://example.com/path\",\n    \"vc_type\": \"string\"\n  },\n  \"visibility\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Create An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /calendar/v4/calendars/{calendar_id}/events",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Obtain Event List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Obtain Event List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /calendar/v4/calendars/{calendar_id}/events/search",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Search For Events"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Search For Events"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Filter",
+    "name": "filter",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "fixedCollection",
+            "default": [],
+            "typeOptions": {
+              "multipleValues": true
+            },
+            "displayName": "Chat Ids",
+            "name": "chat_ids",
+            "description": "",
+            "placeholder": "Add item",
+            "options": [
+              {
+                "name": "items",
+                "displayName": "Items",
+                "values": [
+                  {
+                    "name": "Item",
+                    "displayName": "Item",
+                    "type": "string",
+                    "default": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "fixedCollection",
+            "default": {},
+            "description": "",
+            "options": [
+              {
+                "name": "items",
+                "displayName": "Items",
+                "values": [
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "date",
+                    "displayName": "Date"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "timestamp",
+                    "displayName": "Timestamp"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "timezone",
+                    "displayName": "Timezone"
+                  }
+                ]
+              }
+            ],
+            "name": "end_time",
+            "displayName": "End Time"
+          },
+          {
+            "type": "fixedCollection",
+            "default": [],
+            "typeOptions": {
+              "multipleValues": true
+            },
+            "displayName": "Room Ids",
+            "name": "room_ids",
+            "description": "",
+            "placeholder": "Add item",
+            "options": [
+              {
+                "name": "items",
+                "displayName": "Items",
+                "values": [
+                  {
+                    "name": "Item",
+                    "displayName": "Item",
+                    "type": "string",
+                    "default": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "fixedCollection",
+            "default": {},
+            "description": "",
+            "options": [
+              {
+                "name": "items",
+                "displayName": "Items",
+                "values": [
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "date",
+                    "displayName": "Date"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "timestamp",
+                    "displayName": "Timestamp"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "timezone",
+                    "displayName": "Timezone"
+                  }
+                ]
+              }
+            ],
+            "name": "start_time",
+            "displayName": "Start Time"
+          },
+          {
+            "type": "fixedCollection",
+            "default": [],
+            "typeOptions": {
+              "multipleValues": true
+            },
+            "displayName": "User Ids",
+            "name": "user_ids",
+            "description": "",
+            "placeholder": "Add item",
+            "options": [
+              {
+                "name": "items",
+                "displayName": "Items",
+                "values": [
+                  {
+                    "name": "Item",
+                    "displayName": "Item",
+                    "type": "string",
+                    "default": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "filter": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Search For Events"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Query",
+    "name": "query",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "query": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Search For Events"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"filter\": {\n    \"chat_ids\": [\n      \"string\"\n    ],\n    \"end_time\": {\n      \"date\": \"string\",\n      \"timestamp\": \"string\",\n      \"timezone\": \"string\"\n    },\n    \"room_ids\": [\n      \"string\"\n    ],\n    \"start_time\": {\n      \"date\": \"string\",\n      \"timestamp\": \"string\",\n      \"timezone\": \"string\"\n    },\n    \"user_ids\": [\n      \"string\"\n    ]\n  },\n  \"query\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Search For Events"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /calendar/v4/calendars/{calendar_id}/events/subscription",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Subscribe To Event Changes"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Subscribe To Event Changes"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Event"
+        ],
+        "operation": [
+          "Subscribe To Event Changes"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /calendar/v4/calendars/{calendar_id}/events/{event_id}/attendees",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Create Event Invitees"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Create Event Invitees"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Event Id",
+    "name": "event_id",
+    "required": true,
+    "description": "Event ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Create Event Invitees"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Attendees",
+    "name": "attendees",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "collection",
+            "default": {},
+            "typeOptions": {},
+            "displayName": "Item",
+            "name": "item",
+            "description": "",
+            "placeholder": "Add item",
+            "options": [
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "chat_id",
+                "displayName": "Chat Id"
+              },
+              {
+                "type": "boolean",
+                "default": true,
+                "description": "",
+                "name": "is_optional",
+                "displayName": "Is Optional"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "operate_id",
+                "displayName": "Operate Id"
+              },
+              {
+                "type": "fixedCollection",
+                "default": [],
+                "typeOptions": {
+                  "multipleValues": true
+                },
+                "displayName": "Resource Customization",
+                "name": "resource_customization",
+                "description": "",
+                "placeholder": "Add item",
+                "options": [
+                  {
+                    "name": "items",
+                    "displayName": "Items",
+                    "values": [
+                      {
+                        "type": "string",
+                        "default": "",
+                        "description": "",
+                        "name": "index_key",
+                        "displayName": "Index Key"
+                      },
+                      {
+                        "type": "string",
+                        "default": "",
+                        "description": "",
+                        "name": "input_content",
+                        "displayName": "Input Content"
+                      },
+                      {
+                        "type": "fixedCollection",
+                        "default": [],
+                        "typeOptions": {
+                          "multipleValues": true
+                        },
+                        "displayName": "Options",
+                        "name": "options",
+                        "description": "",
+                        "placeholder": "Add item",
+                        "options": [
+                          {
+                            "name": "items",
+                            "displayName": "Items",
+                            "values": [
+                              {
+                                "type": "string",
+                                "default": "",
+                                "description": "",
+                                "name": "option_key",
+                                "displayName": "Option Key"
+                              },
+                              {
+                                "type": "string",
+                                "default": "",
+                                "description": "",
+                                "name": "others_content",
+                                "displayName": "Others Content"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "room_id",
+                "displayName": "Room Id"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "third_party_email",
+                "displayName": "Third Party Email"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "type",
+                "displayName": "Type"
+              },
+              {
+                "type": "string",
+                "default": "",
+                "description": "",
+                "name": "user_id",
+                "displayName": "User Id"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "attendees": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Create Event Invitees"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Instance Start Time Admin",
+    "name": "instance_start_time_admin",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "instance_start_time_admin": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Create Event Invitees"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Is Enable Admin",
+    "name": "is_enable_admin",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "is_enable_admin": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Create Event Invitees"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Need Notification",
+    "name": "need_notification",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "need_notification": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Create Event Invitees"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"attendees\": [\n    {\n      \"chat_id\": \"string\",\n      \"is_optional\": true,\n      \"operate_id\": \"string\",\n      \"resource_customization\": [\n        {\n          \"index_key\": \"string\",\n          \"input_content\": \"string\",\n          \"options\": [\n            {\n              \"option_key\": \"string\",\n              \"others_content\": \"string\"\n            }\n          ]\n        }\n      ],\n      \"room_id\": \"string\",\n      \"third_party_email\": \"user@example.com\",\n      \"type\": \"string\",\n      \"user_id\": \"string\"\n    }\n  ],\n  \"instance_start_time_admin\": \"string\",\n  \"is_enable_admin\": true,\n  \"need_notification\": true\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Create Event Invitees"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /calendar/v4/calendars/{calendar_id}/events/{event_id}/attendees",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Obtain Event Invitee List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Obtain Event Invitee List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Event Id",
+    "name": "event_id",
+    "required": true,
+    "description": "Event ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Obtain Event Invitee List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /calendar/v4/calendars/{calendar_id}/events/{event_id}/attendees/batch_delete",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Delete Event Invitees"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Delete Event Invitees"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Event Id",
+    "name": "event_id",
+    "required": true,
+    "description": "Event ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Delete Event Invitees"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Attendee Ids",
+    "name": "attendee_ids",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "attendee_ids": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Delete Event Invitees"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Instance Start Time Admin",
+    "name": "instance_start_time_admin",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "instance_start_time_admin": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Delete Event Invitees"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Is Enable Admin",
+    "name": "is_enable_admin",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "is_enable_admin": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Delete Event Invitees"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Need Notification",
+    "name": "need_notification",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "need_notification": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Delete Event Invitees"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"attendee_ids\": [\n    \"string\"\n  ],\n  \"instance_start_time_admin\": \"string\",\n  \"is_enable_admin\": true,\n  \"need_notification\": true\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Event Attendee"
+        ],
+        "operation": [
+          "Delete Event Invitees"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /calendar/v4/calendars/{calendar_id}/events/{event_id}/attendees/{attendee_id}/chat_members",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event Attendee Chat Member"
+        ],
+        "operation": [
+          "Obtain The List Of Members Of Group Invitees Of An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Calendar Id",
+    "name": "calendar_id",
+    "required": true,
+    "description": "Calendar ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event Attendee Chat Member"
+        ],
+        "operation": [
+          "Obtain The List Of Members Of Group Invitees Of An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Event Id",
+    "name": "event_id",
+    "required": true,
+    "description": "Event ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event Attendee Chat Member"
+        ],
+        "operation": [
+          "Obtain The List Of Members Of Group Invitees Of An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Attendee Id",
+    "name": "attendee_id",
+    "required": true,
+    "description": "Group invitee ID. For details, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Event Attendee Chat Member"
+        ],
+        "operation": [
+          "Obtain The List Of Members Of Group Invitees Of An Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /calendar/v4/freebusy/list",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Freebusy"
+        ],
+        "operation": [
+          "Query Availability"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Room Id",
+    "name": "room_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "room_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Freebusy"
+        ],
+        "operation": [
+          "Query Availability"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Time Max",
+    "name": "time_max",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "time_max": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Freebusy"
+        ],
+        "operation": [
+          "Query Availability"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Time Min",
+    "name": "time_min",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "time_min": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Freebusy"
+        ],
+        "operation": [
+          "Query Availability"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id",
+    "name": "user_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Freebusy"
+        ],
+        "operation": [
+          "Query Availability"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"room_id\": \"string\",\n  \"time_max\": \"1970-01-01T00:00:00.000Z\",\n  \"time_min\": \"1970-01-01T00:00:00.000Z\",\n  \"user_id\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Freebusy"
+        ],
+        "operation": [
+          "Query Availability"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /calendar/v4/timeoff_events",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Timeoff"
+        ],
+        "operation": [
+          "Create A Leave Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Description",
+    "name": "description",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "description": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Timeoff"
+        ],
+        "operation": [
+          "Create A Leave Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "End Time",
+    "name": "end_time",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "end_time": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Timeoff"
+        ],
+        "operation": [
+          "Create A Leave Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Start Time",
+    "name": "start_time",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "start_time": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Timeoff"
+        ],
+        "operation": [
+          "Create A Leave Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Timezone",
+    "name": "timezone",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "timezone": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Timeoff"
+        ],
+        "operation": [
+          "Create A Leave Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Title",
+    "name": "title",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "title": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Timeoff"
+        ],
+        "operation": [
+          "Create A Leave Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id",
+    "name": "user_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Timeoff"
+        ],
+        "operation": [
+          "Create A Leave Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"description\": \"string\",\n  \"end_time\": \"string\",\n  \"start_time\": \"string\",\n  \"timezone\": \"string\",\n  \"title\": \"string\",\n  \"user_id\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Timeoff"
+        ],
+        "operation": [
+          "Create A Leave Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /calendar/v4/timeoff_events/{timeoff_event_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Timeoff"
+        ],
+        "operation": [
+          "Delete A Leave Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Timeoff Event Id",
+    "name": "timeoff_event_id",
+    "required": true,
+    "description": "The ID that uniquely identifies a time off application. For more information, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Timeoff"
+        ],
+        "operation": [
+          "Delete A Leave Event"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /calendar/v4/settings/generate_caldav_conf",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Setting"
+        ],
+        "operation": [
+          "Generate Caldav Configuration"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Device Name",
+    "name": "device_name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "device_name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Setting"
+        ],
+        "operation": [
+          "Generate Caldav Configuration"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"device_name\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Setting"
+        ],
+        "operation": [
+          "Generate Caldav Configuration"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /calendar/v4/exchange_bindings",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Exchange Binding"
+        ],
+        "operation": [
+          "Connect An Exchange Account"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Admin Account",
+    "name": "admin_account",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "admin_account": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Exchange Binding"
+        ],
+        "operation": [
+          "Connect An Exchange Account"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Exchange Account",
+    "name": "exchange_account",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "exchange_account": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Exchange Binding"
+        ],
+        "operation": [
+          "Connect An Exchange Account"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id",
+    "name": "user_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Exchange Binding"
+        ],
+        "operation": [
+          "Connect An Exchange Account"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"admin_account\": \"user@example.com\",\n  \"exchange_account\": \"user@example.com\",\n  \"user_id\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Exchange Binding"
+        ],
+        "operation": [
+          "Connect An Exchange Account"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /calendar/v4/exchange_bindings/{exchange_binding_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Exchange Binding"
+        ],
+        "operation": [
+          "Query The Connection Status"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Exchange Binding Id",
+    "name": "exchange_binding_id",
+    "required": true,
+    "description": "The ID that uniquely identifies a connection to Exchange. For more information, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Exchange Binding"
+        ],
+        "operation": [
+          "Query The Connection Status"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /calendar/v4/exchange_bindings/{exchange_binding_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Exchange Binding"
+        ],
+        "operation": [
+          "Disconnect An Exchange Account"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Exchange Binding Id",
+    "name": "exchange_binding_id",
+    "required": true,
+    "description": "The ID that uniquely identifies a connection to Exchange. For more information, see [Calendar-related IDs]({{document_base_url}}/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN#f066a96c).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Exchange Binding"
+        ],
+        "operation": [
+          "Disconnect An Exchange Account"
+        ]
+      }
+    }
+  }
+]

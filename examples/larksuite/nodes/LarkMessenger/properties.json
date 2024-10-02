@@ -1,0 +1,4365 @@
+[
+  {
+    "displayName": "Resource",
+    "name": "resource",
+    "type": "options",
+    "noDataExpression": true,
+    "options": [
+      {
+        "name": "Message",
+        "value": "Message",
+        "description": ""
+      },
+      {
+        "name": "Message Buzz Messages",
+        "value": "Message Buzz Messages",
+        "description": ""
+      },
+      {
+        "name": "Message Batch Message",
+        "value": "Message Batch Message",
+        "description": ""
+      },
+      {
+        "name": "Message Images",
+        "value": "Message Images",
+        "description": ""
+      },
+      {
+        "name": "Message Files",
+        "value": "Message Files",
+        "description": ""
+      },
+      {
+        "name": "Message Message Card",
+        "value": "Message Message Card",
+        "description": ""
+      },
+      {
+        "name": "Message Message Reaction",
+        "value": "Message Message Reaction",
+        "description": ""
+      },
+      {
+        "name": "Group",
+        "value": "Group",
+        "description": ""
+      },
+      {
+        "name": "Group Group Member",
+        "value": "Group Group Member",
+        "description": ""
+      },
+      {
+        "name": "Group Group Announcement",
+        "value": "Group Group Announcement",
+        "description": ""
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Buzz Messages"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Send Buzz Messages In Apps",
+        "value": "Send Buzz Messages In Apps",
+        "action": "Send Buzz Messages In Apps Messenger Message Message Buzz Messages",
+        "description": "Performs in-app buzz on the specified message. API reference documentation: [Send buzz messages in apps]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_app)",
+        "routing": {
+          "request": {
+            "method": "PATCH",
+            "url": "=/im/v1/messages/{{$parameter[\"message_id\"]}}/urgent_app"
+          }
+        }
+      },
+      {
+        "name": "Send Buzz Text Messages",
+        "value": "Send Buzz Text Messages",
+        "action": "Send Buzz Text Messages Messenger Message Message Buzz Messages",
+        "description": "Performs in-app and text message buzz on the specified message. API reference documentation: [Send buzz text messages]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_sms)",
+        "routing": {
+          "request": {
+            "method": "PATCH",
+            "url": "=/im/v1/messages/{{$parameter[\"message_id\"]}}/urgent_sms"
+          }
+        }
+      },
+      {
+        "name": "Send Phone Call Buzz",
+        "value": "Send Phone Call Buzz",
+        "action": "Send Phone Call Buzz Messenger Message Message Buzz Messages",
+        "description": "Perform in-app and phone call buzz on the specified message API reference documentation: [Send phone call buzz]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_phone)",
+        "routing": {
+          "request": {
+            "method": "PATCH",
+            "url": "=/im/v1/messages/{{$parameter[\"message_id\"]}}/urgent_phone"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Send Messages",
+        "value": "Send Messages",
+        "action": "Send Messages Messenger Message",
+        "description": "Sends messages to a specific user or chat, with text, rich text, interactive [message cards]({{document_base_url}}/ukTMukTMukTM/uczM3QjL3MzN04yNzcDN), group cards, name cards, images, videos, audios, files, and emojis supported. API reference documentation: [Send messages]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/im/v1/messages"
+          }
+        }
+      },
+      {
+        "name": "Read Chat History",
+        "value": "Read Chat History",
+        "action": "Read Chat History Messenger Message",
+        "description": "Obtains chat history (chat records) of chats (including private chats and group chats). API reference documentation: [Read chat history]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/im/v1/messages"
+          }
+        }
+      },
+      {
+        "name": "Reply To Messages",
+        "value": "Reply To Messages",
+        "action": "Reply To Messages Messenger Message",
+        "description": "Replies to a specific message, with text, rich text, cards, group cards, name cards, images, videos, audios, files, and emojis supported. API reference documentation: [Reply to messages]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/reply)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/im/v1/messages/{{$parameter[\"message_id\"]}}/reply"
+          }
+        }
+      },
+      {
+        "name": "Recall Messages",
+        "value": "Recall Messages",
+        "action": "Recall Messages Messenger Message",
+        "description": "The bot recalls messages it sent or the group owner recalls messages within a group. API reference documentation: [Recall messages]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/im/v1/messages/{{$parameter[\"message_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Obtain Content Of A Specific Message",
+        "value": "Obtain Content Of A Specific Message",
+        "action": "Obtain Content Of A Specific Message Messenger Message",
+        "description": "Query message content with message_id API reference documentation: [Obtain content of a specific message]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/im/v1/messages/{{$parameter[\"message_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Queries The Read Status Of A Message",
+        "value": "Queries The Read Status Of A Message",
+        "action": "Queries The Read Status Of A Message Messenger Message",
+        "description": "Query the read information of the message API reference documentation: [Queries the read status of a message]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/read_users)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/im/v1/messages/{{$parameter[\"message_id\"]}}/read_users"
+          }
+        }
+      },
+      {
+        "name": "Obtain Resource Files In Messages",
+        "value": "Obtain Resource Files In Messages",
+        "action": "Obtain Resource Files In Messages Messenger Message",
+        "description": "Obtains resource files in messages, including audios, videos, images, and files. **Emoji resources can’t be downloaded**, and the resource files for download can’t exceed 100 MB. API reference documentation: [Obtain resource files in messages]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/im/v1/messages/{{$parameter[\"message_id\"]}}/resources/{{$parameter[\"file_key\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Message Card"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Update App Messages",
+        "value": "Update App Messages",
+        "action": "Update App Messages Messenger Message",
+        "description": "Updates the content of message cards sent by an app. API reference documentation: [Update app messages]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch)",
+        "routing": {
+          "request": {
+            "method": "PATCH",
+            "url": "=/im/v1/messages/{{$parameter[\"message_id\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Batch Message"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Recall Messages In Batches",
+        "value": "Recall Messages In Batches",
+        "action": "Recall Messages In Batches Messenger Message Batch Message",
+        "description": "Recall messages in batches API reference documentation: [Recall messages in batches]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/im/v1/batch_messages/{{$parameter[\"batch_message_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Query The Number Of Users To Whom A Batch Message Is Pushed And The Number Of Users Who Have Read The Batch Message",
+        "value": "Query The Number Of Users To Whom A Batch Message Is Pushed And The Number Of Users Who Have Read The Batch Message",
+        "action": "Query The Number Of Users To Whom A Batch Message Is Pushed And The Number Of Users Who Have Read The Batch Message Messenger Message Batch Message",
+        "description": "Query the number of users to whom a batch message is pushed and the number of users who have read the batch message API reference documentation: [Query the number of users to whom a batch message is pushed and the number of users who have read the batch message]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/read_user)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/im/v1/batch_messages/{{$parameter[\"batch_message_id\"]}}/read_user"
+          }
+        }
+      },
+      {
+        "name": "Queries The Overall Progress Of A Batch Message",
+        "value": "Queries The Overall Progress Of A Batch Message",
+        "action": "Queries The Overall Progress Of A Batch Message Messenger Message Batch Message",
+        "description": "Queries the overall progress of a batch message. API reference documentation: [Queries the overall progress of a batch message.]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/get_progress)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/im/v1/batch_messages/{{$parameter[\"batch_message_id\"]}}/get_progress"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Images"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Upload Images",
+        "value": "Upload Images",
+        "action": "Upload Images Messenger Message Images",
+        "description": "This API can be used to upload an image. You can upload JPEG, PNG, WEBP, GIF, TIFF, BMP, and ICO images. API reference documentation: [Upload images]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/im/v1/images"
+          }
+        }
+      },
+      {
+        "name": "Download Images",
+        "value": "Download Images",
+        "action": "Download Images Messenger Message Images",
+        "description": "Download image resources. Only images of the message type uploaded by an app itself can be downloaded. API reference documentation: [Download images]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/im/v1/images/{{$parameter[\"image_key\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Files"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Upload Files",
+        "value": "Upload Files",
+        "action": "Upload Files Messenger Message Files",
+        "description": "Upload files, with videos, audios, and common file types supported. API reference documentation: [Upload files]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/im/v1/files"
+          }
+        }
+      },
+      {
+        "name": "Download Files",
+        "value": "Download Files",
+        "action": "Download Files Messenger Message Files",
+        "description": "Download files. Only files uploaded by an app itself can be downloaded. API reference documentation: [Download files]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/im/v1/files/{{$parameter[\"file_key\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Message Reaction"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Add A Reaction For A Message",
+        "value": "Add A Reaction For A Message",
+        "action": "Add A Reaction For A Message Messenger Message Message Reaction",
+        "description": "Adds a reaction of the specified type for a specified message. API reference documentation: [Add a reaction for a message]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/im/v1/messages/{{$parameter[\"message_id\"]}}/reactions"
+          }
+        }
+      },
+      {
+        "name": "Obtain A Reaction For A Message",
+        "value": "Obtain A Reaction For A Message",
+        "action": "Obtain A Reaction For A Message Messenger Message Message Reaction",
+        "description": "Obtains a list of reactions of the specified type for a specified message. API reference documentation: [Obtain a reaction for a message]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/im/v1/messages/{{$parameter[\"message_id\"]}}/reactions"
+          }
+        }
+      },
+      {
+        "name": "Delete A Reaction For A Message",
+        "value": "Delete A Reaction For A Message",
+        "action": "Delete A Reaction For A Message Messenger Message Message Reaction",
+        "description": "Deletes a reaction for a specified message. API reference documentation: [Delete a reaction for a message]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/im/v1/messages/{{$parameter[\"message_id\"]}}/reactions/{{$parameter[\"reaction_id\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Create A Group",
+        "value": "Create A Group",
+        "action": "Create A Group Messenger Group",
+        "description": "Creates a group and sets the profile photo, name, and description for the group. API reference documentation: [Create a group]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/im/v1/chats"
+          }
+        }
+      },
+      {
+        "name": "Obtain The List Of Groups With The User Or Bot",
+        "value": "Obtain The List Of Groups With The User Or Bot",
+        "action": "Obtain The List Of Groups With The User Or Bot Messenger Group",
+        "description": "Obtains the list of groups with the user or bot API reference documentation: [Obtain the list of groups with the user or bot]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/im/v1/chats"
+          }
+        }
+      },
+      {
+        "name": "Obtain Group Information",
+        "value": "Obtain Group Information",
+        "action": "Obtain Group Information Messenger Group",
+        "description": "Obtains basic information such as group name, description, profile photo, and owner ID. API reference documentation: [Obtain group information]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/im/v1/chats/{{$parameter[\"chat_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Update Group Information",
+        "value": "Update Group Information",
+        "action": "Update Group Information Messenger Group",
+        "description": "Updates the group profile photo, name, description, and configuration, or assigns new group owner. API reference documentation: [Update group information]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/update)",
+        "routing": {
+          "request": {
+            "method": "PUT",
+            "url": "=/im/v1/chats/{{$parameter[\"chat_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Delete A Group",
+        "value": "Delete A Group",
+        "action": "Delete A Group Messenger Group",
+        "description": "Deletes a group. API reference documentation: [Delete a group]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/im/v1/chats/{{$parameter[\"chat_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Search For Groups Visible To A User Or Bot",
+        "value": "Search For Groups Visible To A User Or Bot",
+        "action": "Search For Groups Visible To A User Or Bot Messenger Group",
+        "description": "Searches for the list of groups visible to a user or bot, including the groups that the user or bot is in, and groups that are open to the user or bot. The group information that can be obtained include group ID (chat_id), group name, and group description. API reference documentation: [Search for groups visible to a user or bot]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/im/v1/chats/search"
+          }
+        }
+      },
+      {
+        "name": "Obtains The Group Member Speech Scopes",
+        "value": "Obtains The Group Member Speech Scopes",
+        "action": "Obtains The Group Member Speech Scopes Messenger Group",
+        "description": "Obtains the group speech mode, the list of users who can speak, and more API reference documentation: [Obtains the group member speech scopes]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-moderation/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/im/v1/chats/{{$parameter[\"chat_id\"]}}/moderation"
+          }
+        }
+      },
+      {
+        "name": "Updates Group Speech Scopes",
+        "value": "Updates Group Speech Scopes",
+        "action": "Updates Group Speech Scopes Messenger Group",
+        "description": "Updates the settings of group speech scopes, which can be granted to all members, only admins, or only specified users. API reference documentation: [Updates group speech scopes]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-moderation/update)",
+        "routing": {
+          "request": {
+            "method": "PUT",
+            "url": "=/im/v1/chats/{{$parameter[\"chat_id\"]}}/moderation"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Add Users Or Bots To A Group Chat",
+        "value": "Add Users Or Bots To A Group Chat",
+        "action": "Add Users Or Bots To A Group Chat Messenger Group Group Member",
+        "description": "Adds users or bots into a group chat. API reference documentation: [Add users or bots to a group chat]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/im/v1/chats/{{$parameter[\"chat_id\"]}}/members"
+          }
+        }
+      },
+      {
+        "name": "Remove Users Or Bots From A Group Chat",
+        "value": "Remove Users Or Bots From A Group Chat",
+        "action": "Remove Users Or Bots From A Group Chat Messenger Group Group Member",
+        "description": "Removes users or bots from a group chat. API reference documentation: [Remove users or bots from a group chat]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/im/v1/chats/{{$parameter[\"chat_id\"]}}/members"
+          }
+        }
+      },
+      {
+        "name": "Obtain Group Member List",
+        "value": "Obtain Group Member List",
+        "action": "Obtain Group Member List Messenger Group Group Member",
+        "description": "If a user is in a group, the member list of this group is returned. API reference documentation: [Obtain group member list]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/im/v1/chats/{{$parameter[\"chat_id\"]}}/members"
+          }
+        }
+      },
+      {
+        "name": "Users Or Bots Join A Group Chat Voluntarily",
+        "value": "Users Or Bots Join A Group Chat Voluntarily",
+        "action": "Users Or Bots Join A Group Chat Voluntarily Messenger Group Group Member",
+        "description": "Users or bots join a group chat voluntarily. API reference documentation: [Users or bots join a group chat voluntarily.]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/me_join)",
+        "routing": {
+          "request": {
+            "method": "PATCH",
+            "url": "=/im/v1/chats/{{$parameter[\"chat_id\"]}}/members/me_join"
+          }
+        }
+      },
+      {
+        "name": "Determine Whether A User Or Bot Is In A Group",
+        "value": "Determine Whether A User Or Bot Is In A Group",
+        "action": "Determine Whether A User Or Bot Is In A Group Messenger Group Group Member",
+        "description": "Determines whether a user or bot is in a group based on their access_token. API reference documentation: [Determine whether a user or bot is in a group]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/is_in_chat)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/im/v1/chats/{{$parameter[\"chat_id\"]}}/members/is_in_chat"
+          }
+        }
+      },
+      {
+        "name": "Specify Group Administrators",
+        "value": "Specify Group Administrators",
+        "action": "Specify Group Administrators Messenger Group Group Member",
+        "description": "Specifies users or bots as the group administrators. API reference documentation: [Specify group administrators]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-managers/add_managers)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/im/v1/chats/{{$parameter[\"chat_id\"]}}/managers/add_managers"
+          }
+        }
+      },
+      {
+        "name": "Delete Group Administrators",
+        "value": "Delete Group Administrators",
+        "action": "Delete Group Administrators Messenger Group Group Member",
+        "description": "Deletes the specified group admins (users or bots) API reference documentation: [Delete group administrators]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-managers/delete_managers)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/im/v1/chats/{{$parameter[\"chat_id\"]}}/managers/delete_managers"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Announcement"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Obtain Group Announcement Information",
+        "value": "Obtain Group Announcement Information",
+        "action": "Obtain Group Announcement Information Messenger Group Group Announcement",
+        "description": "Obtains the group announcement in a chat, with the same format as [Docs]({{document_base_url}}/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN). API reference documentation: [Obtain group announcement information]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-announcement/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/im/v1/chats/{{$parameter[\"chat_id\"]}}/announcement"
+          }
+        }
+      },
+      {
+        "name": "Update Group Announcement Info",
+        "value": "Update Group Announcement Info",
+        "action": "Update Group Announcement Info Messenger Group Group Announcement",
+        "description": "Updates the group announcement information in a chat, with the same format as [Docs]({{document_base_url}}/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN). API reference documentation: [Update group announcement info]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-announcement/patch)",
+        "routing": {
+          "request": {
+            "method": "PATCH",
+            "url": "=/im/v1/chats/{{$parameter[\"chat_id\"]}}/announcement"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "PATCH /im/v1/messages/{message_id}/urgent_app",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Buzz Messages"
+        ],
+        "operation": [
+          "Send Buzz Messages In Apps"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id Type",
+    "name": "user_id_type",
+    "description": "User ID categories. Optional values: open_id, union_id, user_id",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "user_id_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Buzz Messages"
+        ],
+        "operation": [
+          "Send Buzz Messages In Apps"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Message Id",
+    "name": "message_id",
+    "required": true,
+    "description": "ID of the message to be buzzed",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Buzz Messages"
+        ],
+        "operation": [
+          "Send Buzz Messages In Apps"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id List",
+    "name": "user_id_list",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "user_id_list": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Message Buzz Messages"
+        ],
+        "operation": [
+          "Send Buzz Messages In Apps"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"user_id_list\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Message Buzz Messages"
+        ],
+        "operation": [
+          "Send Buzz Messages In Apps"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PATCH /im/v1/messages/{message_id}/urgent_sms",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Buzz Messages"
+        ],
+        "operation": [
+          "Send Buzz Text Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id Type",
+    "name": "user_id_type",
+    "description": "User ID categories. Optional values: open_id, union_id, user_id",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "user_id_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Buzz Messages"
+        ],
+        "operation": [
+          "Send Buzz Text Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Message Id",
+    "name": "message_id",
+    "required": true,
+    "description": "ID of the message to be buzzed",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Buzz Messages"
+        ],
+        "operation": [
+          "Send Buzz Text Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id List",
+    "name": "user_id_list",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "user_id_list": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Message Buzz Messages"
+        ],
+        "operation": [
+          "Send Buzz Text Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"user_id_list\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Message Buzz Messages"
+        ],
+        "operation": [
+          "Send Buzz Text Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PATCH /im/v1/messages/{message_id}/urgent_phone",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Buzz Messages"
+        ],
+        "operation": [
+          "Send Phone Call Buzz"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id Type",
+    "name": "user_id_type",
+    "description": "User ID categories. Optional values: open_id, union_id, user_id",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "user_id_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Buzz Messages"
+        ],
+        "operation": [
+          "Send Phone Call Buzz"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Message Id",
+    "name": "message_id",
+    "required": true,
+    "description": "ID of the message to be buzzed",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Buzz Messages"
+        ],
+        "operation": [
+          "Send Phone Call Buzz"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id List",
+    "name": "user_id_list",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "user_id_list": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Message Buzz Messages"
+        ],
+        "operation": [
+          "Send Phone Call Buzz"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"user_id_list\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Message Buzz Messages"
+        ],
+        "operation": [
+          "Send Phone Call Buzz"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /im/v1/messages",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Send Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Receive Id Type",
+    "name": "receive_id_type",
+    "description": "ID type of the message receiver, which can be open_id, user_id, union_id, email, or chat_id",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "receive_id_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Send Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Content",
+    "name": "content",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "content": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Send Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Msg Type",
+    "name": "msg_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "msg_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Send Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Receive Id",
+    "name": "receive_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "receive_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Send Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"content\": \"string\",\n  \"msg_type\": \"string\",\n  \"receive_id\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Send Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /im/v1/messages",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Read Chat History"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Container Id Type",
+    "name": "container_id_type",
+    "description": "Container type, which currently only supports \"chat\"",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "container_id_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Read Chat History"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Container Id",
+    "name": "container_id",
+    "description": "Container ID, which is namely the chat ID",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "container_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Read Chat History"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /im/v1/messages/{message_id}/reply",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Reply To Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Message Id",
+    "name": "message_id",
+    "required": true,
+    "description": "ID of the message to be replied to",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Reply To Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Content",
+    "name": "content",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "content": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Reply To Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Msg Type",
+    "name": "msg_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "msg_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Reply To Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"content\": \"string\",\n  \"msg_type\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Reply To Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /im/v1/messages/{message_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Recall Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Message Id",
+    "name": "message_id",
+    "required": true,
+    "description": "ID of the message to be recalled",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Recall Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /im/v1/messages/{message_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Obtain Content Of A Specific Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Message Id",
+    "name": "message_id",
+    "required": true,
+    "description": "ID of the message whose content is to be obtained",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Obtain Content Of A Specific Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PATCH /im/v1/messages/{message_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Message Card"
+        ],
+        "operation": [
+          "Update App Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Message Id",
+    "name": "message_id",
+    "required": true,
+    "description": "ID of the message to be updated",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Message Card"
+        ],
+        "operation": [
+          "Update App Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Content",
+    "name": "content",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "content": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Message Message Card"
+        ],
+        "operation": [
+          "Update App Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"content\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Message Message Card"
+        ],
+        "operation": [
+          "Update App Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /im/v1/messages/{message_id}/read_users",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Queries The Read Status Of A Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id Type",
+    "name": "user_id_type",
+    "description": "User ID categories. Optional values: open_id, union_id, user_id",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "user_id_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Queries The Read Status Of A Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Message Id",
+    "name": "message_id",
+    "required": true,
+    "description": "ID of the message to be queried",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Queries The Read Status Of A Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /im/v1/messages/{message_id}/resources/{file_key}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Obtain Resource Files In Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Type",
+    "name": "type",
+    "description": "Resource type, which can be \"image\" or \"file\"; \"image\" corresponds to the image in the message or the image in the rich-text message; \"file\" corresponds to the file, audio, or video (except the emoji) in the message",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Obtain Resource Files In Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Message Id",
+    "name": "message_id",
+    "required": true,
+    "description": "Message ID for the resource to be queried",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Obtain Resource Files In Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Key",
+    "name": "file_key",
+    "required": true,
+    "description": "Key of the resource to be queried",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message"
+        ],
+        "operation": [
+          "Obtain Resource Files In Messages"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /im/v1/batch_messages/{batch_message_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Batch Message"
+        ],
+        "operation": [
+          "Recall Messages In Batches"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Batch Message Id",
+    "name": "batch_message_id",
+    "required": true,
+    "description": "ID of the batch message that you need to recall",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Batch Message"
+        ],
+        "operation": [
+          "Recall Messages In Batches"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /im/v1/batch_messages/{batch_message_id}/read_user",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Batch Message"
+        ],
+        "operation": [
+          "Query The Number Of Users To Whom A Batch Message Is Pushed And The Number Of Users Who Have Read The Batch Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Batch Message Id",
+    "name": "batch_message_id",
+    "required": true,
+    "description": "ID of the batch message to be queried",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Batch Message"
+        ],
+        "operation": [
+          "Query The Number Of Users To Whom A Batch Message Is Pushed And The Number Of Users Who Have Read The Batch Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /im/v1/batch_messages/{batch_message_id}/get_progress",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Batch Message"
+        ],
+        "operation": [
+          "Queries The Overall Progress Of A Batch Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Batch Message Id",
+    "name": "batch_message_id",
+    "required": true,
+    "description": "ID of the batch message to be queried",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Batch Message"
+        ],
+        "operation": [
+          "Queries The Overall Progress Of A Batch Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /im/v1/images",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Images"
+        ],
+        "operation": [
+          "Upload Images"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /im/v1/images<br/><br/>There's no body available for request, kindly use HTTP Request node to send body",
+    "name": "operation",
+    "type": "notice",
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Images"
+        ],
+        "operation": [
+          "Upload Images"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"image_type\": \"string\",\n  \"image\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Message Images"
+        ],
+        "operation": [
+          "Upload Images"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /im/v1/images/{image_key}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Images"
+        ],
+        "operation": [
+          "Download Images"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Image Key",
+    "name": "image_key",
+    "required": true,
+    "description": "Image key",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Images"
+        ],
+        "operation": [
+          "Download Images"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /im/v1/files",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Files"
+        ],
+        "operation": [
+          "Upload Files"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /im/v1/files<br/><br/>There's no body available for request, kindly use HTTP Request node to send body",
+    "name": "operation",
+    "type": "notice",
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Files"
+        ],
+        "operation": [
+          "Upload Files"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"file_type\": \"string\",\n  \"file_name\": \"测试视频.mp4\",\n  \"duration\": \"3000\",\n  \"file\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Message Files"
+        ],
+        "operation": [
+          "Upload Files"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /im/v1/files/{file_key}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Files"
+        ],
+        "operation": [
+          "Download Files"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Key",
+    "name": "file_key",
+    "required": true,
+    "description": "File key",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Files"
+        ],
+        "operation": [
+          "Download Files"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /im/v1/messages/{message_id}/reactions",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Message Reaction"
+        ],
+        "operation": [
+          "Add A Reaction For A Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Message Id",
+    "name": "message_id",
+    "required": true,
+    "description": "Message ID of the reaction to be added",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Message Reaction"
+        ],
+        "operation": [
+          "Add A Reaction For A Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Reaction Type",
+    "name": "reaction_type",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "emoji_type",
+            "displayName": "Emoji Type"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "reaction_type": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Message Message Reaction"
+        ],
+        "operation": [
+          "Add A Reaction For A Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"reaction_type\": {\n    \"emoji_type\": \"string\"\n  }\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Message Message Reaction"
+        ],
+        "operation": [
+          "Add A Reaction For A Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /im/v1/messages/{message_id}/reactions",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Message Reaction"
+        ],
+        "operation": [
+          "Obtain A Reaction For A Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Reaction Type",
+    "name": "reaction_type",
+    "description": "Type of the message reaction to be queried",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "reaction_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Message Reaction"
+        ],
+        "operation": [
+          "Obtain A Reaction For A Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Message Id",
+    "name": "message_id",
+    "required": true,
+    "description": "Message ID of the reaction to be obtained",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Message Reaction"
+        ],
+        "operation": [
+          "Obtain A Reaction For A Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /im/v1/messages/{message_id}/reactions/{reaction_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Message Reaction"
+        ],
+        "operation": [
+          "Delete A Reaction For A Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Message Id",
+    "name": "message_id",
+    "required": true,
+    "description": "Message ID of the reaction to be deleted",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Message Reaction"
+        ],
+        "operation": [
+          "Delete A Reaction For A Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Reaction Id",
+    "name": "reaction_id",
+    "required": true,
+    "description": "ID of the reaction to be deleted.",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Message Message Reaction"
+        ],
+        "operation": [
+          "Delete A Reaction For A Message"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /im/v1/chats",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Create A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Avatar",
+    "name": "avatar",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "avatar": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Create A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Bot Id List",
+    "name": "bot_id_list",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "bot_id_list": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Create A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Chat Mode",
+    "name": "chat_mode",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "chat_mode": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Create A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Chat Type",
+    "name": "chat_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "chat_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Create A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Description",
+    "name": "description",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "description": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Create A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "External",
+    "name": "external",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "external": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Create A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "I 18 N Names",
+    "name": "i18n_names",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "en_us",
+            "displayName": "En Us"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "ja_jp",
+            "displayName": "Ja Jp"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "zh_cn",
+            "displayName": "Zh Cn"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "i18n_names": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Create A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Join Message Visibility",
+    "name": "join_message_visibility",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "join_message_visibility": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Create A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Labels",
+    "name": "labels",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "labels": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Create A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Leave Message Visibility",
+    "name": "leave_message_visibility",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "leave_message_visibility": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Create A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Membership Approval",
+    "name": "membership_approval",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "membership_approval": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Create A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Create A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Owner Id",
+    "name": "owner_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "owner_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Create A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id List",
+    "name": "user_id_list",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "user_id_list": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Create A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"avatar\": \"string\",\n  \"bot_id_list\": [\n    \"string\"\n  ],\n  \"chat_mode\": \"string\",\n  \"chat_type\": \"string\",\n  \"description\": \"string\",\n  \"external\": true,\n  \"i18n_names\": {\n    \"en_us\": \"string\",\n    \"ja_jp\": \"string\",\n    \"zh_cn\": \"string\"\n  },\n  \"join_message_visibility\": \"string\",\n  \"labels\": [\n    \"string\"\n  ],\n  \"leave_message_visibility\": \"string\",\n  \"membership_approval\": \"string\",\n  \"name\": \"string\",\n  \"owner_id\": \"string\",\n  \"user_id_list\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Create A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /im/v1/chats",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Obtain The List Of Groups With The User Or Bot"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /im/v1/chats/{chat_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Obtain Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Chat Id",
+    "name": "chat_id",
+    "required": true,
+    "description": "Group ID. For details, refer to [Group ID description]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Obtain Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PUT /im/v1/chats/{chat_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Update Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Chat Id",
+    "name": "chat_id",
+    "required": true,
+    "description": "Group ID. For details, refer to [Group ID description]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Update Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Add Member Permission",
+    "name": "add_member_permission",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "add_member_permission": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Update Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "At All Permission",
+    "name": "at_all_permission",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "at_all_permission": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Update Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Avatar",
+    "name": "avatar",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "avatar": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Update Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Description",
+    "name": "description",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "description": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Update Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Edit Permission",
+    "name": "edit_permission",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "edit_permission": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Update Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "I 18 N Names",
+    "name": "i18n_names",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "en_us",
+            "displayName": "En Us"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "ja_jp",
+            "displayName": "Ja Jp"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "zh_cn",
+            "displayName": "Zh Cn"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "i18n_names": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Update Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Join Message Visibility",
+    "name": "join_message_visibility",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "join_message_visibility": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Update Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Labels",
+    "name": "labels",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "labels": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Update Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Leave Message Visibility",
+    "name": "leave_message_visibility",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "leave_message_visibility": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Update Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Membership Approval",
+    "name": "membership_approval",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "membership_approval": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Update Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Update Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Owner Id",
+    "name": "owner_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "owner_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Update Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Share Card Permission",
+    "name": "share_card_permission",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "share_card_permission": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Update Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"add_member_permission\": \"string\",\n  \"at_all_permission\": \"string\",\n  \"avatar\": \"string\",\n  \"description\": \"string\",\n  \"edit_permission\": \"string\",\n  \"i18n_names\": {\n    \"en_us\": \"string\",\n    \"ja_jp\": \"string\",\n    \"zh_cn\": \"string\"\n  },\n  \"join_message_visibility\": \"string\",\n  \"labels\": [\n    \"string\"\n  ],\n  \"leave_message_visibility\": \"string\",\n  \"membership_approval\": \"string\",\n  \"name\": \"string\",\n  \"owner_id\": \"string\",\n  \"share_card_permission\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Update Group Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /im/v1/chats/{chat_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Delete A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Chat Id",
+    "name": "chat_id",
+    "required": true,
+    "description": "Group ID. For details, refer to [Group ID description]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Delete A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /im/v1/chats/search",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Search For Groups Visible To A User Or Bot"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /im/v1/chats/{chat_id}/moderation",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Obtains The Group Member Speech Scopes"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Chat Id",
+    "name": "chat_id",
+    "required": true,
+    "description": "Group ID. For details, refer to [Group ID description]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Obtains The Group Member Speech Scopes"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PUT /im/v1/chats/{chat_id}/moderation",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Updates Group Speech Scopes"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Chat Id",
+    "name": "chat_id",
+    "required": true,
+    "description": "Group ID. For details, refer to [Group ID description]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Updates Group Speech Scopes"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Moderation Setting",
+    "name": "moderation_setting",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "moderation_setting": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Updates Group Speech Scopes"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Moderator Added List",
+    "name": "moderator_added_list",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "moderator_added_list": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Updates Group Speech Scopes"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Moderator Removed List",
+    "name": "moderator_removed_list",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "moderator_removed_list": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Updates Group Speech Scopes"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"moderation_setting\": \"string\",\n  \"moderator_added_list\": [\n    \"string\"\n  ],\n  \"moderator_removed_list\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Group"
+        ],
+        "operation": [
+          "Updates Group Speech Scopes"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /im/v1/chats/{chat_id}/members",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Add Users Or Bots To A Group Chat"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Chat Id",
+    "name": "chat_id",
+    "required": true,
+    "description": "Group ID. For details, refer to [Group ID description]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Add Users Or Bots To A Group Chat"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Id List",
+    "name": "id_list",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "id_list": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Add Users Or Bots To A Group Chat"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"id_list\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Add Users Or Bots To A Group Chat"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /im/v1/chats/{chat_id}/members",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Remove Users Or Bots From A Group Chat"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Chat Id",
+    "name": "chat_id",
+    "required": true,
+    "description": "Group ID. For details, refer to [Group ID description]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Remove Users Or Bots From A Group Chat"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /im/v1/chats/{chat_id}/members",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Obtain Group Member List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Chat Id",
+    "name": "chat_id",
+    "required": true,
+    "description": "Group ID. For details, refer to [Group ID description]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Obtain Group Member List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PATCH /im/v1/chats/{chat_id}/members/me_join",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Users Or Bots Join A Group Chat Voluntarily"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Chat Id",
+    "name": "chat_id",
+    "required": true,
+    "description": "Group ID. For details, refer to [Group ID description]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Users Or Bots Join A Group Chat Voluntarily"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Users Or Bots Join A Group Chat Voluntarily"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /im/v1/chats/{chat_id}/members/is_in_chat",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Determine Whether A User Or Bot Is In A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Chat Id",
+    "name": "chat_id",
+    "required": true,
+    "description": "Group ID. For details, refer to [Group ID description]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Determine Whether A User Or Bot Is In A Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /im/v1/chats/{chat_id}/managers/add_managers",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Specify Group Administrators"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Chat Id",
+    "name": "chat_id",
+    "required": true,
+    "description": "Group ID. For details, refer to [Group ID description]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Specify Group Administrators"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Manager Ids",
+    "name": "manager_ids",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "manager_ids": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Specify Group Administrators"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"manager_ids\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Specify Group Administrators"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /im/v1/chats/{chat_id}/managers/delete_managers",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Delete Group Administrators"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Chat Id",
+    "name": "chat_id",
+    "required": true,
+    "description": "Group ID. For details, refer to [Group ID description]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Delete Group Administrators"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Manager Ids",
+    "name": "manager_ids",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "manager_ids": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Delete Group Administrators"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"manager_ids\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Group Group Member"
+        ],
+        "operation": [
+          "Delete Group Administrators"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /im/v1/chats/{chat_id}/announcement",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Announcement"
+        ],
+        "operation": [
+          "Obtain Group Announcement Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Chat Id",
+    "name": "chat_id",
+    "required": true,
+    "description": "The ID of the group with its announcement to be obtained. For details, refer to [Group ID description]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Announcement"
+        ],
+        "operation": [
+          "Obtain Group Announcement Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PATCH /im/v1/chats/{chat_id}/announcement",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Announcement"
+        ],
+        "operation": [
+          "Update Group Announcement Info"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Chat Id",
+    "name": "chat_id",
+    "required": true,
+    "description": "The ID of the group with its announcement to be modified. For details, refer to [Group ID description]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Group Group Announcement"
+        ],
+        "operation": [
+          "Update Group Announcement Info"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Requests",
+    "name": "requests",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "requests": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group Group Announcement"
+        ],
+        "operation": [
+          "Update Group Announcement Info"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Revision",
+    "name": "revision",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "revision": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Group Group Announcement"
+        ],
+        "operation": [
+          "Update Group Announcement Info"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"requests\": [\n    \"string\"\n  ],\n  \"revision\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Group Group Announcement"
+        ],
+        "operation": [
+          "Update Group Announcement Info"
+        ]
+      }
+    }
+  }
+]

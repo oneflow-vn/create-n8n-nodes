@@ -1,0 +1,4053 @@
+[
+  {
+    "displayName": "Resource",
+    "name": "resource",
+    "type": "options",
+    "noDataExpression": true,
+    "options": [
+      {
+        "name": "File",
+        "value": "File",
+        "description": ""
+      },
+      {
+        "name": "Multipart Upload Files",
+        "value": "Multipart Upload Files",
+        "description": ""
+      },
+      {
+        "name": "Permission Member",
+        "value": "Permission Member",
+        "description": ""
+      },
+      {
+        "name": "Permission Public",
+        "value": "Permission Public",
+        "description": ""
+      },
+      {
+        "name": "Statistics",
+        "value": "Statistics",
+        "description": ""
+      },
+      {
+        "name": "Media",
+        "value": "Media",
+        "description": ""
+      },
+      {
+        "name": "Multipart Upload Media",
+        "value": "Multipart Upload Media",
+        "description": ""
+      },
+      {
+        "name": "Comment",
+        "value": "Comment",
+        "description": ""
+      },
+      {
+        "name": "Subscription",
+        "value": "Subscription",
+        "description": ""
+      },
+      {
+        "name": "Document Import",
+        "value": "Document Import",
+        "description": ""
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Multipart Upload Files"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Upload A File In Blocks Pre Uploading",
+        "value": "Upload A File In Blocks Pre Uploading",
+        "action": "Upload A File In Blocks Pre Uploading Docs File Management File Multipart Upload Files",
+        "description": "Sends an initialization request to obtain an upload transaction ID and a split policy. The current policy is to split a file into 4 MB fixed-length blocks. API reference documentation: [Upload a file in blocks (Pre­uploading)]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/drive/v1/files/upload_prepare"
+          }
+        }
+      },
+      {
+        "name": "Upload A File In Blocks Upload Blocks",
+        "value": "Upload A File In Blocks Upload Blocks",
+        "action": "Upload A File In Blocks Upload Blocks Docs File Management File Multipart Upload Files",
+        "description": "Uploads blocks of a specified file. API reference documentation: [Upload a file in blocks (Upload blocks)]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/drive/v1/files/upload_part"
+          }
+        }
+      },
+      {
+        "name": "Complete Uploading A File In Blocks",
+        "value": "Complete Uploading A File In Blocks",
+        "action": "Complete Uploading A File In Blocks Docs File Management File Multipart Upload Files",
+        "description": "Completes an upload task. API reference documentation: [Complete uploading a file in blocks]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/drive/v1/files/upload_finish"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "File"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Upload A File",
+        "value": "Upload A File",
+        "action": "Upload A File Docs File Management File",
+        "description": "Uploads a file to a specified directory in My Space. API reference documentation: [Upload a file]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/drive/v1/files/upload_all"
+          }
+        }
+      },
+      {
+        "name": "Download A File",
+        "value": "Download A File",
+        "action": "Download A File Docs File Management File",
+        "description": "This API is used to download files from a directory in My Space, excluding online documents in Lark Docs, Sheets, and MindNotes. You can download a file based on a specified range. API reference documentation: [Download a file]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/drive/v1/files/{{$parameter[\"file_token\"]}}/download"
+          }
+        }
+      },
+      {
+        "name": "Delete A File",
+        "value": "Delete A File",
+        "action": "Delete A File Docs File Management File",
+        "description": "Deletes a file from My Space. API reference documentation: [Delete a file]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/drive/v1/files/{{$parameter[\"file_token\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Permission Member"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Add Permissions",
+        "value": "Add Permissions",
+        "action": "Add Permissions Docs File Management Permission Permission Member",
+        "description": "This API is used to add permissions on a document for a user based on a filetoken. API reference documentation: [Add permissions]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/drive/v1/permissions/{{$parameter[\"token\"]}}/members"
+          }
+        }
+      },
+      {
+        "name": "Updates Permissions Of A Collaborator",
+        "value": "Updates Permissions Of A Collaborator",
+        "action": "Updates Permissions Of A Collaborator Docs File Management Permission Permission Member",
+        "description": "This API is used to update permissions of a document collaborator based on a filetoken. API reference documentation: [Updates permissions of a collaborator]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update)",
+        "routing": {
+          "request": {
+            "method": "PUT",
+            "url": "=/drive/v1/permissions/{{$parameter[\"token\"]}}/members/{{$parameter[\"member_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Delete Permissions Of A Collaborator",
+        "value": "Delete Permissions Of A Collaborator",
+        "action": "Delete Permissions Of A Collaborator Docs File Management Permission Permission Member",
+        "description": "This API is used to delete permissions of a document collaborator based on a filetoken. API reference documentation: [Delete permissions of a collaborator]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/drive/v1/permissions/{{$parameter[\"token\"]}}/members/{{$parameter[\"member_id\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Permission Public"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Update Common Settings Of A Document",
+        "value": "Update Common Settings Of A Document",
+        "action": "Update Common Settings Of A Document Docs File Management Permission Permission Public",
+        "description": "This API is used to update the common settings of a document based on a filetoken. API reference documentation: [Update common settings of a document]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/patch)",
+        "routing": {
+          "request": {
+            "method": "PATCH",
+            "url": "=/drive/v1/permissions/{{$parameter[\"token\"]}}/public"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Statistics"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Obtain Statistics Of A File",
+        "value": "Obtain Statistics Of A File",
+        "action": "Obtain Statistics Of A File Docs File Management Statistics",
+        "description": "This API is used to obtain statistics of a file, including the number of unique visitors (UVs), the number of page views (PVs), and the number of likes. API reference documentation: [Obtain statistics of a file]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-statistics/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/drive/v1/files/{{$parameter[\"file_token\"]}}/statistics"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Multipart Upload Media"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Upload A Material In Blocks Pre Uploading",
+        "value": "Upload A Material In Blocks Pre Uploading",
+        "action": "Upload A Material In Blocks Pre Uploading Docs File Management Media Multipart Upload Media",
+        "description": "Sends an initialization request to obtain an upload transaction ID and a split policy. The current policy is to split a file into 4 MB fixed-length blocks. API reference documentation: [Upload a material in blocks (Pre­uploading)]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/drive/v1/medias/upload_prepare"
+          }
+        }
+      },
+      {
+        "name": "Upload A Material In Blocks Upload Blocks",
+        "value": "Upload A Material In Blocks Upload Blocks",
+        "action": "Upload A Material In Blocks Upload Blocks Docs File Management Media Multipart Upload Media",
+        "description": "Uploads blocks of a specified file. API reference documentation: [Upload a material in blocks (Upload blocks)]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/drive/v1/medias/upload_part"
+          }
+        }
+      },
+      {
+        "name": "Complete Uploading A Material In Blocks",
+        "value": "Complete Uploading A Material In Blocks",
+        "action": "Complete Uploading A Material In Blocks Docs File Management Media Multipart Upload Media",
+        "description": "Completes an upload task. API reference documentation: [Complete uploading a material in blocks]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/drive/v1/medias/upload_finish"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Media"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Upload A Material",
+        "value": "Upload A Material",
+        "action": "Upload A Material Docs File Management Media",
+        "description": "Uploads a material (images or files) required by Docs or other Lark suite to My Space. API reference documentation: [Upload a material]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/drive/v1/medias/upload_all"
+          }
+        }
+      },
+      {
+        "name": "Obtain A Temporary Material Download Url",
+        "value": "Obtain A Temporary Material Download Url",
+        "action": "Obtain A Temporary Material Download Url Docs File Management Media",
+        "description": "Obtain the temporary download URL of a material based on a file_token. The URL is valid for 24 hours. API reference documentation: [Obtain a temporary material download URL]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/batch_get_tmp_download_url)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/drive/v1/medias/batch_get_tmp_download_url"
+          }
+        }
+      },
+      {
+        "name": "Download A Material",
+        "value": "Download A Material",
+        "action": "Download A Material Docs File Management Media",
+        "description": "This API is used to download materials. Materials refer to files in various production containers, for example, images in a document and files. You can download a material based on a specified range. API reference documentation: [Download a material]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/drive/v1/medias/{{$parameter[\"file_token\"]}}/download"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Obtain A Comment List",
+        "value": "Obtain A Comment List",
+        "action": "Obtain A Comment List Docs File Management Comment",
+        "description": "Obtains all Doc comments in Docs by pages. API reference documentation: [Obtain a comment list]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/drive/v1/files/{{$parameter[\"file_token\"]}}/comments"
+          }
+        }
+      },
+      {
+        "name": "Add A Comment",
+        "value": "Add A Comment",
+        "action": "Add A Comment Docs File Management Comment",
+        "description": "Adds a global comment to Docs. API reference documentation: [Add a comment]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/drive/v1/files/{{$parameter[\"file_token\"]}}/comments"
+          }
+        }
+      },
+      {
+        "name": "Obtain A Comment",
+        "value": "Obtain A Comment",
+        "action": "Obtain A Comment Docs File Management Comment",
+        "description": "Obtains a specified comment in Docs. API reference documentation: [Obtain a comment]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/drive/v1/files/{{$parameter[\"file_token\"]}}/comments/{{$parameter[\"comment_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Solve Or Restore A Comment",
+        "value": "Solve Or Restore A Comment",
+        "action": "Solve Or Restore A Comment Docs File Management Comment",
+        "description": "Solves or restores a comment on a document in Docs. API reference documentation: [Solve or restore a comment]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/patch)",
+        "routing": {
+          "request": {
+            "method": "PATCH",
+            "url": "=/drive/v1/files/{{$parameter[\"file_token\"]}}/comments/{{$parameter[\"comment_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Update A Reply",
+        "value": "Update A Reply",
+        "action": "Update A Reply Docs File Management Comment",
+        "description": "Updates a reply to a document in Docs. API reference documentation: [Update a reply]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/update)",
+        "routing": {
+          "request": {
+            "method": "PUT",
+            "url": "=/drive/v1/files/{{$parameter[\"file_token\"]}}/comments/{{$parameter[\"comment_id\"]}}/replies/{{$parameter[\"reply_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Delete A Reply",
+        "value": "Delete A Reply",
+        "action": "Delete A Reply Docs File Management Comment",
+        "description": "Deletes a reply to a document in Docs. API reference documentation: [Delete a reply]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/drive/v1/files/{{$parameter[\"file_token\"]}}/comments/{{$parameter[\"comment_id\"]}}/replies/{{$parameter[\"reply_id\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Subscription"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Create Subscription",
+        "value": "Create Subscription",
+        "action": "Create Subscription Docs File Management Subscription",
+        "description": "Subscribe to change events in the document, currently supporting document comment subscriptions API reference documentation: [Create Subscription]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/drive/v1/files/{{$parameter[\"file_token\"]}}/subscriptions"
+          }
+        }
+      },
+      {
+        "name": "Get Subscription Status",
+        "value": "Get Subscription Status",
+        "action": "Get Subscription Status Docs File Management Subscription",
+        "description": "Get the status of the subscription based on the subscription ID API reference documentation: [Get subscription status]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/drive/v1/files/{{$parameter[\"file_token\"]}}/subscriptions/{{$parameter[\"subscription_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Update Subscription Status",
+        "value": "Update Subscription Status",
+        "action": "Update Subscription Status Docs File Management Subscription",
+        "description": "Update subscription status based on subscription ID API reference documentation: [Update subscription status]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/patch)",
+        "routing": {
+          "request": {
+            "method": "PATCH",
+            "url": "=/drive/v1/files/{{$parameter[\"file_token\"]}}/subscriptions/{{$parameter[\"subscription_id\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Document Import"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Create An Import Task",
+        "value": "Create An Import Task",
+        "action": "Create An Import Task Docs File Management Document Import",
+        "description": "Creates an import task. You can import files of the doc, sheet, and bitable types. For more information, see [User guide on importing files]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide). API reference documentation: [Create an import task]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/drive/v1/import_tasks"
+          }
+        }
+      },
+      {
+        "name": "Query The Import Task Result",
+        "value": "Query The Import Task Result",
+        "action": "Query The Import Task Result Docs File Management Document Import",
+        "description": "Queries the result of an import task based on the ticket returned when the task was created. API reference documentation: [Query the import task result]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/drive/v1/import_tasks/{{$parameter[\"ticket\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "POST /drive/v1/files/upload_prepare",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Multipart Upload Files"
+        ],
+        "operation": [
+          "Upload A File In Blocks Pre Uploading"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Name",
+    "name": "file_name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "file_name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Multipart Upload Files"
+        ],
+        "operation": [
+          "Upload A File In Blocks Pre Uploading"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Parent Node",
+    "name": "parent_node",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "parent_node": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Multipart Upload Files"
+        ],
+        "operation": [
+          "Upload A File In Blocks Pre Uploading"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Parent Type",
+    "name": "parent_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "parent_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Multipart Upload Files"
+        ],
+        "operation": [
+          "Upload A File In Blocks Pre Uploading"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Size",
+    "name": "size",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "size": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Multipart Upload Files"
+        ],
+        "operation": [
+          "Upload A File In Blocks Pre Uploading"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"file_name\": \"string\",\n  \"parent_node\": \"string\",\n  \"parent_type\": \"string\",\n  \"size\": 0\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Multipart Upload Files"
+        ],
+        "operation": [
+          "Upload A File In Blocks Pre Uploading"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /drive/v1/files/upload_part",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Multipart Upload Files"
+        ],
+        "operation": [
+          "Upload A File In Blocks Upload Blocks"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /drive/v1/files/upload_part<br/><br/>There's no body available for request, kindly use HTTP Request node to send body",
+    "name": "operation",
+    "type": "notice",
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Multipart Upload Files"
+        ],
+        "operation": [
+          "Upload A File In Blocks Upload Blocks"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"upload_id\": \"string\",\n  \"seq\": \"string\",\n  \"size\": \"string\",\n  \"checksum\": \"string\",\n  \"file\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Multipart Upload Files"
+        ],
+        "operation": [
+          "Upload A File In Blocks Upload Blocks"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /drive/v1/files/upload_finish",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Multipart Upload Files"
+        ],
+        "operation": [
+          "Complete Uploading A File In Blocks"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Block Num",
+    "name": "block_num",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "block_num": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Multipart Upload Files"
+        ],
+        "operation": [
+          "Complete Uploading A File In Blocks"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Upload Id",
+    "name": "upload_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "upload_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Multipart Upload Files"
+        ],
+        "operation": [
+          "Complete Uploading A File In Blocks"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"block_num\": 0,\n  \"upload_id\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Multipart Upload Files"
+        ],
+        "operation": [
+          "Complete Uploading A File In Blocks"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /drive/v1/files/upload_all",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "File"
+        ],
+        "operation": [
+          "Upload A File"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /drive/v1/files/upload_all<br/><br/>There's no body available for request, kindly use HTTP Request node to send body",
+    "name": "operation",
+    "type": "notice",
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "File"
+        ],
+        "operation": [
+          "Upload A File"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"file_name\": \"string\",\n  \"parent_type\": \"string\",\n  \"parent_node\": \"string\",\n  \"size\": \"string\",\n  \"checksum\": \"string\",\n  \"file\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "File"
+        ],
+        "operation": [
+          "Upload A File"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /drive/v1/files/{file_token}/download",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "File"
+        ],
+        "operation": [
+          "Download A File"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Token",
+    "name": "file_token",
+    "required": true,
+    "description": "Token of the file. For more information about how to obtain the token, see [Overview]({{document_base_url}}/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "File"
+        ],
+        "operation": [
+          "Download A File"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /drive/v1/files/{file_token}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "File"
+        ],
+        "operation": [
+          "Delete A File"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Type",
+    "name": "type",
+    "description": "Type of the document in Docs",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "File"
+        ],
+        "operation": [
+          "Delete A File"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Token",
+    "name": "file_token",
+    "required": true,
+    "description": "Token of the file to delete",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "File"
+        ],
+        "operation": [
+          "Delete A File"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /drive/v1/permissions/{token}/members",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Add Permissions"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Type",
+    "name": "type",
+    "description": "Type of the file, for example, `?type\n\n\ndrive.v1.permission.member.method.create.request.body.table.required-column.width=$$$10%",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Add Permissions"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Token",
+    "name": "token",
+    "required": true,
+    "description": "Token of the file. For more information about how to obtain the token, see [Overview]({{document_base_url}}/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Add Permissions"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Member Id",
+    "name": "member_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "member_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Add Permissions"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Member Type",
+    "name": "member_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "member_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Add Permissions"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Perm",
+    "name": "perm",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "perm": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Add Permissions"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"member_id\": \"string\",\n  \"member_type\": \"string\",\n  \"perm\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Add Permissions"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PUT /drive/v1/permissions/{token}/members/{member_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Updates Permissions Of A Collaborator"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Type",
+    "name": "type",
+    "description": "Type of the file, for example, `?type\n\n\ndrive.v1.permission.member.method.update.path.prop.member_id.string.example=$$$ou_7dab8a3d3cdcc9da365777c7ad535d62",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Updates Permissions Of A Collaborator"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Token",
+    "name": "token",
+    "required": true,
+    "description": "Token of the file. For more information about how to obtain the token, see [Overview]({{document_base_url}}/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Updates Permissions Of A Collaborator"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Member Id",
+    "name": "member_id",
+    "required": true,
+    "description": "ID of the member for whom you need to update the permissions. This field corresponds to the `member_type` field.",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Updates Permissions Of A Collaborator"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Member Type",
+    "name": "member_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "member_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Updates Permissions Of A Collaborator"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Perm",
+    "name": "perm",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "perm": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Updates Permissions Of A Collaborator"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"member_type\": \"string\",\n  \"perm\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Updates Permissions Of A Collaborator"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /drive/v1/permissions/{token}/members/{member_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Delete Permissions Of A Collaborator"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Type",
+    "name": "type",
+    "description": "The type of file, placed in the query parameter, e.g.`?type = doc`",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Delete Permissions Of A Collaborator"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Member Type",
+    "name": "member_type",
+    "description": "Type of the member for whom you need to delete the permissions, for example, `?member_type\n\n\ndrive.v1.permission.member.method.delete.query.prop.type.desc=$$$Type of the file, for example, `?type=doc`. This field is included in the query parameters.",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "member_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Delete Permissions Of A Collaborator"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Token",
+    "name": "token",
+    "required": true,
+    "description": "Token of the file. For more information about how to obtain the token, see [Overview]({{document_base_url}}/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Delete Permissions Of A Collaborator"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Member Id",
+    "name": "member_id",
+    "required": true,
+    "description": "ID of the member for whom you need to delete the permissions. This field corresponds to the `member_type` field.",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Permission Member"
+        ],
+        "operation": [
+          "Delete Permissions Of A Collaborator"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PATCH /drive/v1/permissions/{token}/public",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Permission Public"
+        ],
+        "operation": [
+          "Update Common Settings Of A Document"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Type",
+    "name": "type",
+    "description": "Type of the permission object, for example, `?type\n\n\ndrive.v1.enum.TokenType.option.Wiki.desc=$$$Wiki node (Partially supported)",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Permission Public"
+        ],
+        "operation": [
+          "Update Common Settings Of A Document"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Token",
+    "name": "token",
+    "required": true,
+    "description": "Token of the file. For more information about how to obtain the token, see [Overview]({{document_base_url}}/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Permission Public"
+        ],
+        "operation": [
+          "Update Common Settings Of A Document"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Comment Entity",
+    "name": "comment_entity",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "comment_entity": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Permission Public"
+        ],
+        "operation": [
+          "Update Common Settings Of A Document"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "External Access",
+    "name": "external_access",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "external_access": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Permission Public"
+        ],
+        "operation": [
+          "Update Common Settings Of A Document"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Invite External",
+    "name": "invite_external",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "invite_external": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Permission Public"
+        ],
+        "operation": [
+          "Update Common Settings Of A Document"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Link Share Entity",
+    "name": "link_share_entity",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "link_share_entity": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Permission Public"
+        ],
+        "operation": [
+          "Update Common Settings Of A Document"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Lock Switch",
+    "name": "lock_switch",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "lock_switch": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Permission Public"
+        ],
+        "operation": [
+          "Update Common Settings Of A Document"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Security Entity",
+    "name": "security_entity",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "security_entity": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Permission Public"
+        ],
+        "operation": [
+          "Update Common Settings Of A Document"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Share Entity",
+    "name": "share_entity",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "share_entity": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Permission Public"
+        ],
+        "operation": [
+          "Update Common Settings Of A Document"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"comment_entity\": \"string\",\n  \"external_access\": true,\n  \"invite_external\": true,\n  \"link_share_entity\": \"string\",\n  \"lock_switch\": true,\n  \"security_entity\": \"string\",\n  \"share_entity\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Permission Public"
+        ],
+        "operation": [
+          "Update Common Settings Of A Document"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /drive/v1/files/{file_token}/statistics",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Statistics"
+        ],
+        "operation": [
+          "Obtain Statistics Of A File"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Type",
+    "name": "file_type",
+    "description": "Type of the document",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "file_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Statistics"
+        ],
+        "operation": [
+          "Obtain Statistics Of A File"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Token",
+    "name": "file_token",
+    "required": true,
+    "description": "Token of the file",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Statistics"
+        ],
+        "operation": [
+          "Obtain Statistics Of A File"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /drive/v1/medias/upload_prepare",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Multipart Upload Media"
+        ],
+        "operation": [
+          "Upload A Material In Blocks Pre Uploading"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Extra",
+    "name": "extra",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "extra": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Multipart Upload Media"
+        ],
+        "operation": [
+          "Upload A Material In Blocks Pre Uploading"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Name",
+    "name": "file_name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "file_name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Multipart Upload Media"
+        ],
+        "operation": [
+          "Upload A Material In Blocks Pre Uploading"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Parent Node",
+    "name": "parent_node",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "parent_node": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Multipart Upload Media"
+        ],
+        "operation": [
+          "Upload A Material In Blocks Pre Uploading"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Parent Type",
+    "name": "parent_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "parent_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Multipart Upload Media"
+        ],
+        "operation": [
+          "Upload A Material In Blocks Pre Uploading"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Size",
+    "name": "size",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "size": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Multipart Upload Media"
+        ],
+        "operation": [
+          "Upload A Material In Blocks Pre Uploading"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"extra\": \"string\",\n  \"file_name\": \"string\",\n  \"parent_node\": \"string\",\n  \"parent_type\": \"string\",\n  \"size\": 0\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Multipart Upload Media"
+        ],
+        "operation": [
+          "Upload A Material In Blocks Pre Uploading"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /drive/v1/medias/upload_part",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Multipart Upload Media"
+        ],
+        "operation": [
+          "Upload A Material In Blocks Upload Blocks"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /drive/v1/medias/upload_part<br/><br/>There's no body available for request, kindly use HTTP Request node to send body",
+    "name": "operation",
+    "type": "notice",
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Multipart Upload Media"
+        ],
+        "operation": [
+          "Upload A Material In Blocks Upload Blocks"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"upload_id\": \"string\",\n  \"seq\": \"string\",\n  \"size\": \"string\",\n  \"checksum\": \"string\",\n  \"file\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Multipart Upload Media"
+        ],
+        "operation": [
+          "Upload A Material In Blocks Upload Blocks"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /drive/v1/medias/upload_finish",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Multipart Upload Media"
+        ],
+        "operation": [
+          "Complete Uploading A Material In Blocks"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Block Num",
+    "name": "block_num",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "block_num": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Multipart Upload Media"
+        ],
+        "operation": [
+          "Complete Uploading A Material In Blocks"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Upload Id",
+    "name": "upload_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "upload_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Multipart Upload Media"
+        ],
+        "operation": [
+          "Complete Uploading A Material In Blocks"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"block_num\": 0,\n  \"upload_id\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Multipart Upload Media"
+        ],
+        "operation": [
+          "Complete Uploading A Material In Blocks"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /drive/v1/medias/upload_all",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Media"
+        ],
+        "operation": [
+          "Upload A Material"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /drive/v1/medias/upload_all<br/><br/>There's no body available for request, kindly use HTTP Request node to send body",
+    "name": "operation",
+    "type": "notice",
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Media"
+        ],
+        "operation": [
+          "Upload A Material"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"file_name\": \"string\",\n  \"parent_type\": \"string\",\n  \"parent_node\": \"string\",\n  \"size\": \"string\",\n  \"checksum\": \"string\",\n  \"extra\": \"string\",\n  \"file\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Media"
+        ],
+        "operation": [
+          "Upload A Material"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /drive/v1/medias/batch_get_tmp_download_url",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Media"
+        ],
+        "operation": [
+          "Obtain A Temporary Material Download Url"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Tokens",
+    "name": "file_tokens",
+    "description": "List of file tokens",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "file_tokens": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Media"
+        ],
+        "operation": [
+          "Obtain A Temporary Material Download Url"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /drive/v1/medias/{file_token}/download",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Media"
+        ],
+        "operation": [
+          "Download A Material"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Token",
+    "name": "file_token",
+    "required": true,
+    "description": "Token of the file. For more information about how to obtain the token, see [Overview]({{document_base_url}}/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction).",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Media"
+        ],
+        "operation": [
+          "Download A Material"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /drive/v1/files/{file_token}/comments",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Obtain A Comment List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Type",
+    "name": "file_type",
+    "description": "Type of the document",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "file_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Obtain A Comment List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Token",
+    "name": "file_token",
+    "required": true,
+    "description": "Token of the document",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Obtain A Comment List"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /drive/v1/files/{file_token}/comments",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Add A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Type",
+    "name": "file_type",
+    "description": "Type of the document",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "file_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Add A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Token",
+    "name": "file_token",
+    "required": true,
+    "description": "Token of the document",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Add A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Comment Id",
+    "name": "comment_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "comment_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Add A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Create Time",
+    "name": "create_time",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "create_time": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Add A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Is Solved",
+    "name": "is_solved",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "is_solved": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Add A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Reply List",
+    "name": "reply_list",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "fixedCollection",
+            "default": [],
+            "typeOptions": {
+              "multipleValues": true
+            },
+            "displayName": "Replies",
+            "name": "replies",
+            "description": "",
+            "placeholder": "Add item",
+            "options": [
+              {
+                "name": "items",
+                "displayName": "Items",
+                "values": [
+                  {
+                    "type": "fixedCollection",
+                    "default": {},
+                    "description": "",
+                    "options": [
+                      {
+                        "name": "items",
+                        "displayName": "Items",
+                        "values": [
+                          {
+                            "type": "fixedCollection",
+                            "default": [],
+                            "typeOptions": {
+                              "multipleValues": true
+                            },
+                            "displayName": "Elements",
+                            "name": "elements",
+                            "description": "",
+                            "placeholder": "Add item",
+                            "options": [
+                              {
+                                "name": "items",
+                                "displayName": "Items",
+                                "values": [
+                                  {
+                                    "type": "fixedCollection",
+                                    "default": {},
+                                    "description": "",
+                                    "options": [
+                                      {
+                                        "name": "items",
+                                        "displayName": "Items",
+                                        "values": [
+                                          {
+                                            "type": "string",
+                                            "default": "",
+                                            "description": "",
+                                            "name": "url",
+                                            "displayName": "Url"
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    "name": "docs_link",
+                                    "displayName": "Docs Link"
+                                  },
+                                  {
+                                    "type": "fixedCollection",
+                                    "default": {},
+                                    "description": "",
+                                    "options": [
+                                      {
+                                        "name": "items",
+                                        "displayName": "Items",
+                                        "values": [
+                                          {
+                                            "type": "string",
+                                            "default": "",
+                                            "description": "",
+                                            "name": "user_id",
+                                            "displayName": "User Id"
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    "name": "person",
+                                    "displayName": "Person"
+                                  },
+                                  {
+                                    "type": "fixedCollection",
+                                    "default": {},
+                                    "description": "",
+                                    "options": [
+                                      {
+                                        "name": "items",
+                                        "displayName": "Items",
+                                        "values": [
+                                          {
+                                            "type": "string",
+                                            "default": "",
+                                            "description": "",
+                                            "name": "text",
+                                            "displayName": "Text"
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    "name": "text_run",
+                                    "displayName": "Text Run"
+                                  },
+                                  {
+                                    "type": "string",
+                                    "default": "",
+                                    "description": "",
+                                    "name": "type",
+                                    "displayName": "Type"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "name": "content",
+                    "displayName": "Content"
+                  },
+                  {
+                    "type": "number",
+                    "default": 0,
+                    "description": "",
+                    "name": "create_time",
+                    "displayName": "Create Time"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "reply_id",
+                    "displayName": "Reply Id"
+                  },
+                  {
+                    "type": "number",
+                    "default": 0,
+                    "description": "",
+                    "name": "update_time",
+                    "displayName": "Update Time"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "user_id",
+                    "displayName": "User Id"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "reply_list": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Add A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Solved Time",
+    "name": "solved_time",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "solved_time": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Add A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Solver User Id",
+    "name": "solver_user_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "solver_user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Add A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Update Time",
+    "name": "update_time",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "update_time": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Add A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id",
+    "name": "user_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Add A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"comment_id\": \"string\",\n  \"create_time\": 0,\n  \"is_solved\": true,\n  \"reply_list\": {\n    \"replies\": [\n      {\n        \"content\": {\n          \"elements\": [\n            {\n              \"docs_link\": {\n                \"url\": \"https://example.com/path\"\n              },\n              \"person\": {\n                \"user_id\": \"string\"\n              },\n              \"text_run\": {\n                \"text\": \"string\"\n              },\n              \"type\": \"string\"\n            }\n          ]\n        },\n        \"create_time\": 0,\n        \"reply_id\": \"string\",\n        \"update_time\": 0,\n        \"user_id\": \"string\"\n      }\n    ]\n  },\n  \"solved_time\": 0,\n  \"solver_user_id\": \"string\",\n  \"update_time\": 0,\n  \"user_id\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Add A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /drive/v1/files/{file_token}/comments/{comment_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Obtain A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Type",
+    "name": "file_type",
+    "description": "Type of the document",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "file_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Obtain A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Token",
+    "name": "file_token",
+    "required": true,
+    "description": "Token of the document",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Obtain A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Comment Id",
+    "name": "comment_id",
+    "required": true,
+    "description": "Comment ID",
+    "default": "6916106822734578184",
+    "type": "number",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Obtain A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PATCH /drive/v1/files/{file_token}/comments/{comment_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Solve Or Restore A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Type",
+    "name": "file_type",
+    "description": "Type of the document",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "file_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Solve Or Restore A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Token",
+    "name": "file_token",
+    "required": true,
+    "description": "Token of the document",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Solve Or Restore A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Comment Id",
+    "name": "comment_id",
+    "required": true,
+    "description": "Comment ID",
+    "default": "6916106822734578184",
+    "type": "number",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Solve Or Restore A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Is Solved",
+    "name": "is_solved",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "is_solved": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Solve Or Restore A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"is_solved\": true\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Solve Or Restore A Comment"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PUT /drive/v1/files/{file_token}/comments/{comment_id}/replies/{reply_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Update A Reply"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Type",
+    "name": "file_type",
+    "description": "Type of the document",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "file_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Update A Reply"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Token",
+    "name": "file_token",
+    "required": true,
+    "description": "Token of the document",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Update A Reply"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Comment Id",
+    "name": "comment_id",
+    "required": true,
+    "description": "Comment ID",
+    "default": "6916106822734578184",
+    "type": "number",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Update A Reply"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Reply Id",
+    "name": "reply_id",
+    "required": true,
+    "description": "Reply ID",
+    "default": "6916106822734594568",
+    "type": "number",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Update A Reply"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Content",
+    "name": "content",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "fixedCollection",
+            "default": [],
+            "typeOptions": {
+              "multipleValues": true
+            },
+            "displayName": "Elements",
+            "name": "elements",
+            "description": "",
+            "placeholder": "Add item",
+            "options": [
+              {
+                "name": "items",
+                "displayName": "Items",
+                "values": [
+                  {
+                    "type": "fixedCollection",
+                    "default": {},
+                    "description": "",
+                    "options": [
+                      {
+                        "name": "items",
+                        "displayName": "Items",
+                        "values": [
+                          {
+                            "type": "string",
+                            "default": "",
+                            "description": "",
+                            "name": "url",
+                            "displayName": "Url"
+                          }
+                        ]
+                      }
+                    ],
+                    "name": "docs_link",
+                    "displayName": "Docs Link"
+                  },
+                  {
+                    "type": "fixedCollection",
+                    "default": {},
+                    "description": "",
+                    "options": [
+                      {
+                        "name": "items",
+                        "displayName": "Items",
+                        "values": [
+                          {
+                            "type": "string",
+                            "default": "",
+                            "description": "",
+                            "name": "user_id",
+                            "displayName": "User Id"
+                          }
+                        ]
+                      }
+                    ],
+                    "name": "person",
+                    "displayName": "Person"
+                  },
+                  {
+                    "type": "fixedCollection",
+                    "default": {},
+                    "description": "",
+                    "options": [
+                      {
+                        "name": "items",
+                        "displayName": "Items",
+                        "values": [
+                          {
+                            "type": "string",
+                            "default": "",
+                            "description": "",
+                            "name": "text",
+                            "displayName": "Text"
+                          }
+                        ]
+                      }
+                    ],
+                    "name": "text_run",
+                    "displayName": "Text Run"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "type",
+                    "displayName": "Type"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "content": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Update A Reply"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"content\": {\n    \"elements\": [\n      {\n        \"docs_link\": {\n          \"url\": \"https://example.com/path\"\n        },\n        \"person\": {\n          \"user_id\": \"string\"\n        },\n        \"text_run\": {\n          \"text\": \"string\"\n        },\n        \"type\": \"string\"\n      }\n    ]\n  }\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Update A Reply"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /drive/v1/files/{file_token}/comments/{comment_id}/replies/{reply_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Delete A Reply"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Type",
+    "name": "file_type",
+    "description": "Type of the document",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "file_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Delete A Reply"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Token",
+    "name": "file_token",
+    "required": true,
+    "description": "Token of the document",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Delete A Reply"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Comment Id",
+    "name": "comment_id",
+    "required": true,
+    "description": "Comment ID",
+    "default": "6916106822734578184",
+    "type": "number",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Delete A Reply"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Reply Id",
+    "name": "reply_id",
+    "required": true,
+    "description": "Reply ID",
+    "default": "6916106822734594568",
+    "type": "number",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Comment"
+        ],
+        "operation": [
+          "Delete A Reply"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /drive/v1/files/{file_token}/subscriptions",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Subscription"
+        ],
+        "operation": [
+          "Create Subscription"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Token",
+    "name": "file_token",
+    "required": true,
+    "description": "file token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Subscription"
+        ],
+        "operation": [
+          "Create Subscription"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Subscription Type",
+    "name": "subscription_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "subscription_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Subscription"
+        ],
+        "operation": [
+          "Create Subscription"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Type",
+    "name": "file_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "file_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Subscription"
+        ],
+        "operation": [
+          "Create Subscription"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"subscription_type\": \"string\",\n  \"file_type\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Subscription"
+        ],
+        "operation": [
+          "Create Subscription"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /drive/v1/files/{file_token}/subscriptions/{subscription_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Subscription"
+        ],
+        "operation": [
+          "Get Subscription Status"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Token",
+    "name": "file_token",
+    "required": true,
+    "description": "file token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Subscription"
+        ],
+        "operation": [
+          "Get Subscription Status"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Subscription Id",
+    "name": "subscription_id",
+    "required": true,
+    "description": "Subscription ID",
+    "default": "1234567890987654321",
+    "type": "number",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Subscription"
+        ],
+        "operation": [
+          "Get Subscription Status"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PATCH /drive/v1/files/{file_token}/subscriptions/{subscription_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Subscription"
+        ],
+        "operation": [
+          "Update Subscription Status"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Token",
+    "name": "file_token",
+    "required": true,
+    "description": "File token",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Subscription"
+        ],
+        "operation": [
+          "Update Subscription Status"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Subscription Id",
+    "name": "subscription_id",
+    "required": true,
+    "description": "Subscription ID",
+    "default": "1234567890987654321",
+    "type": "number",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Subscription"
+        ],
+        "operation": [
+          "Update Subscription Status"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Is Subscribe",
+    "name": "is_subscribe",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "is_subscribe": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Subscription"
+        ],
+        "operation": [
+          "Update Subscription Status"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Type",
+    "name": "file_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "file_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Subscription"
+        ],
+        "operation": [
+          "Update Subscription Status"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"is_subscribe\": true,\n  \"file_type\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Subscription"
+        ],
+        "operation": [
+          "Update Subscription Status"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /drive/v1/import_tasks",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Document Import"
+        ],
+        "operation": [
+          "Create An Import Task"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Extension",
+    "name": "file_extension",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "file_extension": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Document Import"
+        ],
+        "operation": [
+          "Create An Import Task"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Name",
+    "name": "file_name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "file_name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Document Import"
+        ],
+        "operation": [
+          "Create An Import Task"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "File Token",
+    "name": "file_token",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "file_token": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Document Import"
+        ],
+        "operation": [
+          "Create An Import Task"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Point",
+    "name": "point",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "mount_key",
+            "displayName": "Mount Key"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "mount_type",
+            "displayName": "Mount Type"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "point": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Document Import"
+        ],
+        "operation": [
+          "Create An Import Task"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Type",
+    "name": "type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Document Import"
+        ],
+        "operation": [
+          "Create An Import Task"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"file_extension\": \"string\",\n  \"file_name\": \"string\",\n  \"file_token\": \"string\",\n  \"point\": {\n    \"mount_key\": \"string\",\n    \"mount_type\": 0\n  },\n  \"type\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Document Import"
+        ],
+        "operation": [
+          "Create An Import Task"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /drive/v1/import_tasks/{ticket}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Document Import"
+        ],
+        "operation": [
+          "Query The Import Task Result"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Ticket",
+    "name": "ticket",
+    "required": true,
+    "description": "ID of the import task",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Document Import"
+        ],
+        "operation": [
+          "Query The Import Task Result"
+        ]
+      }
+    }
+  }
+]

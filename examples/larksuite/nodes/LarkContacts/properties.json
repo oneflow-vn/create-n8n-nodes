@@ -1,0 +1,7018 @@
+[
+  {
+    "displayName": "Resource",
+    "name": "resource",
+    "type": "options",
+    "noDataExpression": true,
+    "options": [
+      {
+        "name": "User",
+        "value": "User",
+        "description": ""
+      },
+      {
+        "name": "Department",
+        "value": "Department",
+        "description": ""
+      },
+      {
+        "name": "User Group",
+        "value": "User Group",
+        "description": ""
+      },
+      {
+        "name": "User Group Member",
+        "value": "User Group Member",
+        "description": ""
+      },
+      {
+        "name": "Unit",
+        "value": "Unit",
+        "description": ""
+      },
+      {
+        "name": "Workforce Type",
+        "value": "Workforce Type",
+        "description": ""
+      },
+      {
+        "name": "Custom User Fields",
+        "value": "Custom User Fields",
+        "description": ""
+      },
+      {
+        "name": "Contact Scope",
+        "value": "Contact Scope",
+        "description": ""
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Create A User",
+        "value": "Create A User",
+        "action": "Create A User Contacts User",
+        "description": "This API is used to create a user in Contacts when a new employee is employed. After a user is created, only data within the data scope will be returned. For the relationship between data scopes and fields, refer to [App scopes]({{document_base_url}}/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN). [FAQs]({{document_base_url}}/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN). API reference documentation: [Create a user]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/contact/v3/users"
+          }
+        }
+      },
+      {
+        "name": "Obtain Single User Information",
+        "value": "Obtain Single User Information",
+        "action": "Obtain Single User Information Contacts User",
+        "description": "This API is used to obtain the information of a single user in Contacts. [FAQs]({{document_base_url}}/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN). API reference documentation: [Obtain single user information]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/contact/v3/users/{{$parameter[\"user_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Modify User Information In Part",
+        "value": "Modify User Information In Part",
+        "action": "Modify User Information In Part Contacts User",
+        "description": "This API is used to update a user's fields in Contacts. Parameters that are not specified will not be updated. [FAQs]({{document_base_url}}/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN). API reference documentation: [Modify user information in part]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/patch)",
+        "routing": {
+          "request": {
+            "method": "PATCH",
+            "url": "=/contact/v3/users/{{$parameter[\"user_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Update User Information In Whole",
+        "value": "Update User Information In Whole",
+        "action": "Update User Information In Whole Contacts User",
+        "description": "This API is used to update a user's fields in Contacts. [FAQs]({{document_base_url}}/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN). API reference documentation: [Update user information in whole]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/update)",
+        "routing": {
+          "request": {
+            "method": "PUT",
+            "url": "=/contact/v3/users/{{$parameter[\"user_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Delete A User",
+        "value": "Delete A User",
+        "action": "Delete A User Contacts User",
+        "description": "This API is used to delete a user from Contacts when an employee is terminated. [FAQs]({{document_base_url}}/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN). API reference documentation: [Delete a user]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/contact/v3/users/{{$parameter[\"user_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Obtain The List Of Users Directly Under A Department",
+        "value": "Obtain The List Of Users Directly Under A Department",
+        "action": "Obtain The List Of Users Directly Under A Department Contacts User",
+        "description": "This API is used to obtain the list of users directly under a department based on the department ID. [FAQs]({{document_base_url}}/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN). API reference documentation: [Obtain the list of users directly under a department]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/find_by_department)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/contact/v3/users/find_by_department"
+          }
+        }
+      },
+      {
+        "name": "Obtain User Id Via Email Or Mobile Number",
+        "value": "Obtain User Id Via Email Or Mobile Number",
+        "action": "Obtain User Id Via Email Or Mobile Number Contacts User",
+        "description": "This API is used to obtain user ID information via mobile number or email. The supported ID types are open_id, user_id, and union_id, which can be specified by using the query parameters. API reference documentation: [Obtain user ID via email or mobile number]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/contact/v3/users/batch_get_id"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Department"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Create A Department",
+        "value": "Create A Department",
+        "action": "Create A Department Contacts Department",
+        "description": "This API is used to create a department in contacts. [FAQs]({{document_base_url}}/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN). API reference documentation: [Create a department]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/contact/v3/departments"
+          }
+        }
+      },
+      {
+        "name": "Obtain Single Department Information",
+        "value": "Obtain Single Department Information",
+        "action": "Obtain Single Department Information Contacts Department",
+        "description": "This API is used to obtain the information of a single department in contacts. For details, refer to [FAQs]({{document_base_url}}/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN). API reference documentation: [Obtain single department information]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/contact/v3/departments/{{$parameter[\"department_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Modify Department Information In Part",
+        "value": "Modify Department Information In Part",
+        "action": "Modify Department Information In Part Contacts Department",
+        "description": "This API is used to update any department field in contacts. [FAQs]({{document_base_url}}/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN). API reference documentation: [Modify department information in part]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/patch)",
+        "routing": {
+          "request": {
+            "method": "PATCH",
+            "url": "=/contact/v3/departments/{{$parameter[\"department_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Update Department Information In Whole",
+        "value": "Update Department Information In Whole",
+        "action": "Update Department Information In Whole Contacts Department",
+        "description": "This API is used to update all information of the current department. [FAQs]({{document_base_url}}/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN). API reference documentation: [Update department information in whole]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/update)",
+        "routing": {
+          "request": {
+            "method": "PUT",
+            "url": "=/contact/v3/departments/{{$parameter[\"department_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Delete A Department",
+        "value": "Delete A Department",
+        "action": "Delete A Department Contacts Department",
+        "description": "This API is used to delete a department from contacts. [FAQs]({{document_base_url}}/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN). API reference documentation: [Delete a department]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/contact/v3/departments/{{$parameter[\"department_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Obtain The List Of Sub Departments",
+        "value": "Obtain The List Of Sub Departments",
+        "action": "Obtain The List Of Sub Departments Contacts Department",
+        "description": "This API is used to obtain the list of sub-departments by using the department ID. [FAQs]({{document_base_url}}/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN). API reference documentation: [Obtain the list of sub-departments]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/contact/v3/departments/{{$parameter[\"department_id\"]}}/children"
+          }
+        }
+      },
+      {
+        "name": "Obtain Parent Department Information",
+        "value": "Obtain Parent Department Information",
+        "action": "Obtain Parent Department Information Contacts Department",
+        "description": "This API is used to recursively obtain the information of parent departments, and return the list of the information of parent departments within the permission scope from child departments to parent departments. [FAQs]({{document_base_url}}/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN). API reference documentation: [Obtain parent department information]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/contact/v3/departments/parent"
+          }
+        }
+      },
+      {
+        "name": "Search For Departments",
+        "value": "Search For Departments",
+        "action": "Search For Departments Contacts Department",
+        "description": "This API is used to search for department data with keywords. Department visibility is set by administrators in Admin. [FAQs]({{document_base_url}}/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN). API reference documentation: [Search for departments]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/contact/v3/departments/search"
+          }
+        }
+      },
+      {
+        "name": "Change Department Group To Common Group",
+        "value": "Change Department Group To Common Group",
+        "action": "Change Department Group To Common Group Contacts Department",
+        "description": "Use this api to change department group to common group. API reference documentation: [Change department group to common group]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/unbind_department_chat)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/contact/v3/departments/unbind_department_chat"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Group Member"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Add Members To A User Group",
+        "value": "Add Members To A User Group",
+        "action": "Add Members To A User Group Contacts User Group User Group Member",
+        "description": "This API is used to add members to a user group (members can only be users currently, and can also be departments in the future). If the app's contact scope is \"All employees\", you can add any member to any user group. If not, you can only add members in the contact scope to the user groups in the contact scope. [Click to learn about the range of contacts data that an app can access]({{document_base_url}}/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority). API reference documentation: [Add members to a user group]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group-member/add)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/contact/v3/group/{{$parameter[\"group_id\"]}}/member/add"
+          }
+        }
+      },
+      {
+        "name": "Remove Members From A User Group",
+        "value": "Remove Members From A User Group",
+        "action": "Remove Members From A User Group Contacts User Group User Group Member",
+        "description": "This API is used to remove members from a user group (members can only be users currently, and can also be departments in the future). If the app's contact scope is \"All employees\", you can remove any member from any user group. If not, you can only remove members in the contact scope from the user groups in the contact scope. [Click to learn about the range of contacts data that an app can access]({{document_base_url}}/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority). API reference documentation: [Remove members from a user group]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group-member/remove)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/contact/v3/group/{{$parameter[\"group_id\"]}}/member/remove"
+          }
+        }
+      },
+      {
+        "name": "Query The List Of Members In A User Group",
+        "value": "Query The List Of Members In A User Group",
+        "action": "Query The List Of Members In A User Group Contacts User Group User Group Member",
+        "description": "This API is used to query the member list of a user group (members can only be users currently, and can also be departments in the future). If the app's contact scope is \"All employees\", you can query the member list of any user group in the company. If not, you can only query the member list of the user groups in the app's contact scope. [Click to learn about the range of contacts data that an app can access]({{document_base_url}}/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority). API reference documentation: [Query the list of members in a user group]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group-member/simplelist)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/contact/v3/group/{{$parameter[\"group_id\"]}}/member/simplelist"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Group"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Create A User Group",
+        "value": "Create A User Group",
+        "action": "Create A User Group Contacts User Group",
+        "description": "This API is used to create a user group. Note that the app's contact scope must be \"All employees\" so as to create a user group. [Click to learn about the range of contacts data that an app can access]({{document_base_url}}/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority). API reference documentation: [Create a user group]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/contact/v3/group"
+          }
+        }
+      },
+      {
+        "name": "Update A User Group",
+        "value": "Update A User Group",
+        "action": "Update A User Group Contacts User Group",
+        "description": "This API is used to update user group information. Note that the app's contact scope must be \"All employees\" so as to update a user group. [Click to learn about the range of contacts data that an app can access]({{document_base_url}}/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority). API reference documentation: [Update a user group]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/patch)",
+        "routing": {
+          "request": {
+            "method": "PATCH",
+            "url": "=/contact/v3/group/{{$parameter[\"group_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Delete A User Group",
+        "value": "Delete A User Group",
+        "action": "Delete A User Group Contacts User Group",
+        "description": "This API is used to delete a user group from a company. Note that the app's contact scope must be \"All employees\" so as to delete a user group. [Click to learn about the range of contacts data that an app can access]({{document_base_url}}/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority). API reference documentation: [Delete a user group]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/contact/v3/group/{{$parameter[\"group_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Query A User Group",
+        "value": "Query A User Group",
+        "action": "Query A User Group Contacts User Group",
+        "description": "This API is used to query the basic information of a user group by user group ID. Make sure that the app's contact scope includes the user group or is \"All employees\". [Click to learn about the range of contacts data that an app can access]({{document_base_url}}/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority). API reference documentation: [Query a user group]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/contact/v3/group/{{$parameter[\"group_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Query The List Of User Groups",
+        "value": "Query The List Of User Groups",
+        "action": "Query The List Of User Groups Contacts User Group",
+        "description": "This API is used to query the user group list of a company. If the app's contact scope is \"All employees\", you can obtain all user groups in the company. If not, you can only obtain the user groups in the app's contact scope. [Click to learn about the range of contacts data that an app can access]({{document_base_url}}/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority). API reference documentation: [Query the list of user groups]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/contact/v3/group/simplelist"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Unit"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Create A Unit",
+        "value": "Create A Unit",
+        "action": "Create A Unit Contacts Unit",
+        "description": "To use this API to create a unit, you must have the scope to update the unit. Note: Unit is available on Enterprise Edition only. Companies must activate this edition before they can create units. API reference documentation: [Create a unit]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/contact/v3/unit"
+          }
+        }
+      },
+      {
+        "name": "Obtain Units In Batches",
+        "value": "Obtain Units In Batches",
+        "action": "Obtain Units In Batches Contacts Unit",
+        "description": "To obtain a company's units by calling this API, you must have the scope to obtain the units. API reference documentation: [Obtain units in batches]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/contact/v3/unit"
+          }
+        }
+      },
+      {
+        "name": "Modify Unit Information",
+        "value": "Modify Unit Information",
+        "action": "Modify Unit Information Contacts Unit",
+        "description": "To call this API, you must have the scope to update the unit. Note: Unit is available on Enterprise Edition only. Companies must activate this edition before they can modify units. API reference documentation: [Modify unit information]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/patch)",
+        "routing": {
+          "request": {
+            "method": "PATCH",
+            "url": "=/contact/v3/unit/{{$parameter[\"unit_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Delete Units",
+        "value": "Delete Units",
+        "action": "Delete Units Contacts Unit",
+        "description": "To delete a unit by calling this API, you must have the scope to update the unit. If the type of the unit is used by another business, it cannot be deleted. API reference documentation: [Delete units]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/contact/v3/unit/{{$parameter[\"unit_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Obtain Unit Information",
+        "value": "Obtain Unit Information",
+        "action": "Obtain Unit Information Contacts Unit",
+        "description": "To obtain unit information by calling this API, you must have the scope to obtain unit information. API reference documentation: [Obtain unit information]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/get)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/contact/v3/unit/{{$parameter[\"unit_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Associate A Department With A Unit",
+        "value": "Associate A Department With A Unit",
+        "action": "Associate A Department With A Unit Contacts Unit",
+        "description": "To associate a department with a unit by calling this API, you must have the scopes to update the unit and department's contacts permissions. Unit is available on Enterprise Edition only. Companies must activate this edition before they can complete association. API reference documentation: [Associate a department with a unit]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/bind_department)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/contact/v3/unit/bind_department"
+          }
+        }
+      },
+      {
+        "name": "Dissociate A Department With A Unit",
+        "value": "Dissociate A Department With A Unit",
+        "action": "Dissociate A Department With A Unit Contacts Unit",
+        "description": "To dissociate a department with a unit by calling this API, you must have the scopes to update the unit and department's contacts permissions. Unit is available on Enterprise Edition only. Companies must activate this edition before they complete dissociation. API reference documentation: [Dissociate a department with a unit]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/unbind_department)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/contact/v3/unit/unbind_department"
+          }
+        }
+      },
+      {
+        "name": "Obtain The List Of Departments Associated With A Unit",
+        "value": "Obtain The List Of Departments Associated With A Unit",
+        "action": "Obtain The List Of Departments Associated With A Unit Contacts Unit",
+        "description": "To obtain the department list bound to the unit through this interface API reference documentation: [Obtain the list of departments associated with a unit]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/list_department)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/contact/v3/unit/list_department"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Workforce Type"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Query The Workforce Type",
+        "value": "Query The Workforce Type",
+        "action": "Query The Workforce Type Contacts Workforce Type",
+        "description": "This API is used to obtain an employee's workforce type. API reference documentation: [Query the workforce type]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/contact/v3/employee_type_enums"
+          }
+        }
+      },
+      {
+        "name": "Add A Workforce Type",
+        "value": "Add A Workforce Type",
+        "action": "Add A Workforce Type Contacts Workforce Type",
+        "description": "This API is used to add a workforce type. API reference documentation: [Add a workforce type]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/create)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/contact/v3/employee_type_enums"
+          }
+        }
+      },
+      {
+        "name": "Update The Workforce Type",
+        "value": "Update The Workforce Type",
+        "action": "Update The Workforce Type Contacts Workforce Type",
+        "description": "Update the custom workforce type API reference documentation: [Update the workforce type]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/update)",
+        "routing": {
+          "request": {
+            "method": "PUT",
+            "url": "=/contact/v3/employee_type_enums/{{$parameter[\"enum_id\"]}}"
+          }
+        }
+      },
+      {
+        "name": "Delete Workforce Types",
+        "value": "Delete Workforce Types",
+        "action": "Delete Workforce Types Contacts Workforce Type",
+        "description": "This API is used to delete custom workforce types. API reference documentation: [Delete workforce types]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/delete)",
+        "routing": {
+          "request": {
+            "method": "DELETE",
+            "url": "=/contact/v3/employee_type_enums/{{$parameter[\"enum_id\"]}}"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Custom User Fields"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Obtain Custom User Fields Of A Company",
+        "value": "Obtain Custom User Fields Of A Company",
+        "action": "Obtain Custom User Fields Of A Company Contacts Custom User Fields",
+        "description": "Obtain customer user field configuration of a company API reference documentation: [Obtain custom user fields of a company]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/custom_attr/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/contact/v3/custom_attrs"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Contact Scope"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Obtain The Range Of Contacts Data That An App Can Access",
+        "value": "Obtain The Range Of Contacts Data That An App Can Access",
+        "action": "Obtain The Range Of Contacts Data That An App Can Access Contacts Contact Scope",
+        "description": "This API is used to obtain the range of contacts data that an app is authorized to access, including the department list, user list, and user group list. If the access range is all employees, all the first-level departments of the company will be returned. Otherwise, the departments that the administrator selected when setting the access range (excluding sub-departments of selected departments) will be returned. API reference documentation: [Obtain the range of contacts data that an app can access]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/scope/list)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/contact/v3/scopes"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "POST /contact/v3/users",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Avatar Key",
+    "name": "avatar_key",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "avatar_key": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "City",
+    "name": "city",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "city": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Country",
+    "name": "country",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "country": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Attrs",
+    "name": "custom_attrs",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "id",
+            "displayName": "Id"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "type",
+            "displayName": "Type"
+          },
+          {
+            "type": "fixedCollection",
+            "default": {},
+            "description": "",
+            "options": [
+              {
+                "name": "items",
+                "displayName": "Items",
+                "values": [
+                  {
+                    "type": "fixedCollection",
+                    "default": {},
+                    "description": "",
+                    "options": [
+                      {
+                        "name": "items",
+                        "displayName": "Items",
+                        "values": [
+                          {
+                            "type": "string",
+                            "default": "",
+                            "description": "",
+                            "name": "id",
+                            "displayName": "Id"
+                          },
+                          {
+                            "type": "number",
+                            "default": 0,
+                            "description": "",
+                            "name": "type",
+                            "displayName": "Type"
+                          }
+                        ]
+                      }
+                    ],
+                    "name": "generic_user",
+                    "displayName": "Generic User"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "option_id",
+                    "displayName": "Option Id"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "pc_url",
+                    "displayName": "Pc Url"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "text",
+                    "displayName": "Text"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "url",
+                    "displayName": "Url"
+                  }
+                ]
+              }
+            ],
+            "name": "value",
+            "displayName": "Value"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "custom_attrs": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Ids",
+    "name": "department_ids",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "department_ids": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Description",
+    "name": "description",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "description": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Email",
+    "name": "email",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "email": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee No",
+    "name": "employee_no",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "employee_no": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "En Name",
+    "name": "en_name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "en_name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Ent Email Password",
+    "name": "ent_email_password",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "ent_email_password": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Enterprise Email",
+    "name": "enterprise_email",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "enterprise_email": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Gender",
+    "name": "gender",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "gender": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Idp Type",
+    "name": "idp_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "idp_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Job Title",
+    "name": "job_title",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "job_title": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Join Time",
+    "name": "join_time",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "join_time": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Leader User Id",
+    "name": "leader_user_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "leader_user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Mobile",
+    "name": "mobile",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "mobile": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Mobile Visible",
+    "name": "mobile_visible",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "mobile_visible": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Need Send Notification",
+    "name": "need_send_notification",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "need_send_notification": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Nickname",
+    "name": "nickname",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "nickname": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Notification Option",
+    "name": "notification_option",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "fixedCollection",
+            "default": [],
+            "typeOptions": {
+              "multipleValues": true
+            },
+            "displayName": "Channels",
+            "name": "channels",
+            "description": "",
+            "placeholder": "Add item",
+            "options": [
+              {
+                "name": "items",
+                "displayName": "Items",
+                "values": [
+                  {
+                    "name": "Item",
+                    "displayName": "Item",
+                    "type": "string",
+                    "default": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "language",
+            "displayName": "Language"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "notification_option": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Orders",
+    "name": "orders",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "department_id",
+            "displayName": "Department Id"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "department_order",
+            "displayName": "Department Order"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "user_order",
+            "displayName": "User Order"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "orders": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Positions",
+    "name": "positions",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "department_id",
+            "displayName": "Department Id"
+          },
+          {
+            "type": "boolean",
+            "default": true,
+            "description": "",
+            "name": "is_major",
+            "displayName": "Is Major"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "leader_position_code",
+            "displayName": "Leader Position Code"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "leader_user_id",
+            "displayName": "Leader User Id"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "position_code",
+            "displayName": "Position Code"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "position_name",
+            "displayName": "Position Name"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "positions": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id",
+    "name": "user_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Work Station",
+    "name": "work_station",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "work_station": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"avatar_key\": \"string\",\n  \"city\": \"string\",\n  \"country\": \"string\",\n  \"custom_attrs\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"value\": {\n        \"generic_user\": {\n          \"id\": \"string\",\n          \"type\": 0\n        },\n        \"option_id\": \"string\",\n        \"pc_url\": \"https://example.com/path\",\n        \"text\": \"string\",\n        \"url\": \"https://example.com/path\"\n      }\n    }\n  ],\n  \"department_ids\": [\n    \"string\"\n  ],\n  \"description\": \"string\",\n  \"email\": \"user@example.com\",\n  \"employee_no\": \"string\",\n  \"employee_type\": 0,\n  \"en_name\": \"string\",\n  \"ent_email_password\": \"string\",\n  \"enterprise_email\": \"user@example.com\",\n  \"gender\": 0,\n  \"idp_type\": \"string\",\n  \"job_title\": \"string\",\n  \"join_time\": 0,\n  \"leader_user_id\": \"string\",\n  \"mobile\": \"string\",\n  \"mobile_visible\": true,\n  \"name\": \"string\",\n  \"need_send_notification\": true,\n  \"nickname\": \"string\",\n  \"notification_option\": {\n    \"channels\": [\n      \"string\"\n    ],\n    \"language\": \"string\"\n  },\n  \"orders\": [\n    {\n      \"department_id\": \"string\",\n      \"department_order\": 0,\n      \"user_order\": 0\n    }\n  ],\n  \"positions\": [\n    {\n      \"department_id\": \"string\",\n      \"is_major\": true,\n      \"leader_position_code\": \"string\",\n      \"leader_user_id\": \"string\",\n      \"position_code\": \"string\",\n      \"position_name\": \"string\"\n    }\n  ],\n  \"user_id\": \"string\",\n  \"work_station\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Create A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /contact/v3/users/{user_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Obtain Single User Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id",
+    "name": "user_id",
+    "required": true,
+    "description": "User ID, which must match the user_id_type in the query parameter.",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Obtain Single User Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PATCH /contact/v3/users/{user_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id",
+    "name": "user_id",
+    "required": true,
+    "description": "User ID, which must match the user_id_type in the query parameter.",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Avatar Key",
+    "name": "avatar_key",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "avatar_key": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "City",
+    "name": "city",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "city": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Country",
+    "name": "country",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "country": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Attrs",
+    "name": "custom_attrs",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "id",
+            "displayName": "Id"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "type",
+            "displayName": "Type"
+          },
+          {
+            "type": "fixedCollection",
+            "default": {},
+            "description": "",
+            "options": [
+              {
+                "name": "items",
+                "displayName": "Items",
+                "values": [
+                  {
+                    "type": "fixedCollection",
+                    "default": {},
+                    "description": "",
+                    "options": [
+                      {
+                        "name": "items",
+                        "displayName": "Items",
+                        "values": [
+                          {
+                            "type": "string",
+                            "default": "",
+                            "description": "",
+                            "name": "id",
+                            "displayName": "Id"
+                          },
+                          {
+                            "type": "number",
+                            "default": 0,
+                            "description": "",
+                            "name": "type",
+                            "displayName": "Type"
+                          }
+                        ]
+                      }
+                    ],
+                    "name": "generic_user",
+                    "displayName": "Generic User"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "option_id",
+                    "displayName": "Option Id"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "pc_url",
+                    "displayName": "Pc Url"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "text",
+                    "displayName": "Text"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "url",
+                    "displayName": "Url"
+                  }
+                ]
+              }
+            ],
+            "name": "value",
+            "displayName": "Value"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "custom_attrs": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Ids",
+    "name": "department_ids",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "department_ids": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Description",
+    "name": "description",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "description": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Email",
+    "name": "email",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "email": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee No",
+    "name": "employee_no",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "employee_no": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "En Name",
+    "name": "en_name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "en_name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Ent Email Password",
+    "name": "ent_email_password",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "ent_email_password": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Enterprise Email",
+    "name": "enterprise_email",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "enterprise_email": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Gender",
+    "name": "gender",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "gender": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Idp Type",
+    "name": "idp_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "idp_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Is Frozen",
+    "name": "is_frozen",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "is_frozen": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Job Title",
+    "name": "job_title",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "job_title": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Join Time",
+    "name": "join_time",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "join_time": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Leader User Id",
+    "name": "leader_user_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "leader_user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Mobile",
+    "name": "mobile",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "mobile": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Mobile Visible",
+    "name": "mobile_visible",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "mobile_visible": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Nickname",
+    "name": "nickname",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "nickname": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Orders",
+    "name": "orders",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "department_id",
+            "displayName": "Department Id"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "department_order",
+            "displayName": "Department Order"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "user_order",
+            "displayName": "User Order"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "orders": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Positions",
+    "name": "positions",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "department_id",
+            "displayName": "Department Id"
+          },
+          {
+            "type": "boolean",
+            "default": true,
+            "description": "",
+            "name": "is_major",
+            "displayName": "Is Major"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "leader_position_code",
+            "displayName": "Leader Position Code"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "leader_user_id",
+            "displayName": "Leader User Id"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "position_code",
+            "displayName": "Position Code"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "position_name",
+            "displayName": "Position Name"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "positions": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Work Station",
+    "name": "work_station",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "work_station": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"avatar_key\": \"string\",\n  \"city\": \"string\",\n  \"country\": \"string\",\n  \"custom_attrs\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"value\": {\n        \"generic_user\": {\n          \"id\": \"string\",\n          \"type\": 0\n        },\n        \"option_id\": \"string\",\n        \"pc_url\": \"https://example.com/path\",\n        \"text\": \"string\",\n        \"url\": \"https://example.com/path\"\n      }\n    }\n  ],\n  \"department_ids\": [\n    \"string\"\n  ],\n  \"description\": \"string\",\n  \"email\": \"user@example.com\",\n  \"employee_no\": \"string\",\n  \"employee_type\": 0,\n  \"en_name\": \"string\",\n  \"ent_email_password\": \"string\",\n  \"enterprise_email\": \"user@example.com\",\n  \"gender\": 0,\n  \"idp_type\": \"string\",\n  \"is_frozen\": true,\n  \"job_title\": \"string\",\n  \"join_time\": 0,\n  \"leader_user_id\": \"string\",\n  \"mobile\": \"string\",\n  \"mobile_visible\": true,\n  \"name\": \"string\",\n  \"nickname\": \"string\",\n  \"orders\": [\n    {\n      \"department_id\": \"string\",\n      \"department_order\": 0,\n      \"user_order\": 0\n    }\n  ],\n  \"positions\": [\n    {\n      \"department_id\": \"string\",\n      \"is_major\": true,\n      \"leader_position_code\": \"string\",\n      \"leader_user_id\": \"string\",\n      \"position_code\": \"string\",\n      \"position_name\": \"string\"\n    }\n  ],\n  \"work_station\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Modify User Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PUT /contact/v3/users/{user_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id",
+    "name": "user_id",
+    "required": true,
+    "description": "User ID, which must match the user_id_type in the query parameter.",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Avatar Key",
+    "name": "avatar_key",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "avatar_key": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "City",
+    "name": "city",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "city": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Country",
+    "name": "country",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "country": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Attrs",
+    "name": "custom_attrs",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "id",
+            "displayName": "Id"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "type",
+            "displayName": "Type"
+          },
+          {
+            "type": "fixedCollection",
+            "default": {},
+            "description": "",
+            "options": [
+              {
+                "name": "items",
+                "displayName": "Items",
+                "values": [
+                  {
+                    "type": "fixedCollection",
+                    "default": {},
+                    "description": "",
+                    "options": [
+                      {
+                        "name": "items",
+                        "displayName": "Items",
+                        "values": [
+                          {
+                            "type": "string",
+                            "default": "",
+                            "description": "",
+                            "name": "id",
+                            "displayName": "Id"
+                          },
+                          {
+                            "type": "number",
+                            "default": 0,
+                            "description": "",
+                            "name": "type",
+                            "displayName": "Type"
+                          }
+                        ]
+                      }
+                    ],
+                    "name": "generic_user",
+                    "displayName": "Generic User"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "option_id",
+                    "displayName": "Option Id"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "pc_url",
+                    "displayName": "Pc Url"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "text",
+                    "displayName": "Text"
+                  },
+                  {
+                    "type": "string",
+                    "default": "",
+                    "description": "",
+                    "name": "url",
+                    "displayName": "Url"
+                  }
+                ]
+              }
+            ],
+            "name": "value",
+            "displayName": "Value"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "custom_attrs": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Ids",
+    "name": "department_ids",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "department_ids": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Description",
+    "name": "description",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "description": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Email",
+    "name": "email",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "email": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee No",
+    "name": "employee_no",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "employee_no": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Employee Type",
+    "name": "employee_type",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "employee_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "En Name",
+    "name": "en_name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "en_name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Ent Email Password",
+    "name": "ent_email_password",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "ent_email_password": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Enterprise Email",
+    "name": "enterprise_email",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "enterprise_email": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Gender",
+    "name": "gender",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "gender": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Idp Type",
+    "name": "idp_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "idp_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Is Frozen",
+    "name": "is_frozen",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "is_frozen": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Job Title",
+    "name": "job_title",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "job_title": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Join Time",
+    "name": "join_time",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "join_time": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Leader User Id",
+    "name": "leader_user_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "leader_user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Mobile",
+    "name": "mobile",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "mobile": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Mobile Visible",
+    "name": "mobile_visible",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "mobile_visible": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Nickname",
+    "name": "nickname",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "nickname": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Orders",
+    "name": "orders",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "department_id",
+            "displayName": "Department Id"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "department_order",
+            "displayName": "Department Order"
+          },
+          {
+            "type": "number",
+            "default": 0,
+            "description": "",
+            "name": "user_order",
+            "displayName": "User Order"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "orders": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Positions",
+    "name": "positions",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "department_id",
+            "displayName": "Department Id"
+          },
+          {
+            "type": "boolean",
+            "default": true,
+            "description": "",
+            "name": "is_major",
+            "displayName": "Is Major"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "leader_position_code",
+            "displayName": "Leader Position Code"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "leader_user_id",
+            "displayName": "Leader User Id"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "position_code",
+            "displayName": "Position Code"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "position_name",
+            "displayName": "Position Name"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "positions": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Work Station",
+    "name": "work_station",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "work_station": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"avatar_key\": \"string\",\n  \"city\": \"string\",\n  \"country\": \"string\",\n  \"custom_attrs\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"value\": {\n        \"generic_user\": {\n          \"id\": \"string\",\n          \"type\": 0\n        },\n        \"option_id\": \"string\",\n        \"pc_url\": \"https://example.com/path\",\n        \"text\": \"string\",\n        \"url\": \"https://example.com/path\"\n      }\n    }\n  ],\n  \"department_ids\": [\n    \"string\"\n  ],\n  \"description\": \"string\",\n  \"email\": \"user@example.com\",\n  \"employee_no\": \"string\",\n  \"employee_type\": 0,\n  \"en_name\": \"string\",\n  \"ent_email_password\": \"string\",\n  \"enterprise_email\": \"user@example.com\",\n  \"gender\": 0,\n  \"idp_type\": \"string\",\n  \"is_frozen\": true,\n  \"job_title\": \"string\",\n  \"join_time\": 0,\n  \"leader_user_id\": \"string\",\n  \"mobile\": \"string\",\n  \"mobile_visible\": true,\n  \"name\": \"string\",\n  \"nickname\": \"string\",\n  \"orders\": [\n    {\n      \"department_id\": \"string\",\n      \"department_order\": 0,\n      \"user_order\": 0\n    }\n  ],\n  \"positions\": [\n    {\n      \"department_id\": \"string\",\n      \"is_major\": true,\n      \"leader_position_code\": \"string\",\n      \"leader_user_id\": \"string\",\n      \"position_code\": \"string\",\n      \"position_name\": \"string\"\n    }\n  ],\n  \"work_station\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Update User Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /contact/v3/users/{user_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Delete A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id",
+    "name": "user_id",
+    "required": true,
+    "description": "User ID, which must match the user_id_type in the query parameter.",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Delete A User"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /contact/v3/users/find_by_department",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Obtain The List Of Users Directly Under A Department"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Id",
+    "name": "department_id",
+    "description": "The department under which users are to be obtained. This field is required. The department ID of root department is 0.",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "department_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Obtain The List Of Users Directly Under A Department"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /contact/v3/users/batch_get_id",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Obtain User Id Via Email Or Mobile Number"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Emails",
+    "name": "emails",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "emails": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Obtain User Id Via Email Or Mobile Number"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Mobiles",
+    "name": "mobiles",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "mobiles": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Obtain User Id Via Email Or Mobile Number"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"emails\": [\n    \"user@example.com\"\n  ],\n  \"mobiles\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "User"
+        ],
+        "operation": [
+          "Obtain User Id Via Email Or Mobile Number"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /contact/v3/departments",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Create A Department"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Create Group Chat",
+    "name": "create_group_chat",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "create_group_chat": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Create A Department"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Id",
+    "name": "department_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "department_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Create A Department"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "I 18 N Name",
+    "name": "i18n_name",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "en_us",
+            "displayName": "En Us"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "ja_jp",
+            "displayName": "Ja Jp"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "zh_cn",
+            "displayName": "Zh Cn"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "i18n_name": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Create A Department"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Leader User Id",
+    "name": "leader_user_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "leader_user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Create A Department"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Create A Department"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Order",
+    "name": "order",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "order": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Create A Department"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Parent Department Id",
+    "name": "parent_department_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "parent_department_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Create A Department"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Unit Ids",
+    "name": "unit_ids",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "unit_ids": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Create A Department"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"create_group_chat\": true,\n  \"department_id\": \"string\",\n  \"i18n_name\": {\n    \"en_us\": \"string\",\n    \"ja_jp\": \"string\",\n    \"zh_cn\": \"string\"\n  },\n  \"leader_user_id\": \"string\",\n  \"name\": \"string\",\n  \"order\": \"string\",\n  \"parent_department_id\": \"string\",\n  \"unit_ids\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Create A Department"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /contact/v3/departments/{department_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Obtain Single Department Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Id",
+    "name": "department_id",
+    "required": true,
+    "description": "ID of the department to be obtained",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Obtain Single Department Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PATCH /contact/v3/departments/{department_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Modify Department Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Id",
+    "name": "department_id",
+    "required": true,
+    "description": "Department ID, which must be consistent with department_id_type in the query parameter.",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Modify Department Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Create Group Chat",
+    "name": "create_group_chat",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "create_group_chat": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Modify Department Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "I 18 N Name",
+    "name": "i18n_name",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "en_us",
+            "displayName": "En Us"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "ja_jp",
+            "displayName": "Ja Jp"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "zh_cn",
+            "displayName": "Zh Cn"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "i18n_name": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Modify Department Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Leader User Id",
+    "name": "leader_user_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "leader_user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Modify Department Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Modify Department Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Order",
+    "name": "order",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "order": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Modify Department Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Parent Department Id",
+    "name": "parent_department_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "parent_department_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Modify Department Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Unit Ids",
+    "name": "unit_ids",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "unit_ids": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Modify Department Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"create_group_chat\": true,\n  \"i18n_name\": {\n    \"en_us\": \"string\",\n    \"ja_jp\": \"string\",\n    \"zh_cn\": \"string\"\n  },\n  \"leader_user_id\": \"string\",\n  \"name\": \"string\",\n  \"order\": \"string\",\n  \"parent_department_id\": \"string\",\n  \"unit_ids\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Modify Department Information In Part"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PUT /contact/v3/departments/{department_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Update Department Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Id",
+    "name": "department_id",
+    "required": true,
+    "description": "Department ID, which must be consistent with department_id_type in the query parameter.",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Update Department Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Create Group Chat",
+    "name": "create_group_chat",
+    "type": "boolean",
+    "default": true,
+    "routing": {
+      "request": {
+        "body": {
+          "create_group_chat": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Update Department Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "I 18 N Name",
+    "name": "i18n_name",
+    "type": "fixedCollection",
+    "default": {},
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "en_us",
+            "displayName": "En Us"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "ja_jp",
+            "displayName": "Ja Jp"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "zh_cn",
+            "displayName": "Zh Cn"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "i18n_name": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Update Department Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Leader User Id",
+    "name": "leader_user_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "leader_user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Update Department Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Update Department Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Order",
+    "name": "order",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "order": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Update Department Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Parent Department Id",
+    "name": "parent_department_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "parent_department_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Update Department Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Unit Ids",
+    "name": "unit_ids",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "unit_ids": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Update Department Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"create_group_chat\": true,\n  \"i18n_name\": {\n    \"en_us\": \"string\",\n    \"ja_jp\": \"string\",\n    \"zh_cn\": \"string\"\n  },\n  \"leader_user_id\": \"string\",\n  \"name\": \"string\",\n  \"order\": \"string\",\n  \"parent_department_id\": \"string\",\n  \"unit_ids\": [\n    \"string\"\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Update Department Information In Whole"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /contact/v3/departments/{department_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Delete A Department"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Id",
+    "name": "department_id",
+    "required": true,
+    "description": "Department ID, which must be consistent with department_id_type in the query parameter.",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Delete A Department"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /contact/v3/departments/{department_id}/children",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Obtain The List Of Sub Departments"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Id",
+    "name": "department_id",
+    "required": true,
+    "description": "Department ID. The root department ID is 0.",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Obtain The List Of Sub Departments"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /contact/v3/departments/parent",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Obtain Parent Department Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Id",
+    "name": "department_id",
+    "description": "Department ID",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "department_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Obtain Parent Department Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /contact/v3/departments/search",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Search For Departments"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Query",
+    "name": "query",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "query": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Search For Departments"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"query\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Search For Departments"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /contact/v3/departments/unbind_department_chat",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Change Department Group To Common Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Id",
+    "name": "department_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "department_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Change Department Group To Common Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"department_id\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Department"
+        ],
+        "operation": [
+          "Change Department Group To Common Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /contact/v3/group/{group_id}/member/add",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Group Member"
+        ],
+        "operation": [
+          "Add Members To A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Group Id",
+    "name": "group_id",
+    "required": true,
+    "description": "User group ID",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Group Member"
+        ],
+        "operation": [
+          "Add Members To A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Member Id",
+    "name": "member_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "member_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User Group Member"
+        ],
+        "operation": [
+          "Add Members To A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Member Id Type",
+    "name": "member_id_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "member_id_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User Group Member"
+        ],
+        "operation": [
+          "Add Members To A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Member Type",
+    "name": "member_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "member_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User Group Member"
+        ],
+        "operation": [
+          "Add Members To A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"member_id\": \"string\",\n  \"member_id_type\": \"string\",\n  \"member_type\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "User Group Member"
+        ],
+        "operation": [
+          "Add Members To A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /contact/v3/group/{group_id}/member/remove",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Group Member"
+        ],
+        "operation": [
+          "Remove Members From A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Group Id",
+    "name": "group_id",
+    "required": true,
+    "description": "User group ID",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Group Member"
+        ],
+        "operation": [
+          "Remove Members From A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Member Id",
+    "name": "member_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "member_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User Group Member"
+        ],
+        "operation": [
+          "Remove Members From A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Member Id Type",
+    "name": "member_id_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "member_id_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User Group Member"
+        ],
+        "operation": [
+          "Remove Members From A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Member Type",
+    "name": "member_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "member_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User Group Member"
+        ],
+        "operation": [
+          "Remove Members From A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"member_id\": \"string\",\n  \"member_id_type\": \"string\",\n  \"member_type\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "User Group Member"
+        ],
+        "operation": [
+          "Remove Members From A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /contact/v3/group/{group_id}/member/simplelist",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Group Member"
+        ],
+        "operation": [
+          "Query The List Of Members In A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Group Id",
+    "name": "group_id",
+    "required": true,
+    "description": "User group ID",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Group Member"
+        ],
+        "operation": [
+          "Query The List Of Members In A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /contact/v3/group",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Group"
+        ],
+        "operation": [
+          "Create A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Description",
+    "name": "description",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "description": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User Group"
+        ],
+        "operation": [
+          "Create A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Group Id",
+    "name": "group_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "group_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User Group"
+        ],
+        "operation": [
+          "Create A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User Group"
+        ],
+        "operation": [
+          "Create A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Type",
+    "name": "type",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User Group"
+        ],
+        "operation": [
+          "Create A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"description\": \"string\",\n  \"group_id\": \"string\",\n  \"name\": \"string\",\n  \"type\": 0\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "User Group"
+        ],
+        "operation": [
+          "Create A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PATCH /contact/v3/group/{group_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Group"
+        ],
+        "operation": [
+          "Update A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Group Id",
+    "name": "group_id",
+    "required": true,
+    "description": "User group ID",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Group"
+        ],
+        "operation": [
+          "Update A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Description",
+    "name": "description",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "description": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User Group"
+        ],
+        "operation": [
+          "Update A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "User Group"
+        ],
+        "operation": [
+          "Update A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"description\": \"string\",\n  \"name\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "User Group"
+        ],
+        "operation": [
+          "Update A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /contact/v3/group/{group_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Group"
+        ],
+        "operation": [
+          "Delete A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Group Id",
+    "name": "group_id",
+    "required": true,
+    "description": "ID of the user group to be deleted",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Group"
+        ],
+        "operation": [
+          "Delete A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /contact/v3/group/{group_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Group"
+        ],
+        "operation": [
+          "Query A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Group Id",
+    "name": "group_id",
+    "required": true,
+    "description": "User group ID",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Group"
+        ],
+        "operation": [
+          "Query A User Group"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /contact/v3/group/simplelist",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "User Group"
+        ],
+        "operation": [
+          "Query The List Of User Groups"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /contact/v3/unit",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Create A Unit"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Create A Unit"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Unit Id",
+    "name": "unit_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "unit_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Create A Unit"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Unit Type",
+    "name": "unit_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "unit_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Create A Unit"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"name\": \"string\",\n  \"unit_id\": \"string\",\n  \"unit_type\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Create A Unit"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /contact/v3/unit",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Obtain Units In Batches"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PATCH /contact/v3/unit/{unit_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Modify Unit Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Unit Id",
+    "name": "unit_id",
+    "required": true,
+    "description": "Unit ID",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Modify Unit Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Name",
+    "name": "name",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "name": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Modify Unit Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"name\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Modify Unit Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /contact/v3/unit/{unit_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Delete Units"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Unit Id",
+    "name": "unit_id",
+    "required": true,
+    "description": "unit id",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Delete Units"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /contact/v3/unit/{unit_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Obtain Unit Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Unit Id",
+    "name": "unit_id",
+    "required": true,
+    "description": "Unit ID",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Obtain Unit Information"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /contact/v3/unit/bind_department",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Associate A Department With A Unit"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Id",
+    "name": "department_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "department_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Associate A Department With A Unit"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Id Type",
+    "name": "department_id_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "department_id_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Associate A Department With A Unit"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Unit Id",
+    "name": "unit_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "unit_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Associate A Department With A Unit"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"department_id\": \"string\",\n  \"department_id_type\": \"string\",\n  \"unit_id\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Associate A Department With A Unit"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /contact/v3/unit/unbind_department",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Dissociate A Department With A Unit"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Id",
+    "name": "department_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "department_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Dissociate A Department With A Unit"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Id Type",
+    "name": "department_id_type",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "department_id_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Dissociate A Department With A Unit"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Unit Id",
+    "name": "unit_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "unit_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Dissociate A Department With A Unit"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"department_id\": \"string\",\n  \"department_id_type\": \"string\",\n  \"unit_id\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Dissociate A Department With A Unit"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /contact/v3/unit/list_department",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Obtain The List Of Departments Associated With A Unit"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Unit Id",
+    "name": "unit_id",
+    "description": "Unit ID",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "unit_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Unit"
+        ],
+        "operation": [
+          "Obtain The List Of Departments Associated With A Unit"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /contact/v3/employee_type_enums",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Workforce Type"
+        ],
+        "operation": [
+          "Query The Workforce Type"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /contact/v3/employee_type_enums",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Workforce Type"
+        ],
+        "operation": [
+          "Add A Workforce Type"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Content",
+    "name": "content",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "content": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Workforce Type"
+        ],
+        "operation": [
+          "Add A Workforce Type"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Enum Status",
+    "name": "enum_status",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "enum_status": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Workforce Type"
+        ],
+        "operation": [
+          "Add A Workforce Type"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Enum Type",
+    "name": "enum_type",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "enum_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Workforce Type"
+        ],
+        "operation": [
+          "Add A Workforce Type"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "I 18 N Content",
+    "name": "i18n_content",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "locale",
+            "displayName": "Locale"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "value",
+            "displayName": "Value"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "i18n_content": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Workforce Type"
+        ],
+        "operation": [
+          "Add A Workforce Type"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"content\": \"string\",\n  \"enum_status\": 0,\n  \"enum_type\": 0,\n  \"i18n_content\": [\n    {\n      \"locale\": \"string\",\n      \"value\": \"string\"\n    }\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Workforce Type"
+        ],
+        "operation": [
+          "Add A Workforce Type"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "PUT /contact/v3/employee_type_enums/{enum_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Workforce Type"
+        ],
+        "operation": [
+          "Update The Workforce Type"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Enum Id",
+    "name": "enum_id",
+    "required": true,
+    "description": "Enum ID",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Workforce Type"
+        ],
+        "operation": [
+          "Update The Workforce Type"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Content",
+    "name": "content",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "content": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Workforce Type"
+        ],
+        "operation": [
+          "Update The Workforce Type"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Enum Status",
+    "name": "enum_status",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "enum_status": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Workforce Type"
+        ],
+        "operation": [
+          "Update The Workforce Type"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Enum Type",
+    "name": "enum_type",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "enum_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Workforce Type"
+        ],
+        "operation": [
+          "Update The Workforce Type"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "I 18 N Content",
+    "name": "i18n_content",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "locale",
+            "displayName": "Locale"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "description": "",
+            "name": "value",
+            "displayName": "Value"
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "i18n_content": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Workforce Type"
+        ],
+        "operation": [
+          "Update The Workforce Type"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"content\": \"string\",\n  \"enum_status\": 0,\n  \"enum_type\": 0,\n  \"i18n_content\": [\n    {\n      \"locale\": \"string\",\n      \"value\": \"string\"\n    }\n  ]\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Workforce Type"
+        ],
+        "operation": [
+          "Update The Workforce Type"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "DELETE /contact/v3/employee_type_enums/{enum_id}",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Workforce Type"
+        ],
+        "operation": [
+          "Delete Workforce Types"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Enum Id",
+    "name": "enum_id",
+    "required": true,
+    "description": "Enum ID",
+    "default": "",
+    "type": "string",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Workforce Type"
+        ],
+        "operation": [
+          "Delete Workforce Types"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /contact/v3/custom_attrs",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Custom User Fields"
+        ],
+        "operation": [
+          "Obtain Custom User Fields Of A Company"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /contact/v3/scopes",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Contact Scope"
+        ],
+        "operation": [
+          "Obtain The Range Of Contacts Data That An App Can Access"
+        ]
+      }
+    }
+  }
+]

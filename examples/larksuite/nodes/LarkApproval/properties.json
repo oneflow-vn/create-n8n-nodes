@@ -1,0 +1,676 @@
+[
+  {
+    "displayName": "Resource",
+    "name": "resource",
+    "type": "hidden",
+    "noDataExpression": true,
+    "options": [
+      {
+        "name": "Api Reference",
+        "value": "Api Reference",
+        "description": ""
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Api Reference"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Approval Task Addsign",
+        "value": "Approval Task Addsign",
+        "action": "Approval Task Addsign Approval Api Reference",
+        "description": "API reference documentation: [Approval Task AddSign]({{document_base_url}}/ukTMukTMukTM/ukTM5UjL5ETO14SOxkTN/approval-task-addsign)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/approval/v4/instances/add_sign"
+          }
+        }
+      },
+      {
+        "name": "Approval Preview",
+        "value": "Approval Preview",
+        "action": "Approval Preview Approval Api Reference",
+        "description": "API reference documentation: [Approval Preview]({{document_base_url}}/ukTMukTMukTM/ukTM5UjL5ETO14SOxkTN/approval-preview)",
+        "routing": {
+          "request": {
+            "method": "POST",
+            "url": "=/approval/v4/instances/preview"
+          }
+        }
+      },
+      {
+        "name": "Task List From User Perspective",
+        "value": "Task List From User Perspective",
+        "action": "Task List From User Perspective Approval Api Reference",
+        "description": "Query task list by user and task group API reference documentation: [Task list from user perspective]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/query)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/approval/v4/tasks/query"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "POST /approval/v4/instances/add_sign",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Task Addsign"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Add Sign Type",
+    "name": "add_sign_type",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "add_sign_type": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Task Addsign"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Add Sign User Ids",
+    "name": "add_sign_user_ids",
+    "type": "fixedCollection",
+    "default": [],
+    "typeOptions": {
+      "multipleValues": true
+    },
+    "description": "",
+    "placeholder": "Add item",
+    "options": [
+      {
+        "name": "items",
+        "displayName": "Items",
+        "values": [
+          {
+            "name": "Item",
+            "displayName": "Item",
+            "type": "string",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "routing": {
+      "request": {
+        "body": {
+          "add_sign_user_ids": "={{$value.items}}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Task Addsign"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Approval Code",
+    "name": "approval_code",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "approval_code": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Task Addsign"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Approval Method",
+    "name": "approval_method",
+    "type": "number",
+    "default": 0,
+    "routing": {
+      "request": {
+        "body": {
+          "approval_method": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Task Addsign"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Comment",
+    "name": "comment",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "comment": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Task Addsign"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Instance Code",
+    "name": "instance_code",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "instance_code": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Task Addsign"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Task Id",
+    "name": "task_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "task_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Task Addsign"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id",
+    "name": "user_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Task Addsign"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"add_sign_type\": 0,\n  \"add_sign_user_ids\": [\n    \"string\"\n  ],\n  \"approval_code\": \"string\",\n  \"approval_method\": 0,\n  \"comment\": \"string\",\n  \"instance_code\": \"string\",\n  \"task_id\": \"string\",\n  \"user_id\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Task Addsign"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "POST /approval/v4/instances/preview",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Preview"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Approval Code",
+    "name": "approval_code",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "approval_code": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Preview"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Department Id",
+    "name": "department_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "department_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Preview"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Form",
+    "name": "form",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "form": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Preview"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Instance Code",
+    "name": "instance_code",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "instance_code": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Preview"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Locale",
+    "name": "locale",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "locale": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Preview"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Task Id",
+    "name": "task_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "task_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Preview"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id",
+    "name": "user_id",
+    "type": "string",
+    "default": "",
+    "routing": {
+      "request": {
+        "body": {
+          "user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "hide": {
+        "useCustomBody": [
+          true
+        ]
+      },
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Preview"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Custom Body",
+    "name": "customBody",
+    "type": "json",
+    "default": "{\n  \"approval_code\": \"string\",\n  \"department_id\": \"string\",\n  \"form\": \"string\",\n  \"instance_code\": \"string\",\n  \"locale\": \"string\",\n  \"task_id\": \"string\",\n  \"user_id\": \"string\"\n}",
+    "description": "Custom body to send",
+    "routing": {
+      "request": {
+        "body": {
+          "customBody": "={{JSON.parse($value)}}"
+        }
+      },
+      "send": {
+        "preSend": [
+          "${helpers.hooks.preSendActionCustonBody}"
+        ]
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "useCustomBody": [
+          true
+        ],
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Approval Preview"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "GET /approval/v4/tasks/query",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Task List From User Perspective"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "User Id",
+    "name": "user_id",
+    "description": "User ID to query",
+    "default": "",
+    "type": "string",
+    "routing": {
+      "request": {
+        "qs": {
+          "user_id": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Task List From User Perspective"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Topic",
+    "name": "topic",
+    "description": "Topic of task group to query, such as \"Pending\", \"Done\", etc.",
+    "default": "1",
+    "type": "number",
+    "routing": {
+      "request": {
+        "qs": {
+          "topic": "={{ $value }}"
+        }
+      }
+    },
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Api Reference"
+        ],
+        "operation": [
+          "Task List From User Perspective"
+        ]
+      }
+    }
+  }
+]

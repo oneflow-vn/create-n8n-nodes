@@ -1,0 +1,63 @@
+[
+  {
+    "displayName": "Resource",
+    "name": "resource",
+    "type": "hidden",
+    "noDataExpression": true,
+    "options": [
+      {
+        "name": "Tenant",
+        "value": "Tenant",
+        "description": ""
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Tenant"
+        ]
+      }
+    },
+    "options": [
+      {
+        "name": "Obtain Company Information",
+        "value": "Obtain Company Information",
+        "action": "Obtain Company Information Company Information Tenant",
+        "description": "Obtains company information such as the company name and the company ID. API reference documentation: [Obtain company information]({{document_base_url}}/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant/query)",
+        "routing": {
+          "request": {
+            "method": "GET",
+            "url": "=/tenant/v2/tenant/query"
+          }
+        }
+      }
+    ],
+    "default": ""
+  },
+  {
+    "displayName": "GET /tenant/v2/tenant/query",
+    "name": "operation",
+    "type": "notice",
+    "typeOptions": {
+      "theme": "info"
+    },
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "Tenant"
+        ],
+        "operation": [
+          "Obtain Company Information"
+        ]
+      }
+    }
+  }
+]
