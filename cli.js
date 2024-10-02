@@ -116,7 +116,7 @@ program
 program.parse(process.argv);
 
 // Helper functions
-function runMultipleGenerators (options) {
+function runMultipleGenerators(options) {
   const { name } = options;
   for (const [key, node] of Object.entries(options.nodes)) {
     if (node.disabled) {
@@ -133,7 +133,7 @@ function runMultipleGenerators (options) {
   }
 }
 
-function runGenerator (options) {
+function runGenerator(options) {
   console.log(yellow('Generating Node'), options.name || '');
 
   generator.generate(options)
@@ -146,7 +146,7 @@ function runGenerator (options) {
     });
 }
 
-function loadConfigFile (configFilePath) {
+function loadConfigFile(configFilePath) {
   const resolvedPath = path.resolve(process.cwd(), configFilePath);
   if (configFilePath.endsWith('.json')) {
     return JSON.parse(fs.readFileSync(resolvedPath, 'utf8'));
