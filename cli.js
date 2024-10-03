@@ -4,6 +4,7 @@ const path = require('path');
 const { Command } = require('commander');
 const packageInfo = require('./package.json');
 const generator = require('./lib/generator');
+const merger = require('./lib/merge-openapi');
 const _ = require('lodash');
 
 const red = text => `\x1b[31m${text}\x1b[0m`;
@@ -111,6 +112,49 @@ program
     // Add your init logic here
     console.log(yellow('Not implemented yet'));
   });
+
+
+/**
+  * create-n8n-nodes merge -o ./openapi.yml -i ./apis/api.yml -p ymls
+  * Merge openapi file from multiple openapi files by preset
+**/
+program
+  .command('merge')
+  .description('Craft openapi file from multiple openapi files by preset')
+  .option('-o, --output <outputDir>', 'directory where to put the generated files', process.cwd())
+  .option('-i, --input <inputDir>', 'directory where to put the generated files', process.cwd())
+  .option('-p, --preset <preset>', 'preset to use')
+  .action((cmdOptions) => {
+    console.log(yellow('Merging openapi files'));
+
+    cmdOptions.baseDir = path.resolve(process.cwd());
+
+    cmdOptions.input = path.resolve(cmdOptions.baseDir, cmdOptions.input);
+    cmdOptions.output = path.resolve(cmdOptions.baseDir, cmdOptions.output);
+
+    merger.merge(cmdOptions);
+  });
+
+/**
+* create-n8n-nodes split -i ./apis/api.json -o ./apis/groups
+* Split json file into multiple files
+**/
+program
+  .command('split')
+  .description('Split json file into multiple files')
+  .option('-i, --input <inputDir>', 'directory where to put the generated files', process.cwd())
+  .option('-o, --output <outputDir>', 'directory where to put the generated files', process.cwd())
+  .action((cmdOptions) => {
+    console.log(yellow('Splitting openapi files'));
+
+    cmdOptions.baseDir = path.resolve(process.cwd());
+
+    cmdOptions.input = path.resolve(cmdOptions.baseDir, cmdOptions.input);
+    cmdOptions.output = path.resolve(cmdOptions.baseDir, cmdOptions.output);
+
+    merger.split(cmdOptions);
+  });
+  
 
 // Parse CLI arguments
 program.parse(process.argv);
