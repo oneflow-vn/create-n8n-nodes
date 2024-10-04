@@ -75,6 +75,9 @@ importers:
       project-name-generator:
         specifier: ^2.1.9
         version: 2.1.9
+      remove-vietnamese-accents:
+        specifier: ^1.0.7
+        version: 1.0.7
       slugg:
         specifier: ^1.2.1
         version: 1.2.1
@@ -1827,6 +1830,9 @@ packages:
 
   remark-math@3.0.1:
     resolution: {integrity: sha512-epT77R/HK0x7NqrWHdSV75uNLwn8g9qTyMqCRCDujL0vj/6T6+yhdrR7mjELWtkse+Fw02kijAaBuVcHBor1+Q==}
+
+  remove-vietnamese-accents@1.0.7:
+    resolution: {integrity: sha512-u4Q+nze3MX0JdwOInBUWoeYZVhIeNvAE2RVTECHX6zpeTnl7NGHeqz2q7iHTs6GBdK0nODpNq06o4sVEhIbFOw==}
 
   repeat-string@1.6.1:
     resolution: {integrity: sha512-PV0dzCYDNfRi1jCDbJzpW7jNNDRuCOG/jI5ctQcGKt/clZD+YcPS3yIlWuTJMmESC8aevCFmWJy5wjAFgNqN6w==}
@@ -4196,6 +4202,8 @@ snapshots:
   remark-footnotes@2.0.0: {}
 
   remark-math@3.0.1: {}
+
+  remove-vietnamese-accents@1.0.7: {}
 
   repeat-string@1.6.1: {}
 

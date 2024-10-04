@@ -63,6 +63,7 @@
     "postman-to-swagger": "tecfu/postman-to-swagger",
     "prettier-standard": "^16.4.1",
     "project-name-generator": "^2.1.9",
+    "remove-vietnamese-accents": "^1.0.7",
     "slugg": "^1.2.1",
     "swagger-parser": "^10.0.3",
     "to-json-schema": "^0.2.5",
