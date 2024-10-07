@@ -154,7 +154,28 @@ program
 
     merger.split(cmdOptions);
   });
-  
+
+/**
+* create-n8n-nodes extend -f ./nodes/NodeName/resources/hooks.ts
+* Extend any file by copy the target file to extension folder
+**/
+program
+  .command('extend')
+  .description('Extend any file by copy the target file to extension folder')
+  .option('-b, --baseDir <baseDir>', 'base directory to use', process.cwd())
+  .option('-s, --source <source>', 'source file to extend')
+  .option('-f, --force', 'force override the file')
+  .action((cmdOptions) => {
+
+    // required options source
+    if (!cmdOptions.source) {
+      console.error(red('Error: Source file is required'));
+      process.exit(1);
+    }
+
+    console.log(yellow('Extending file'), cmdOptions.source);
+    generator.extend(cmdOptions);
+  });
 
 // Parse CLI arguments
 program.parse(process.argv);
@@ -174,6 +195,24 @@ function runMultipleGenerators(options) {
 
     const nodeOptions = _.merge({ node }, options, node);
     runGenerator(nodeOptions);
+  }
+
+  // generate triggers
+  for (const [key, trigger] of Object.entries(options.triggers)) {
+    if (trigger.disabled) {
+      console.log(yellow('Skipping Trigger'), key);
+      continue;
+    }
+
+    if (name && key !== name) {
+      continue;
+    }
+
+    const triggerOptions = _.merge({ trigger, mode: 'trigger' }, options, trigger);
+
+    _.set(triggerOptions, 'templatesRoot', 'triggers/[$nodeName]');
+
+    runGenerator(triggerOptions);
   }
 }
 
